@@ -1,10 +1,10 @@
 {
   "format_version": 1,
-  "entry_count": 13887,
+  "entry_count": 13904,
   "counts_by_dataset": {
     "cfpd": 10089,
     "mongolbank": 3644,
-    "nepalbank": 154
+    "nepalbank": 171
   },
   "counts_by_language": {
     "es": 2018,
@@ -13,7 +13,7 @@
     "vi": 2018,
     "zh-Hant": 2018,
     "mn": 3644,
-    "ne": 154
+    "ne": 171
   },
   "languages": [
     "es",
@@ -24,17 +24,17 @@
     "vi",
     "zh-Hant"
   ],
-  "nepal_note": "66 original records plus 88 source-backed bilingual form labels visually checked by AI. Not human-reviewed; originating form context required.",
+  "nepal_note": "66 original records plus 105 source-backed bilingual form labels visually checked by AI. Not human-reviewed; originating form context required.",
   "csv_note": "Compact source locators in CSV; complete provenance in JSONL.",
   "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 6334359,
-      "sha256": "1aa8136ec30011e1706123813ad06babc08900b070a4d51d753f48f881973157"
+      "bytes": 6347816,
+      "sha256": "794819bf41805de434f1f8e255b1e920924b3470e890e61b53a51b8c3ff135b6"
     },
     "glossary_entries.jsonl": {
-      "bytes": 18444440,
-      "sha256": "11ca7bae6063e2c222dbd25c38b08c00eb30f5e7b9dfe125a99784d1fdd73a7d"
+      "bytes": 18463405,
+      "sha256": "4f406409af3a20b660f41d0e0e3ddcbd59b9caad79143b932a22fc40374d8202"
     }
   }
 }

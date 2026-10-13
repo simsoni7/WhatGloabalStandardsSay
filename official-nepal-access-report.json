@@ -1,0 +1,134 @@
+[
+  {
+    "url": "https://nabilbank.com/",
+    "result": "000\nhttps://nabilbank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.nabilbank.com/",
+    "result": "000\nhttps://www.nabilbank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://globalimebank.com/",
+    "result": "000\nhttps://globalimebank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.globalimebank.com/",
+    "result": "000\nhttps://www.globalimebank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://nimb.com.np/",
+    "result": "000\nhttps://nimb.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.nimb.com.np/",
+    "result": "000\nhttps://www.nimb.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://siddharthabank.com/",
+    "result": "000\nhttps://siddharthabank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.siddharthabank.com/",
+    "result": "000\nhttps://www.siddharthabank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://nicasiabank.com/",
+    "result": "000\nhttps://nicasiabank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.nicasiabank.com/",
+    "result": "000\nhttps://www.nicasiabank.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://rbb.com.np/",
+    "result": "000\nhttps://rbb.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.rbb.com.np/",
+    "result": "000\nhttps://www.rbb.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://adbl.gov.np/",
+    "result": "000\nhttps://adbl.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.adbl.gov.np/",
+    "result": "000\nhttps://www.adbl.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://sebon.gov.np/",
+    "result": "000\nhttps://sebon.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.sebon.gov.np/",
+    "result": "000\nhttps://www.sebon.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://cdsc.com.np/",
+    "result": "000\nhttps://cdsc.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.cdsc.com.np/",
+    "result": "000\nhttps://www.cdsc.com.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://nepalstock.com/",
+    "result": "000\nhttps://nepalstock.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.nepalstock.com/",
+    "result": "000\nhttps://www.nepalstock.com/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://nia.gov.np/",
+    "result": "000\nhttps://nia.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  },
+  {
+    "url": "https://www.nia.gov.np/",
+    "result": "000\nhttps://www.nia.gov.np/",
+    "curl_code": 56,
+    "error": "curl: (56) CONNECT tunnel failed, response 403"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "entry_count": 13799,
+  "counts_by_dataset": {
+    "cfpd": 10089,
+    "mongolbank": 3644,
+    "nepalbank": 66
+  },
+  "languages": [
+    "es",
+    "ko",
+    "mn",
+    "ne",
+    "ru",
+    "vi",
+    "zh-Hant"
+  ],
+  "scope": "Reference retrieval entries with provenance; unsafe ordinal alignments and missing translations excluded.",
+  "review_note": "Source matches do not establish contextual correctness. Candidate and AI-assisted alignment records are explicitly labeled. Preserve conflicting definitions and source concepts.",
+  "files": {
+    "glossary_entries.csv": {
+      "bytes": 6224810,
+      "sha256": "c1a08687fed3ae9dc9f93c55960becc20f58f7ff92d6b4fcada68fb8cd934757"
+    },
+    "glossary_entries.jsonl": {
+      "bytes": 18348153,
+      "sha256": "cb2af96322ac03458f5c74d073666244971e3c2408cf4d2e76324435a76a7f5d"
+    }
+  },
+  "csv_note": "CSV contains compact source locators; complete provenance is retained in JSONL, matched by evidence_id."
+}

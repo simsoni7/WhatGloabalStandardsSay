@@ -1,0 +1,18 @@
+{
+  "artifact": "what-global-standards-glossary.zip",
+  "sha256": "fa306d262e7ab732e74bb1deb8c160d69ca714f8dd7e97ff83c5f11fd8d510a1",
+  "bytes": 24786577,
+  "file_count": 469,
+  "scope": "Runnable reference API plus guarded, unconnected model adapter",
+  "verified_tests": 48,
+  "functional_evaluation_cases": 16,
+  "live_model_validation": false,
+  "remaining_blockers": [
+    "No configured model service/credentials or local weights; official model download destinations denied by policy.",
+    "Three Nepali service-charge families still return HTTP 500 in the Nepali locale.",
+    "Whole-dictionary completeness and full human semantic review are not established."
+  ],
+  "independent_unpack_verification": true,
+  "stdlib_only_functional_evaluation": "16 passed, 0 failed",
+  "frozen_cfpd_integrity": "verified"
+}

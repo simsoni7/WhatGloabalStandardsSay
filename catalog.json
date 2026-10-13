@@ -1,10 +1,19 @@
 {
   "format_version": 1,
-  "entry_count": 13799,
+  "entry_count": 13887,
   "counts_by_dataset": {
     "cfpd": 10089,
     "mongolbank": 3644,
-    "nepalbank": 66
+    "nepalbank": 154
+  },
+  "counts_by_language": {
+    "es": 2018,
+    "ko": 2017,
+    "ru": 2018,
+    "vi": 2018,
+    "zh-Hant": 2018,
+    "mn": 3644,
+    "ne": 154
   },
   "languages": [
     "es",
@@ -15,17 +24,17 @@
     "vi",
     "zh-Hant"
   ],
-  "scope": "Reference retrieval entries with provenance; unsafe ordinal alignments and missing translations excluded.",
-  "review_note": "Source matches do not establish contextual correctness. Candidate and AI-assisted alignment records are explicitly labeled. Preserve conflicting definitions and source concepts.",
+  "nepal_note": "66 original records plus 88 source-backed bilingual form labels visually checked by AI. Not human-reviewed; originating form context required.",
+  "csv_note": "Compact source locators in CSV; complete provenance in JSONL.",
+  "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 6224810,
-      "sha256": "c1a08687fed3ae9dc9f93c55960becc20f58f7ff92d6b4fcada68fb8cd934757"
+      "bytes": 6334359,
+      "sha256": "1aa8136ec30011e1706123813ad06babc08900b070a4d51d753f48f881973157"
     },
     "glossary_entries.jsonl": {
-      "bytes": 18348153,
-      "sha256": "cb2af96322ac03458f5c74d073666244971e3c2408cf4d2e76324435a76a7f5d"
+      "bytes": 18444440,
+      "sha256": "11ca7bae6063e2c222dbd25c38b08c00eb30f5e7b9dfe125a99784d1fdd73a7d"
     }
-  },
-  "csv_note": "CSV contains compact source locators; complete provenance is retained in JSONL, matched by evidence_id."
+  }
 }

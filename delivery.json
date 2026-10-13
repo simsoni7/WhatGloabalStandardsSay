@@ -1,8 +1,8 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "fa306d262e7ab732e74bb1deb8c160d69ca714f8dd7e97ff83c5f11fd8d510a1",
-  "bytes": 24786577,
-  "file_count": 469,
+  "sha256": "609b405c41b205a3e0d8aeb5cf7ac5ff4fced10c92469d6c4bc490c086f89b3d",
+  "bytes": 49453027,
+  "file_count": 587,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
   "verified_tests": 48,
   "functional_evaluation_cases": 16,
@@ -14,5 +14,8 @@
   ],
   "independent_unpack_verification": true,
   "stdlib_only_functional_evaluation": "16 passed, 0 failed",
-  "frozen_cfpd_integrity": "verified"
+  "frozen_cfpd_integrity": "verified",
+  "nepal_entries": 154,
+  "data_entries": 13887,
+  "release_date": "2026-10-13"
 }

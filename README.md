@@ -12,4 +12,4 @@ CFPD 동결자료 유지. 금융 소프트웨어 번역은 자동 생성 기본 
 
 [데이터 구성](FINANCIAL-DICTIONARY.MD) · [라이선스와 한계](COMMUNITY-REFERENCE-POLICY.MD) · [언어별 수량](EXPANSION-BATCH5-6-SUMMARY.MD) · [예약 소스 모니터](SOURCE-MONITORING.MD)
 
-무료 GitHub Actions는 원출처 변경과 무결성만 확인하여 별도 glossary-source-intake 브랜치에 게시합니다. 상시 AI 의미 검수나 자동 번역 승인 작업이 아닙니다. 설정 파일 게시와 실제 실행 확인은 구분합니다. HTMLPreview 실제 호스트 접근 및 GitHub Pages 활성화는 이 환경에서 직접 확인하지 못했습니다.
+무료 GitHub Actions는 원출처 변경과 무결성만 확인하여 별도 glossary-source-intake 브랜치에 게시합니다. 상시 AI 의미 검수나 자동 번역 승인 작업이 아닙니다. 2026-10-14 최초 GitHub Actions 실행의 research·audit·publish-progress 모두 성공을 확인했습니다. [실행 기록](https://github.com/simsoni7/WhatGloabalStandardsSay/actions/runs/38619574236) · [진행 상태](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-source-intake/automation/progress.json). HTMLPreview 실제 호스트 접근 및 GitHub Pages 활성화는 이 환경에서 직접 확인하지 못했습니다.

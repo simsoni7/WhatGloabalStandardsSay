@@ -1,0 +1,11 @@
+{
+  "workflow_run_id": 38619574236,
+  "conclusion": "success",
+  "jobs": {
+    "research": "success",
+    "audit": "success",
+    "publish-progress": "success"
+  },
+  "workflow_url": "https://github.com/simsoni7/WhatGloabalStandardsSay/actions/runs/38619574236",
+  "scope": "deterministic source monitoring; not perpetual AI or financial semantic approval"
+}

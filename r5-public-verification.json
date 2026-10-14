@@ -1,0 +1,50 @@
+[
+  {
+    "file": "index.html",
+    "bytes": 25329580,
+    "sha256": "a0607014220c000e4c2e101187687e11b445eb62898436f242a98d3265574b82",
+    "cors": "*"
+  },
+  {
+    "file": "catalog.json",
+    "bytes": 35278,
+    "sha256": "04f63ea7c96402c0063d42f35d9ecab73e8163469277e5f2a907b2a4fcc1b1ee",
+    "cors": "*"
+  },
+  {
+    "file": "commercial-catalog.json",
+    "bytes": 28984,
+    "sha256": "a4e7a7da9ff51e325865887a8b1f02d89f6a77d861feadb2d9d6ac4c25bd0a75",
+    "cors": "*"
+  },
+  {
+    "file": "community/catalog.json",
+    "bytes": 4439,
+    "sha256": "d5435f9f3259d74bb213b77fd6ff30ba020694ee50494f77813077f9214ce7c3",
+    "cors": "*"
+  },
+  {
+    "file": "community/mifos_mobile_banking.json",
+    "bytes": 2739030,
+    "sha256": "7083b2d13b5383717d71b85bbfa736e76a8064717b82acab4039a9c57e1a0531",
+    "cors": "*"
+  },
+  {
+    "file": "conditional-community-language-packs.zip",
+    "bytes": 2475241,
+    "sha256": "00b803c8cf0fe88551148e70d6baa90680d07149724c8e14c0487ff1e186ba99",
+    "cors": "*"
+  },
+  {
+    "file": "glossaries-data.zip",
+    "bytes": 20079154,
+    "sha256": "d372a6761ce4980035062c7cd49e7692013d237909b5e3af70ed1129b2cf79f6",
+    "cors": "*"
+  },
+  {
+    "file": ".github/workflows/glossary-source-monitor.yml",
+    "bytes": 2044,
+    "sha256": "7b574f1d26fffa889f87aed69edea1f39c0e8283a296f8d934396bb2c214d70c",
+    "cors": "*"
+  }
+]

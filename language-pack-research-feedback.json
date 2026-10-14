@@ -30,11 +30,11 @@
     },
     {
       "candidate_id": "multifin",
-      "decision": "research_again",
-      "reason": "CC BY-NC4.0 restricts commercial use; actual dataset download blocked. No records adopted.",
+      "decision": "rejected_noncommercial",
+      "reason": "CC BY-NC 4.0 disallows commercial adoption; no source data copied or admitted.",
       "revised_research": [
-        "Find officially authorized reachable original data",
-        "Keep any later dataset in separate noncommercial research-only pack"
+        "Reuse publicly described collection methodology only; independently collect from original sources that explicitly allow commercial reuse.",
+        "Verify rights at each original financial publisher; do not translate, paraphrase, or relabel NC records to evade license restrictions."
       ]
     },
     {
@@ -60,5 +60,42 @@
       "reference_pack": "source-attested bilingual terminology",
       "benchmark": "independent task-specific reviewed evaluation; glossary alone insufficient"
     }
-  }
+  },
+  "commercial_adoption_required": true,
+  "collection_round": "20261014",
+  "parallel_collection_decisions": [
+    {
+      "candidate_id": "cfpb_remittance",
+      "decision": "accepted_reference",
+      "accepted_entries": 85,
+      "excluded_entries": 1,
+      "reason": "Official translated fact sheets and copyright policy acquired; explicit section pairing. Business-day qualifier omission excluded."
+    },
+    {
+      "candidate_id": "canada_government_financial_labels",
+      "decision": "accepted_reference",
+      "accepted_entries": 117,
+      "excluded_entries": 1,
+      "reason": "Government repository MIT licensed bilingual source-code labels keyed by identical field/currency code; suspected original typo excluded."
+    },
+    {
+      "candidate_id": "eu_cpv_financial_services",
+      "decision": "accepted_reference",
+      "accepted_entries": 1958,
+      "excluded_entries": 89,
+      "reason": "Official Publications Office CC BY 4.0 same-CPV-code multilingual labels; Irish English fallbacks excluded."
+    },
+    {
+      "candidate_id": "philippines_financial_sources",
+      "decision": "blocked_pending",
+      "accepted_entries": 0,
+      "reason": "Official original and copyright sources blocked; commercial permission not verified."
+    },
+    {
+      "candidate_id": "arabic_central_banks",
+      "decision": "blocked_pending",
+      "accepted_entries": 0,
+      "reason": "Official source domains blocked; no original paired text or commercial reuse terms obtained."
+    }
+  ]
 }

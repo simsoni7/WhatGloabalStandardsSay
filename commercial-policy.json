@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "commercial_use_required": true,
+  "approved_dataset_ids": [
+    "cfpd",
+    "cfpb_remittance",
+    "canada_government_financial_labels",
+    "eu_cpv_financial_services"
+  ],
+  "exclusions": [
+    {
+      "dataset_id": "mongolbank",
+      "reason": "Commercial redistribution terms not verified; official publication alone does not establish permission."
+    },
+    {
+      "dataset_id": "nepalbank",
+      "reason": "Commercial redistribution terms not verified; official publication alone does not establish permission."
+    },
+    {
+      "dataset_id": "finqa",
+      "reason": "MIT numerical-reasoning benchmark retained separately; not a terminology reference and excluded from commercial terminology export."
+    },
+    {
+      "dataset_id": "multifin",
+      "reason": "CC BY-NC 4.0 prohibits commercial adoption; no records acquired or admitted."
+    }
+  ],
+  "evidence": [
+    {
+      "dataset_id": "cfpd",
+      "policy_url": "https://www.consumerfinance.gov/privacy/website-privacy-policy/",
+      "policy_snapshot": "datasets/source_collection/cfpb_new/raw/source_4.html",
+      "policy_sha256": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+      "attribution_review": "datasets/source_collection/cfpb_new/existing_cfpd_attribution_review.json",
+      "basis": "All five original glossary introductions expressly state created and used by CFPB; official policy permits reuse of CFPB-created public-domain information. No third-party attribution detected by documented original-PDF text search.",
+      "limits": "Third-party works and trademarks excluded; no CFPB endorsement implied."
+    }
+  ],
+  "human_review": false,
+  "legal_advice": false
+}

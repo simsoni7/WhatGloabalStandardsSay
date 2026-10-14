@@ -1,0 +1,315 @@
+{
+  "format_version": 1,
+  "entry_count": 12249,
+  "counts_by_dataset": {
+    "canada_government_financial_labels": 117,
+    "cfpb_remittance": 85,
+    "cfpd": 10089,
+    "eu_cpv_financial_services": 1958
+  },
+  "counts_by_language": {
+    "fr": 206,
+    "ar": 16,
+    "ht": 35,
+    "tl": 34,
+    "es": 2107,
+    "ko": 2017,
+    "ru": 2018,
+    "vi": 2018,
+    "zh-Hant": 2018,
+    "bg": 89,
+    "cs": 89,
+    "da": 89,
+    "de": 89,
+    "el": 89,
+    "et": 89,
+    "fi": 89,
+    "hr": 89,
+    "hu": 89,
+    "it": 89,
+    "lt": 89,
+    "lv": 89,
+    "mt": 89,
+    "nl": 89,
+    "pl": 89,
+    "pt": 89,
+    "ro": 89,
+    "sk": 89,
+    "sl": 89,
+    "sv": 89
+  },
+  "target_languages": [
+    "ar",
+    "bg",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "es",
+    "et",
+    "fi",
+    "fr",
+    "hr",
+    "ht",
+    "hu",
+    "it",
+    "ko",
+    "lt",
+    "lv",
+    "mt",
+    "nl",
+    "pl",
+    "pt",
+    "ro",
+    "ru",
+    "sk",
+    "sl",
+    "sv",
+    "tl",
+    "vi",
+    "zh-Hant"
+  ],
+  "scope": "Commercially permitted reference terms and financial guidance; preserve source license and attribution conditions. Not expert-reviewed translation gold.",
+  "policy": {
+    "format_version": 1,
+    "commercial_use_required": true,
+    "approved_dataset_ids": [
+      "cfpd",
+      "cfpb_remittance",
+      "canada_government_financial_labels",
+      "eu_cpv_financial_services"
+    ],
+    "exclusions": [
+      {
+        "dataset_id": "mongolbank",
+        "reason": "Commercial redistribution terms not verified; official publication alone does not establish permission."
+      },
+      {
+        "dataset_id": "nepalbank",
+        "reason": "Commercial redistribution terms not verified; official publication alone does not establish permission."
+      },
+      {
+        "dataset_id": "finqa",
+        "reason": "MIT numerical-reasoning benchmark retained separately; not a terminology reference and excluded from commercial terminology export."
+      },
+      {
+        "dataset_id": "multifin",
+        "reason": "CC BY-NC 4.0 prohibits commercial adoption; no records acquired or admitted."
+      }
+    ],
+    "evidence": [
+      {
+        "dataset_id": "cfpd",
+        "policy_url": "https://www.consumerfinance.gov/privacy/website-privacy-policy/",
+        "policy_snapshot": "datasets/source_collection/cfpb_new/raw/source_4.html",
+        "policy_sha256": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+        "attribution_review": "datasets/source_collection/cfpb_new/existing_cfpd_attribution_review.json",
+        "basis": "All five original glossary introductions expressly state created and used by CFPB; official policy permits reuse of CFPB-created public-domain information. No third-party attribution detected by documented original-PDF text search.",
+        "limits": "Third-party works and trademarks excluded; no CFPB endorsement implied."
+      }
+    ],
+    "human_review": false,
+    "legal_advice": false
+  },
+  "manifests": {
+    "cfpb_remittance": {
+      "format_version": 1,
+      "dataset_id": "cfpb_remittance",
+      "dataset_version": "20261014",
+      "state": "candidate",
+      "decision": "accepted_reference",
+      "entry_count": 85,
+      "language_counts": {
+        "ht": 35,
+        "tl": 34,
+        "ar": 16
+      },
+      "usage_terms": {
+        "commercial_use": true,
+        "license": "CFPB-created public-domain information",
+        "policy_file": "raw/source_4.html",
+        "policy_sha256": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+        "trademark_excluded": true,
+        "third_party_exceptions": true
+      },
+      "adoption_review": {
+        "human_review": false,
+        "explicit_official_parallel_sections": true,
+        "source_hashes_verified": true,
+        "excluded_count": 1
+      },
+      "limitations": [
+        "US remittance guidance only; not broad dictionary",
+        "Official parallel sections may be explanatory rather than literal translation",
+        "2021 original guidance; legal currency not established",
+        "Arabic short expressions transcribed from rendered official source; extraction errors preserved"
+      ],
+      "files_sha256": {
+        "evidence.jsonl": "60d7bc3988d690c22712922f389c4ef4ee63db70a2295ddca8d15a4ef7aa738c",
+        "excluded.jsonl": "73ce67bc619e8d51039393a3572f4d3d71afd120d27da3d493067046f88179c4",
+        "README.md": "5fffadbff18922921f2ed56ebb05a5eb624c5096a0b8d470c0bb3247173f4cad",
+        "raw/source_1_page_2.png": "6fb669b38a8eadaa803d11ad651a83456d7ec268cc562e5202a1e62d4a21b598",
+        "raw/source_4.html": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+        "raw/source_0.txt": "3163c519b93679966ab1326b23a8dcc52c239d1135443bdfb9929bcb54c69c74",
+        "raw/source_0_page_1.png": "1cf2e3727215cd11c0a2a0e0104992bd26f4ffe4587ac706f66ad7b570eb3fa2",
+        "raw/source_3_page_2.png": "48474faf0536aabb37b663cf5441752df00fda38071e97112d2a3b2b2e959f62",
+        "raw/source_2_page_3.png": "35663073aa6e22e22067de43f08ae069f13387fd200dfb81fbf5a6ec0a8034d4",
+        "raw/source_3.txt": "cad07a865c8595fbed0221e701a4fba8c7675908eeb97063314615f49dafe2ce",
+        "raw/source_2_page_2.png": "d88d9efc378c0a846eded7327c0e3eac28c0c232e10e34d9f2a66128198f867f",
+        "raw/source_3.pdf": "50b19864a82cc00ff942d837f5179fafd941bc0201f2fd7f34942e65828aa9b6",
+        "raw/source_0.pdf": "a50f9b0a938af19e4f78f39d0767b668e8ab9eefbd3590f6ccb230f54ac9c5ad",
+        "raw/source_1_page_1.png": "cad8873b04e7589f02b0776a592c7b7c766bd9afccc159f2403df0e4e53b11c5",
+        "raw/source_3_page_1.png": "82093f20de26661ca8dd90d5e1c15706eece65f5f70eb7e2e5300a1d8f31a990",
+        "raw/source_1.pdf": "08ee2bd4216b45426e6148bd1fd6194351e615ddc3def2966dd1344e81e8bdd0",
+        "raw/source_0_page_3.png": "499d4b685c48cce1c5b1130cd9a4e270e77d58708fcb895ca144fee59fc2daf4",
+        "raw/source_0_page_2.png": "08e644db70c431e0af38db30c39611a1751df752f957ec052fcf039910d22a67",
+        "raw/source_2.pdf": "dfa2db7bc2bd3f3d8b3d35e8fa8fb77541ed564ade3b5a7cfc9193afe75d120c",
+        "raw/source_3_page_3.png": "77acb7b13292d6911bee7761c17fe6d60af872b1066bab9daeee50695abd4e86",
+        "raw/source_5.html": "b581e11590e32be1e60906749861deb525bda5c3cc43ab4123555fd382a268aa",
+        "raw/source_2_page_1.png": "8f017472bc4d269c4a04457472d81015789987cbda86a5a081eda48adaff9ce3",
+        "raw/source_2.txt": "4e420ff5455ccd284cf6df8c766ac02c2837960d049ea6f0fe91a9a25574d063",
+        "raw/source_1.txt": "7343561f686f8b7eda5558e68945e47a33088788c1789c1f5861e06085b5fcad"
+      }
+    },
+    "canada_government_financial_labels": {
+      "format_version": 1,
+      "dataset_id": "canada_government_financial_labels",
+      "dataset_name": "Government of Canada financial reporting labels and currency names",
+      "dataset_version": "779f849146a029e62f409ccff1f3bbc7b7cbc319",
+      "state": "candidate",
+      "decision": "accepted_reference",
+      "entry_count": 117,
+      "target_languages": [
+        "fr"
+      ],
+      "counts": {
+        "currency_name": 94,
+        "financial_reporting_label": 23
+      },
+      "usage_terms": {
+        "license": "MIT",
+        "commercial_use": true,
+        "basis": "Official repository source-code labels/associated files distributed under MIT; copyright and permission notice included.",
+        "license_file": "raw/LICENSE",
+        "trademark_excluded": true
+      },
+      "adoption_review": {
+        "human_review": false,
+        "explicit_source_pair": true,
+        "source_hashes_verified": true,
+        "finance_context": "Government financial reporting, procurement and currency names",
+        "excluded_count": 1
+      },
+      "files_sha256": {
+        "evidence.jsonl": "e06b0295fc330480f5daa4e79857f5eac6533c9e0796d6d43c5a262423da90e8",
+        "excluded.jsonl": "56ebd1548f44ce6378b9b09a348f96b5887d3d421e3427dd7014530cfb5e4d19",
+        "README.md": "5edebe02b8c194745034ecbd35112f96030b2596971846da811716cf9a4a8a89",
+        "raw/LICENSE": "85d6b43a09078ef72e58af109c0e95482fff8fc976e5f8387d11c70adf8c6bb9",
+        "raw/README.md": "01ef7133e461044be4d38702c5f7fa2a07d35254408958cc2b987fdc20065f87",
+        "raw/ckanext/canada/tables/hospitalityq.yaml": "d0a303e1cbfda0312803974a3092380cbdd6c80afc0c213b1fee30c6af81089d",
+        "raw/ckanext/canada/tables/contracts.yaml": "7a0e3b938e4f0db2f7d037ca39e7b278779cd22f559e96b694a9fb3e1985b284",
+        "raw/ckanext/canada/tables/travelq.yaml": "21030db97aee1410eae31f276bee503839e1422e8545956ebb7a77ab251e6690",
+        "raw/ckanext/canada/tables/grants.yaml": "b81eea684d409ee0ae7bfb3ac5b949f56c8db10e4d263bcedcb0aa5b884f5366",
+        "raw/ckanext/canada/tables/choices/currency.json": "ec062800a7f54ad1ab55925e973003122a38e009fa946b4175ffc6569e987872"
+      }
+    },
+    "eu_cpv_financial_services": {
+      "publisher": "Publications Office of the European Union",
+      "repository": "https://github.com/OP-TED/eForms-SDK",
+      "commit": "41adbdae8030f3f557845d477ace04310e1cc01a",
+      "dataset_id": "eu_cpv_financial_services",
+      "records": 1958,
+      "concepts": 89,
+      "counts_by_language": {
+        "bg": 89,
+        "cs": 89,
+        "da": 89,
+        "de": 89,
+        "el": 89,
+        "es": 89,
+        "et": 89,
+        "fi": 89,
+        "fr": 89,
+        "hr": 89,
+        "hu": 89,
+        "it": 89,
+        "lt": 89,
+        "lv": 89,
+        "mt": 89,
+        "nl": 89,
+        "pl": 89,
+        "pt": 89,
+        "ro": 89,
+        "sk": 89,
+        "sl": 89,
+        "sv": 89
+      },
+      "selection": "CPV 2008 codes starting 66: Financial and insurance services",
+      "alignment": "Same Genericode Row, English eng_label and target label linked by CPV code",
+      "license": {
+        "id": "CC-BY-4.0",
+        "commercial_use": true,
+        "url": "https://raw.githubusercontent.com/OP-TED/eForms-SDK/41adbdae8030f3f557845d477ace04310e1cc01a/LICENSE",
+        "attribution": "Contains CPV labels from the Publications Office of the European Union, OP-TED/eForms-SDK, CC BY 4.0. Division 66 selected and English-fallback Irish labels omitted; no labels translated or edited."
+      },
+      "files": {
+        "codelists/cpv.gc": {
+          "url": "https://raw.githubusercontent.com/OP-TED/eForms-SDK/41adbdae8030f3f557845d477ace04310e1cc01a/codelists/cpv.gc",
+          "path": "datasets/source_collection/eu/raw/cpv.gc.gz",
+          "source_sha256": "e8f48feedb63ce1583caa22825011afccd402973c28a885c2e81f89460fd6301",
+          "stored_sha256": "cf7acb636cb25468223fad5194e550bc3cd977d283c46d1fd2993aa5f1144f20",
+          "bytes": 32558715
+        },
+        "LICENSE": {
+          "url": "https://raw.githubusercontent.com/OP-TED/eForms-SDK/41adbdae8030f3f557845d477ace04310e1cc01a/LICENSE",
+          "path": "datasets/source_collection/eu/raw/LICENSE",
+          "source_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "stored_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "bytes": 18657
+        },
+        "README.md": {
+          "url": "https://raw.githubusercontent.com/OP-TED/eForms-SDK/41adbdae8030f3f557845d477ace04310e1cc01a/README.md",
+          "path": "datasets/source_collection/eu/raw/README.md",
+          "source_sha256": "bfc8aa383d0760d933df528899bdc36e3010c0c57c194ed7172cba1e4855b9c2",
+          "stored_sha256": "bfc8aa383d0760d933df528899bdc36e3010c0c57c194ed7172cba1e4855b9c2",
+          "bytes": 2877
+        }
+      },
+      "excluded_count": 89,
+      "limitations": [
+        "Irish labels are English fallbacks and excluded",
+        "Official alignment is not independent linguistic review",
+        "CPV service classification context; not broad consumer banking dictionary",
+        "IATE and EuroVoc original endpoints unavailable: proxy CONNECT403"
+      ],
+      "format_version": 1,
+      "entry_count": 1958,
+      "state": "candidate",
+      "decision": "accepted_reference",
+      "usage_terms": {
+        "id": "CC-BY-4.0",
+        "commercial_use": true,
+        "url": "https://raw.githubusercontent.com/OP-TED/eForms-SDK/41adbdae8030f3f557845d477ace04310e1cc01a/LICENSE",
+        "attribution": "Contains CPV labels from the Publications Office of the European Union, OP-TED/eForms-SDK, CC BY 4.0. Division 66 selected and English-fallback Irish labels omitted; no labels translated or edited."
+      },
+      "adoption_review": {
+        "human_review": false,
+        "source_hashes_verified": true,
+        "stable_code_pairing": true,
+        "finance_context": "EU government procurement financial and insurance services CPV66; not universal consumer banking terminology"
+      },
+      "files_sha256": {
+        "evidence.jsonl": "ad23bbf4a92bbac55c4373ed7de8c6112e9ee5e48da3638fc44618ceeaf86a97",
+        "excluded.json": "426cf55e36ab3fcea4e2abcaa7666cd1d0b29dcf3fc11abf062935db9d3a7a22",
+        "README.md": "22a9551356b9aed3a3bd6bc38dd27606c3b708ecdcf5025adc514894dc986114",
+        "raw/LICENSE": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "raw/cpv.gc.gz": "cf7acb636cb25468223fad5194e550bc3cd977d283c46d1fd2993aa5f1144f20",
+        "raw/README.md": "bfc8aa383d0760d933df528899bdc36e3010c0c57c194ed7172cba1e4855b9c2"
+      }
+    }
+  },
+  "files_sha256": {
+    "glossary_entries.jsonl": "5e8f9d6bcbfa100b4540bb2601c8dd5be9ff3e145fca2e6769c67c71757759f3",
+    "glossary_entries.csv": "41c38c53aead332cddfd0c0a059600a2c649ec77f423851fa30a70195d4ed678"
+  }
+}

@@ -1,35 +1,25 @@
-# 금융 용어집 다운로드
+# 금융 언어팩 다운로드
 
-이 브랜치는 금융 용어집 배포 전용입니다. 원본 출처와 검수 상태를 보존한 데이터와 실행 패키지를 제공합니다.
+## 권장: 상업 이용 조건 확인 데이터
 
-## 다운로드
+[상업 조건 확인 언어팩 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/commercial-language-packs.zip): 29개 대상언어, 영어–대상언어 12,249쌍. CFPB 자체제작 공개영역 자료, 캐나다 정부 MIT 자료, EU CC BY 4.0 자료입니다. 각 출처의 저작권·라이선스·출처표시 조건을 보존해야 합니다. 상업 허용이 전문가 번역검수를 뜻하지는 않습니다.
 
-- [데이터 전용 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/glossaries-data.zip): 다른 AI 에이전트의 검색·번역·검수 참조용
-- [실행 패키지 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/what-global-standards-glossary.zip): Python 참조 API와 원본·출처 포함
-- [카탈로그](catalog.json) · [체크섬](SHA256SUMS) · [실행 패키지 검증 기록](delivery.json)
+## 전체 자료와 실행 패키지
 
-데이터 ZIP을 풀면 JSONL·CSV·카탈로그·사용 안내가 제공됩니다. 실행 패키지는 압축을 풀고 내부 `RUN.md`를 확인하세요. 체크섬 검증은 내려받은 두 ZIP과 SHA256SUMS를 같은 폴더에 두고 `sha256sum -c SHA256SUMS`로 실행합니다.
+- [전체 참조 데이터 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/glossaries-data.zip): 31개 대상언어, 16,064쌍. 기존 몽골·네팔 자료는 상업 재배포조건 미확인 상태로 보존되어 있으므로 전체 자료를 상업승인 데이터로 해석하지 마세요.
+- [전체 실행 패키지 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/what-global-standards-glossary.zip): DB·참조 API·원본·수집 코드·심사 기록·별도 FinQA 수치추론 벤치마크 포함. 모델 연결과 성능평가는 별도입니다.
+- [카탈로그](catalog.json), [상업 전용 카탈로그](commercial-catalog.json), [체크섬](SHA256SUMS). ZIP 파일들과 체크섬을 함께 다운로드해 sha256sum으로 검증할 수 있습니다.
 
-## 데이터 범위와 활용
+## 병렬 수집 결과
 
-기본 조회 허용 레코드는 13,904개입니다: cfpd용어집 v1 10,089개, Mongolbank 후보 3,644개, Nepalbank 후보 171개. Nepalbank에는 기존 표제어 60개, AI 보조 정렬 검토 용례 6개, 신규 공식 양식 병기 항목 105개가 포함됩니다. 신규 항목은 AI가 원본 화면과 대조했으며 전문가 검수는 아닙니다. 양식 문맥을 확인하세요. 영어–외국어 쌍과 출처·검수 상태를 함께 사용해야 합니다.
+| 출처 | 채택 영어–대상언어 쌍 | 범위 | 조건 |
+|---|---:|---|---|
+| CFPB | 85 | 아랍어 16, 아이티 크리올어 35, 타갈로그어 34; 송금권리 안내 | CFPB 자체제작 public domain |
+| 캐나다 공식 open-data/ckanext-canada | 117 | 프랑스어 재정·계약 라벨 23, 통화명 94 | MIT |
+| EU Publications Office OP-TED/eForms-SDK | 1,958 | 금융·보험 서비스 89개 개념 × 22개 대상언어 | CC BY 4.0 |
 
-AI에는 목표 언어, 사용 국가, 금융 상품·상황을 전달하고 카탈로그 및 레코드의 근거를 검색하도록 하세요. 모델 생성 표현을 출처의 공식 번역으로 바꾸지 마세요. 전체 전문가 검수와 원본 사이트 전체 수집 여부가 확정된 자료는 아닙니다.
+신규 2,160쌍과 24개 대상언어를 추가했습니다. 기존 cfpd v1은 동결 상태로 유지했습니다. 필리핀·아랍권 현지 기관은 원문 및 상업조건 미확보로 보류했습니다. 비상업 자료를 복제·번역해서 재도입하지 않았습니다.
 
-실행 패키지의 참조 조회·용어 번역·출처 비교는 무료로 동작합니다. 자유 문장 생성·문맥 검수는 별도 모델 연결이 필요하며 실제 모델 검증은 완료되지 않았습니다. 이 다운로드 배포는 상시 API 호스팅이 아닙니다.
+[상업 도입 심사·소스별 결과](COMMERCIAL-SOURCE-ADOPTION.md) · [시장조사](LANGUAGE-MARKET-RESEARCH.md)
 
-## 원문 기관
-
-- CFPB: https://www.consumerfinance.gov/
-- 몽골은행 용어집: https://toli.mongolbank.mn/ 및 https://etoli.mn/
-- Nepal Bank: https://nepalbank.com.np/
-
-원문 기관이 이 배포를 승인했다는 의미는 아닙니다. 원문의 사용 조건과 각 레코드의 출처를 확인하세요.
-
-네팔어 보강 내역과 원본 출처: [NEPAL-UPDATE.md](NEPAL-UPDATE.md).
-
-## 금융 언어팩·벤치마크 시장조사 (2026-10-14)
-
-[시장조사](LANGUAGE-MARKET-RESEARCH.md)와 [데이터 관리 검토](LANGUAGE-PACK-ADOPTION.md)를 통해 FinQA 공식 공개 test 1,147건을 별도 수치추론 벤치마크로 채택했습니다. 두 ZIP의 `benchmarks/finqa/` 또는 `datasets/language_packs/finqa_numerical_reasoning/`에서 원본·정답·MIT 라이선스를 확인하세요. 참조 DB에는 섞지 않았으며 모델 성능평가는 실행하지 않았습니다.
-
-새 대상언어는 이번에 추가되지 않았습니다. 아랍어·아이티 크리올어·타갈로그 CFPB 공식 안내 후보는 원본 CDN 접속 차단으로 보류했습니다. MultiFin은 원자료 미확보 및 비상업 이용 조건 때문에 도입하지 않았습니다. 참고용 영어–외국어 쌍은 기존 7개 대상언어 13,904건입니다.
+새 자료는 송금 안내, 공공재정 라벨, 정부조달 분류라는 출처별 문맥을 유지합니다. 일반 금융용어 전반이나 독립 번역평가 정답세트로 해석하지 마세요. FinQA 1,147건은 영어 수치추론 자료로 별도 보존하며 용어 DB에 섞지 않았습니다.

@@ -1,8 +1,8 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "44cd5cdcb12f8316eea4df59d13ae6f220dfb2f710fb2a65ec20c1823d310de2",
-  "bytes": 69647715,
-  "file_count": 777,
+  "sha256": "50bbd053228c898f5c4d921cf4209ea94e94948ff7850bec4949164eb06a43fc",
+  "bytes": 70124281,
+  "file_count": 802,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
   "verified_tests": 68,
   "functional_evaluation_cases": 16,
@@ -16,7 +16,7 @@
   "stdlib_only_functional_evaluation": "16 passed, 0 failed",
   "frozen_cfpd_integrity": "verified",
   "nepal_entries": 171,
-  "data_entries": 16114,
+  "data_entries": 16857,
   "release_date": "2026-10-14",
   "target_languages": [
     "ar",
@@ -33,6 +33,7 @@
     "ht",
     "hu",
     "it",
+    "km",
     "ko",
     "lt",
     "lv",
@@ -274,6 +275,55 @@
           "raw/README.md": "bfc8aa383d0760d933df528899bdc36e3010c0c57c194ed7172cba1e4855b9c2"
         }
       }
+    },
+    {
+      "dataset_id": "unicode_cldr_currency_names",
+      "entry_count": 743,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "unicode_cldr_currency_names",
+        "entry_count": 743,
+        "language_counts": {
+          "km": 166,
+          "vi": 297,
+          "ru": 280
+        },
+        "decision": "accepted_reference",
+        "commercial_use": true,
+        "usage_terms": {
+          "commercial_use": true,
+          "license": "Unicode-3.0",
+          "attribution_required": true,
+          "license_file": "raw/LICENSE"
+        },
+        "scope": "Explicit currency display names only, including historical currencies; no ordinary loan/deposit/interest terminology",
+        "files_sha256": {
+          "evidence.jsonl": "513465e585d6d5e5bf23c650cc944a247843bddb4672298ae7719ee37ce79693",
+          "excluded.json": "609f6b769ed0d72b90e93b0f87043a5f8674cf6ea8a36be7f51a4b6527f2b73a",
+          "acquisition.json": "532b54b4dfcc1a5fd82f80c999192f8941bb4c883604be3546eb3264c8d57c15",
+          "README.md": "11d6b6342578566b4846f3be4f5da68035097b6373fa6e4c97963de31aeb0fd5",
+          "independent-review.json": "0f2e63776624161a93bcc36aa63196641d18bc2904e311454e0973d496ed5f9e",
+          "raw/LICENSE": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+          "raw/km.json": "4bd8e71c8961949b1d828678e9a1ddc09570d7b0f2b58f7fe0aae46715a9c3b0",
+          "raw/ru.json": "f8e10970ae91f3c2fa7400ab97d5fa58a79d7ab9d4fd95bc33c392bc661640b1",
+          "raw/en.json": "a6c41b28f4035f65ae698b53a66866982b4ff49bc0de7e840f91d2c6e6bdc23b",
+          "raw/vi.json": "e52bdf497a55773fa0b7c171bde46c9179e0828550a30349e211a6454af2f01c",
+          "raw/README.md": "6d47338086101a7e7675ab292f1ab88c1e3c1a6245b3a63b9a8f7f4fd79c0091"
+        },
+        "dataset_version": "48.0.0:4d06be52b51bb2f75688d0abe55c52a66afed790",
+        "adoption_review": {
+          "reviewer_type": "independent_ai_review",
+          "decision": "accepted_currency_name_reference",
+          "human_review": false,
+          "expert_translation_approval": false,
+          "review_file": "independent-review.json"
+        },
+        "limitations": [
+          "Historical currency names included; validity not assessed",
+          "Currency names only; not loan/deposit/interest vocabulary",
+          "Uninflected displayName fields only; inflected amount labels not included"
+        ]
+      }
     }
   ],
   "benchmarks": [
@@ -393,11 +443,11 @@
   "dictionary_ui": {
     "mode": "read_only",
     "target_language_labels": "Korean",
-    "entry_count": 16114,
-    "target_languages": 31,
-    "source_datasets": 6,
+    "entry_count": 16857,
+    "target_languages": 32,
+    "source_datasets": 7,
     "review_controls": false,
     "expansion_candidate_groups": 16,
-    "newly_adopted_pairs": 50
+    "newly_adopted_pairs": 743
   }
 }

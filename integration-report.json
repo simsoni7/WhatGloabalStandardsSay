@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "entry_count": 16222,
+  "entry_count": 17015,
   "approved_translation_count": 0,
   "equivalence_counts": {
-    "unreviewed": 15154,
+    "unreviewed": 15947,
     "needs_review": 1067,
     "not_applicable": 1
   },
@@ -12,7 +12,7 @@
     "same_source_target_multiple_english": 304,
     "source_definition_mismatch_suspected": 1
   },
-  "cross_source_candidate_links": 240,
+  "cross_source_candidate_links": 283,
   "rules": [
     "Raw datasets unchanged",
     "Source alignment is not semantic equivalence",

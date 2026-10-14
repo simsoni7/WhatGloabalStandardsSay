@@ -5,7 +5,8 @@
     "cfpd",
     "cfpb_remittance",
     "canada_government_financial_labels",
-    "eu_cpv_financial_services"
+    "eu_cpv_financial_services",
+    "unicode_cldr_currency_names"
   ],
   "exclusions": [
     {
@@ -34,6 +35,14 @@
       "attribution_review": "datasets/source_collection/cfpb_new/existing_cfpd_attribution_review.json",
       "basis": "All five original glossary introductions expressly state created and used by CFPB; official policy permits reuse of CFPB-created public-domain information. No third-party attribution detected by documented original-PDF text search.",
       "limits": "Third-party works and trademarks excluded; no CFPB endorsement implied."
+    },
+    {
+      "dataset_id": "unicode_cldr_currency_names",
+      "policy_url": "https://raw.githubusercontent.com/unicode-org/cldr-json/4d06be52b51bb2f75688d0abe55c52a66afed790/LICENSE",
+      "policy_snapshot": "datasets/language_packs/unicode_cldr_currency_names/raw/LICENSE",
+      "policy_sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+      "attribution_review": "datasets/language_packs/unicode_cldr_currency_names/independent-review.json",
+      "license": "Unicode-3.0"
     }
   ],
   "human_review": false,

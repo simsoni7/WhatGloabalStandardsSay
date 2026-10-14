@@ -1,11 +1,12 @@
 {
   "format_version": 2,
-  "entry_count": 12299,
+  "entry_count": 13042,
   "counts_by_dataset": {
     "canada_government_financial_labels": 117,
     "cfpb_remittance": 135,
     "cfpd": 10089,
-    "eu_cpv_financial_services": 1958
+    "eu_cpv_financial_services": 1958,
+    "unicode_cldr_currency_names": 743
   },
   "counts_by_language": {
     "fr": 206,
@@ -13,9 +14,9 @@
     "es": 2117,
     "ht": 35,
     "ko": 2027,
-    "ru": 2028,
+    "ru": 2308,
     "tl": 34,
-    "vi": 2028,
+    "vi": 2325,
     "zh-Hant": 2028,
     "bg": 89,
     "cs": 89,
@@ -36,7 +37,8 @@
     "ro": 89,
     "sk": 89,
     "sl": 89,
-    "sv": 89
+    "sv": 89,
+    "km": 166
   },
   "target_languages": [
     "ar",
@@ -53,6 +55,7 @@
     "ht",
     "hu",
     "it",
+    "km",
     "ko",
     "lt",
     "lv",
@@ -77,7 +80,8 @@
       "cfpd",
       "cfpb_remittance",
       "canada_government_financial_labels",
-      "eu_cpv_financial_services"
+      "eu_cpv_financial_services",
+      "unicode_cldr_currency_names"
     ],
     "exclusions": [
       {
@@ -106,6 +110,14 @@
         "attribution_review": "datasets/source_collection/cfpb_new/existing_cfpd_attribution_review.json",
         "basis": "All five original glossary introductions expressly state created and used by CFPB; official policy permits reuse of CFPB-created public-domain information. No third-party attribution detected by documented original-PDF text search.",
         "limits": "Third-party works and trademarks excluded; no CFPB endorsement implied."
+      },
+      {
+        "dataset_id": "unicode_cldr_currency_names",
+        "policy_url": "https://raw.githubusercontent.com/unicode-org/cldr-json/4d06be52b51bb2f75688d0abe55c52a66afed790/LICENSE",
+        "policy_snapshot": "datasets/language_packs/unicode_cldr_currency_names/raw/LICENSE",
+        "policy_sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+        "attribution_review": "datasets/language_packs/unicode_cldr_currency_names/independent-review.json",
+        "license": "Unicode-3.0"
       }
     ],
     "human_review": false,
@@ -319,11 +331,55 @@
         "raw/cpv.gc.gz": "cf7acb636cb25468223fad5194e550bc3cd977d283c46d1fd2993aa5f1144f20",
         "raw/README.md": "bfc8aa383d0760d933df528899bdc36e3010c0c57c194ed7172cba1e4855b9c2"
       }
+    },
+    "unicode_cldr_currency_names": {
+      "dataset_id": "unicode_cldr_currency_names",
+      "entry_count": 743,
+      "language_counts": {
+        "km": 166,
+        "vi": 297,
+        "ru": 280
+      },
+      "decision": "accepted_reference",
+      "commercial_use": true,
+      "usage_terms": {
+        "commercial_use": true,
+        "license": "Unicode-3.0",
+        "attribution_required": true,
+        "license_file": "raw/LICENSE"
+      },
+      "scope": "Explicit currency display names only, including historical currencies; no ordinary loan/deposit/interest terminology",
+      "files_sha256": {
+        "evidence.jsonl": "513465e585d6d5e5bf23c650cc944a247843bddb4672298ae7719ee37ce79693",
+        "excluded.json": "609f6b769ed0d72b90e93b0f87043a5f8674cf6ea8a36be7f51a4b6527f2b73a",
+        "acquisition.json": "532b54b4dfcc1a5fd82f80c999192f8941bb4c883604be3546eb3264c8d57c15",
+        "README.md": "11d6b6342578566b4846f3be4f5da68035097b6373fa6e4c97963de31aeb0fd5",
+        "independent-review.json": "0f2e63776624161a93bcc36aa63196641d18bc2904e311454e0973d496ed5f9e",
+        "raw/LICENSE": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+        "raw/km.json": "4bd8e71c8961949b1d828678e9a1ddc09570d7b0f2b58f7fe0aae46715a9c3b0",
+        "raw/ru.json": "f8e10970ae91f3c2fa7400ab97d5fa58a79d7ab9d4fd95bc33c392bc661640b1",
+        "raw/en.json": "a6c41b28f4035f65ae698b53a66866982b4ff49bc0de7e840f91d2c6e6bdc23b",
+        "raw/vi.json": "e52bdf497a55773fa0b7c171bde46c9179e0828550a30349e211a6454af2f01c",
+        "raw/README.md": "6d47338086101a7e7675ab292f1ab88c1e3c1a6245b3a63b9a8f7f4fd79c0091"
+      },
+      "dataset_version": "48.0.0:4d06be52b51bb2f75688d0abe55c52a66afed790",
+      "adoption_review": {
+        "reviewer_type": "independent_ai_review",
+        "decision": "accepted_currency_name_reference",
+        "human_review": false,
+        "expert_translation_approval": false,
+        "review_file": "independent-review.json"
+      },
+      "limitations": [
+        "Historical currency names included; validity not assessed",
+        "Currency names only; not loan/deposit/interest vocabulary",
+        "Uninflected displayName fields only; inflected amount labels not included"
+      ]
     }
   },
   "files_sha256": {
-    "glossary_entries.jsonl": "ace953673ca28dda446bbc8dbc95caa8ec125afa34fb7af76820f8f6d69d90b4",
-    "glossary_entries.csv": "0ff81381921f8744c587b83b4dabd2c7aa7719fdcd25fd01cd3117b32630d463",
+    "glossary_entries.jsonl": "8e0e8ba1056c21cceac2354db9a04c33fcb788c6475cae8d228121a4020c944c",
+    "glossary_entries.csv": "da9e56f15eb5f4de9783840fa9bbdfed89cfd5673c2a82df175b65bf22776cec",
     "financial_concepts.jsonl": "3cf00b61f1fc8b4693d27f197cd1519001f9dabd3752ce645f0dff8a339be075"
   },
   "financial_information_layer": {

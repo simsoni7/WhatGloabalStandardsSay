@@ -1,0 +1,29 @@
+{
+  "research_date": "2026-10-14",
+  "background_collection_before_request": false,
+  "source_probes": 17,
+  "new_adopted_currency_pairs": {
+    "km": 166,
+    "vi": 297,
+    "ru": 280
+  },
+  "total_adopted_currency_pairs": 743,
+  "official_source": "Unicode CLDR48.0.0 / unicode-org/cldr-json",
+  "license": "Unicode-3.0",
+  "independent_review": "datasets/source_collection/unicode_cldr_currencies/independent-review.json",
+  "additional_cfpb_documents_acquired": {
+    "english": 1,
+    "vi": 1,
+    "ru": 1
+  },
+  "additional_cfpb_pairs_adopted": 0,
+  "scope": "Currency names including historical names; ordinary banking vocabulary not acquired from local bank sources",
+  "local_source_access": {
+    "Cambodia_NBC": "HTTP403 returned by CloudFront",
+    "Cambodia_commercial_banks": "cloud CONNECT403",
+    "Vietnam_banks": "cloud CONNECT403",
+    "Russia_banks": "cloud CONNECT403"
+  },
+  "network_config_draft_saved": true,
+  "network_runtime_applied": false
+}

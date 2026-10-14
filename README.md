@@ -1,4 +1,6 @@
-# 금융 언어팩 다운로드
+# 다국어 금융용어사전
+
+[공유 화면 열기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261014-r3/index.html) — 무료 HTMLPreview로 공개 GitHub 원본 HTML을 열며, 화면에서 같은 버전의 데이터를 다운로드할 수 있습니다. GitHub Pages 자체 활성화와는 별개입니다.
 
 ## 스키마 v2: 출처 표기와 승인된 번역 분리
 
@@ -10,11 +12,11 @@
 
 ## 권장: 상업 이용 조건 확인 데이터
 
-[상업 조건 확인 언어팩 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/commercial-language-packs.zip): 29개 대상언어, 영어–대상언어 12,249쌍. CFPB 자체제작 공개영역 자료, 캐나다 정부 MIT 자료, EU CC BY 4.0 자료입니다. 각 출처의 저작권·라이선스·출처표시 조건을 보존해야 합니다. 상업 허용이 전문가 번역검수를 뜻하지는 않습니다.
+[상업 조건 확인 언어팩 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/commercial-language-packs.zip): 29개 대상언어, 영어–대상언어 12,299쌍. CFPB 자체제작 공개영역 자료, 캐나다 정부 MIT 자료, EU CC BY 4.0 자료입니다. 각 출처의 저작권·라이선스·출처표시 조건을 보존해야 합니다. 상업 허용이 전문가 번역검수를 뜻하지는 않습니다.
 
 ## 전체 자료와 실행 패키지
 
-- [전체 참조 데이터 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/glossaries-data.zip): 31개 대상언어, 16,064쌍. 기존 몽골·네팔 자료는 상업 재배포조건 미확인 상태로 보존되어 있으므로 전체 자료를 상업승인 데이터로 해석하지 마세요.
+- [전체 참조 데이터 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/glossaries-data.zip): 31개 대상언어, 16,114쌍. 기존 몽골·네팔 자료는 상업 재배포조건 미확인 상태로 보존되어 있으므로 전체 자료를 상업승인 데이터로 해석하지 마세요.
 - [전체 실행 패키지 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/what-global-standards-glossary.zip): DB·참조 API·원본·수집 코드·심사 기록·별도 FinQA 수치추론 벤치마크 포함. 모델 연결과 성능평가는 별도입니다.
 - [카탈로그](catalog.json), [상업 전용 카탈로그](commercial-catalog.json), [체크섬](SHA256SUMS). ZIP 파일들과 체크섬을 함께 다운로드해 sha256sum으로 검증할 수 있습니다.
 
@@ -22,11 +24,11 @@
 
 | 출처 | 채택 영어–대상언어 쌍 | 범위 | 조건 |
 |---|---:|---|---|
-| CFPB | 85 | 아랍어 16, 아이티 크리올어 35, 타갈로그어 34; 송금권리 안내 | CFPB 자체제작 public domain |
+| CFPB | 135 | 아랍어16·아이티 크리올어35·타갈로그어34 및 스페인어·한국어·러시아어·베트남어·중국어 번체 각10; 송금 안내 | CFPB 자체제작 public domain |
 | 캐나다 공식 open-data/ckanext-canada | 117 | 프랑스어 재정·계약 라벨 23, 통화명 94 | MIT |
 | EU Publications Office OP-TED/eForms-SDK | 1,958 | 금융·보험 서비스 89개 개념 × 22개 대상언어 | CC BY 4.0 |
 
-신규 2,160쌍과 24개 대상언어를 추가했습니다. 기존 cfpd v1은 동결 상태로 유지했습니다. 필리핀·아랍권 현지 기관은 원문 및 상업조건 미확보로 보류했습니다. 비상업 자료를 복제·번역해서 재도입하지 않았습니다.
+첫 수집에서2,160쌍과24개 대상언어를 추가했고, 후속으로 CFPB 5언어50쌍을 추가했습니다. 기존 cfpd v1은 동결 상태로 유지했습니다. 필리핀·아랍권 현지 기관은 원문 및 상업조건 미확보로 보류했습니다. 비상업 자료를 복제·번역해서 재도입하지 않았습니다.
 
 [상업 도입 심사·소스별 결과](COMMERCIAL-SOURCE-ADOPTION.md) · [시장조사](LANGUAGE-MARKET-RESEARCH.md)
 
@@ -46,10 +48,10 @@
 
 ## 조회용 다국어 금융용어사전
 
-[사전 화면 ZIP 다운로드](financial-dictionary.zip) → 압축을 풀고 `financial-dictionary.html`을 브라우저에서 엽니다. 영어–외국어 16,064쌍을 한국어 언어명·출처·자료 종류·이용조건으로 필터링합니다. 검색·정렬·상세 근거·언어별 통계·출처의 신뢰 근거와 수집 방식·확장 후보를 제공합니다.
+[사전 화면 ZIP 다운로드](financial-dictionary.zip) → 압축을 풀고 `financial-dictionary.html`을 브라우저에서 엽니다. 영어–외국어 16,114쌍을 한국어 언어명·출처·자료 종류·이용조건으로 필터링합니다. 검색·정렬·상세 근거·언어별 통계·출처의 신뢰 근거와 수집 방식·확장 후보를 제공합니다.
 
 검토자·판정·메모·검토 기록 입출력 기능은 제거했습니다. 기존 `financial-review.html`과 `financial-review-workbench.zip` 주소도 조회 화면으로 갱신했습니다. GitHub raw는 HTML을 웹페이지로 렌더링하지 않으므로 ZIP을 내려받아 여세요.
 
 [사용 방법](FINANCIAL-DICTIONARY.md) · [언어별 확장 후보 조사](FINANCIAL-DICTIONARY-EXPANSION.md) · [후보 목록 JSON](dictionary-expansion-candidates.json).
 
-이번 업데이트는 조회 UI와 후보 조사입니다. 원문 데이터와 용어쌍 수는 그대로이며, 새 후보의 상업 재사용 조건은 미확인으로 신규 쌍을 채택하지 않았습니다.
+이번 업데이트는 CFPB 공식 문맥 표현50쌍을 원문 대조·독립 AI검수 후 추가했습니다. 기존 동결 CFPD는 변경하지 않았습니다. 네팔 RBB8개는 권리 미확인 연구 후보라 공개 사전에 추가하지 않았습니다.

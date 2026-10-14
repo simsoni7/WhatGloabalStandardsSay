@@ -1,0 +1,827 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-10-14T14:56:49.799530+00:00",
+  "reviewer_type": "independent_ai_review",
+  "decision": "accepted_contextual_reference",
+  "accepted_count": 50,
+  "accepted_ids": [
+    "cfpb_remittance:es:5ee4a71a828b68dc",
+    "cfpb_remittance:es:47960ce28fd90d07",
+    "cfpb_remittance:es:633c613407ae8388",
+    "cfpb_remittance:es:71bbc131d72256c0",
+    "cfpb_remittance:es:b4b66943132cdd50",
+    "cfpb_remittance:es:8bc9f403eb910353",
+    "cfpb_remittance:es:e1d354ceca7a43ea",
+    "cfpb_remittance:es:322ebab08e47d938",
+    "cfpb_remittance:es:6ee0144c016226a3",
+    "cfpb_remittance:es:d269668d10047449",
+    "cfpb_remittance:ko:37eb0b15d3dc738b",
+    "cfpb_remittance:ko:9234fae1af9eecc5",
+    "cfpb_remittance:ko:4b47ecd901f0f5b8",
+    "cfpb_remittance:ko:35c09934db2d76bf",
+    "cfpb_remittance:ko:350aeeaa36110c1a",
+    "cfpb_remittance:ko:150b4f8af5836e70",
+    "cfpb_remittance:ko:a41ce37dbdad3ff1",
+    "cfpb_remittance:ko:b51e86901d77649c",
+    "cfpb_remittance:ko:b11f9cd5439e8acb",
+    "cfpb_remittance:ko:a5ee55fe3226b655",
+    "cfpb_remittance:ru:ca67ef0d529d5a52",
+    "cfpb_remittance:ru:00c8802486e440c9",
+    "cfpb_remittance:ru:d90d22460736dc6e",
+    "cfpb_remittance:ru:3d244cc88990d72c",
+    "cfpb_remittance:ru:51c74c09d420c9f0",
+    "cfpb_remittance:ru:444eb921f2e8b0b6",
+    "cfpb_remittance:ru:b275685845879323",
+    "cfpb_remittance:ru:ff4c1ae6ae093bb6",
+    "cfpb_remittance:ru:2756671a66e674b0",
+    "cfpb_remittance:ru:e351f2aee0025797",
+    "cfpb_remittance:vi:f96d51a21a086dbe",
+    "cfpb_remittance:vi:d8dad270f064c7a1",
+    "cfpb_remittance:vi:af42a6651019e6e8",
+    "cfpb_remittance:vi:02ea4a38e84d4b93",
+    "cfpb_remittance:vi:0f7df0c82045f67d",
+    "cfpb_remittance:vi:31acdf9a15039c89",
+    "cfpb_remittance:vi:e8b0b7ebdfaa0f35",
+    "cfpb_remittance:vi:5d311875823dad40",
+    "cfpb_remittance:vi:1f14af856739ef28",
+    "cfpb_remittance:vi:bcaf0f51fffba2b7",
+    "cfpb_remittance:zh-Hant:a0fd0b074178ad1c",
+    "cfpb_remittance:zh-Hant:82a5a65faa3c8ae2",
+    "cfpb_remittance:zh-Hant:503984a55687202a",
+    "cfpb_remittance:zh-Hant:1878e4099f4b0667",
+    "cfpb_remittance:zh-Hant:f6ca6d713be6bcd5",
+    "cfpb_remittance:zh-Hant:792d5c35133f6162",
+    "cfpb_remittance:zh-Hant:685a4f7764900c94",
+    "cfpb_remittance:zh-Hant:e76ffe27df8107b4",
+    "cfpb_remittance:zh-Hant:db909036845480e8",
+    "cfpb_remittance:zh-Hant:a202662853f38577"
+  ],
+  "rejected_ids": [],
+  "language_counts": {
+    "es": 10,
+    "ko": 10,
+    "ru": 10,
+    "vi": 10,
+    "zh-Hant": 10
+  },
+  "pack_total": 135,
+  "pack_evidence_sha256": "c3da2582ef1bbe53a334baa425aca5f83b4f59e5ede8f387574c119c735b1e1f",
+  "checks": {
+    "all_50_english_and_target_text_reextracted": true,
+    "all_50_block_bounding_boxes_verified": true,
+    "all_pdf_hashes_verified": true,
+    "selected_pages_visually_reviewed": 10,
+    "official_listing_all_five_urls_present": true,
+    "official_listing_snapshot_path": "datasets/language_packs/cfpb_remittance/raw/source_5.html",
+    "official_listing_snapshot_sha256": "b581e11590e32be1e60906749861deb525bda5c3cc43ab4123555fd382a268aa",
+    "five_pdf_author_and_CFPB_publication_identity_verified": true,
+    "public_domain_policy_snapshot_sha256": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+    "policy_CFPB_created_reuse_permission_verified": true,
+    "third_party_notice_detected_in_five_pdf_text": false,
+    "human_translation_approval": false
+  },
+  "excluded_candidates_verified": [
+    {
+      "language": "zh-Hant",
+      "page": 1,
+      "text": "協助消費者瞭解貸款歧視",
+      "finding": "PDF title refers to loan discrimination despite remittance body; excluded title verified visually."
+    },
+    {
+      "language": "vi",
+      "page": 1,
+      "text": "Các hình thức chuyển tiền được luật bảo vệ",
+      "finding": "Positive covered heading repeated before uncovered-transfer paragraph; excluded second heading verified visually."
+    }
+  ],
+  "decisions": [
+    {
+      "evidence_id": "cfpb_remittance:es:5ee4a71a828b68dc",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:47960ce28fd90d07",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:633c613407ae8388",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:71bbc131d72256c0",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:b4b66943132cdd50",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:8bc9f403eb910353",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:e1d354ceca7a43ea",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:322ebab08e47d938",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:6ee0144c016226a3",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:es:d269668d10047449",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:37eb0b15d3dc738b",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:9234fae1af9eecc5",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:4b47ecd901f0f5b8",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:35c09934db2d76bf",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:350aeeaa36110c1a",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:150b4f8af5836e70",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:a41ce37dbdad3ff1",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:b51e86901d77649c",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:b11f9cd5439e8acb",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ko:a5ee55fe3226b655",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:ca67ef0d529d5a52",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:00c8802486e440c9",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:d90d22460736dc6e",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:3d244cc88990d72c",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:51c74c09d420c9f0",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:444eb921f2e8b0b6",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:b275685845879323",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:ff4c1ae6ae093bb6",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:2756671a66e674b0",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:ru:e351f2aee0025797",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Russian target is explanatory and some bullet phrases depend on sentence grammar; do not use as independently validated UI wording."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:f96d51a21a086dbe",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation.",
+        "Vietnamese source heading literally denotes remittance services; surrounding paragraph identifies companies/providers. Retain only as contextual source alignment."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:d8dad270f064c7a1",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:af42a6651019e6e8",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:02ea4a38e84d4b93",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:0f7df0c82045f67d",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:31acdf9a15039c89",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:e8b0b7ebdfaa0f35",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:5d311875823dad40",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:1f14af856739ef28",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:vi:bcaf0f51fffba2b7",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:a0fd0b074178ad1c",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:82a5a65faa3c8ae2",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:503984a55687202a",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:1878e4099f4b0667",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:f6ca6d713be6bcd5",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:792d5c35133f6162",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:685a4f7764900c94",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:e76ffe27df8107b4",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:db909036845480e8",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    },
+    {
+      "evidence_id": "cfpb_remittance:zh-Hant:a202662853f38577",
+      "decision": "accepted_contextual_reference",
+      "independent_review_type": "ai_pdf_text_layout_and_context_review",
+      "human_review": false,
+      "semantic_approval": false,
+      "source_pdf_sha256_verified": true,
+      "source_target_and_english_reextracted": true,
+      "source_blocks_and_bboxes_verified": true,
+      "alignment_basis": "same official remittance fact sheet heading/bullet role verified in surrounding page context",
+      "limitations": [
+        "Official parallel heading in US remittance context, not a context-free synonym or approved translation."
+      ]
+    }
+  ],
+  "advisories": [
+    {
+      "type": "metadata_scope",
+      "note": "Existing adoption_review.excluded_count=1 refers to prior excluded.jsonl; separately identify expansion excluded headings count=2 to avoid a misleading combined count. Nonblocking."
+    },
+    {
+      "type": "source_quality",
+      "note": "Selected headings remain source observations despite excluded original document title/heading errors. No blanket endorsement of all source text."
+    }
+  ],
+  "limitations": [
+    "AI independent review only; no human financial or native-language expert approval.",
+    "2021 US guidance is not verified as current legal advice or local law in target-language jurisdictions.",
+    "Public-domain basis applies to CFPB-created content, excluding third-party rights and trademarks; source attribution retained.",
+    "Contextual official headings may paraphrase English and depend on surrounding bullets; not gold translations or generic dictionary entries.",
+    "Original PDFs/pack/DB/UI were not modified by reviewer."
+  ]
+}

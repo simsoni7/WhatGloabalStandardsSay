@@ -1,22 +1,22 @@
 {
   "format_version": 2,
-  "entry_count": 12249,
+  "entry_count": 12299,
   "counts_by_dataset": {
     "canada_government_financial_labels": 117,
-    "cfpb_remittance": 85,
+    "cfpb_remittance": 135,
     "cfpd": 10089,
     "eu_cpv_financial_services": 1958
   },
   "counts_by_language": {
     "fr": 206,
     "ar": 16,
+    "es": 2117,
     "ht": 35,
+    "ko": 2027,
+    "ru": 2028,
     "tl": 34,
-    "es": 2107,
-    "ko": 2017,
-    "ru": 2018,
-    "vi": 2018,
-    "zh-Hant": 2018,
+    "vi": 2028,
+    "zh-Hant": 2028,
     "bg": 89,
     "cs": 89,
     "da": 89,
@@ -115,14 +115,19 @@
     "cfpb_remittance": {
       "format_version": 1,
       "dataset_id": "cfpb_remittance",
-      "dataset_version": "20261014",
+      "dataset_version": "20261014-r2",
       "state": "candidate",
       "decision": "accepted_reference",
-      "entry_count": 85,
+      "entry_count": 135,
       "language_counts": {
         "ht": 35,
         "tl": 34,
-        "ar": 16
+        "ar": 16,
+        "es": 10,
+        "ko": 10,
+        "ru": 10,
+        "vi": 10,
+        "zh-Hant": 10
       },
       "usage_terms": {
         "commercial_use": true,
@@ -136,7 +141,9 @@
         "human_review": false,
         "explicit_official_parallel_sections": true,
         "source_hashes_verified": true,
-        "excluded_count": 1
+        "excluded_count": 1,
+        "expansion_check": "Official listing, PDF hashes, explicit heading maps, and embedded CFPB publication identity checked by AI; no human translation approval.",
+        "expansion_excluded_count": 2
       },
       "limitations": [
         "US remittance guidance only; not broad dictionary",
@@ -145,7 +152,7 @@
         "Arabic short expressions transcribed from rendered official source; extraction errors preserved"
       ],
       "files_sha256": {
-        "evidence.jsonl": "60d7bc3988d690c22712922f389c4ef4ee63db70a2295ddca8d15a4ef7aa738c",
+        "evidence.jsonl": "c3da2582ef1bbe53a334baa425aca5f83b4f59e5ede8f387574c119c735b1e1f",
         "excluded.jsonl": "73ce67bc619e8d51039393a3572f4d3d71afd120d27da3d493067046f88179c4",
         "README.md": "5fffadbff18922921f2ed56ebb05a5eb624c5096a0b8d470c0bb3247173f4cad",
         "raw/source_1_page_2.png": "6fb669b38a8eadaa803d11ad651a83456d7ec268cc562e5202a1e62d4a21b598",
@@ -168,7 +175,13 @@
         "raw/source_5.html": "b581e11590e32be1e60906749861deb525bda5c3cc43ab4123555fd382a268aa",
         "raw/source_2_page_1.png": "8f017472bc4d269c4a04457472d81015789987cbda86a5a081eda48adaff9ce3",
         "raw/source_2.txt": "4e420ff5455ccd284cf6df8c766ac02c2837960d049ea6f0fe91a9a25574d063",
-        "raw/source_1.txt": "7343561f686f8b7eda5558e68945e47a33088788c1789c1f5861e06085b5fcad"
+        "raw/source_1.txt": "7343561f686f8b7eda5558e68945e47a33088788c1789c1f5861e06085b5fcad",
+        "raw/expansion_es.pdf": "c880de9c3e5ba6025ff40aa1c7690ba0f12aea2db1006ef72e321b3520624524",
+        "raw/expansion_ko.pdf": "1eef5c8afa9944fd100fc532c97ef8ea4b00ac0c70e372ca2aacf5803ebb6ea7",
+        "raw/expansion_ru.pdf": "572fcb476005a48b43d65c2762bcf44cbf3617e4f7f2537def546537405067a2",
+        "raw/expansion_vi.pdf": "413afbf7ef74e29727d39f6f394f37a9c1836033975ea0ba7a97f78d0274de2e",
+        "raw/expansion_zh-Hant.pdf": "dcd8240a5a26136df4ebb5585c9df76f77668a4d1e3c8f337ab5f276e34e8310",
+        "expansion-independent-review.json": "58406f2d23f12ab4f0bf8c5a20406ea24bdd92c1a5025e0082512cfddce2fec1"
       }
     },
     "canada_government_financial_labels": {
@@ -309,8 +322,8 @@
     }
   },
   "files_sha256": {
-    "glossary_entries.jsonl": "49891f5169fc0f8d625cafcb06941ccd3777e50b9bb49eed7ea6f1120805e782",
-    "glossary_entries.csv": "51bd6a39c47bd891fa04fdd85c4a89eedd16d76c524d209d1618eb3bf2810e0a",
+    "glossary_entries.jsonl": "ace953673ca28dda446bbc8dbc95caa8ec125afa34fb7af76820f8f6d69d90b4",
+    "glossary_entries.csv": "0ff81381921f8744c587b83b4dabd2c7aa7719fdcd25fd01cd3117b32630d463",
     "financial_concepts.jsonl": "3cf00b61f1fc8b4693d27f197cd1519001f9dabd3752ce645f0dff8a339be075"
   },
   "financial_information_layer": {

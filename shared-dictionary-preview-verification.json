@@ -1,0 +1,15 @@
+{
+  "scope": "official_HTMLPreview_renderer_local_compatibility_with_HTTPS_verified_public_GitHub_bytes_fulfilled_in_browser_not_public_host_availability",
+  "release_ref": "dictionary-20261014-r3",
+  "raw_html_http_status": 200,
+  "html_sha256_match": true,
+  "table_rows": 16114,
+  "language_filter": "ko:2027",
+  "new_cfpb_korean_records": 10,
+  "search_and_details_pass": true,
+  "download_links_same_release": true,
+  "download_zip_http_and_checksums_pass": true,
+  "browser_errors": [],
+  "public_HTMLPreview_host_access": "not_verified_cloud_egress_blocked",
+  "browser_external_HTTPS": "cloud browser does not trust environment proxy CA; raw input supplied from separately TLS-verified urllib acquisition; TLS checks not disabled"
+}

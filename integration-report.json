@@ -18,5 +18,19 @@
     "Source alignment is not semantic equivalence",
     "No automatic cross-source concept merge",
     "AI triage does not approve a translation"
-  ]
+  ],
+  "semantic_review": {
+    "ai_decisions": 11,
+    "ai_triaged_records": 18,
+    "generation_quarantined_records": 2,
+    "triage_group_counts": {
+      "cross_domain_meaning_review_required": 67,
+      "ai_definition_review_attached": 14,
+      "identical_definition_variant_candidate": 1,
+      "target_variant_semantics_unresolved": 9,
+      "shared_target_sense_review_required": 299
+    },
+    "human_approved_translations": 0,
+    "complete_semantic_validation": false
+  }
 }

@@ -80,12 +80,12 @@
   "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 10100458,
-      "sha256": "13c3a0fa7a4d047cabaeb12fa35a655631f96c93ea62c626e32aeb58df7318ab"
+      "bytes": 10181112,
+      "sha256": "55f8b7ae5e74c2961364fa7eddbb0b80a4ec6fad377734a12dd0e79eda87649a"
     },
     "glossary_entries.jsonl": {
-      "bytes": 28065400,
-      "sha256": "a09ee4e5d0ee84dd78d58763dc7cce63e5ede5988e035786087a30b2790613bc"
+      "bytes": 29660786,
+      "sha256": "515a9db0dbf316d46c0629f0b3200f9b3dc903a22c46c5b810737baedf72379f"
     }
   },
   "reference_language_packs": [
@@ -388,7 +388,21 @@
       "Source alignment is not semantic equivalence",
       "No automatic cross-source concept merge",
       "AI triage does not approve a translation"
-    ]
+    ],
+    "semantic_review": {
+      "ai_decisions": 11,
+      "ai_triaged_records": 18,
+      "generation_quarantined_records": 2,
+      "triage_group_counts": {
+        "cross_domain_meaning_review_required": 67,
+        "ai_definition_review_attached": 14,
+        "identical_definition_variant_candidate": 1,
+        "target_variant_semantics_unresolved": 9,
+        "shared_target_sense_review_required": 299
+      },
+      "human_approved_translations": 0,
+      "complete_semantic_validation": false
+    }
   },
   "commercial_use_policy": {
     "format_version": 1,

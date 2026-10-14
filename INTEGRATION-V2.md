@@ -25,3 +25,7 @@ Mongolbank 304 retains Interest Rate / Хүү. It has a high-priority suspected 
 Commercial-use eligibility and semantic equivalence are separate. The commercial export retains its approved source licenses, but all approved_translation fields are still null. FinQA remains separate from reference retrieval.
 
 The integration report covers all indexed observations including excluded candidates and the one missing translation. Export counts cover usable nonempty source pairs only. Raw archives may retain original source-specific field names; use the integrated v2 export for retrieval.
+
+## Source-definition review update
+
+`semantic_review` records AI triage decisions; `generation_eligible` controls whether a source observation can enter model evidence. It is not translation approval. Decisions and all 390 review packets are preserved in derived datasets. See `docs/semantic-review.md`.

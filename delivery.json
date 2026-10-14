@@ -1,10 +1,10 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "8720fb9927b4a79b713d85c6ad359357b66faa0e08413adbe54d51001eafb044",
-  "bytes": 63856241,
-  "file_count": 712,
+  "sha256": "817208e62cee512248ba30b3d45da7eb7601f4e5cce3fd4264febe9b908174f9",
+  "bytes": 63942147,
+  "file_count": 715,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
-  "verified_tests": 60,
+  "verified_tests": 62,
   "functional_evaluation_cases": 16,
   "live_model_validation": false,
   "remaining_blockers": [
@@ -353,5 +353,19 @@
       "No automatic cross-source concept merge",
       "AI triage does not approve a translation"
     ]
+  },
+  "semantic_review": {
+    "ai_decisions": 11,
+    "ai_triaged_records": 18,
+    "generation_quarantined_records": 2,
+    "triage_group_counts": {
+      "cross_domain_meaning_review_required": 67,
+      "ai_definition_review_attached": 14,
+      "identical_definition_variant_candidate": 1,
+      "target_variant_semantics_unresolved": 9,
+      "shared_target_sense_review_required": 299
+    },
+    "human_approved_translations": 0,
+    "complete_semantic_validation": false
   }
 }

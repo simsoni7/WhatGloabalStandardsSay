@@ -1,10 +1,10 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "817208e62cee512248ba30b3d45da7eb7601f4e5cce3fd4264febe9b908174f9",
-  "bytes": 63942147,
-  "file_count": 715,
+  "sha256": "485447c7817f4cd039b79c1260a563386b4c6b3b2c65d64c9884d205d7aec9d6",
+  "bytes": 64111379,
+  "file_count": 737,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
-  "verified_tests": 62,
+  "verified_tests": 68,
   "functional_evaluation_cases": 16,
   "live_model_validation": false,
   "remaining_blockers": [
@@ -355,17 +355,26 @@
     ]
   },
   "semantic_review": {
-    "ai_decisions": 11,
-    "ai_triaged_records": 18,
+    "ai_decisions": 43,
+    "ai_triaged_records": 83,
     "generation_quarantined_records": 2,
     "triage_group_counts": {
-      "cross_domain_meaning_review_required": 67,
-      "ai_definition_review_attached": 14,
+      "ai_definition_review_attached": 48,
+      "cross_domain_meaning_review_required": 37,
       "identical_definition_variant_candidate": 1,
-      "target_variant_semantics_unresolved": 9,
-      "shared_target_sense_review_required": 299
+      "target_variant_semantics_unresolved": 7,
+      "shared_target_sense_review_required": 297
     },
     "human_approved_translations": 0,
     "complete_semantic_validation": false
+  },
+  "financial_concept_cards": 24,
+  "context_diagnostics": {
+    "scope": "ai_authored_structural_diagnostic_not_translation_accuracy",
+    "passed": 26,
+    "total": 26,
+    "failed": 0,
+    "unimplemented_freeform_semantic_cases": 12,
+    "live_model_evaluation": false
   }
 }

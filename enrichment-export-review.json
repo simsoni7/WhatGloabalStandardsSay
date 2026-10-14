@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-10-14T13:55:00.564775+00:00",
+  "reviewer_type": "independent_ai_export_and_integration_review",
+  "human_review": false,
+  "semantic_approval": false,
+  "status": "accepted",
+  "artifacts_sha256": {
+    "dist/commercial/financial_concepts.jsonl": "3cf00b61f1fc8b4693d27f197cd1519001f9dabd3752ce645f0dff8a339be075",
+    "datasets/enrichment/financial_concepts/cards.jsonl": "11d95c958498072c17fb43c20142af8628a64e3b7943e003b039f303c3f26988",
+    "datasets/derived/reference_index.sqlite": "73deed3b81cad38db5c8d1d658a0117f3c2dc27f8be1b1eabb5dc7f98e50849d",
+    "datasets/enrichment/review/decisions.json": "38845ff3bc63e88859fb71008a7cf3341eac1fd86d85ab3cf2bd91cfe2415018"
+  },
+  "checks": {
+    "commercial_cards": 19,
+    "full_cards": 24,
+    "commercial_unverified_source_evidence_count": 0,
+    "commercial_unverified_proposed_source_id_count": 0,
+    "commercial_unverified_original_definition_count": 0,
+    "all_cards_ai_origin_and_unapproved": true,
+    "financial_concept_links_count": 30,
+    "financial_concept_links_status": "ai_candidate_not_approved",
+    "source_input_files_hash_verified": true,
+    "source_records_fields_compared": 16222,
+    "source_fields_unchanged": [
+      "source_english",
+      "source_target",
+      "definition",
+      "source"
+    ],
+    "accepted_input_hashes_unchanged": true,
+    "structured_concept_filter_excludes_304": true,
+    "structured_concept_filter_737_3377_remain_unapproved": true,
+    "procurement_consumer_ui_guard_blocks_model": true,
+    "304_generation_quarantine_preserved": true,
+    "blocked_requests_model_invocations": 0,
+    "unimplemented_free_text_context_diagnostics": 12
+  },
+  "changes_requested": [],
+  "limitations": [
+    "Full source-content comparison establishes preservation against hash-verified input evidence; it does not certify financial or translation accuracy.",
+    "Commercial evidence filtering does not upgrade label-only evidence into definition support.",
+    "Structured context guards are implemented; free-text semantic context assessment remains unimplemented.",
+    "No human financial expert approval or translation gold is claimed."
+  ]
+}

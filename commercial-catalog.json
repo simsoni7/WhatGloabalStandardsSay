@@ -309,8 +309,15 @@
     }
   },
   "files_sha256": {
-    "glossary_entries.jsonl": "644cb94ad6304ccde2194295226fa2d2e4d3f18af2ab31c0c5157f25a346b40a",
-    "glossary_entries.csv": "51bd6a39c47bd891fa04fdd85c4a89eedd16d76c524d209d1618eb3bf2810e0a"
+    "glossary_entries.jsonl": "49891f5169fc0f8d625cafcb06941ccd3777e50b9bb49eed7ea6f1120805e782",
+    "glossary_entries.csv": "51bd6a39c47bd891fa04fdd85c4a89eedd16d76c524d209d1618eb3bf2810e0a",
+    "financial_concepts.jsonl": "3cf00b61f1fc8b4693d27f197cd1519001f9dabd3752ce645f0dff8a339be075"
+  },
+  "financial_information_layer": {
+    "candidate_cards": 19,
+    "origin": "ai_written_explanations_independently_ai_reviewed",
+    "commercial_source_evidence_filtered": true,
+    "expert_approved": false
   },
   "schema_version": 2,
   "approved_translation_count": 0,

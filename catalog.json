@@ -84,8 +84,12 @@
       "sha256": "55f8b7ae5e74c2961364fa7eddbb0b80a4ec6fad377734a12dd0e79eda87649a"
     },
     "glossary_entries.jsonl": {
-      "bytes": 29660786,
-      "sha256": "515a9db0dbf316d46c0629f0b3200f9b3dc903a22c46c5b810737baedf72379f"
+      "bytes": 30279659,
+      "sha256": "eccefde0ccca7560ae4dce38bc1079d30d3731e5943de465f7113a36a9f1cd9c"
+    },
+    "financial_concepts.jsonl": {
+      "bytes": 62806,
+      "sha256": "172f811ec39298ab08a5a5fd7fb4b4f486091d4df10dd2641f785dd67eb12474"
     }
   },
   "reference_language_packs": [
@@ -390,19 +394,25 @@
       "AI triage does not approve a translation"
     ],
     "semantic_review": {
-      "ai_decisions": 11,
-      "ai_triaged_records": 18,
+      "ai_decisions": 43,
+      "ai_triaged_records": 83,
       "generation_quarantined_records": 2,
       "triage_group_counts": {
-        "cross_domain_meaning_review_required": 67,
-        "ai_definition_review_attached": 14,
+        "ai_definition_review_attached": 48,
+        "cross_domain_meaning_review_required": 37,
         "identical_definition_variant_candidate": 1,
-        "target_variant_semantics_unresolved": 9,
-        "shared_target_sense_review_required": 299
+        "target_variant_semantics_unresolved": 7,
+        "shared_target_sense_review_required": 297
       },
       "human_approved_translations": 0,
       "complete_semantic_validation": false
     }
+  },
+  "financial_information_layer": {
+    "candidate_cards": 24,
+    "origin": "ai_written_explanations_independently_ai_reviewed",
+    "expert_approved": false,
+    "does_not_fill_original_source_definition_coverage": true
   },
   "commercial_use_policy": {
     "format_version": 1,

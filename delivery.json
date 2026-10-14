@@ -1,8 +1,8 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "f1f818193d1e36419a134a94e76b92072b36c3a162a272da47e9c41deffd6744",
-  "bytes": 66292037,
-  "file_count": 742,
+  "sha256": "4a19554f53c6ee8b6f15590a09e6adc0255c50d7bc39881a64fe16f632f03586",
+  "bytes": 68359035,
+  "file_count": 756,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
   "verified_tests": 68,
   "functional_evaluation_cases": 16,
@@ -376,5 +376,15 @@
     "failed": 0,
     "unimplemented_freeform_semantic_cases": 12,
     "live_model_evaluation": false
+  },
+  "dictionary_ui": {
+    "mode": "read_only",
+    "target_language_labels": "Korean",
+    "entry_count": 16064,
+    "target_languages": 31,
+    "source_datasets": 6,
+    "review_controls": false,
+    "expansion_candidate_groups": 16,
+    "newly_adopted_pairs": 0
   }
 }

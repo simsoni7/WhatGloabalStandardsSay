@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-10-14",
+  "summary": "25개 공식기관 출발 URL과 10개 후속 자료 URL을 조사했습니다. 네팔 기관6곳의 홈페이지와 후속 자료 페이지에 접속했으며, 일부 영어/네팔어 대응 문서 링크를 확인했습니다. 인도 등 다른 언어권은 접근 제한으로 예비 후보 상태입니다. 신규 용어쌍 채택은0개이며, 모든 후보의 상업 재사용 권리는 미확인입니다.",
+  "adopted_pairs": 0,
+  "scale_note": "모든 숫자 범위는 파일럿 작업 목표이며 원문 확인에 기반한 전체 확보 규모 추정이 아닙니다.",
+  "candidates": [
+    {
+      "candidate_id": "nepal_rbb",
+      "priority": "1",
+      "name": "Rastriya Banijya Bank (RBB)",
+      "language_names": [
+        "네팔어"
+      ],
+      "urls": [
+        "https://www.rbb.com.np/download"
+      ],
+      "material": "거래 실사·계좌 개설·KYC 양식.",
+      "reason": "기존 Nepal Bank와 다른 은행의 업무 용어를 비교하고 표현 변형을 확보할 수 있습니다.",
+      "observation": "다운로드 페이지 HTTP200. PDF 링크391개(금융쌍 수 아님)와 거래 실사 English/Nepali 양식 PDF 각각1개를 확보했습니다. 네팔어는 구형 글꼴 인코딩으로 기본 텍스트 추출이 깨져 OCR·화면 대조 필요. All Right Reserved 고지.",
+      "pilot_target": "50–150쌍 파일럿 목표; 권리 확인 선행",
+      "verification_status": "parallel_documents_acquired",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "nepal_nabil",
+      "priority": "1",
+      "name": "Nabil Bank",
+      "language_names": [
+        "네팔어"
+      ],
+      "urls": [
+        "https://www.nabilbank.com/downloads"
+      ],
+      "material": "개인 계좌 개설·잔액 증명 영어판/네팔어판 양식.",
+      "reason": "같은 업무의 언어별 양식으로 항목 ID·순서·숫자를 대조하기 쉽습니다.",
+      "observation": "홈페이지·다운로드 페이지 HTTP200. PDF 링크64개 중 계좌 개설과 잔액 증명 언어별 링크를 확인했습니다. PDF 자산 도메인은403 차단. All Rights Reserved 고지.",
+      "pilot_target": "50–150쌍 파일럿 목표; 자산 접근·권리 확인 선행",
+      "verification_status": "parallel_links_verified",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "nepal_nrb",
+      "priority": "1",
+      "name": "Nepal Rastra Bank (NRB)",
+      "language_names": [
+        "네팔어"
+      ],
+      "urls": [
+        "https://www.nrb.org.np/financial-literacy/",
+        "https://www.nrb.org.np/"
+      ],
+      "material": "금융교육 자료 및 같은 기간 영어·네팔어 거시경제 보고서.",
+      "reason": "소비자 업무 표현에 더해 통화·금리·금융안정·경제 용어를 보강할 수 있습니다.",
+      "observation": "공식 홈페이지·금융교육 페이지 HTTP200. 금융교육 PDF 링크16개 발견. 같은1개월 기준 영어/네팔어 보고서 PDF2개 확보. 문서 대응은 후보이며 용어쌍 미확정. All Rights Reserved 고지. 네팔어 구형 글꼴과 영어 문서의 연도 표기 불일치가 있어 OCR·판본 확인 필요.",
+      "pilot_target": "80–200쌍 파일럿 목표; 문맥 대응·권리 확인 선행",
+      "verification_status": "parallel_documents_acquired",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "nepal_other",
+      "priority": "2",
+      "name": "ADBL · Global IME · SEBON",
+      "language_names": [
+        "네팔어"
+      ],
+      "urls": [
+        "https://www.adbl.gov.np/",
+        "https://www.globalimebank.com/",
+        "https://www.sebon.gov.np/education"
+      ],
+      "material": "농업·소액대출·송금 상품 및 증권 투자자 교육.",
+      "reason": "예금·계좌 라벨에 치우친 기존 네팔어를 대출·투자 영역으로 확장할 수 있습니다.",
+      "observation": "각 공식 홈페이지 HTTP200. SEBON 교육 페이지와 FAQ PDF 링크 확인. 영어–네팔어 대응 문서와 재사용 허용은 아직 확인하지 못했습니다.",
+      "pilot_target": "기관당30–100쌍 탐색 목표",
+      "verification_status": "resource_page_verified",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "india_rbi",
+      "priority": "2",
+      "name": "Reserve Bank of India (RBI)",
+      "language_names": [
+        "힌디어"
+      ],
+      "urls": [
+        "https://www.rbi.org.in/",
+        "https://hindi.rbi.org.in/"
+      ],
+      "material": "영어·힌디어 금융교육·FAQ·용어 자료 후보.",
+      "reason": "인도 금융제도에 맞는 은행·결제·대출 표현과 기관 용어를 확보하는 출발점입니다.",
+      "observation": "양 사이트 접속이 환경 프록시403 차단. 실제 문서 목록·두 언어 대응·이용 조건 미검증.",
+      "pilot_target": "100–300쌍 탐색 목표; 확보 규모 예측 아님",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "india_banks",
+      "priority": "2",
+      "name": "State Bank of India · Bank of Baroda · PNB",
+      "language_names": [
+        "힌디어"
+      ],
+      "urls": [
+        "https://sbi.bank.in/",
+        "https://www.bankofbaroda.in/",
+        "https://www.pnbindia.in/"
+      ],
+      "material": "계좌 개설·KYC·예금·대출·송금 양언어 양식 후보.",
+      "reason": "네팔 은행에서 사용한 동일 문서 항목 대응 방식으로 확장하기 적합한 탐색 대상입니다.",
+      "observation": "기관 사이트 후보 URL 접속403. 현행 주소·양언어 양식 유무·지역어 범위는 원문 확인 전입니다.",
+      "pilot_target": "기관당50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "india_cstt",
+      "priority": "2",
+      "name": "인도 Commission for Scientific and Technical Terminology",
+      "language_names": [
+        "힌디어",
+        "기타 인도 지역어 (범위 확인 필요)"
+      ],
+      "urls": [
+        "https://cstt.education.gov.in/"
+      ],
+      "material": "경제·상업·은행 분야 공식 전문용어집 후보.",
+      "reason": "일반 은행 양식보다 개념 단위 용어집을 확보할 가능성을 먼저 조사할 가치가 있습니다.",
+      "observation": "접속403. 실제 해당 분야 자료·제공 언어·항목 수·상업 라이선스 미검증.",
+      "pilot_target": "100–300쌍 우선 분야 표본 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "sri_lanka_cbsl",
+      "priority": "3",
+      "name": "Central Bank of Sri Lanka (CBSL)",
+      "language_names": [
+        "싱할라어",
+        "타밀어"
+      ],
+      "urls": [
+        "https://www.cbsl.gov.lk/"
+      ],
+      "material": "금융소비자 안내·교육·용어/보고서의 영어·지역어판 후보.",
+      "reason": "동일 기관에서 영어 기준으로 두 지역 언어를 확장하는 방향입니다.",
+      "observation": "접속403. 실제 병행 문서와 언어별 대응 범위는 추가 확인 필요.",
+      "pilot_target": "언어당50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "bangladesh_bb",
+      "priority": "3",
+      "name": "Bangladesh Bank",
+      "language_names": [
+        "벵골어"
+      ],
+      "urls": [
+        "https://www.bb.org.bd/"
+      ],
+      "material": "은행·결제·금융교육 영어/벵골어 자료 후보.",
+      "reason": "대규모 언어권의 일상 은행 업무와 규제 용어를 보강하는 탐색 대상입니다.",
+      "observation": "접속403. 양언어 대응 자료·라이선스 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "pakistan_sbp",
+      "priority": "3",
+      "name": "State Bank of Pakistan",
+      "language_names": [
+        "우르두어"
+      ],
+      "urls": [
+        "https://www.sbp.org.pk/"
+      ],
+      "material": "금융교육·계좌·대출·송금 안내의 영어/우르두어 자료 후보.",
+      "reason": "오른쪽에서 왼쪽으로 쓰는 언어의 소비자 금융 표현을 확대할 수 있습니다.",
+      "observation": "접속403. 문서 대응·추출 방식·라이선스 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "indonesia",
+      "priority": "3",
+      "name": "Bank Indonesia · OJK",
+      "language_names": [
+        "인도네시아어"
+      ],
+      "urls": [
+        "https://www.bi.go.id/",
+        "https://www.ojk.go.id/"
+      ],
+      "material": "결제·은행·보험·투자자 교육 자료 후보.",
+      "reason": "중앙은행과 감독기관의 분야를 분리해 언어별 사전 범위를 넓힐 수 있습니다.",
+      "observation": "두 사이트 접속403. 명시적 영어 대응 및 재사용 조건 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "malaysia",
+      "priority": "3",
+      "name": "Bank Negara Malaysia",
+      "language_names": [
+        "말레이어"
+      ],
+      "urls": [
+        "https://www.bnm.gov.my/"
+      ],
+      "material": "금융소비자·결제·보험·이슬람 금융 용어 후보.",
+      "reason": "일반 소비자 금융과 현지 금융상품 표현을 구분해 도입할 수 있습니다.",
+      "observation": "접속403. 실제 자료·영어 대응·재사용 조건 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "thailand",
+      "priority": "3",
+      "name": "Bank of Thailand",
+      "language_names": [
+        "태국어"
+      ],
+      "urls": [
+        "https://www.bot.or.th/"
+      ],
+      "material": "금융소비자 안내·결제·금융교육 자료 후보.",
+      "reason": "동남아 언어권의 계좌·카드·대출 업무 표현을 추가할 탐색 대상입니다.",
+      "observation": "접속403. 실제 병행 문서 및 이용 조건 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "philippines",
+      "priority": "3",
+      "name": "Bangko Sentral ng Pilipinas",
+      "language_names": [
+        "타갈로그어"
+      ],
+      "urls": [
+        "https://www.bsp.gov.ph/"
+      ],
+      "material": "금융교육·송금·저축 안내 후보.",
+      "reason": "현재 미국 송금 안내34쌍에 현지 관할 표현을 보강하는 방향입니다.",
+      "observation": "접속403. 현지 자료의 영어 대조와 재사용 조건 미검증.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "cambodia_laos",
+      "priority": "4",
+      "name": "National Bank of Cambodia · Bank of the Lao PDR",
+      "language_names": [
+        "크메르어",
+        "라오어"
+      ],
+      "urls": [
+        "https://www.nbc.gov.kh/",
+        "https://www.bol.gov.la/"
+      ],
+      "material": "은행·결제·금융교육 자료 후보.",
+      "reason": "현재 없는 언어권을 확장할 후보이나 영어 기준 대응성과 문자 추출부터 확인해야 합니다.",
+      "observation": "두 사이트 접속403. 언어별 실제 자료·라이선스 미검증.",
+      "pilot_target": "언어당30–100쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    },
+    {
+      "candidate_id": "us_fdic",
+      "priority": "4",
+      "name": "미국 FDIC",
+      "language_names": [
+        "스페인어"
+      ],
+      "urls": [
+        "https://www.fdic.gov/"
+      ],
+      "material": "Money Smart 등 소비자 금융교육 자료 후보.",
+      "reason": "기존 스페인어에 원문 상황·용례를 추가하는 방향으로 활용할 수 있습니다.",
+      "observation": "접속403. 실제 언어판·자체 작성 자료 범위·제3자 예외와 이용 조건 추가 확인 필요.",
+      "pilot_target": "50–150쌍 탐색 목표",
+      "verification_status": "access_blocked",
+      "reuse_status": "미확인 · 상업 채택 보류",
+      "adopted_pairs": 0
+    }
+  ],
+  "evidence_files": [
+    "access-probes.json",
+    "resource-probes.json",
+    "resource-inspection.json",
+    "pilot-document-acquisition.json",
+    "rbb-document-acquisition.json",
+    "document-inspection.json"
+  ]
+}

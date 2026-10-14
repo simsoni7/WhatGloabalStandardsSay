@@ -44,6 +44,12 @@
 
 [목표·진행계획·에이전트셋](DATASET-DEVELOPMENT-PLAN.md) · [실제 데이터 진단](DATASET-QUALITY-DIAGNOSIS.md) · [금융 정보화 모델](FINANCIAL-INFORMATION-MODEL.md) · [독립 검수 결과](ENRICHMENT-REVIEW.md).
 
-## 금융 검토자용 HTML
+## 조회용 다국어 금융용어사전
 
-[검토 화면 ZIP 다운로드](financial-review-workbench.zip): 압축을 풀고 `financial-review.html`을 브라우저에서 엽니다. 원문16,064개 검색, 언어·출처 필터, 원문 근거·AI 개념 후보 확인, 금융 판정·조건·근거 기록, 검토 JSON 내보내기/불러오기를 제공합니다. 브라우저 저장은 GitHub나 데이터셋에 자동 반영되지 않습니다. 금융 판정은 번역 승인과 별개입니다. [사용·반영 절차](FINANCIAL-REVIEW-WORKBENCH.md). GitHub raw HTML은 웹페이지로 렌더링되지 않으며 ZIP을 내려받아 로컬에서 여세요.
+[사전 화면 ZIP 다운로드](financial-dictionary.zip) → 압축을 풀고 `financial-dictionary.html`을 브라우저에서 엽니다. 영어–외국어 16,064쌍을 한국어 언어명·출처·자료 종류·이용조건으로 필터링합니다. 검색·정렬·상세 근거·언어별 통계·출처의 신뢰 근거와 수집 방식·확장 후보를 제공합니다.
+
+검토자·판정·메모·검토 기록 입출력 기능은 제거했습니다. 기존 `financial-review.html`과 `financial-review-workbench.zip` 주소도 조회 화면으로 갱신했습니다. GitHub raw는 HTML을 웹페이지로 렌더링하지 않으므로 ZIP을 내려받아 여세요.
+
+[사용 방법](FINANCIAL-DICTIONARY.md) · [언어별 확장 후보 조사](FINANCIAL-DICTIONARY-EXPANSION.md) · [후보 목록 JSON](dictionary-expansion-candidates.json).
+
+이번 업데이트는 조회 UI와 후보 조사입니다. 원문 데이터와 용어쌍 수는 그대로이며, 새 후보의 상업 재사용 조건은 미확인으로 신규 쌍을 채택하지 않았습니다.

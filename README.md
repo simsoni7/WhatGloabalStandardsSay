@@ -43,3 +43,7 @@
 `/v1/concepts`로 AI후보개념과 구분질문을 검색하고, `financial_concept_id`와 `use_case`로 명시적 문맥을 선택할 수 있습니다. 이자/이자율 의미선택과 조달 분류의 소비자UI 사용 guard를 제공합니다. 자유문장 문맥분석12사례는 미구현으로 별도기록했고 실제 모델 정확도·전문가 번역승인은 측정하지 않았습니다. 원출처 정의 필드가 없는 상업자료를 AI설명으로 채웠다고 주장하지 않습니다.
 
 [목표·진행계획·에이전트셋](DATASET-DEVELOPMENT-PLAN.md) · [실제 데이터 진단](DATASET-QUALITY-DIAGNOSIS.md) · [금융 정보화 모델](FINANCIAL-INFORMATION-MODEL.md) · [독립 검수 결과](ENRICHMENT-REVIEW.md).
+
+## 금융 검토자용 HTML
+
+[검토 화면 ZIP 다운로드](financial-review-workbench.zip): 압축을 풀고 `financial-review.html`을 브라우저에서 엽니다. 원문16,064개 검색, 언어·출처 필터, 원문 근거·AI 개념 후보 확인, 금융 판정·조건·근거 기록, 검토 JSON 내보내기/불러오기를 제공합니다. 브라우저 저장은 GitHub나 데이터셋에 자동 반영되지 않습니다. 금융 판정은 번역 승인과 별개입니다. [사용·반영 절차](FINANCIAL-REVIEW-WORKBENCH.md). GitHub raw HTML은 웹페이지로 렌더링되지 않으며 ZIP을 내려받아 로컬에서 여세요.

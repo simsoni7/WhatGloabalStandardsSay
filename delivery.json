@@ -1,8 +1,8 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "485447c7817f4cd039b79c1260a563386b4c6b3b2c65d64c9884d205d7aec9d6",
-  "bytes": 64111379,
-  "file_count": 737,
+  "sha256": "f1f818193d1e36419a134a94e76b92072b36c3a162a272da47e9c41deffd6744",
+  "bytes": 66292037,
+  "file_count": 742,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
   "verified_tests": 68,
   "functional_evaluation_cases": 16,

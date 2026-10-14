@@ -1,5 +1,5 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "entry_count": 16064,
   "counts_by_dataset": {
     "canada_government_financial_labels": 117,
@@ -80,12 +80,12 @@
   "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 8748423,
-      "sha256": "b524770556051bac2f177237c6c6177b7a03b805d2c1595ac74d654ca1d4c8ab"
+      "bytes": 10100458,
+      "sha256": "13c3a0fa7a4d047cabaeb12fa35a655631f96c93ea62c626e32aeb58df7318ab"
     },
     "glossary_entries.jsonl": {
-      "bytes": 22639777,
-      "sha256": "69ab5a5b150fecdd15689ccec36cacdfd4c3c0a6bca89110098c3c8e2902e13a"
+      "bytes": 28065400,
+      "sha256": "a09ee4e5d0ee84dd78d58763dc7cce63e5ede5988e035786087a30b2790613bc"
     }
   },
   "reference_language_packs": [
@@ -365,6 +365,31 @@
     }
   ],
   "benchmark_note": "Reference terminology is not an independent translation-quality benchmark. No live-model accuracy score is claimed.",
+  "schema_version": 2,
+  "approved_translation_count": 0,
+  "field_rules": "source_english/source_target preserve source observations. Alignment does not establish semantic equivalence; approved_translation is null without explicit review. Missing approvals in CSV are empty cells.",
+  "integration_report": {
+    "schema_version": 2,
+    "entry_count": 16222,
+    "approved_translation_count": 0,
+    "equivalence_counts": {
+      "unreviewed": 15154,
+      "needs_review": 1067,
+      "not_applicable": 1
+    },
+    "issue_counts": {
+      "same_source_english_multiple_targets": 85,
+      "same_source_target_multiple_english": 304,
+      "source_definition_mismatch_suspected": 1
+    },
+    "cross_source_candidate_links": 240,
+    "rules": [
+      "Raw datasets unchanged",
+      "Source alignment is not semantic equivalence",
+      "No automatic cross-source concept merge",
+      "AI triage does not approve a translation"
+    ]
+  },
   "commercial_use_policy": {
     "format_version": 1,
     "commercial_use_required": true,

@@ -1,5 +1,5 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "entry_count": 12249,
   "counts_by_dataset": {
     "canada_government_financial_labels": 117,
@@ -309,7 +309,10 @@
     }
   },
   "files_sha256": {
-    "glossary_entries.jsonl": "5e8f9d6bcbfa100b4540bb2601c8dd5be9ff3e145fca2e6769c67c71757759f3",
-    "glossary_entries.csv": "41c38c53aead332cddfd0c0a059600a2c649ec77f423851fa30a70195d4ed678"
-  }
+    "glossary_entries.jsonl": "ce4e8c96d3f3e960c06cbee574924d2d1bec827f9ae6ebd9cf861d249c673a48",
+    "glossary_entries.csv": "d103a7dbd56c85d0c961df9861c3f27a2fcd08c4ea4d9a4111ca16a4d97e6449"
+  },
+  "schema_version": 2,
+  "approved_translation_count": 0,
+  "field_rules": "Source observations are not approved translations. Commercial permission is separate from semantic correctness."
 }

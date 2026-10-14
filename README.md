@@ -1,5 +1,13 @@
 # 금융 언어팩 다운로드
 
+## 스키마 v2: 출처 표기와 승인된 번역 분리
+
+통합 JSONL·CSV와 API는 source_english/source_target을 출처의 표기로 보존합니다. alignment_status는 출처 연결이고 equivalence_status는 의미 검토 상태입니다. approved_translation은 모든 레코드에서 null입니다. 원문 인용은 source_quoted_text로 반환하며 승인된 번역처럼 반환하지 않습니다.
+
+원본 cfpd v1 및 수집 원자료는 변경하지 않았습니다. 304번 Interest Rate/Хүү는 원문 정의 불일치 의심으로 표시했고 733/737/3377과 함께 검토 대상으로 보존했습니다. 자동 수정·개념 병합은 하지 않았습니다. [스키마 및 API 변경 안내](INTEGRATION-V2.md) · [전처리 보고서](integration-report.json).
+
+
+
 ## 권장: 상업 이용 조건 확인 데이터
 
 [상업 조건 확인 언어팩 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/glossary-distribution/commercial-language-packs.zip): 29개 대상언어, 영어–대상언어 12,249쌍. CFPB 자체제작 공개영역 자료, 캐나다 정부 MIT 자료, EU CC BY 4.0 자료입니다. 각 출처의 저작권·라이선스·출처표시 조건을 보존해야 합니다. 상업 허용이 전문가 번역검수를 뜻하지는 않습니다.

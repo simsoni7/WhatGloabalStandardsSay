@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "entry_count": 16222,
+  "approved_translation_count": 0,
+  "equivalence_counts": {
+    "unreviewed": 15154,
+    "needs_review": 1067,
+    "not_applicable": 1
+  },
+  "issue_counts": {
+    "same_source_english_multiple_targets": 85,
+    "same_source_target_multiple_english": 304,
+    "source_definition_mismatch_suspected": 1
+  },
+  "cross_source_candidate_links": 240,
+  "rules": [
+    "Raw datasets unchanged",
+    "Source alignment is not semantic equivalence",
+    "No automatic cross-source concept merge",
+    "AI triage does not approve a translation"
+  ]
+}

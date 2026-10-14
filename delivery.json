@@ -1,10 +1,10 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "d2d69498b2275b85fad1920f9c8200d60e7060332c009d0ed9fba776a26fd7ae",
-  "bytes": 63727200,
-  "file_count": 706,
+  "sha256": "8720fb9927b4a79b713d85c6ad359357b66faa0e08413adbe54d51001eafb044",
+  "bytes": 63856241,
+  "file_count": 712,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
-  "verified_tests": 55,
+  "verified_tests": 60,
   "functional_evaluation_cases": 16,
   "live_model_validation": false,
   "remaining_blockers": [
@@ -329,5 +329,29 @@
   ],
   "source_language_smoke_checks": 26,
   "commercial_reference_entries": 12249,
-  "commercial_target_languages": 29
+  "commercial_target_languages": 29,
+  "schema_version": 2,
+  "approved_translation_count": 0,
+  "integration_preprocessing": {
+    "schema_version": 2,
+    "entry_count": 16222,
+    "approved_translation_count": 0,
+    "equivalence_counts": {
+      "unreviewed": 15154,
+      "needs_review": 1067,
+      "not_applicable": 1
+    },
+    "issue_counts": {
+      "same_source_english_multiple_targets": 85,
+      "same_source_target_multiple_english": 304,
+      "source_definition_mismatch_suspected": 1
+    },
+    "cross_source_candidate_links": 240,
+    "rules": [
+      "Raw datasets unchanged",
+      "Source alignment is not semantic equivalence",
+      "No automatic cross-source concept merge",
+      "AI triage does not approve a translation"
+    ]
+  }
 }

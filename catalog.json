@@ -1,9 +1,11 @@
 {
   "format_version": 2,
-  "entry_count": 16857,
+  "entry_count": 19140,
   "counts_by_dataset": {
+    "apache_ofbiz_accounting": 2223,
     "canada_government_financial_labels": 117,
     "cfpb_remittance": 135,
+    "cfpb_remittance_receipt_labels": 60,
     "cfpd": 10089,
     "eu_cpv_financial_services": 1958,
     "mongolbank": 3644,
@@ -11,32 +13,36 @@
     "unicode_cldr_currency_names": 743
   },
   "counts_by_language": {
-    "fr": 206,
-    "ar": 16,
-    "es": 2117,
-    "ht": 35,
-    "ko": 2027,
-    "ru": 2308,
-    "tl": 34,
-    "vi": 2325,
-    "zh-Hant": 2028,
+    "ar": 194,
+    "cs": 124,
+    "de": 262,
+    "es": 2298,
+    "fr": 381,
+    "hi": 160,
+    "it": 193,
+    "ja": 170,
+    "nl": 219,
+    "pt": 250,
+    "ro": 165,
+    "ru": 2398,
+    "th": 92,
+    "vi": 2508,
+    "zh-Hans": 174,
+    "zh-Hant": 2209,
+    "ht": 43,
+    "ko": 2035,
+    "tl": 38,
     "bg": 89,
-    "cs": 89,
     "da": 89,
-    "de": 89,
     "el": 89,
     "et": 89,
     "fi": 89,
     "hr": 89,
     "hu": 89,
-    "it": 89,
     "lt": 89,
     "lv": 89,
     "mt": 89,
-    "nl": 89,
     "pl": 89,
-    "pt": 89,
-    "ro": 89,
     "sk": 89,
     "sl": 89,
     "sv": 89,
@@ -55,10 +61,12 @@
     "et",
     "fi",
     "fr",
+    "hi",
     "hr",
     "ht",
     "hu",
     "it",
+    "ja",
     "km",
     "ko",
     "lt",
@@ -74,8 +82,10 @@
     "sk",
     "sl",
     "sv",
+    "th",
     "tl",
     "vi",
+    "zh-Hans",
     "zh-Hant"
   ],
   "nepal_note": "66 original records plus 105 source-backed bilingual form labels visually checked by AI. Not human-reviewed; originating form context required.",
@@ -83,12 +93,12 @@
   "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 11665378,
-      "sha256": "f76b715917d7916593c1b72806b21914bde515756870d9c8628a8e552da86fcf"
+      "bytes": 16866344,
+      "sha256": "6fb237dd5dda6ece3a08c0692c81f5a5a18008d83e2f8bf47ad0777836ec5b34"
     },
     "glossary_entries.jsonl": {
-      "bytes": 32485817,
-      "sha256": "a2cd529b062e4fa12c3e5a43f38eccff1ad5f4146d38b82a5fbd35c05807eaa2"
+      "bytes": 40516556,
+      "sha256": "c79b12064e0ac70ae1bfd8f478c85ea34b4a72c2783dd2455189c13ebce991cb"
     },
     "financial_concepts.jsonl": {
       "bytes": 62806,
@@ -367,6 +377,153 @@
           "Uninflected displayName fields only; inflected amount labels not included"
         ]
       }
+    },
+    {
+      "dataset_id": "cfpb_remittance_receipt_labels",
+      "entry_count": 60,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "cfpb_remittance_receipt_labels",
+        "dataset_version": "batch5-reviewed-20261014",
+        "decision": "accepted_reference",
+        "entry_count": 60,
+        "language_counts": {
+          "vi": 8,
+          "zh-Hant": 8,
+          "ko": 8,
+          "ru": 8,
+          "es": 8,
+          "ht": 8,
+          "ar": 8,
+          "tl": 4
+        },
+        "usage_terms": {
+          "commercial_use": true,
+          "license": "CFPB-created public-domain information",
+          "attribution_required": false,
+          "license_file": "raw/reuse-policy.html"
+        },
+        "adoption_review": {
+          "type": "independent_ai_source_review",
+          "human_review": false,
+          "semantic_approval": false
+        },
+        "files_sha256": {
+          "evidence.jsonl": "42da3eeb38fc5433f7c639bdf1587fc3716023ef10da135fbf4fbae6fda3bd28",
+          "MODIFICATIONS.md": "2394ce47237bab56cd45faf83929ffd764e673ad84d5882af3a9ecf2430c0993",
+          "README.md": "0367b39aba5ce2b1df544cc7b21d76a830e88875e3fd87cf14e6fb9a87d58825",
+          "independent-review.json": "03aedd23d5c846aa892e5c8e4c33c66b4266469e955220e4fb239b05cde906f0",
+          "raw/LICENSE": "a7d65bace0b341e1e1b01d70b37460af78a4bad0f2700a916e56357bcd6f843c",
+          "raw/reuse-policy.html": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+          "raw/policy.html": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+          "observed/raw/cfpb_ko.pdf": "37e50ee07a6ec464120f5846579f8e9047ce57a4c81bdf6da927160686daef5d",
+          "observed/raw/cfpb_ru.pdf": "deac5925624d5f040363317f8eba2d7cbd13f97e57598d3c7bcc53e0c451b17c",
+          "observed/raw/cfpb_zh.pdf": "b7a656578535b04c85c8f4ce50b17ef3d203a6bc5000d6ec0d9367acaf8ebfda",
+          "observed/raw/cfpb_vi.pdf": "556fc71ef146e7b21274273537b9cf10fc8c003118dacfa987fa5ee2e4df5986",
+          "observed/raw/cfpb_ko.txt": "cbd16ceec29b12d5b05de6d105e63ac520de010f6fd07e660722c51a49a1e097",
+          "observed/raw/cfpb_reuse_policy.txt": "88e1befe22f1f5294a817c4b058f39a13c145b739687a9fcf766f29eeeb61816",
+          "observed/raw/cfpb_zh.txt": "040f8826a65e103375767e55ad2152b471d205175b4742137801fdc903ee2d2e",
+          "observed/raw/cfpb_en.pdf": "218d02d3dfa16dc6540bc257106f829fa13d2ec000a927f802c3a9b7ab43dd4b",
+          "observed/raw/cfpb_vi.txt": "c7a316b07f9f2076e50ea77cb018545e5cc89cba514593a9b5a4865ba5d1ed9c",
+          "observed/raw/cfpb_ru.txt": "ed506da7f9097e95d1283cb5ef7875380471834a16e20d3f816d9c3fe7349a2b",
+          "observed/raw/cfpb_en.txt": "9a2d426f24d7eda0b8572325f25bfb0e9d1344f3d9a420396184ad9e0bf9b1a8",
+          "observed/arabic_receipt_batch/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "observed/arabic_receipt_batch/ar_page1.png": "fd3086be0dac1e44b4b8b72b0124b54c4c8214427c8543dc6c809221b9c9e499",
+          "observed/next_batch_candidates/es.pdf": "01ba45f81bf89c6846216be70afc1b94b30c54253eb02969e4c406a4782951e7",
+          "observed/next_batch_candidates/tl.pdf": "a2794d1a6720985820628eda755c450c8b347556a9755b7929d84415dcccf7d6",
+          "observed/next_batch_candidates/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "observed/next_batch_candidates/ht.pdf": "2ca4600f5e7ff727ef2ffbc6d2b9872b0b5bfcdb95777bdd67dac49e02264eaa",
+          "observed/education_probe/cfpb_your-money-your-goals_open-checking-savings_tool_2018-11.pdf": "2ebfb4817a340ad75e7e9f0b2b53eb086bfa2b953f0ff9a29e61822710f795a1",
+          "observed/education_probe/cfpb_your-money-your-goals_financial-empowerment_toolkit.pdf": "8436ebc592dfe2df560915d3454ad074cc9a3f995b3f3a199248ce32bc2c3c20",
+          "observed/education_probe/cfpb_your-money-your-goals_open-checking-savings_tool_2018-11.txt": "cf3b6990111779104b75e57bcf65c0e8e44fc1ec578bf06c562a528a04c5e00f",
+          "observed/education_probe/cfpb_your-money-your-goals_financial-empowerment_toolkit.txt": "a23ca7237d594fe8daf8dc82dce52c2a7ada3280b9e44d06343d52e5357ff0bd",
+          "original_sources/1/es.pdf": "01ba45f81bf89c6846216be70afc1b94b30c54253eb02969e4c406a4782951e7",
+          "original_sources/1/tl.txt": "23757b66637fdc46caa8556d51f6b01130adb0e7c06fcc1ae36d7f256ae6b820",
+          "original_sources/1/tl.pdf": "a2794d1a6720985820628eda755c450c8b347556a9755b7929d84415dcccf7d6",
+          "original_sources/1/ar.txt": "8573ad3718407b6f910e8cb5ee8c8c343709c4ad1f961cdd26d1cc58b7eb7285",
+          "original_sources/1/ht.txt": "9b174f593ebb44c99a065261b6ddedecddf9805ec4016064bbe984d32f0c08fd",
+          "original_sources/1/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "original_sources/1/es.txt": "228e48cb1ea3b29e541588337d951d9b5a06996afbd7bd544c722bfdc5848798",
+          "original_sources/1/ht.pdf": "2ca4600f5e7ff727ef2ffbc6d2b9872b0b5bfcdb95777bdd67dac49e02264eaa",
+          "original_sources/2/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "original_sources/2/ar_page1.png": "fd3086be0dac1e44b4b8b72b0124b54c4c8214427c8543dc6c809221b9c9e499",
+          "original_sources/0/raw/cfpb_ko.pdf": "37e50ee07a6ec464120f5846579f8e9047ce57a4c81bdf6da927160686daef5d",
+          "original_sources/0/raw/cfpb_ru.pdf": "deac5925624d5f040363317f8eba2d7cbd13f97e57598d3c7bcc53e0c451b17c",
+          "original_sources/0/raw/cfpb_zh.pdf": "b7a656578535b04c85c8f4ce50b17ef3d203a6bc5000d6ec0d9367acaf8ebfda",
+          "original_sources/0/raw/cfpb_vi.pdf": "556fc71ef146e7b21274273537b9cf10fc8c003118dacfa987fa5ee2e4df5986",
+          "original_sources/0/raw/cfpb_ko.txt": "cbd16ceec29b12d5b05de6d105e63ac520de010f6fd07e660722c51a49a1e097",
+          "original_sources/0/raw/cfpb_reuse_policy.txt": "88e1befe22f1f5294a817c4b058f39a13c145b739687a9fcf766f29eeeb61816",
+          "original_sources/0/raw/cfpb_zh.txt": "040f8826a65e103375767e55ad2152b471d205175b4742137801fdc903ee2d2e",
+          "original_sources/0/raw/cfpb_en.pdf": "218d02d3dfa16dc6540bc257106f829fa13d2ec000a927f802c3a9b7ab43dd4b",
+          "original_sources/0/raw/cfpb_vi.txt": "c7a316b07f9f2076e50ea77cb018545e5cc89cba514593a9b5a4865ba5d1ed9c",
+          "original_sources/0/raw/cfpb_ru.txt": "ed506da7f9097e95d1283cb5ef7875380471834a16e20d3f816d9c3fe7349a2b",
+          "original_sources/0/raw/cfpb_en.txt": "9a2d426f24d7eda0b8572325f25bfb0e9d1344f3d9a420396184ad9e0bf9b1a8",
+          "original_sources/0/arabic_receipt_batch/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "original_sources/0/arabic_receipt_batch/ar_page1.png": "fd3086be0dac1e44b4b8b72b0124b54c4c8214427c8543dc6c809221b9c9e499",
+          "original_sources/0/next_batch_candidates/es.pdf": "01ba45f81bf89c6846216be70afc1b94b30c54253eb02969e4c406a4782951e7",
+          "original_sources/0/next_batch_candidates/tl.txt": "23757b66637fdc46caa8556d51f6b01130adb0e7c06fcc1ae36d7f256ae6b820",
+          "original_sources/0/next_batch_candidates/tl.pdf": "a2794d1a6720985820628eda755c450c8b347556a9755b7929d84415dcccf7d6",
+          "original_sources/0/next_batch_candidates/ar.txt": "8573ad3718407b6f910e8cb5ee8c8c343709c4ad1f961cdd26d1cc58b7eb7285",
+          "original_sources/0/next_batch_candidates/ht.txt": "9b174f593ebb44c99a065261b6ddedecddf9805ec4016064bbe984d32f0c08fd",
+          "original_sources/0/next_batch_candidates/ar.pdf": "c92c96fc06a9320c621dda5562907404bdd5fa9ffe87ed5d9c5096c6a6f1092c",
+          "original_sources/0/next_batch_candidates/es.txt": "228e48cb1ea3b29e541588337d951d9b5a06996afbd7bd544c722bfdc5848798",
+          "original_sources/0/next_batch_candidates/ht.pdf": "2ca4600f5e7ff727ef2ffbc6d2b9872b0b5bfcdb95777bdd67dac49e02264eaa",
+          "original_sources/0/education_probe/cfpb_your-money-your-goals_open-checking-savings_tool_2018-11.pdf": "2ebfb4817a340ad75e7e9f0b2b53eb086bfa2b953f0ff9a29e61822710f795a1",
+          "original_sources/0/education_probe/cfpb_your-money-your-goals_financial-empowerment_toolkit.pdf": "8436ebc592dfe2df560915d3454ad074cc9a3f995b3f3a199248ce32bc2c3c20",
+          "original_sources/0/education_probe/cfpb_your-money-your-goals_open-checking-savings_tool_2018-11.txt": "cf3b6990111779104b75e57bcf65c0e8e44fc1ec578bf06c562a528a04c5e00f",
+          "original_sources/0/education_probe/cfpb_your-money-your-goals_financial-empowerment_toolkit.txt": "a23ca7237d594fe8daf8dc82dce52c2a7ada3280b9e44d06343d52e5357ff0bd"
+        }
+      }
+    },
+    {
+      "dataset_id": "apache_ofbiz_accounting",
+      "entry_count": 2223,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "apache_ofbiz_accounting",
+        "dataset_version": "batch5-reviewed-20261014",
+        "decision": "accepted_reference",
+        "entry_count": 2223,
+        "language_counts": {
+          "ar": 170,
+          "cs": 35,
+          "de": 173,
+          "es": 173,
+          "fr": 175,
+          "hi": 160,
+          "it": 104,
+          "ja": 170,
+          "nl": 130,
+          "ro": 76,
+          "ru": 82,
+          "th": 92,
+          "vi": 175,
+          "zh-Hans": 174,
+          "zh-Hant": 173,
+          "pt": 161
+        },
+        "usage_terms": {
+          "commercial_use": true,
+          "license": "Apache-2.0",
+          "attribution_required": true,
+          "license_file": "raw/LICENSE",
+          "notice_file": "raw/NOTICE"
+        },
+        "adoption_review": {
+          "type": "independent_ai_source_review",
+          "human_review": false,
+          "semantic_approval": false
+        },
+        "files_sha256": {
+          "evidence.jsonl": "39294864159db19132c17317fdd7d60c4f91fd963f94ae65b605d34bdfce51af",
+          "MODIFICATIONS.md": "2394ce47237bab56cd45faf83929ffd764e673ad84d5882af3a9ecf2430c0993",
+          "README.md": "0367b39aba5ce2b1df544cc7b21d76a830e88875e3fd87cf14e6fb9a87d58825",
+          "independent-review.json": "a400a7cf605df64c8ef3a3d1e4da2f02c9d401ad001b7dadbfba4976202c6388",
+          "raw/LICENSE": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+          "raw/NOTICE": "dc5608d6a118e28e840b2b16b351bae9ba0059c1c69c6cfee25fd05631f52800",
+          "raw/AccountingUiLabels.xml": "03479bd2fdcc606e175f9e066352ca68d6d3240cb895ea338811c4fd52018926"
+        }
+      }
     }
   ],
   "benchmarks": [
@@ -439,19 +596,19 @@
   "field_rules": "source_english/source_target preserve source observations. Alignment does not establish semantic equivalence; approved_translation is null without explicit review. Missing approvals in CSV are empty cells.",
   "integration_report": {
     "schema_version": 2,
-    "entry_count": 17015,
+    "entry_count": 19298,
     "approved_translation_count": 0,
     "equivalence_counts": {
-      "unreviewed": 15947,
-      "needs_review": 1067,
+      "unreviewed": 17910,
+      "needs_review": 1387,
       "not_applicable": 1
     },
     "issue_counts": {
-      "same_source_english_multiple_targets": 85,
-      "same_source_target_multiple_english": 304,
+      "same_source_english_multiple_targets": 148,
+      "same_source_target_multiple_english": 401,
       "source_definition_mismatch_suspected": 1
     },
-    "cross_source_candidate_links": 283,
+    "cross_source_candidate_links": 304,
     "rules": [
       "Raw datasets unchanged",
       "Source alignment is not semantic equivalence",
@@ -466,12 +623,19 @@
         "ai_definition_review_attached": 48,
         "cross_domain_meaning_review_required": 37,
         "identical_definition_variant_candidate": 1,
-        "target_variant_semantics_unresolved": 7,
-        "shared_target_sense_review_required": 297
+        "target_variant_semantics_unresolved": 70,
+        "shared_target_sense_review_required": 394
       },
       "human_approved_translations": 0,
       "complete_semantic_validation": false
-    }
+    },
+    "expansion_source_review": {
+      "new_core_records_reviewed": 2283,
+      "named_semantic_quarantines": 9,
+      "software_context_generation_policy_blocks": 2223,
+      "expert_translation_approvals": 0
+    },
+    "generation_ineligible_records": 2227
   },
   "financial_information_layer": {
     "candidate_cards": 24,
@@ -487,7 +651,9 @@
       "cfpb_remittance",
       "canada_government_financial_labels",
       "eu_cpv_financial_services",
-      "unicode_cldr_currency_names"
+      "unicode_cldr_currency_names",
+      "cfpb_remittance_receipt_labels",
+      "apache_ofbiz_accounting"
     ],
     "exclusions": [
       {
@@ -524,6 +690,22 @@
         "policy_sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
         "attribution_review": "datasets/language_packs/unicode_cldr_currency_names/independent-review.json",
         "license": "Unicode-3.0"
+      },
+      {
+        "dataset_id": "cfpb_remittance_receipt_labels",
+        "license": "CFPB-created public-domain information",
+        "policy_url": "https://www.consumerfinance.gov/privacy/website-privacy-policy/",
+        "policy_snapshot": "datasets/language_packs/cfpb_remittance_receipt_labels/raw/policy.html",
+        "policy_sha256": "06391d4555a155e8843f85f748471b3769b0f9de64c40086b49d5bad3df0d230",
+        "attribution_review": "datasets/language_packs/cfpb_remittance_receipt_labels/independent-review.json"
+      },
+      {
+        "dataset_id": "apache_ofbiz_accounting",
+        "license": "Apache-2.0",
+        "policy_url": "https://github.com/apache/ofbiz-framework/blob/b8b72d556e829d4a0818f8a4fed57e0750efcacb/LICENSE",
+        "policy_snapshot": "datasets/language_packs/apache_ofbiz_accounting/raw/LICENSE",
+        "policy_sha256": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+        "attribution_review": "datasets/language_packs/apache_ofbiz_accounting/independent-review.json"
       }
     ],
     "human_review": false,

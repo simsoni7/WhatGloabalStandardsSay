@@ -1,0 +1,143 @@
+{
+  "format_version": 2,
+  "entry_count": 6006,
+  "counts_by_language": {
+    "vi": 1350,
+    "ru": 1000,
+    "km": 680,
+    "ko": 111,
+    "es": 932,
+    "hi": 83,
+    "ne": 387,
+    "id": 815,
+    "ar": 54,
+    "bn": 52,
+    "fa": 63,
+    "fr": 43,
+    "kn": 51,
+    "ml": 65,
+    "my": 52,
+    "pl": 52,
+    "pt": 55,
+    "sw": 53,
+    "te": 54,
+    "ur": 54
+  },
+  "components": [
+    {
+      "dataset_id": "gnucash_financial_ui",
+      "entry_count": 1437,
+      "counts_by_language": {
+        "vi": 489,
+        "ru": 948
+      },
+      "file": "gnucash_financial_ui.json",
+      "sha256": "268c53d907e21e924c4089ffb99758892b5589fe550ed894dcff6939e627c38e",
+      "usage_terms": {
+        "commercial_use": true,
+        "license": "GPL-2.0-or-GPL-3.0",
+        "copyleft": true,
+        "attribution_required": true,
+        "license_file": "raw/LICENSE",
+        "source_distribution_required": true,
+        "source_files": [
+          "raw/po_vi.po",
+          "raw/po_ru.po"
+        ],
+        "distribution_policy": "Separate GnuCash-derived copyleft reference pack; retain original PO copyright notices and GPL license. No claim that unrelated packs adopt GPL. Modified extraction notice in MODIFICATIONS.md."
+      },
+      "source_pack": "datasets/community_language_packs/gnucash_financial_ui",
+      "named_semantic_cautions": 2
+    },
+    {
+      "dataset_id": "mifos_financial_ui",
+      "entry_count": 3642,
+      "counts_by_language": {
+        "km": 629,
+        "vi": 861,
+        "ko": 111,
+        "es": 868,
+        "hi": 21,
+        "ne": 387,
+        "id": 765
+      },
+      "file": "mifos_financial_ui.json",
+      "sha256": "0e3a1c64f5d23ef60bbc38f6bafb6414e4a50326a8ff3bb7508d884c91d4d334",
+      "usage_terms": {
+        "commercial_use": true,
+        "license": "MPL-2.0",
+        "copyleft": true,
+        "copyleft_scope": "file_level",
+        "attribution_required": true,
+        "license_file": "raw/LICENSE.txt",
+        "source_distribution_required": true,
+        "source_files": [
+          "raw/app_global-translations_locale-en.json",
+          "raw/app_global-translations_locale-km.json",
+          "raw/app_global-translations_locale-vi.json"
+        ],
+        "distribution_policy": "Separate MPL-covered localization source pack with complete corresponding JSON source, contributor metadata, license and extraction notice. No blanket relicensing of unrelated datasets."
+      },
+      "source_pack": "datasets/community_language_packs/mifos_financial_ui",
+      "named_semantic_cautions": 20
+    },
+    {
+      "dataset_id": "mifos_mobile_banking",
+      "entry_count": 927,
+      "counts_by_language": {
+        "ar": 54,
+        "bn": 52,
+        "es": 64,
+        "fa": 63,
+        "fr": 43,
+        "hi": 62,
+        "id": 50,
+        "km": 51,
+        "kn": 51,
+        "ml": 65,
+        "my": 52,
+        "pl": 52,
+        "pt": 55,
+        "ru": 52,
+        "sw": 53,
+        "te": 54,
+        "ur": 54
+      },
+      "file": "mifos_mobile_banking.json",
+      "sha256": "7083b2d13b5383717d71b85bbfa736e76a8064717b82acab4039a9c57e1a0531",
+      "usage_terms": {
+        "commercial_use": true,
+        "license": "MPL-2.0",
+        "copyleft": true,
+        "copyleft_scope": "file_level",
+        "attribution_required": true,
+        "license_file": "raw/LICENSE",
+        "source_distribution_required": true,
+        "source_files": [
+          "raw/values-ar.xml",
+          "raw/values-bn.xml",
+          "raw/values-es.xml",
+          "raw/values-fa-rAF.xml",
+          "raw/values-fr.xml",
+          "raw/values-hi.xml",
+          "raw/values-in.xml",
+          "raw/values-km.xml",
+          "raw/values-kn.xml",
+          "raw/values-ml.xml",
+          "raw/values-my.xml",
+          "raw/values-pl.xml",
+          "raw/values-pt.xml",
+          "raw/values-ru.xml",
+          "raw/values-sw.xml",
+          "raw/values-te.xml",
+          "raw/values-ur.xml",
+          "raw/values.xml"
+        ],
+        "distribution_policy": "Separate MPL-covered Android localization source pack; preserve corresponding XML source, copyright headers, LICENSE and extraction notice. No blanket relicensing."
+      },
+      "source_pack": "datasets/community_language_packs/mifos_mobile_financial_ui",
+      "named_semantic_cautions": 0
+    }
+  ],
+  "generation_policy": "All community copyleft observations blocked for default model generation; not expert-approved equivalents."
+}

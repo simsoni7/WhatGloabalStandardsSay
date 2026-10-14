@@ -1,0 +1,66 @@
+name: Glossary source monitoring
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [glossary-distribution]
+    paths:
+      - .github/workflows/glossary-source-monitor.yml
+      - scripts/monitor_glossary_sources.py
+permissions:
+  contents: read
+concurrency:
+  group: glossary-source-monitor
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect immutable source and license snapshots
+        run: python3 scripts/monitor_glossary_sources.py research
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-intake
+          path: automation/
+          retention-days: 14
+  audit:
+    needs: research
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-intake
+          path: automation/
+      - name: Verify hashes, syntax and license changes
+        run: python3 scripts/monitor_glossary_sources.py audit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audited-source-intake
+          path: automation/
+          retention-days: 14
+  publish-progress:
+    needs: audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: audited-source-intake
+          path: automation/
+      - name: Publish source evidence to separate monitoring branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout --orphan glossary-source-intake
+          git rm -rf --cached .
+          git add -f automation
+          git commit -m 'Publish monitored source snapshots and pending-review progress'
+          git push --force origin HEAD:refs/heads/glossary-source-intake

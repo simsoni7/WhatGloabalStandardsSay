@@ -1,0 +1,64 @@
+{
+  "format_version": 1,
+  "manager": "language_data_manager",
+  "decisions": [
+    {
+      "candidate_id": "cfpb_remittance_rights_ar_ht_tl",
+      "decision": "research_again",
+      "reason": "Official metadata and public-domain policy identified, but original translated PDFs blocked; no pair evidence can yet be admitted.",
+      "revised_research": [
+        "official bilingual or translated HTML",
+        "official CFPB GitHub source files",
+        "official republication of same fact sheets"
+      ],
+      "scope": "Arabic Haitian Creole Tagalog financial-guidance reference pack",
+      "accepted_entries": 0
+    },
+    {
+      "candidate_id": "finqa_public_test",
+      "decision": "accepted_benchmark",
+      "task": "financial_numerical_reasoning",
+      "record_count": 1147,
+      "languages": [
+        "en"
+      ],
+      "reason": "Official dataset, source IDs, gold programs/execution answers, original test split and MIT notice acquired; separate from glossary and translation benchmarks.",
+      "quality_flags": {
+        "empty_source_answer_text": 14
+      },
+      "requires_followup": "Continue seeking commercially usable multilingual financial sources; this English benchmark does not fulfill that goal."
+    },
+    {
+      "candidate_id": "multifin",
+      "decision": "research_again",
+      "reason": "CC BY-NC4.0 restricts commercial use; actual dataset download blocked. No records adopted.",
+      "revised_research": [
+        "Find officially authorized reachable original data",
+        "Keep any later dataset in separate noncommercial research-only pack"
+      ]
+    },
+    {
+      "candidate_id": "flue",
+      "decision": "pending",
+      "reason": "Umbrella repository license alone does not establish all constituent dataset rights; original benchmark files not acquired."
+    }
+  ],
+  "initial_feedback": {
+    "required": [
+      "official source and financial context",
+      "explicit English-target pairing",
+      "original source URL SHA256 and page/row",
+      "redistribution terms",
+      "candidate status and human_review false"
+    ],
+    "excluded": [
+      "unverified ordinal alignment",
+      "English-only material with generated translation",
+      "unclear redistribution permission"
+    ],
+    "asset_types": {
+      "reference_pack": "source-attested bilingual terminology",
+      "benchmark": "independent task-specific reviewed evaluation; glossary alone insufficient"
+    }
+  }
+}

@@ -27,3 +27,9 @@ AI에는 목표 언어, 사용 국가, 금융 상품·상황을 전달하고 카
 원문 기관이 이 배포를 승인했다는 의미는 아닙니다. 원문의 사용 조건과 각 레코드의 출처를 확인하세요.
 
 네팔어 보강 내역과 원본 출처: [NEPAL-UPDATE.md](NEPAL-UPDATE.md).
+
+## 금융 언어팩·벤치마크 시장조사 (2026-10-14)
+
+[시장조사](LANGUAGE-MARKET-RESEARCH.md)와 [데이터 관리 검토](LANGUAGE-PACK-ADOPTION.md)를 통해 FinQA 공식 공개 test 1,147건을 별도 수치추론 벤치마크로 채택했습니다. 두 ZIP의 `benchmarks/finqa/` 또는 `datasets/language_packs/finqa_numerical_reasoning/`에서 원본·정답·MIT 라이선스를 확인하세요. 참조 DB에는 섞지 않았으며 모델 성능평가는 실행하지 않았습니다.
+
+새 대상언어는 이번에 추가되지 않았습니다. 아랍어·아이티 크리올어·타갈로그 CFPB 공식 안내 후보는 원본 CDN 접속 차단으로 보류했습니다. MultiFin은 원자료 미확보 및 비상업 이용 조건 때문에 도입하지 않았습니다. 참고용 영어–외국어 쌍은 기존 7개 대상언어 13,904건입니다.

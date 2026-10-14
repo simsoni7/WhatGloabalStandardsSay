@@ -1,10 +1,10 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "017622739f0db135b2869d9cfaa0c506400561f92653c0e048f7597b61df57b5",
-  "bytes": 49413750,
-  "file_count": 590,
+  "sha256": "162299709d65daf1c0f7c532cb33e445f0d483304de53b835ece54b182413944",
+  "bytes": 55736300,
+  "file_count": 614,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
-  "verified_tests": 48,
+  "verified_tests": 53,
   "functional_evaluation_cases": 16,
   "live_model_validation": false,
   "remaining_blockers": [
@@ -17,5 +17,79 @@
   "frozen_cfpd_integrity": "verified",
   "nepal_entries": 171,
   "data_entries": 13904,
-  "release_date": "2026-10-13"
+  "release_date": "2026-10-14",
+  "target_languages": [
+    "es",
+    "ko",
+    "mn",
+    "ne",
+    "ru",
+    "vi",
+    "zh-Hant"
+  ],
+  "reference_language_packs": [],
+  "benchmarks": [
+    {
+      "dataset_id": "finqa",
+      "state": "candidate",
+      "manifest": {
+        "format_version": 1,
+        "dataset_id": "finqa",
+        "dataset_name": "FinQA public test numerical reasoning",
+        "state": "candidate",
+        "decision": "accepted_benchmark",
+        "task": "financial_numerical_reasoning",
+        "record_count": 1147,
+        "languages": [
+          "en"
+        ],
+        "new_glossary_languages": [],
+        "glossary_entry_count": 0,
+        "split_counts": {
+          "test": 1147
+        },
+        "files_sha256": {
+          "LICENSE": "92c0e67bd762c15c07ba60de09558338315a8ebf99aac4f51f487179809ac087",
+          "SOURCE_README.md": "eb86779cfed6f0a253913761d8e4fabe032a29d9fcf2944e56c23bf007064605",
+          "benchmark.jsonl": "6af50fec98da4fc3d9e19922106de765330cd1590befdc69b05facb8cf6d1cf0",
+          "source_test.json": "831dbfb2e785dbc227f895ce3f24046433467aec67b09db2bd6ac7692a8a30dc",
+          "README.md": "fd542de1f5d29c30bfd05c8d40e57ba09900004d5ddfa93105efe385103e2beb"
+        },
+        "usage_terms": {
+          "license": "MIT",
+          "license_file": "LICENSE",
+          "basis": "Official repository README describes the dataset and code; repository root MIT license retained.",
+          "third_party_source_caveat": "Underlying financial report attribution retained; no claim of blanket rights over third-party reports."
+        },
+        "source": {
+          "repository": "https://github.com/czyssrs/FinQA",
+          "data_url": "https://raw.githubusercontent.com/czyssrs/FinQA/main/dataset/test.json",
+          "data_sha256": "831dbfb2e785dbc227f895ce3f24046433467aec67b09db2bd6ac7692a8a30dc",
+          "paper": "https://arxiv.org/abs/2109.00122"
+        },
+        "adoption_review": {
+          "manager": "language_data_manager",
+          "checks": [
+            "Original source hash verified",
+            "1,147 unique source IDs",
+            "Question, program, and execution answer present for every record",
+            "Original public test split retained",
+            "Gold answers separated from model inputs",
+            "14 empty textual answers preserved and flagged"
+          ],
+          "human_review": false,
+          "model_evaluation_run": false
+        },
+        "limitations": [
+          "English only; does not meet new-language expansion goal",
+          "Numerical reasoning, not translation checking",
+          "Public test pretraining contamination unknown",
+          "No linguistic or financial expert review"
+        ],
+        "quality_counts": {
+          "empty_source_answer_text": 14
+        }
+      }
+    }
+  ]
 }

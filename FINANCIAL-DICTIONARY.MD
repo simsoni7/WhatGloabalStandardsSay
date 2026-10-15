@@ -1,4 +1,4 @@
-# 다국어 금융용어사전 — r5
+# 다국어 금융용어사전 — r6
 
 영어를 기준으로 대상45개 언어의 원문 관측25,146쌍을 조회합니다. 기본 사전19,140쌍·36언어·9소스와 별도 조건부 참고팩6,006쌍·20언어·3소스를 구분합니다. 영어는 대상 언어 수에서 제외합니다. 중복 표제어의 출처별 레코드도 원문 근거를 보존하므로 숫자는 고유 금융 개념 수가 아닙니다.
 
@@ -6,9 +6,9 @@
 
 ## 보기와 다운로드
 
-공유화면: https://htmlpreview.github.io/?https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261014-r5/index.html
+공유화면: https://htmlpreview.github.io/?https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r6/index.html
 
-HTML ZIP을 풀어 financial-dictionary.html을 열면 기본 사전을 오프라인 조회할 수 있습니다. 웹 화면은 조건부 JSON을 별도 읽습니다. 오프라인에서는 conditional-community-language-packs.zip을 풀고 community-components/*.json을 화면의 자료 읽기로 선택합니다. 카탈로그 JSON은 선택하지 않습니다. SHA·형식·출처를 확인하고 중복 읽기를 차단합니다. 이 입력은 번역 검토나 승인 작업이 아닙니다.
+HTML ZIP 전체를 풀어 financial-dictionary.html을 열면 동봉된 별도 출처 파일을 자동으로 읽어45언어를 조회합니다. HTML 파일만 따로 옮기지 마세요. 별도 자료를 읽지 못하면 현재 읽은 자료의 언어만 표시하며 실패 원인을 안내합니다. 웹 화면은 조건부 JSON을 별도 읽습니다. r6에서 미로딩 언어를 조회 가능으로 표시하던 오류를 수정했습니다. ZIP 전체 압축 해제 후 별도 파일을 자동으로 읽습니다. 오프라인에서는 conditional-community-language-packs.zip을 풀고 community-components/*.json을 화면의 자료 읽기로 선택합니다. 카탈로그 JSON은 선택하지 않습니다. SHA·형식·출처를 확인하고 중복 읽기를 차단합니다. 이 입력은 번역 검토나 승인 작업이 아닙니다.
 
 ## 출처와 도입
 

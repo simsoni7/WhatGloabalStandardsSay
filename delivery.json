@@ -1,8 +1,8 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "a330032be064f778f8c4103f5c44f7bc854fbfcf7643a3242b862837e8d5f703",
-  "bytes": 87790494,
-  "file_count": 1067,
+  "sha256": "e96e9355dccd3dc317fe43a4e20e702fb605ea7b6f146184b48b22c4d94bf7b4",
+  "bytes": 90703056,
+  "file_count": 1068,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
   "verified_tests": 68,
   "functional_evaluation_cases": 16,
@@ -17,7 +17,7 @@
   "frozen_cfpd_integrity": "verified",
   "nepal_entries": 171,
   "data_entries": 19140,
-  "release_date": "2026-10-14",
+  "release_date": "2026-10-15",
   "target_languages": [
     "ar",
     "bg",
@@ -620,11 +620,22 @@
     "source_datasets": 9,
     "review_controls": false,
     "expansion_candidate_groups": 16,
-    "newly_adopted_pairs": 8289,
+    "newly_adopted_pairs": 0,
     "available_entries": 25146,
-    "available_target_languages": 45
+    "available_target_languages": 45,
+    "offline_companion_loading": true
   },
   "conditional_community_entries": 6006,
   "combined_reference_entries": 25146,
-  "combined_target_languages": 45
+  "combined_target_languages": 45,
+  "release_ref": "dictionary-20261015-r6",
+  "regression_verification": {
+    "selectable_languages": 45,
+    "zero_record_languages": 0,
+    "malayalam_rows": 65,
+    "network_blocked_zip_contents": "passed_over_local_http",
+    "missing_companions": "only_loaded_languages_selectable",
+    "partial_online_failure": "remaining_components_continue_loading",
+    "native_file_url_test": "blocked_by_environment_browser_policy"
+  }
 }

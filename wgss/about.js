@@ -69,7 +69,7 @@ const WGSSAbout=(()=>{
    </section>
    <section class="about-section about-grow" aria-labelledby="about-grow-title">
     <div class="about-section-heading"><h2 id="about-grow-title">자료를 제안하고,<br>함께 업데이트합니다.</h2><p>새 화면이나 표현을 모으고, 잘못된 내용을 고치며, 더 오래 쓸 수 있는 자료로 쌓아 갑니다.</p></div>
-    <div class="about-growth-list"><div><h3>화면과 표현을 함께 모읍니다.</h3><p>간단한 설명, 출처 링크와 캡처 이미지를 제안해 주세요. 운영자가 자료를 확인한 뒤 화면과 용어에 반영합니다.</p></div><div><h3>운영자가 검토한 뒤 반영합니다.</h3><p>승인한 수정은 해당 자료에 반영하고, 교체된 화면은 이전 버전으로 남깁니다. 공개 사이트에는 배포를 거쳐 최신 자료를 반영합니다.</p></div><div><h3>앞으로 사용자 의견으로 수집 순서를 정합니다.</h3><p>앞으로 사용자 의견과 부족한 사례를 모아 수집 순서를 정하고, 승인한 자료가 공개 사이트에도 자동 반영되도록 연결할 계획입니다.</p></div></div>
+    <div class="about-growth-list"><div><h3>화면과 표현을 함께 모읍니다.</h3><p>간단한 설명, 출처 링크와 캡처 이미지를 제안해 주세요. 운영자가 자료를 확인한 뒤 화면과 용어에 반영합니다.</p></div><div><h3>운영자가 검토한 뒤 반영합니다.</h3><p>승인한 수정은 해당 자료에 반영하고, 교체된 화면은 이전 버전으로 남깁니다. 공개 사이트를 다시 조회하면 승인한 최신 자료를 볼 수 있습니다.</p></div><div><h3>앞으로 사용자 의견으로 수집 순서를 정합니다.</h3><p>앞으로 사용자 의견과 부족한 사례를 모아 다음에 수집할 화면과 개선할 기능의 순서를 정합니다.</p></div></div>
    </section>
    <section class="about-closing" aria-labelledby="about-closing-title"><h2 id="about-closing-title">이제 만들려는 화면을 찾아보세요.</h2><p>What Global Standards Say · 글로벌 금융서비스의 화면과 언어를 우리 팀의 참고 자원으로.</p><a class="button primary" href="${safe(referenceHref('screens'))}">레퍼런스 찾기</a></section>
   </div>`;

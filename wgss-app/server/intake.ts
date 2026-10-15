@@ -8,6 +8,10 @@ const FRONTEND='https://simsoni7.github.io';
 const allowedDatasets=new Set(['apache_ofbiz_accounting','apache_ofbiz_financial_entities','canada_government_financial_labels','cfpb_remittance','cfpb_remittance_receipt_labels','cfpd','eu_cpv_financial_services','malaysia_financial_dashboard','malaysia_financial_metadata','unicode_cldr_currency_names']);
 const publicTerms=new Set((referenceIndex as any).terms.filter((row:any)=>allowedDatasets.has(row.datasetId)).map((row:any)=>row.id));
 const publicReader:Actor={userId:'public-reference-reader',role:'contributor',service:false};
+const PUBLIC_REVIEW_RESOURCES=['submissions','versions','audit','targets','reviewDraft','publicationHistory','file'];
+const PUBLIC_REVIEW_ACTIONS=['prepareReviewDraft','reviewSubmission','createVersion'];
+function visibleReviewItem({ownerId,...item}:any){return {...item,files:(item.files||[]).filter((file:any)=>file.role==='masked')};}
+async function publicReviewer(request:Request):Promise<Actor>{const browser=request.headers.get('X-WGSS-Contribution-Token');const proof=browser&&/^[0-9a-f]{64}$/.test(browser)?'browser:'+browser:'ingress:'+(request.headers.get('cf-connecting-ip')||'shared-anonymous');return {userId:'public-reviewer:'+await hash('wgss-public-review-v1:'+proof),role:'admin',service:false};}
 const UPLOAD_DAILY=500*1024*1024;
 function allowedOrigin(request:Request,env:Runtime){const origin=request.headers.get('origin');const allowed=new Set([FRONTEND,'https://wgss-case-library.booknfoto461.chatgpt.site',new URL(request.url).origin]);for(const entry of (env.WGSS_PUBLIC_FRONTEND_ORIGINS||'').split(',')){try{const u=new URL(entry.trim());if(u.protocol==='https:'&&u.origin===entry.trim())allowed.add(u.origin);}catch{}}if(origin&&!allowed.has(origin))throw new ApiError(403,'origin_forbidden','허용된 WGSS 화면에서만 요청할 수 있습니다.');return origin;}
 function cors(response:Response,origin:string|null){const headers=new Headers(response.headers);headers.set('Cache-Control','private, no-store');headers.set('X-Content-Type-Options','nosniff');headers.append('Vary','Origin');if(origin){headers.set('Access-Control-Allow-Origin',origin);headers.set('Access-Control-Allow-Methods','GET, POST, OPTIONS');headers.set('Access-Control-Allow-Headers','Content-Type, X-WGSS-Contribution-Token');headers.set('Access-Control-Max-Age','600');}return new Response(response.body,{status:response.status,statusText:response.statusText,headers});}
@@ -72,7 +76,13 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
   if(native.role==='admin')return cors(await handleRequest(internal(request),env,native),origin);
   const url=new URL(request.url),resource=url.searchParams.get('resource')||'session';
   if(request.method==='GET'){
-   if(resource==='session')return cors(Response.json({role:'anonymous',userId:null,serviceAccess:false,publicIntake:true}),origin);
+   if(resource==='session'){if(env.WGSS_PUBLIC_REVIEW==='true'){const reviewer=await publicReviewer(request);return cors(Response.json({role:'admin',userId:reviewer.userId,serviceAccess:false,publicIntake:true,publicReview:true,reviewResources:[...PUBLIC_REVIEW_RESOURCES,'publications','recordVersions'],reviewActions:PUBLIC_REVIEW_ACTIONS}),origin);}return cors(Response.json({role:'anonymous',userId:null,serviceAccess:false,publicIntake:true}),origin);}
+   if(env.WGSS_PUBLIC_REVIEW==='true'&&PUBLIC_REVIEW_RESOURCES.includes(resource)){
+    if(resource==='file'){const file=await stmt(env,'SELECT role FROM wgss_files WHERE id=?',bounded(url.searchParams.get('id'),'id',100,true)).first<any>();if(!file)throw new ApiError(404,'not_found','사진을 찾을 수 없습니다.');if(file.role!=='masked')throw new ApiError(403,'masked_only','개인정보를 가린 사진만 검토할 수 있습니다.');}
+    const response=await handleRequest(internal(request),env,await publicReviewer(request));
+    if(resource==='targets'&&url.searchParams.get('type')==='terms'&&response.ok){const data=await response.json() as any;data.items=(data.items||[]).filter((row:any)=>publicTermAllowed('terms',row.id,row));return cors(Response.json(data),origin);}
+    if(resource==='submissions'&&response.ok){const data=await response.json() as any;return cors(Response.json({...data,publicReview:true,items:(data.items||[]).map(visibleReviewItem)}),origin);}return cors(response,origin);
+   }
    if(resource==='submissions'){const actor=await capability(request);return cors(await handleRequest(internal(request),env,actor),origin);}
    if(!['publications','recordVersions','file'].includes(resource))throw new ApiError(403,'private_resource','이 정보는 자료 관리자만 볼 수 있습니다.');
    if(resource==='file'&&request.headers.has('X-WGSS-Contribution-Token')){const actor=await capability(request),file=await stmt(env,'SELECT f.role,s.owner_id FROM wgss_files f JOIN wgss_submissions s ON s.id=f.submission_id WHERE f.id=?',bounded(url.searchParams.get('id'),'id',100,true)).first<any>();if(file?.owner_id===actor.userId&&file.role==='masked')return cors(await handleRequest(internal(request),env,actor),origin);}
@@ -80,11 +90,14 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
    const response=await handleRequest(internal(request),env,publicReader);
    if(resource==='publications'&&response.ok){const data=await response.json() as any;data.items=(data.items||[]).filter((row:any)=>publicTermAllowed(row.type,row.targetId,row.patch)).map((row:any)=>({...row,patch:publicPatch(row.patch)}));return cors(Response.json(data),origin);}if(resource==='recordVersions'&&response.ok&&url.searchParams.get('type')==='terms'){const data=await response.json() as any;let merged:any={};data.items=(data.items||[]).filter((row:any)=>{merged={...merged,...row.fields};return publicTerms.has(url.searchParams.get('id')||'')||isReviewedPublicTerm(merged,url.searchParams.get('id'));}).map((row:any)=>({...row,fields:publicPatch(row.fields)}));return cors(Response.json(data),origin);}return cors(response,origin);
   }
-  const actor=await capability(request),type=request.headers.get('content-type')||'';
-  if(type.startsWith('multipart/form-data'))return cors(await maskedUpload(request,env,actor),origin);
+  const type=request.headers.get('content-type')||'';
+  if(type.startsWith('multipart/form-data'))return cors(await maskedUpload(request,env,await capability(request)),origin);
   if(!type.startsWith('application/json'))throw new ApiError(415,'json_required','자료 설명은 JSON, 사진은 파일 형식으로 보내 주세요.');
   let input:any;try{input=JSON.parse(new TextDecoder().decode(await bodyBytes(request,64000)));}catch(error){if(error instanceof ApiError)throw error;throw new ApiError(400,'invalid_json','제안 내용을 읽을 수 없습니다.');}
   if(!input||typeof input!=='object'||Array.isArray(input))throw new ApiError(400,'invalid_input','제안 내용을 확인해 주세요.');
+  if(env.WGSS_PUBLIC_REVIEW==='true'&&PUBLIC_REVIEW_ACTIONS.includes(input.action)){const response=await handleRequest(internal(request,JSON.stringify(input),'application/json'),env,await publicReviewer(request));if(response.ok&&['reviewSubmission','createVersion'].includes(input.action)){const data=await response.json() as any;if(data.item)data.item=visibleReviewItem(data.item);return cors(Response.json(data),origin);}return cors(response,origin);}
+  if(env.WGSS_PUBLIC_REVIEW==='true'&&!['createSubmission','deleteOwn','deleteSubmission'].includes(input.action))throw new ApiError(403,'public_review_action_forbidden','공개 자료 검토에서 사용할 수 없는 운영 기능입니다.');
+  const actor=await capability(request);
   if(input.action==='createSubmission')return cors(Response.json(await create(env,actor,input,request)),origin);
   if(input.action==='deleteOwn'||input.action==='deleteSubmission')return cors(await deleteOwn(request,env,actor,input),origin);
   throw new ApiError(403,'admin_required','자료 검토와 운영 기능은 관리자만 실행할 수 있습니다.');

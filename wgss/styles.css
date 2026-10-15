@@ -17,5 +17,7 @@ h1{word-break:keep-all;text-wrap:balance}
 @media(max-width:850px){.word-results-grid{grid-template-columns:1fr;gap:16px}.word-results-grid #dictionary-results{border-left:0;padding-left:0;border-top:2px solid var(--line);padding-top:24px}}
 
 .target-results{max-height:240px;overflow:auto;margin-top:8px}.target-option{display:block;text-align:left;width:100%;padding:12px;background:var(--white);border:0;border-bottom:1px solid var(--line)}.target-option:hover{background:var(--surface)}.target-option .meta{display:block;overflow-wrap:anywhere}#apply-preview{margin-top:16px;font-size:14px;color:var(--green-ink)}#apply-panel .form-grid .field:has(textarea){grid-column:1/-1}
+/* Submission receipts can be longer than the mobile viewport. */
+#contribution-status{overflow-wrap:anywhere;word-break:break-word;min-width:0}
 
 .publication-date{max-width:1248px;margin:12px auto 0;padding:0 32px;font-size:12px;color:#616161;}

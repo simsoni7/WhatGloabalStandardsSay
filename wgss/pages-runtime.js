@@ -1,21 +1,16 @@
 'use strict';
 window.WGSSPublic=(()=>{
- const config={"base":"/WhatGloabalStandardsSay/wgss/","backendBase":"https://wgss-case-library.booknfoto461.chatgpt.site","snapshotAt":"2026-10-15T16:38:10.336287+00:00"};let snapshot;
- const load=()=>snapshot||(snapshot=fetch(config.base+'approved-snapshot.json',{credentials:'omit'}).then(r=>{if(!r.ok)throw Error('공개 자료를 불러오지 못했습니다.');return r.json()}));
+ const config={"base":"/WhatGloabalStandardsSay/wgss/","intakeBase":"https://wgss-public-intake.booknfoto461.chatgpt.site","snapshotAt":"2026-10-15T17:13:41.904Z"};let token;
+ function beginContribution(){token=[...crypto.getRandomValues(new Uint8Array(32))].map(v=>v.toString(16).padStart(2,'0')).join('');}
+ function remotePaths(value){if(Array.isArray(value))return value.map(remotePaths);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,remotePaths(v)]));if(typeof value==='string'&&value.startsWith('/api/wgss?'))return config.intakeBase+value;return value;}
  async function fetchJSON(url,options={}){
-  const u=new URL(url,location.href);
+  const u=new URL(url,location.href);let headers=new Headers(options.headers||{});
   if(u.pathname==='/api/wgss'){
-   if(options.method&&options.method!=='GET')throw Error('제안과 관리는 운영 서버에서 이용해 주세요.');
-   const resource=u.searchParams.get('resource');
-   if(resource==='session')return {userId:null,role:'public_reader',publicSnapshot:true};
-   const data=await load();
-   if(resource==='publications')return {items:data.items};
-   if(resource==='recordVersions'&&u.searchParams.get('type')==='screens')return {items:data.versions[u.searchParams.get('id')]||[]};
-   throw Error('이 기능은 운영 서버에서 이용할 수 있습니다.');
-  }
-  if(['/integration-data/','/assets/','/workspace/'].some(p=>u.pathname.startsWith(p)))u.pathname=config.base+u.pathname.slice(1);
-  const r=await fetch(u.href,{credentials:'omit',...options});if(!r.ok)throw Error('자료를 불러오지 못했습니다 ('+r.status+').');return r.json();
+   if(u.searchParams.get('resource')==='session'&&(!options.method||options.method==='GET'))return {userId:null,role:'public_reader',publicIntake:true};
+   u.hostname=new URL(config.intakeBase).hostname;u.protocol='https:';u.port='';
+   if(options.method==='POST'){if(!token)beginContribution();headers.set('X-WGSS-Contribution-Token',token);}
+  }else if(['/integration-data/','/assets/','/workspace/'].some(p=>u.pathname.startsWith(p)))u.pathname=config.base+u.pathname.slice(1);
+  let r;try{r=await fetch(u.href,{...options,headers,credentials:'omit',signal:options.signal||AbortSignal.timeout(options.method==='POST'?30000:10000)});if(!r.ok&&(!options.method||options.method==='GET')&&u.pathname==='/api/wgss')throw Error('live_unavailable');}catch(e){const resource=u.searchParams.get('resource');if(u.pathname==='/api/wgss'&&(!options.method||options.method==='GET')&&['publications','recordVersions'].includes(resource)){const saved=await fetch(config.base+'approved-snapshot.json',{credentials:'omit'}).then(r=>{if(!r.ok)throw e;return r.json()});if(!document.querySelector('#api-fallback')){const note=document.createElement('p');note.id='api-fallback';note.className='publication-date';note.setAttribute('role','status');note.textContent='최신 승인 자료에 연결하지 못해 '+new Date(saved.exportedAt).toLocaleString('ko-KR')+'에 저장한 자료를 보여드립니다. 새로고침으로 다시 확인해 주세요.';document.querySelector('header').after(note);}return remotePaths({items:resource==='publications'?saved.items:(saved.versions[u.searchParams.get('id')]||[])});}throw e;}let data;try{data=await r.json()}catch{throw Error('서버 응답을 읽지 못했습니다. 잠시 후 다시 시도해 주세요.');}if(!r.ok)throw Error(data.error||'자료를 불러오지 못했습니다 ('+r.status+').');return remotePaths(data);
  }
- function handoff(kind,prefill={}){const ref=prefill.referenceId;const target=new URL('/workspace/',config.backendBase);target.hash=ref?'screens':kind==='admin'?'admin':'contribute';if(ref)target.searchParams.set('reference',ref);document.querySelector('#app').innerHTML='<section class="intro"><h1>'+(kind==='admin'?'자료 관리':'자료 제안')+'</h1><p>현재 제안 접수와 관리는 운영 계정에서 사용할 수 있습니다.</p><p>공개 화면에서는 금융사의 화면과 표현을 로그인 없이 찾아볼 수 있습니다.</p><a class="button primary" target="_blank" rel="noopener noreferrer" href="'+target.href+'">운영 서버에서 열기</a> <a class="text-button" href="#screens">레퍼런스 찾기로 돌아가기</a></section>';}
- return {fetchJSON,handoff,config};
+ return {fetchJSON,beginContribution,config};
 })();

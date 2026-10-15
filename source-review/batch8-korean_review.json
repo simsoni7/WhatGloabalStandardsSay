@@ -1,0 +1,21 @@
+{
+  "reviewer_type": "independent_ai_review_by_root_after_authored_translation",
+  "human_review": false,
+  "record_count": 140,
+  "source_key_english_checks": 140,
+  "financial_scope": "English reading/search aid for official Malaysian financial statistics; not approved target translations",
+  "context_specific_corrections": {
+    "Current Account": "경상계정(경상수지)",
+    "Shariah Dividend Rate": "샤리아 준수형 배당률",
+    "Debt service": "채무 원리금 상환",
+    "Debt service (domestic)": "국내채무 원리금 상환",
+    "Debt service (foreign)": "대외채무 원리금 상환",
+    "Base Rate (BR)": "은행 기준금리(BR)",
+    "Weighted Avg BR": "가중평균 은행 기준금리(BR)",
+    "Excise duties": "물품소비세"
+  },
+  "critical_context_check": "Current Account is BOP current account, not bank account or current application account",
+  "translation_sha256": "c71a6a0dee7fb9140bdcb7e8ab4f00625293a3cc4439087267c05e7c546e6735",
+  "new_english_keys": 121,
+  "contextual_overrides": 140
+}

@@ -32,7 +32,7 @@
         "ru": 948
       },
       "file": "gnucash_financial_ui.json",
-      "sha256": "fed291b9e42ae7977f2871fc748a14d186e972317a455e61ad2edf82694eadf0",
+      "sha256": "d281619937e984e8d743d4ec599fff6d83ef9f5de644ea4ad03257a68e519c62",
       "usage_terms": {
         "commercial_use": true,
         "license": "GPL-2.0-or-GPL-3.0",
@@ -62,7 +62,7 @@
         "id": 765
       },
       "file": "mifos_financial_ui.json",
-      "sha256": "c7e9aeb77a8321e8d17e231e23d58d815362ed5b90bc8888d73a3d99be5318e3",
+      "sha256": "c9d229e2af496a98422380b759a28ee28b1b6457d8c5ed936979f6d11cf5441e",
       "usage_terms": {
         "commercial_use": true,
         "license": "MPL-2.0",
@@ -104,7 +104,7 @@
         "ur": 54
       },
       "file": "mifos_mobile_banking.json",
-      "sha256": "92710c9782155ba3fd45341ddbdb0907784e973bd87dcb281aaf3d0a5c7fa847",
+      "sha256": "f00d84fb1a05afa54244e00312e15982f880e1ed9ccf22eea5378194939b0767",
       "usage_terms": {
         "commercial_use": true,
         "license": "MPL-2.0",

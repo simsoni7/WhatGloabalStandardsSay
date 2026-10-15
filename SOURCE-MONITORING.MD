@@ -16,3 +16,6 @@
 python3 scripts/monitor_glossary_sources.py research --output /tmp/glossary-intake
 python3 scripts/monitor_glossary_sources.py audit --output /tmp/glossary-intake
 ```
+
+
+r8부터 말레이시아 정부 datagovmy-meta의 MIT 금융통계 원문도 기준 커밋과 함께 감시합니다. 한국 시간 매일 오전11시23분(UTC02:23) 예약이며, 원문 수집·무결성 확인을 수행할 뿐 AI 의미 검수·자동 채택은 하지 않습니다.

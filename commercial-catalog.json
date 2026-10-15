@@ -1,6 +1,6 @@
 {
   "format_version": 2,
-  "entry_count": 16284,
+  "entry_count": 16424,
   "counts_by_dataset": {
     "apache_ofbiz_accounting": 2223,
     "apache_ofbiz_financial_entities": 894,
@@ -10,6 +10,7 @@
     "cfpd": 10089,
     "eu_cpv_financial_services": 1958,
     "malaysia_financial_dashboard": 65,
+    "malaysia_financial_metadata": 140,
     "unicode_cldr_currency_names": 743
   },
   "counts_by_language": {
@@ -47,7 +48,7 @@
     "sk": 89,
     "sl": 89,
     "sv": 89,
-    "ms": 65,
+    "ms": 205,
     "km": 166
   },
   "target_languages": [
@@ -101,7 +102,8 @@
       "cfpb_remittance_receipt_labels",
       "apache_ofbiz_accounting",
       "apache_ofbiz_financial_entities",
-      "malaysia_financial_dashboard"
+      "malaysia_financial_dashboard",
+      "malaysia_financial_metadata"
     ],
     "exclusions": [
       {
@@ -168,6 +170,13 @@
         "policy_snapshot": "datasets/language_packs/malaysia_financial_dashboard/raw/LICENSE",
         "policy_sha256": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
         "attribution_review": "datasets/language_packs/malaysia_financial_dashboard/independent-review.json"
+      },
+      {
+        "dataset_id": "malaysia_financial_metadata",
+        "policy_url": "https://github.com/data-gov-my/datagovmy-meta/blob/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/LICENSE",
+        "policy_snapshot": "datasets/language_packs/malaysia_financial_metadata/raw/LICENSE",
+        "policy_sha256": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+        "attribution_review": "datasets/language_packs/malaysia_financial_metadata/independent-review.json"
       }
     ],
     "human_review": false,
@@ -656,11 +665,59 @@
         "raw/ms-MY/dashboard-interest-rates.json": "a0e10e6c8098922548a71ca1dbe3e865c307552f2ff50ff06499ffaed3c525ce",
         "raw/ms-MY/dashboard-international-reserves.json": "63c0a889f4dd988515a465e9f2817e8b3aba6d0438ea2ee2414e64b01710e2dd"
       }
+    },
+    "malaysia_financial_metadata": {
+      "dataset_id": "malaysia_financial_metadata",
+      "dataset_version": "a34682cf22a1da9de5520a27f5f3fc5f7c86b06f",
+      "entry_count": 140,
+      "language_counts": {
+        "ms": 140
+      },
+      "decision": "accepted_reference",
+      "usage_terms": {
+        "license": "MIT",
+        "commercial_use": true,
+        "attribution_required": true,
+        "license_file": "raw/LICENSE"
+      },
+      "adoption_review": {
+        "human_review": false,
+        "semantic_approval": false
+      },
+      "files_sha256": {
+        "evidence.jsonl": "bd36cfd87bc7af34952e8a8a19806eada704f34561c5c4382869bcc029c652fa",
+        "MODIFICATIONS.md": "a1941ef959858a751766740849b6d8154029f415a9eb451fa38648872774d6db",
+        "independent-review.json": "d17da1ad60f227e9209ad56acd1b2999d6eb88e4d67ea1a3fb00202ff538fe83",
+        "raw/LICENSE": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+        "raw/data-catalogue/federal_finance_year.json": "5978465c46f92ac904a61126415ffa090991868011e3595e4eb9c3e539488901",
+        "raw/data-catalogue/bop_balance.json": "ce2e1de944e1c774bf2e5eeb65a555da2c8bdddabbdf037556aea34db76f14d0",
+        "raw/data-catalogue/state_finance_expenditure.json": "a42e72130f3a2bb90584b02a78be18bdf022e0a26dcfe84abeaf61280268be45",
+        "raw/data-catalogue/exchangerates_daily_1700.json": "337874f74095770caee3c4b47eaafbdb624556c1381b1a79fdcb008e84646ce4",
+        "raw/data-catalogue/epf_dividend.json": "a8f36105b8445606c7a57538cc75f0b1c6217a69ec30d88e6742397e162c5f2b",
+        "raw/data-catalogue/interestrates.json": "990cfe299eb1cb4cff24352cafa6ed6d3fca11069ae337813bb12ce0474c51a6",
+        "raw/data-catalogue/currency_in_circulation.json": "c64e80a76df37a8000c1c12b227a07c76bbe1a510b0e7ffe33b7e2a30cd6bb4e",
+        "raw/data-catalogue/gdp_annual_nominal_income.json": "5c1a3a5ddfa53a75b87d9a15ec7c04eabc46005f3bb7c40af635284c0522d863",
+        "raw/data-catalogue/state_finance_revenue.json": "3c45a3ec53171325f467de5416cca5cad4d31b9e6494703c6d789196d6530e4b",
+        "raw/data-catalogue/exchangerates.json": "eefd5b02b522f1ea9c80eba6588a45210606e7223140685cbfb0051970b0716a",
+        "raw/data-catalogue/fdi_flows.json": "f72d8050b01a3aafe7c81fbe74f6c9a0e381a9b2ae4e9b8b47d6cde9e706536c",
+        "raw/data-catalogue/currency_in_circulation_annual.json": "320db7493a3c9343381bb171f3b95021257f20a28eea128cfb7e28a2a0fe6216",
+        "raw/data-catalogue/federal_finance_year_de.json": "e57f3e66905d67b8426237d2eb64ced5ea13d3af5e0f14602723dcb0692c7bb6",
+        "raw/data-catalogue/federal_finance_year_debt_mat.json": "499888e71b15cd9ecdf0d88c77988e6bbf6dbec4bb87062991d7de08d2fa88f2",
+        "raw/data-catalogue/federal_finance_year_revenue.json": "726e9a8592a42c2afb0612d67973e0f1864c5189f8743bd4ac2f3e9fbdf65ad4",
+        "raw/data-catalogue/hh_expenditure_dun.json": "f9357cd8f9822d95f0dd84f6ced044e4078ee4473c62713661bbda831b81c1dc",
+        "raw/data-catalogue/interestrates_annual.json": "e99ed7ae6c0e0e0cd86e8b9050bc3f0b71add9b2c06f4d26921a3b2ea25654e5",
+        "raw/data-catalogue/payment_channels.json": "15438715f29ae87014394e36390d8c930217780f1003b23dd57b4d60fdb73b80",
+        "raw/data-catalogue/federal_finance_year_oe.json": "8e71cab5e0111ae17e40a0677d933f4ed16251fcd26b3f868ce67c4522824b54",
+        "raw/data-catalogue/monetary_aggregates.json": "d519105d1f5cc6e8ecf5326835c4fe5be52f49d95d1fb43ecaf5d8f7857a3b69",
+        "raw/data-catalogue/hh_income.json": "ee9e84ddc2fcbbde30dd8ba9551e986861d5b40d6be49b2da58f052df64fd8f3",
+        "raw/data-catalogue/payment_systems.json": "2aaf8d826cfcc5e5fe0c9c81b1aab66f75e6623915086c45304ea4efd36298d8",
+        "raw/data-catalogue/payment_instruments.json": "0453323d8ae561054540b14972215b7bfba1153bd1f542132e37d7630aeb9539"
+      }
     }
   },
   "files_sha256": {
-    "glossary_entries.jsonl": "4b86a03573966931a89b74eff22c06d3dbb3c11a879b091e8fe951ebee9e9490",
-    "glossary_entries.csv": "2a066f8c34f5ba9b211a0bb9811f11d2be505c8a49f1317b31b2617d3ec2d5e4",
+    "glossary_entries.jsonl": "bb71bdae6a0a6b4990e4d8cb5d14e3fd48afc3eaee6983471cf8eaf296495d0c",
+    "glossary_entries.csv": "52c26d0a3983d6d2d5e5614a1a31a6a2ff87c9c9d387452a957845a2347f781f",
     "financial_concepts.jsonl": "3cf00b61f1fc8b4693d27f197cd1519001f9dabd3752ce645f0dff8a339be075"
   },
   "financial_information_layer": {
@@ -673,7 +730,7 @@
   "approved_translation_count": 0,
   "korean_english_label_layer": {
     "field": "source_english_korean",
-    "covered_rows": 16284,
+    "covered_rows": 16424,
     "scope": "English-label reading/search aid; no target translation approval"
   },
   "field_rules": "Source observations are not approved translations. Commercial permission is separate from semantic correctness."

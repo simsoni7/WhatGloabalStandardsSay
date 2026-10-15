@@ -27,6 +27,8 @@ with tempfile.TemporaryDirectory() as directory:
   assert page.evaluate('filtered.length')>0,'Korean search returned no results'
   assert page.evaluate("filtered.every(r=>[r.source_english_korean,r.source_english,r.source_target,r.evidence_id,r.source_concept_id].some(v=>String(v||'').includes('예금')))")
   assert page.locator('thead').first.inner_text().find('영어 원문의 한국어 표현')>=0
+  for query,language in [('경상계정','ms'),('당좌예금계좌','ne')]:
+   page.click('#clear');page.select_option('#language',language);page.fill('#q',query);page.wait_for_timeout(300);assert page.evaluate('filtered.length')>0,(query,language)
   assert not errors,errors
   print(json.dumps({'scenario':'extracted offline ZIP served locally; external network blocked','language_counts':counts,'zero_languages':0,'errors':errors},ensure_ascii=False))
   browser.close()

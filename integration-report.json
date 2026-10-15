@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
-  "entry_count": 20257,
+  "entry_count": 20397,
   "approved_translation_count": 0,
   "equivalence_counts": {
-    "unreviewed": 18840,
-    "needs_review": 1416,
+    "unreviewed": 18976,
+    "needs_review": 1420,
     "not_applicable": 1
   },
   "issue_counts": {
-    "same_source_english_multiple_targets": 159,
+    "same_source_english_multiple_targets": 161,
     "same_source_target_multiple_english": 405,
     "source_definition_mismatch_suspected": 1
   },
-  "cross_source_candidate_links": 318,
+  "cross_source_candidate_links": 329,
   "rules": [
     "Raw datasets unchanged",
     "Source alignment is not semantic equivalence",
@@ -27,17 +27,17 @@
       "ai_definition_review_attached": 48,
       "cross_domain_meaning_review_required": 37,
       "identical_definition_variant_candidate": 1,
-      "target_variant_semantics_unresolved": 81,
+      "target_variant_semantics_unresolved": 83,
       "shared_target_sense_review_required": 398
     },
     "human_approved_translations": 0,
     "complete_semantic_validation": false
   },
   "expansion_source_review": {
-    "new_core_records_reviewed": 3242,
+    "new_core_records_reviewed": 3382,
     "named_semantic_quarantines": 9,
-    "software_context_generation_policy_blocks": 3182,
+    "software_context_generation_policy_blocks": 3322,
     "expert_translation_approvals": 0
   },
-  "generation_ineligible_records": 3186
+  "generation_ineligible_records": 3326
 }

@@ -11,6 +11,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 SOURCES = [
+    dict(id='malaysia_financial_metadata', repo='data-gov-my/datagovmy-meta', baseline='a34682cf22a1da9de5520a27f5f3fc5f7c86b06f', license='MIT', obligations='Retain Government of Malaysia copyright and MIT license; review metadata context before adoption.', files=['LICENSE','data-catalogue/bop_balance.json','data-catalogue/interestrates.json','data-catalogue/federal_finance_year_revenue.json','data-catalogue/state_finance_revenue.json']),
     dict(id='apache_ofbiz', repo='apache/ofbiz-framework', baseline='b8b72d556e829d4a0818f8a4fed57e0750efcacb', license='Apache-2.0', obligations='Retain LICENSE and NOTICE; state modifications.', files=['LICENSE', 'NOTICE', 'applications/accounting/config/AccountingUiLabels.xml']),
     dict(id='gnucash', repo='Gnucash/gnucash', baseline='9e39744aac80f2737d291fcbea3fff2d357b28a5', license='GPL-2.0-or-GPL-3.0', obligations='Separate copyleft source pack; preserve PO copyrights and corresponding source.', files=['LICENSE', 'po/vi.po', 'po/ru.po']),
     dict(id='mifos', repo='openMF/community-app', baseline='45ec7b82e9b14424a53ce9e8a847811f37f431bd', license='MPL-2.0', obligations='Preserve file-level copyleft, notices and corresponding source.', files=['LICENSE.txt'] + ['app/global-translations/locale-' + language + '.json' for language in ['en', 'km', 'vi', 'ko', 'es', 'hi', 'ne', 'id']]),

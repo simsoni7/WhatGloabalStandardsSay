@@ -11,8 +11,9 @@ def build():
  for r in rows:
   if r['dataset_id']=='cfpd' and r['target_language']=='ko':
    key=english_key(r['source_english']);entries[key]={'key':key,'english':r['source_english'],'korean':r['source_target'],'status':'source_korean_reused','origin':'cfpd_v1_original_korean_source','source_evidence_id':r['evidence_id'],'note':'같은 영어 표기의 CFPD 한국어 원문을 검색 보조로 재사용했습니다. 출처 간 개념 통합이나 다른 외국어 번역의 승인이 아닙니다.'}
- for part in ['1','2','3','extra']:
-  source=work/(f'chunk_{part}.json' if part!='extra' else 'extra.json');raw=json.loads(source.read_text());expected={r['key']:r['english'] for r in raw} if isinstance(raw,list) else raw
+ parts=['1','2','3','extra']+[p.stem.removeprefix('input_') for p in sorted(work.glob('input_*.json'))]
+ for part in parts:
+  source=work/(f'chunk_{part}.json' if part in ['1','2','3'] else 'extra.json' if part=='extra' else f'input_{part}.json');raw=json.loads(source.read_text());expected={r['key']:r['english'] for r in raw} if isinstance(raw,list) else raw
   file=work/f'translated_{part}.jsonl';actual=[json.loads(l) for l in file.read_text().splitlines()];ids=[r['key'] for r in actual]
   if len(ids)!=len(set(ids)) or set(ids)!=set(expected):raise ValueError(f'Korean authored translation coverage mismatch for {part}: {len(ids)}/{len(expected)}')
   for r in actual:
@@ -21,5 +22,5 @@ def build():
   inputs[file.name]={'rows':len(actual),'sha256':hashlib.sha256(file.read_bytes()).hexdigest()}
  if set(english)!=set(entries):raise ValueError('Uncovered or extra English keys: '+repr(set(english)^set(entries)))
  out=ROOT/'datasets/enrichment/korean_english_labels.jsonl';out.write_text(''.join(json.dumps(entries[k],ensure_ascii=False)+'\n' for k in sorted(entries)))
- report={'field':'source_english_korean','scope':'Korean reading/search aid for English source label, independent of target translation approval','unique_english_labels':len(entries),'covered_observations':len(rows),'counts_by_origin':dict(collections.Counter(v['status'] for v in entries.values())),'human_translation_approvals_added':0,'missing_labels':0,'inputs':inputs,'output_sha256':hashlib.sha256(out.read_bytes()).hexdigest()};(out.parent/'korean_label_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))
+ report={'field':'source_english_korean','scope':'Korean reading/search aid for English source label, independent of target translation approval','unique_english_labels':len(entries),'covered_observations':len(rows),'counts_by_origin':dict(collections.Counter(v['status'] for v in entries.values())),'human_translation_approvals_added':0,'missing_labels':0,'inputs':inputs,'output_sha256':hashlib.sha256(out.read_bytes()).hexdigest()};override=ROOT/'datasets/enrichment/korean_record_overrides.jsonl';report['contextual_overrides']={'rows':len(override.read_text().splitlines()),'sha256':hashlib.sha256(override.read_bytes()).hexdigest()} if override.exists() else {'rows':0};(out.parent/'korean_label_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))
 if __name__=='__main__':build()

@@ -1,10 +1,10 @@
 {
   "artifact": "what-global-standards-glossary.zip",
-  "sha256": "b89c0324575fa8d14894ea17e83ad0f8a4c222f05e4dfd5444b17a35472799a6",
-  "bytes": 94557973,
-  "file_count": 1169,
+  "sha256": "f89503ec03b8133f944e4b4c63770add1f7c6e5cd261309226c6757947b47771",
+  "bytes": 94870599,
+  "file_count": 1236,
   "scope": "Runnable reference API plus guarded, unconnected model adapter",
-  "verified_tests": 68,
+  "verified_tests": 70,
   "functional_evaluation_cases": 16,
   "live_model_validation": false,
   "remaining_blockers": [
@@ -16,7 +16,7 @@
   "stdlib_only_functional_evaluation": "16 passed, 0 failed",
   "frozen_cfpd_integrity": "verified",
   "nepal_entries": 171,
-  "data_entries": 20099,
+  "data_entries": 20239,
   "release_date": "2026-10-15",
   "target_languages": [
     "ar",
@@ -581,6 +581,59 @@
           "raw/ms-MY/dashboard-international-reserves.json": "63c0a889f4dd988515a465e9f2817e8b3aba6d0438ea2ee2414e64b01710e2dd"
         }
       }
+    },
+    {
+      "dataset_id": "malaysia_financial_metadata",
+      "entry_count": 140,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "malaysia_financial_metadata",
+        "dataset_version": "a34682cf22a1da9de5520a27f5f3fc5f7c86b06f",
+        "entry_count": 140,
+        "language_counts": {
+          "ms": 140
+        },
+        "decision": "accepted_reference",
+        "usage_terms": {
+          "license": "MIT",
+          "commercial_use": true,
+          "attribution_required": true,
+          "license_file": "raw/LICENSE"
+        },
+        "adoption_review": {
+          "human_review": false,
+          "semantic_approval": false
+        },
+        "files_sha256": {
+          "evidence.jsonl": "bd36cfd87bc7af34952e8a8a19806eada704f34561c5c4382869bcc029c652fa",
+          "MODIFICATIONS.md": "a1941ef959858a751766740849b6d8154029f415a9eb451fa38648872774d6db",
+          "independent-review.json": "d17da1ad60f227e9209ad56acd1b2999d6eb88e4d67ea1a3fb00202ff538fe83",
+          "raw/LICENSE": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+          "raw/data-catalogue/federal_finance_year.json": "5978465c46f92ac904a61126415ffa090991868011e3595e4eb9c3e539488901",
+          "raw/data-catalogue/bop_balance.json": "ce2e1de944e1c774bf2e5eeb65a555da2c8bdddabbdf037556aea34db76f14d0",
+          "raw/data-catalogue/state_finance_expenditure.json": "a42e72130f3a2bb90584b02a78be18bdf022e0a26dcfe84abeaf61280268be45",
+          "raw/data-catalogue/exchangerates_daily_1700.json": "337874f74095770caee3c4b47eaafbdb624556c1381b1a79fdcb008e84646ce4",
+          "raw/data-catalogue/epf_dividend.json": "a8f36105b8445606c7a57538cc75f0b1c6217a69ec30d88e6742397e162c5f2b",
+          "raw/data-catalogue/interestrates.json": "990cfe299eb1cb4cff24352cafa6ed6d3fca11069ae337813bb12ce0474c51a6",
+          "raw/data-catalogue/currency_in_circulation.json": "c64e80a76df37a8000c1c12b227a07c76bbe1a510b0e7ffe33b7e2a30cd6bb4e",
+          "raw/data-catalogue/gdp_annual_nominal_income.json": "5c1a3a5ddfa53a75b87d9a15ec7c04eabc46005f3bb7c40af635284c0522d863",
+          "raw/data-catalogue/state_finance_revenue.json": "3c45a3ec53171325f467de5416cca5cad4d31b9e6494703c6d789196d6530e4b",
+          "raw/data-catalogue/exchangerates.json": "eefd5b02b522f1ea9c80eba6588a45210606e7223140685cbfb0051970b0716a",
+          "raw/data-catalogue/fdi_flows.json": "f72d8050b01a3aafe7c81fbe74f6c9a0e381a9b2ae4e9b8b47d6cde9e706536c",
+          "raw/data-catalogue/currency_in_circulation_annual.json": "320db7493a3c9343381bb171f3b95021257f20a28eea128cfb7e28a2a0fe6216",
+          "raw/data-catalogue/federal_finance_year_de.json": "e57f3e66905d67b8426237d2eb64ced5ea13d3af5e0f14602723dcb0692c7bb6",
+          "raw/data-catalogue/federal_finance_year_debt_mat.json": "499888e71b15cd9ecdf0d88c77988e6bbf6dbec4bb87062991d7de08d2fa88f2",
+          "raw/data-catalogue/federal_finance_year_revenue.json": "726e9a8592a42c2afb0612d67973e0f1864c5189f8743bd4ac2f3e9fbdf65ad4",
+          "raw/data-catalogue/hh_expenditure_dun.json": "f9357cd8f9822d95f0dd84f6ced044e4078ee4473c62713661bbda831b81c1dc",
+          "raw/data-catalogue/interestrates_annual.json": "e99ed7ae6c0e0e0cd86e8b9050bc3f0b71add9b2c06f4d26921a3b2ea25654e5",
+          "raw/data-catalogue/payment_channels.json": "15438715f29ae87014394e36390d8c930217780f1003b23dd57b4d60fdb73b80",
+          "raw/data-catalogue/federal_finance_year_oe.json": "8e71cab5e0111ae17e40a0677d933f4ed16251fcd26b3f868ce67c4522824b54",
+          "raw/data-catalogue/monetary_aggregates.json": "d519105d1f5cc6e8ecf5326835c4fe5be52f49d95d1fb43ecaf5d8f7857a3b69",
+          "raw/data-catalogue/hh_income.json": "ee9e84ddc2fcbbde30dd8ba9551e986861d5b40d6be49b2da58f052df64fd8f3",
+          "raw/data-catalogue/payment_systems.json": "2aaf8d826cfcc5e5fe0c9c81b1aab66f75e6623915086c45304ea4efd36298d8",
+          "raw/data-catalogue/payment_instruments.json": "0453323d8ae561054540b14972215b7bfba1153bd1f542132e37d7630aeb9539"
+        }
+      }
     }
   ],
   "benchmarks": [
@@ -648,25 +701,25 @@
     }
   ],
   "source_language_smoke_checks": 26,
-  "commercial_reference_entries": 16284,
+  "commercial_reference_entries": 16424,
   "commercial_target_languages": 36,
   "schema_version": 2,
   "approved_translation_count": 0,
   "integration_preprocessing": {
     "schema_version": 2,
-    "entry_count": 20257,
+    "entry_count": 20397,
     "approved_translation_count": 0,
     "equivalence_counts": {
-      "unreviewed": 18840,
-      "needs_review": 1416,
+      "unreviewed": 18976,
+      "needs_review": 1420,
       "not_applicable": 1
     },
     "issue_counts": {
-      "same_source_english_multiple_targets": 159,
+      "same_source_english_multiple_targets": 161,
       "same_source_target_multiple_english": 405,
       "source_definition_mismatch_suspected": 1
     },
-    "cross_source_candidate_links": 318,
+    "cross_source_candidate_links": 329,
     "rules": [
       "Raw datasets unchanged",
       "Source alignment is not semantic equivalence",
@@ -681,19 +734,19 @@
         "ai_definition_review_attached": 48,
         "cross_domain_meaning_review_required": 37,
         "identical_definition_variant_candidate": 1,
-        "target_variant_semantics_unresolved": 81,
+        "target_variant_semantics_unresolved": 83,
         "shared_target_sense_review_required": 398
       },
       "human_approved_translations": 0,
       "complete_semantic_validation": false
     },
     "expansion_source_review": {
-      "new_core_records_reviewed": 3242,
+      "new_core_records_reviewed": 3382,
       "named_semantic_quarantines": 9,
-      "software_context_generation_policy_blocks": 3182,
+      "software_context_generation_policy_blocks": 3322,
       "expert_translation_approvals": 0
     },
-    "generation_ineligible_records": 3186
+    "generation_ineligible_records": 3326
   },
   "semantic_review": {
     "ai_decisions": 43,
@@ -721,28 +774,29 @@
   "dictionary_ui": {
     "mode": "read_only",
     "target_language_labels": "Korean",
-    "entry_count": 20099,
+    "entry_count": 20239,
     "target_languages": 38,
-    "source_datasets": 11,
+    "source_datasets": 12,
     "review_controls": false,
     "expansion_candidate_groups": 16,
-    "newly_adopted_pairs": 959,
-    "available_entries": 26105,
+    "newly_adopted_pairs": 140,
+    "available_entries": 26245,
     "available_target_languages": 47,
-    "korean_search": true
+    "korean_search": true,
+    "contextual_korean_overrides": 141
   },
   "conditional_community_entries": 6006,
-  "combined_reference_entries": 26105,
+  "combined_reference_entries": 26245,
   "combined_target_languages": 47,
-  "release_ref": "dictionary-20261015-r7",
+  "release_ref": "dictionary-20261015-r8",
   "korean_english_labels": {
     "field": "source_english_korean",
     "scope": "Korean reading/search aid for English source label, independent of target translation approval",
-    "unique_english_labels": 7713,
-    "covered_observations": 26105,
+    "unique_english_labels": 7834,
+    "covered_observations": 26245,
     "counts_by_origin": {
       "source_korean_reused": 2017,
-      "ai_translated_unreviewed": 5696
+      "ai_translated_unreviewed": 5817
     },
     "human_translation_approvals_added": 0,
     "missing_labels": 0,
@@ -762,8 +816,16 @@
       "translated_extra.jsonl": {
         "rows": 110,
         "sha256": "873a8450e00277ad4e69513bf17a8a4a5d48bb68ee64b911a481d5c61df7f8dc"
+      },
+      "translated_batch8.jsonl": {
+        "rows": 121,
+        "sha256": "8852ad5477eaa09e506ba3b71bb2facb0264e6d07d3760b9c1d27cb94eb876e3"
       }
     },
-    "output_sha256": "83c622d97109685cf96b840d489443c34b3d015f5e3078cec73357c5585113c4"
+    "output_sha256": "fe4bd2f29e15cc24a455112c83fc1ccaf8a148946900cc5ad110595c32982b12",
+    "contextual_overrides": {
+      "rows": 141,
+      "sha256": "24579e93681a5eaced09d9fa66e1fabe967cc786b7ff5bcf0f38a64bfc9d2863"
+    }
   }
 }

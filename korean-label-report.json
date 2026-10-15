@@ -1,11 +1,11 @@
 {
   "field": "source_english_korean",
   "scope": "Korean reading/search aid for English source label, independent of target translation approval",
-  "unique_english_labels": 7713,
-  "covered_observations": 26105,
+  "unique_english_labels": 7834,
+  "covered_observations": 26245,
   "counts_by_origin": {
     "source_korean_reused": 2017,
-    "ai_translated_unreviewed": 5696
+    "ai_translated_unreviewed": 5817
   },
   "human_translation_approvals_added": 0,
   "missing_labels": 0,
@@ -25,7 +25,15 @@
     "translated_extra.jsonl": {
       "rows": 110,
       "sha256": "873a8450e00277ad4e69513bf17a8a4a5d48bb68ee64b911a481d5c61df7f8dc"
+    },
+    "translated_batch8.jsonl": {
+      "rows": 121,
+      "sha256": "8852ad5477eaa09e506ba3b71bb2facb0264e6d07d3760b9c1d27cb94eb876e3"
     }
   },
-  "output_sha256": "83c622d97109685cf96b840d489443c34b3d015f5e3078cec73357c5585113c4"
+  "output_sha256": "fe4bd2f29e15cc24a455112c83fc1ccaf8a148946900cc5ad110595c32982b12",
+  "contextual_overrides": {
+    "rows": 141,
+    "sha256": "24579e93681a5eaced09d9fa66e1fabe967cc786b7ff5bcf0f38a64bfc9d2863"
+  }
 }

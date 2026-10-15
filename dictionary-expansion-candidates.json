@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "research_date": "2026-10-15",
-  "summary": "공식기관 후보를 재조사하여 말레이시아 정부의 MIT 금융통계 메타데이터65쌍을 도입했습니다. 별도 보강으로 Apache 금융 계정·결제894쌍을 추가했습니다. 은행 홈페이지의 공개 여부와 재배포 권리를 구분했고 권리 미확인 자료는 채택하지 않았습니다. RBI 공식 용어집 하위 사이트·BNM Money & Banking CSV는 후속 고가치 후보로 남아 있습니다.",
-  "adopted_pairs": 65,
+  "summary": "본 후보 확장에서 말레이시아 정부의 MIT 금융 대시보드65쌍에 통계 메타데이터140쌍을 추가해205쌍을 확보했습니다. 금융지표·재정·국제수지의 동일 원문 키를 대조했고 기존 영어 동의표현4건을 이번 추가에서 제외했습니다. 다른 은행 후보는 접근/권리 미확인 상태를 유지하며 수집한 홈페이지 수를 용어쌍으로 집계하지 않습니다.",
+  "adopted_pairs": 205,
   "scale_note": "모든 숫자 범위는 파일럿 작업 목표이며 원문 확인에 기반한 전체 확보 규모 추정이 아닙니다.",
   "candidates": [
     {
@@ -225,11 +225,11 @@
       ],
       "material": "금융소비자·결제·보험·이슬람 금융 용어 후보.",
       "reason": "일반 소비자 금융과 현지 금융상품 표현을 구분해 도입할 수 있습니다.",
-      "observation": "공식 정부 저장소의 영어·말레이어 금융통계 JSON 동일 키65쌍을 검수 후 채택. 금리·가계부채·통화량·전자결제 등 지표 라벨이며 일반 은행 용어집은 아님. BNM Money & Banking 실제 CSV 링크와 대응 필드는 확인했으나 원본CSV 접근403으로 추가쌍0.",
+      "observation": "공식 정부 datagovmy-meta MIT 금융대시보드65쌍 + 금융통계 메타데이터140쌍을 채택했습니다. 신규자료는 금리·국채·세금·재정·국제수지 분야입니다. Current Account는 국제수지 경상계정 문맥이며 은행계좌와 합치지 않습니다. BNM 실제 CSV는 접근 제한으로 미채택입니다.",
       "pilot_target": "50–150쌍 탐색 목표",
       "verification_status": "adopted_limited_government_metadata",
-      "reuse_status": "공식 정부 datagovmy-meta MIT 자료65쌍 채택 · BNM 웹본문은 별도 권리 미확인",
-      "adopted_pairs": 65
+      "reuse_status": "공식 정부 오픈소스 MIT 자료205쌍 채택 · BNM 웹본문은 별도 권리 미확인",
+      "adopted_pairs": 205
     },
     {
       "candidate_id": "thailand",
@@ -322,6 +322,7 @@
     "new_language_km_pairs": 166,
     "batch7_adopted_core_pairs": 959,
     "malaysia_financial_dashboard": 65,
-    "apache_ofbiz_financial_entities": 894
+    "apache_ofbiz_financial_entities": 894,
+    "batch8_adopted_pairs": 140
   }
 }

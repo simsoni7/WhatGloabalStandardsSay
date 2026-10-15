@@ -1,26 +1,30 @@
 # 다국어 금융용어사전 r7
 
-영어 기준26,105쌍·47대상언어. 기본20,099쌍·38언어·11소스 + 별도조건부6,006쌍·20언어·3소스. 표제어별중복은원문별로유지하므로숫자는고유금융개념수가아닙니다.
+영어 기준 **26,105쌍·47개 대상 언어/지역 표기**를 제공합니다. 기본 자료 20,099쌍과 별도 조건부 참고팩 6,006쌍을 구분합니다. 출처별 원문을 보존하므로 수량은 고유 금융 개념 수와 다릅니다.
 
 ## 화면과 다운로드
 
 - [웹사이트](https://simsoni7.github.io/WhatGloabalStandardsSay/)
-- [이메일·오프라인용 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/financial-dictionary-email.zip): 압축전체해제 → HTML열기 → 출처JSON선택에서data/의JSON모두선택. 별도.js파일없음; 메일정책허용보장은아님.
-- [자동읽기 오프라인ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/financial-dictionary.zip): 전체압축해제후HTML열기.
-- [기본데이터](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/glossaries-data.zip) · [상업조건확인 기본팩](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/commercial-language-packs.zip) · [별도GPL/MPL참고팩](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/conditional-community-language-packs.zip) · [재현패키지](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/what-global-standards-glossary.zip)
+- [이메일·오프라인용 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/financial-dictionary-email.zip): 전체 압축 해제 → HTML 열기 → 출처 JSON 선택에서 `data/`의 JSON을 모두 선택합니다. 별도 `.js` 파일이 없으며 이메일 서비스의 첨부 허용을 보장하지는 않습니다.
+- [자동 읽기 오프라인 ZIP](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/financial-dictionary.zip): 전체 압축 해제 후 HTML을 엽니다.
+- [기본 데이터](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/glossaries-data.zip) · [상업 조건 확인 기본팩](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/commercial-language-packs.zip) · [GPL/MPL 참고팩](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/conditional-community-language-packs.zip) · [재현 패키지](https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/what-global-standards-glossary.zip)
 
-## 한국어 표현
+## 한국어로 조회
 
-영어원문에대한source_english_korean 필드를신설해한국어검색과표시에사용합니다. 7,713영어표제어전체:CFPD한국어원문재사용2,017개 + 신규AI번역5,696개. 전체26,105원문쌍에채워졌습니다. 한국어는독해·검색보조이며source_english/source_target과외국어approved_translation을변경하지않습니다. 신규한국어번역은금융전문가승인전입니다. 실제번역분업후독립AI검수에서목록밀림·금융의미오류를교정하고최종SHA를고정했습니다.
+영어 원문의 한국어 표현인 `source_english_korean` 필드를 신설했습니다. 영어 표제어 7,713개 전체에 CFPD 한국어 원문 재사용 2,017개와 새 AI 번역 5,696개를 채웠으며, 이를 원문쌍 26,105개에 연결했습니다. 원래 영어·외국어 원문과 외국어 번역 승인 상태는 변경하지 않습니다. 새 한국어 표현은 금융 전문가 승인 전인 검색·독해 보조입니다.
 
-## 확장
+분담 번역과 독립 AI 검수에서 목록 정렬 밀림 및 금융 의미 오류를 발견해 교정하고 최종 파일 SHA를 고정했습니다. 사람이 승인한 금융 번역 정답이라는 주장은 하지 않습니다.
 
-Apache금융계정·결제894쌍과말레이시아정부MIT금융통계지표65쌍을검수도입했습니다. 전자는소프트웨어라벨, 후자는금리·가계부채·통화량등통계지표명이며일반은행의공인용어집이라고주장하지않습니다. 모든신규자료는원출처문맥과생성제한을유지하며전문가승인번역0입니다. 기존CFPD동결자료는변경하지않았습니다.
+## 이번 확장
 
-네팔은행·RBI·CBSL등후보는접근/영어대응/상업권리확인을분리했습니다. 권리불명연구원문은신규공개패키지에서제외했습니다. 후보조사와수집량은dictionary-expansion-candidates.json및BATCH7-ASIAN-OFFICIAL.MD참조.
+Apache 금융 계정·결제 라벨 894쌍과 말레이시아 정부 MIT 금융통계 지표명 65쌍, 총 959쌍을 추가했습니다. 소프트웨어·지표의 원문 문맥과 생성 제한을 유지하며 일반 은행의 공인 용어집으로 간주하지 않습니다. 기존 CFPD 동결 원문은 변경하지 않았습니다.
 
-[한국어레이어설명](KOREAN-SEARCH-AIDS.MD) · [사용안내](FINANCIAL-DICTIONARY.MD) · [한국어검사](korean-ui-verification.json) · [번역커버리지](korean-label-report.json)
+기존 후보인 네팔·RBI·CBSL 등의 접근·영어 대응·재사용 권리는 별도로 조사했습니다. 권리 미확인 원문은 새 공개 패키지에서 제외했습니다. 자세한 결과는 후보 목록과 조사 보고서를 참조하세요.
 
-UI검사:47언어전수선택0건없음;예금188건,말라얄람어대출15건,말레이어금리6건,추가JSON한국어검색·중복방지·변조차단·모바일표시통과. 외부망차단추출ZIP은환경정책상로컬HTTP로제공해검사했으며직접file://자동탐색은환경정책으로차단됩니다.
+## 검증과 출처
 
-무료예약원출처모니터는별도glossary-source-intake브랜치에후보변경만게시하고자동번역승인은하지않습니다. source별라이선스/고지조건을유지하며전체패키지에단일라이선스를덮어씌우지않습니다.
+[한국어 표현 설명](KOREAN-SEARCH-AIDS.MD) · [사용 안내](FINANCIAL-DICTIONARY.MD) · [번역 커버리지](korean-label-report.json) · [화면 검증](korean-ui-verification.json) · [아시아 조사](BATCH7-ASIAN-OFFICIAL.MD)
+
+47개 대상 언어/지역 표기 전수 선택에서 0건 언어가 없었습니다. 한국어 검색은 기본 자료의 예금 188건, 말라얄람어의 대출 15건, 말레이어의 금리 6건을 확인했습니다. 추가 JSON의 한국어 검색·중복 방지·변조 차단·모바일 표시도 통과했습니다. 외부망 차단 ZIP 구성은 환경 정책상 로컬 HTTP로 제공해 검사했으며 직접 file:// 자동 탐색은 차단됩니다.
+
+무료 예약 원출처 모니터는 별도 `glossary-source-intake` 브랜치에 변경 후보를 게시합니다. 상시 AI 의미 검수나 자동 번역 승인 작업이 아닙니다. 각 출처의 라이선스·고지 조건을 유지하며 전체 패키지에 단일 라이선스를 적용하지 않습니다.

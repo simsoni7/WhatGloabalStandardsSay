@@ -1,0 +1,32 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "da849c7a513c6f92f94dfcd90390cb6f1b23fb10da662cda3a6c92f67108a505",
+    "bytes": 34768164
+  },
+  {
+    "file": "financial-dictionary-email.zip",
+    "sha256": "af5e6d754679ab8645688e2c6b84ddcf650b4fafcd304ddc345d8a6ea12ac9e8",
+    "bytes": 5208632
+  },
+  {
+    "file": "financial-dictionary.zip",
+    "sha256": "fba07f30f55903c8d2b66402b055a7239262c8615592d368e90b03031fe3389d",
+    "bytes": 5241494
+  },
+  {
+    "file": "community/mifos_mobile_banking.json",
+    "sha256": "92710c9782155ba3fd45341ddbdb0907784e973bd87dcb281aaf3d0a5c7fa847",
+    "bytes": 3005685
+  },
+  {
+    "file": "korean-label-report.json",
+    "sha256": "73072a2e9b62b49809c0cd909ab686e4dfbeda7fe6566e5f0ce85c2336c5fb6e",
+    "bytes": 1038
+  },
+  {
+    "file": "catalog.json",
+    "sha256": "01603651aa967eb2ab2a9b57aa0c3b0fc07ca2506933b18279123678661742d4",
+    "bytes": 42414
+  }
+]

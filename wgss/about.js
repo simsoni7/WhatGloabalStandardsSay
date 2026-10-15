@@ -56,7 +56,7 @@ const WGSSAbout=(()=>{
    </section>
    <section class="about-section about-scale" aria-labelledby="about-scale-title">
     <div class="about-section-heading"><h2 id="about-scale-title">화면, 문구, 다국어 용어.<br>현재 모은 자료입니다.</h2><p>금융사의 화면을 보고, 실제 문구와 다른 언어의 표현을 찾을 수 있습니다.</p></div>
-    <dl class="about-metrics"><div><dt>금융사 화면</dt><dd>${number(m.screens.length)}<span>건</span></dd><dd class="about-metric-note">${number(m.screenProviders)}개 금융사 · ${number(m.uniqueImages)}개 이미지</dd></div><div><dt>금융사에서 쓰는 표현</dt><dd>${number(m.phrases.length)}<span>건</span></dd><dd class="about-metric-note">화면과 안내 자료에서 수집한 문구</dd></div><div><dt>다국어 용어</dt><dd>${number(m.dictionaryRows)}<span>쌍</span></dd><dd class="about-metric-note">영어 원문과 다른 언어의 대응 표현</dd></div><div><dt>용어집 출처</dt><dd>${number(m.datasets.length)}<span>곳</span></dd><dd class="about-metric-note">상업적 이용을 허용한 자료</dd></div></dl>
+    <dl class="about-metrics"><div><dt>금융사 화면</dt><dd>${number(m.screens.length)}<span>건</span></dd><dd class="about-metric-note">${number(m.screenProviders)}개 금융사 · ${number(m.uniqueImages)}개 이미지</dd></div><div><dt>화면 문구</dt><dd>${number(m.phrases.length)}<span>건</span></dd><dd class="about-metric-note">화면과 안내 자료에서 수집한 문구</dd></div><div><dt>다국어 용어</dt><dd>${number(m.dictionaryRows)}<span>쌍</span></dd><dd class="about-metric-note">영어 원문과 다른 언어의 대응 표현</dd></div><div><dt>용어집 출처</dt><dd>${number(m.datasets.length)}<span>곳</span></dd><dd class="about-metric-note">상업적 이용을 허용한 자료</dd></div></dl>
     <p class="about-small">화면 수는 등록된 화면 사례 수입니다. 용어 수는 언어별 대응 쌍 수이며, 같은 뜻의 표현이 여러 자료에 포함될 수 있습니다.</p>
    </section>
    <section class="about-section about-language" aria-labelledby="about-language-title">

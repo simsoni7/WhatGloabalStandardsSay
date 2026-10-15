@@ -1,0 +1,167 @@
+{
+  "review_type": "independent_ai_financial_korean_reading_aid_review",
+  "human_review": false,
+  "semantic_approval": false,
+  "status": "complete",
+  "scope": "English reading/search aid only; does not approve target-language source translations",
+  "translated_extra_count": 110,
+  "sampling_method": "Targeted high-risk financial concepts (principal/interest/debt/credit/accounting/ratio/insurance) plus every 6th or 7th currently available row, and 110 extra rows reviewed in full. Partial files were still being written.",
+  "findings": [
+    {
+      "file": "translated_1.jsonl",
+      "key": "book-to-market ratio",
+      "observed": "장부가치 대비 시장가치 비율",
+      "suggested": "시장가치 대비 장부가치 비율",
+      "reason": "numerator_denominator_reversed",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "시장가치 대비 장부가치 비율",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_1.jsonl",
+      "key": "surplus share reinsurance",
+      "observed": "잉여금 비례 재보험",
+      "suggested": "초과액 재보험(잉여액 재보험)",
+      "reason": "surplus_not_corporate_retained_earnings",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "초과액 재보험(잉여액 재보험)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_1.jsonl",
+      "key": "written premiums",
+      "observed": "원수보험료·인수보험료",
+      "suggested": "인수보험료(계상보험료)",
+      "reason": "direct_premium_scope_unsupported",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "인수보험료(계상보험료)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_2.jsonl",
+      "key": "fixed income securities",
+      "observed": "확정수익증권",
+      "suggested": "고정수익증권(채권 등)",
+      "reason": "fixed_income_does_not_guarantee_investment_return",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "고정수익증권(채권 등)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_2.jsonl",
+      "key": "income from operations",
+      "observed": "영업수익",
+      "suggested": "영업이익",
+      "reason": "income_vs_revenue_in_statement_context",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "영업이익",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_2.jsonl",
+      "key": "debt ratio",
+      "observed": "부채비율",
+      "suggested": "총자산 대비 부채비율",
+      "reason": "distinguish_debt_to_assets_from_debt_to_equity",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "총자산 대비 부채비율",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_2.jsonl",
+      "key": "integrity",
+      "observed": "청렴성",
+      "suggested": "무결성·청렴성(문맥에 따라)",
+      "reason": "ambiguous_financial_integrity",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "무결성·청렴성",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_3.jsonl",
+      "key": "salvage administration services",
+      "observed": "구조물 관리 서비스",
+      "suggested": "보험 잔존물 처리·관리 서비스",
+      "reason": "insurance_salvage_not_structure",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "보험 잔존물 처리·관리 서비스",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_3.jsonl",
+      "key": "delivery versus delivery (dvd)",
+      "observed": "증권동시결제(DvD)",
+      "suggested": "증권 간 동시인도(DvD)",
+      "reason": "distinguish_delivery_vs_payment",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "증권 간 동시인도(DvD)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_3.jsonl",
+      "key": "annual percentage yield (apy)",
+      "observed": "연간수익률(APY)",
+      "suggested": "연간 실효수익률(APY)",
+      "reason": "compounding_effect",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "연간 실효수익률(APY)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_3.jsonl",
+      "key": "covered interest parity(cip)",
+      "observed": "커버드 금리평가(CIP)",
+      "suggested": "환헤지 조건의 금리평형(CIP)",
+      "reason": "context_readability",
+      "action": "sent_to_translation_author_for_correction",
+      "current_korean": "환헤지 조건의 금리평형(CIP)",
+      "status": "resolved"
+    },
+    {
+      "file": "translated_1.jsonl",
+      "key": "multiple_gnucash_tail_rows",
+      "observed": "From GnuCash tail approximately source position 1598, many English/Korean rows were shifted: Stocks mapped to filter-account sentence, Existing Liabilities mapped to New Equity, Tax Tables mapped to Budget Options.",
+      "suggested": "Repair alignment and inspect every tail row before integration",
+      "reason": "critical_row_alignment_failure",
+      "severity": "blocking",
+      "action": "Author inserted missing Created Transactions line; reviewer independently read all rows 1590–1861 and confirmed restored English/Korean alignment.",
+      "status": "resolved",
+      "verified_tail_row_count": 272
+    }
+  ],
+  "files": [
+    {
+      "file": "translated_1.jsonl",
+      "row_count": 1862,
+      "sha256": "885b98822fa7eaa7b9b9938a9a518f03f3bc0f60b535728ee466822eb44b8df1",
+      "exact_input_key_and_english_match": true
+    },
+    {
+      "file": "translated_2.jsonl",
+      "row_count": 1862,
+      "sha256": "4e2313aab7c04cd6b0485aeb0261563b7942b022d4f998543ed430721791ad62",
+      "exact_input_key_and_english_match": true
+    },
+    {
+      "file": "translated_3.jsonl",
+      "row_count": 1862,
+      "sha256": "890fe787a83e459ae5b06c7c149e319d8a119aa8df556fc94c65e149bc0d6913",
+      "exact_input_key_and_english_match": true
+    },
+    {
+      "file": "translated_extra.jsonl",
+      "row_count": 110,
+      "sha256": "873a8450e00277ad4e69513bf17a8a4a5d48bb68ee64b911a481d5c61df7f8dc",
+      "exact_input_key_and_english_match": true
+    }
+  ],
+  "total_translated_rows": 5696,
+  "semantic_review_scope": "Targeted risk and systematic samples, not exhaustive 5,696-row meaning approval; all 110 extra rows and corrected 272-row tail reviewed completely.",
+  "expert_approved_translation_count": 0,
+  "additional_notes": [
+    "Translation author 2 clarified Stock Amount ambiguity and the source title/definition conflict for foreign currency long-term exposure. These retained explicit context notes instead of claiming confirmed equivalence.",
+    "Three translator input chunks are disjoint and total 5,586 rows. Extra 110 rows were translated separately. Existing source-provided Korean labels are outside this newly translated-row review.",
+    "Translator 3 additionally rechecked source definitions and upstream Current Account UI context; latest finalized file hash updated after its corrections."
+  ],
+  "source_files_finalized_by_authors": true
+}

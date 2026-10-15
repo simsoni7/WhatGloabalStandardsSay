@@ -1,12 +1,12 @@
-# 다국어 금융용어사전 — r6
+# 다국어 금융용어사전 — r7
 
-영어를 기준으로 대상45개 언어의 원문 관측25,146쌍을 조회합니다. 기본 사전19,140쌍·36언어·9소스와 별도 조건부 참고팩6,006쌍·20언어·3소스를 구분합니다. 영어는 대상 언어 수에서 제외합니다. 중복 표제어의 출처별 레코드도 원문 근거를 보존하므로 숫자는 고유 금융 개념 수가 아닙니다.
+영어를 기준으로 대상47개 언어의 원문 관측26,105쌍을 조회합니다. 기본 사전20,099쌍·38언어·11소스와 별도 조건부 참고팩6,006쌍·20언어·3소스를 구분합니다. 영어는 대상 언어 수에서 제외합니다. 중복 표제어의 출처별 레코드도 원문 근거를 보존하므로 숫자는 고유 금융 개념 수가 아닙니다.
 
 검색, 한국어 언어명 필터, 출처·자료종류·이용조건·기본/조건부자료 필터, 통계와 출처 설명만 제공합니다. 검토 입력·판정·메모·승인 기능은 없습니다.
 
 ## 보기와 다운로드
 
-공유화면: https://htmlpreview.github.io/?https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r6/index.html
+공유화면: https://htmlpreview.github.io/?https://raw.githubusercontent.com/simsoni7/WhatGloabalStandardsSay/dictionary-20261015-r7/index.html
 
 HTML ZIP 전체를 풀어 financial-dictionary.html을 열면 동봉된 별도 출처 파일을 자동으로 읽어45언어를 조회합니다. HTML 파일만 따로 옮기지 마세요. 별도 자료를 읽지 못하면 현재 읽은 자료의 언어만 표시하며 실패 원인을 안내합니다. 웹 화면은 조건부 JSON을 별도 읽습니다. r6에서 미로딩 언어를 조회 가능으로 표시하던 오류를 수정했습니다. ZIP 전체 압축 해제 후 별도 파일을 자동으로 읽습니다. 오프라인에서는 conditional-community-language-packs.zip을 풀고 community-components/*.json을 화면의 자료 읽기로 선택합니다. 카탈로그 JSON은 선택하지 않습니다. SHA·형식·출처를 확인하고 중복 읽기를 차단합니다. 이 입력은 번역 검토나 승인 작업이 아닙니다.
 
@@ -14,7 +14,7 @@ HTML ZIP 전체를 풀어 financial-dictionary.html을 열면 동봉된 별도 �
 
 기존 동결 CFPD10,089쌍은 변경하지 않았습니다. 몽골은행3,644, 네팔은행171, CFPB 송금135, 캐나다정부117, EU CPV1,958, Unicode CLDR743에 CFPB 송금 영수증60 및 Apache OFBiz 회계 원문2,223을 추가했습니다. 원본 PDF/XML/JSON/PO·커밋·동일 키·원문값·라이선스·SHA를 보존하고 독립 AI 대조를 수행했습니다. 원문 관측과 전문가 승인 번역은 다른 필드이며 승인 번역은 모두 null입니다.
 
-기본 상업 조건 확인 자료는15,325쌍입니다. 몽골·네팔 기존 자료3,815쌍은 재배포 권리 미확인으로 해당 상업팩에서 제외합니다. Apache2·Unicode3·MIT·CC BY 등 각 출처의 고지 조건을 유지합니다.
+기본 상업 조건 확인 자료는16,284쌍입니다. 몽골·네팔 기존 자료3,815쌍은 재배포 권리 미확인으로 해당 상업팩에서 제외합니다. Apache2·Unicode3·MIT·CC BY 등 각 출처의 고지 조건을 유지합니다.
 
 GnuCash1,437(GPL2/3), Mifos community-app3,642(MPL2), Mifos mobile927(MPL2)은 별도 참고팩입니다. 상업 이용은 허용되지만 copyleft·고지·대응 원문 제공 조건이 있습니다. 기본 JSONL/CSV/API와 상업팩에는 섞지 않습니다. 조건부 자료 본문은 기본 HTML에도 내장하지 않습니다.
 
@@ -25,3 +25,8 @@ GnuCash1,437(GPL2/3), Mifos community-app3,642(MPL2), Mifos mobile927(MPL2)은 �
 ## 재현
 
 scripts/build_dictionary_html.py, export_community_sources.py 및 각 collect_*.py로 재현합니다. 기본 데이터 스냅샷 SHA와 조건부 파일 SHA를 별도 표시합니다. 무료 예약 원출처 모니터는 후보만 수집하며 의미 승인·자동 도입을 하지 않습니다. docs/source-monitoring.md를 참조하세요.
+
+
+## r7 확장과 한국어 조회
+
+독립 검수한 Apache 금융 계정·지급 라벨894쌍과 말레이시아 정부 MIT 금융통계 지표명65쌍을 추가했습니다. 말레이어와 포르투갈어(브라질)가 추가되어 대상47언어입니다. 영어 원문에 대한 한국어 보조 표현을 별도 필드로 채우고 화면·CSV·JSONL·오프라인 한국어 검색에 반영합니다. 자세한 번역 출처와 한계는 korean-search-aids.md를 참조하세요.

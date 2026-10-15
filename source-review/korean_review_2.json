@@ -1,0 +1,169 @@
+{
+  "reviewer": "independent_ai_source_and_financial_label_review",
+  "checked_at": "2026-10-15T07:24:58.499770+00:00",
+  "source_chunk_sha256": "403be8aa319b25167f24d81cddba2b80bc54c6d37444570c1a6661e433110061",
+  "translated_file_sha256": "4e2313aab7c04cd6b0485aeb0261563b7942b022d4f998543ed430721791ad62",
+  "review_scope": "All 1,862 English/Korean labels read; structural key and original English matching checked against chunk; identified source definitions and selected GnuCash source context inspected. Search-assistance labels only, no target-language approval and no claim of expert/human validation.",
+  "checks": {
+    "source_rows": 1862,
+    "translated_rows": 1862,
+    "duplicate_keys": [],
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "key_or_english_order_mismatches": [],
+    "empty_korean": []
+  },
+  "findings": [
+    {
+      "key": "emv",
+      "issue": "meaning_error",
+      "recommendation": "EMV 칩카드 결제 표준",
+      "reason": "Mongolian source definition expressly describes Europay/Mastercard/Visa chip card standard, not expected monetary value.",
+      "observed_current_korean": "EMV 칩카드 결제표준",
+      "observed_current_note": "몽골은행 원문 정의의 유로페이·마스터카드·비자 카드기술 표준을 반영하며 기대금전가치와 구분함.",
+      "observed_final_korean": "EMV 칩카드 결제표준",
+      "observed_final_note": "몽골은행 원문 정의의 유로페이·마스터카드·비자 카드기술 표준을 반영하며 기대금전가치와 구분함.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "average (non-marine insurance)",
+      "issue": "meaning_error",
+      "recommendation": "비례보상 원칙(비해상보험)",
+      "reason": "Definition reduces indemnity in proportion to insured value versus full insurable value, not simply non-marine loss.",
+      "observed_current_korean": "비례보상 원칙(비해상보험)",
+      "observed_current_note": "보험가액 대비 가입금액 비율에 따라 보상액을 감액하는 원문 정의 반영.",
+      "observed_final_korean": "비례보상 원칙(비해상보험)",
+      "observed_final_note": "보험가액 대비 가입금액 비율에 따라 보상액을 감액하는 원문 정의 반영.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "long investments",
+      "issue": "meaning_error",
+      "recommendation": "매수 포지션 투자",
+      "reason": "Definition describes buying assets expecting appreciation, not long-term holding.",
+      "observed_current_korean": "매수 포지션 투자",
+      "observed_current_note": "가격상승을 기대하는 자산 매수 의미이며 장기 보유기간을 뜻하지 않음.",
+      "observed_final_korean": "매수 포지션 투자",
+      "observed_final_note": "가격상승을 기대하는 자산 매수 의미이며 장기 보유기간을 뜻하지 않음.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "claim amount distribution",
+      "issue": "financial_precision",
+      "recommendation": "보험금 지급액 분포",
+      "reason": "Avoid confusion with insured sum rather than claim payment amount.",
+      "observed_current_korean": "보험금 지급액 분포",
+      "observed_current_note": "",
+      "observed_final_korean": "보험금 지급액 분포",
+      "observed_final_note": "",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "point-of-sale (pos) terminal",
+      "issue": "financial_precision",
+      "recommendation": "판매시점 카드결제 단말기(POS)",
+      "reason": "Definition is payment card acceptance terminal, broader than inventory POS management.",
+      "observed_current_korean": "판매시점 카드결제 단말기(POS)",
+      "observed_current_note": "",
+      "observed_final_korean": "판매시점 카드결제 단말기(POS)",
+      "observed_final_note": "",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "resume",
+      "issue": "meaning_error",
+      "recommendation": "이력서",
+      "reason": "Definition lists name, education, work experience, job application.",
+      "observed_current_korean": "이력서",
+      "observed_current_note": "몽골은행 원문 정의의 구직자 약력을 반영함.",
+      "observed_final_korean": "이력서",
+      "observed_final_note": "몽골은행 원문 정의의 구직자 약력을 반영함.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "public company",
+      "issue": "meaning_error",
+      "recommendation": "공개 주식회사",
+      "reason": "Definition describes traded-share corporation, not state-owned public enterprise.",
+      "observed_current_korean": "공개 주식회사",
+      "observed_current_note": "원문은 주식회사 유형을 설명하며 국유기업 의미의 공기업이 아님.",
+      "observed_final_korean": "공개 주식회사",
+      "observed_final_note": "원문은 주식회사 유형을 설명하며 국유기업 의미의 공기업이 아님.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "mediator",
+      "issue": "legal_meaning_error",
+      "recommendation": "조정인·분쟁조정자",
+      "reason": "Facilitates settlement rather than arbitrator making an award.",
+      "observed_current_korean": "조정인·분쟁조정자",
+      "observed_current_note": "분쟁당사자 간 합의 지원 역할이며 강제판정 권한을 가진 중재인과 구분함.",
+      "observed_final_korean": "조정인·분쟁조정자",
+      "observed_final_note": "분쟁당사자 간 합의 지원 역할이며 강제판정 권한을 가진 중재인과 구분함.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "market-book-value ratio",
+      "issue": "source_internal_conflict",
+      "recommendation": "시장가치·장부가치 비율",
+      "reason": "English ordering versus Mongolian definition implies opposite numerator/denominator; avoid asserting one orientation; note needed.",
+      "observed_current_korean": "시장가치·장부가치 비교비율",
+      "observed_current_note": "원문 영문 표제와 몽골어 설명의 분자·분모 방향이 불일치할 수 있으므로 산식 확인 필요.",
+      "observed_final_korean": "시장가치·장부가치 비교비율",
+      "observed_final_note": "원문 영문 표제와 몽골어 설명의 분자·분모 방향이 불일치할 수 있으므로 산식 확인 필요.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "foreign currency long-term exposure",
+      "issue": "source_internal_conflict",
+      "recommendation": "외환 매입초과(롱) 포지션",
+      "reason": "English long-term conflicts with Mongolian definition of foreign currency assets/receivables exceeding liabilities/payables; note needed.",
+      "observed_current_korean": "외환 매입초과(롱) 포지션",
+      "observed_current_note": "영어 표제는 long-term이지만 원문 정의는 외화자산·채권이 외화부채·채무를 초과한 차액을 뜻함. 원문 불일치 확인 필요.",
+      "observed_final_korean": "외환 매입초과(롱) 포지션",
+      "observed_final_note": "영어 표제는 long-term이지만 원문 정의는 외화자산·채권이 외화부채·채무를 초과한 차액을 뜻함. 원문 불일치 확인 필요.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "substandard loans",
+      "issue": "jurisdiction_note",
+      "recommendation": "고정분류 대출",
+      "reason": "Mongolian 91–180-day loan classification is not automatically identical to Korean regulatory classification.",
+      "observed_current_korean": "고정분류 대출",
+      "observed_current_note": "원문 몽골 분류는 원리금 91~180일 연체이며 한국 자산건전성 분류기준과 동일하다고 단정하지 않음.",
+      "observed_final_korean": "고정분류 대출",
+      "observed_final_note": "원문 몽골 분류는 원리금 91~180일 연체이며 한국 자산건전성 분류기준과 동일하다고 단정하지 않음.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "carbon credits",
+      "issue": "source_scope_note",
+      "recommendation": "탄소배출권",
+      "reason": "Source describes emission allowances; carbon offset credit and allowance differ.",
+      "observed_current_korean": "탄소배출권",
+      "observed_current_note": "원문 정의의 배출허용량 의미를 반영하며 자발적 감축 크레딧과 구분 필요.",
+      "observed_final_korean": "탄소배출권",
+      "observed_final_note": "원문 정의의 배출허용량 의미를 반영하며 자발적 감축 크레딧과 구분 필요.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    },
+    {
+      "key": "stock amount",
+      "issue": "ui_context_ambiguity",
+      "recommendation": "주식 금액·수량(문맥 확인)",
+      "reason": "GnuCash Russian label says share quantity while adjacent English help says value; do not assert precision without UI context.",
+      "observed_current_korean": "주식 금액·수량",
+      "observed_current_note": "금액과 수량의 의미가 원문 화면·언어별 자료에서 모호하므로 적용 문맥 확인 필요.",
+      "observed_final_korean": "주식 금액·수량",
+      "observed_final_note": "금액과 수량의 의미가 원문 화면·언어별 자료에서 모호하므로 적용 문맥 확인 필요.",
+      "resolution": "author_corrected_or_added_context_note_independently_checked"
+    }
+  ],
+  "conclusion": "pass_as_ai_generated_search_assistance_after_13_corrections_or_context_notes_no_missing_or_shifted_rows",
+  "human_review": false,
+  "semantic_approval": false,
+  "remaining_limitations": [
+    "No specialist/human translation approval.",
+    "English key can combine observations from multiple datasets/senses; contextual source ambiguity remains in notes.",
+    "This pass identified obvious mismatches; it is not a guarantee that all 1,862 technical labels are error-free."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "build": "dictionary-20261015-r7",
+  "network": "external HTTPS blocked; extracted ZIP served on loopback",
+  "checks": {
+    "core_korean_search": 188,
+    "ml_대출": 15,
+    "ms_금리": 6,
+    "imported_korean_search": true,
+    "duplicate_import_no_extra_rows": true,
+    "tampered_json_rejected": true,
+    "mobile_search_visible": true
+  },
+  "page_errors": []
+}

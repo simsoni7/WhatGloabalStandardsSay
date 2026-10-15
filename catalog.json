@@ -1,34 +1,37 @@
 {
   "format_version": 2,
-  "entry_count": 19140,
+  "entry_count": 20099,
   "counts_by_dataset": {
     "apache_ofbiz_accounting": 2223,
+    "apache_ofbiz_financial_entities": 894,
     "canada_government_financial_labels": 117,
     "cfpb_remittance": 135,
     "cfpb_remittance_receipt_labels": 60,
     "cfpd": 10089,
     "eu_cpv_financial_services": 1958,
+    "malaysia_financial_dashboard": 65,
     "mongolbank": 3644,
     "nepalbank": 171,
     "unicode_cldr_currency_names": 743
   },
   "counts_by_language": {
-    "ar": 194,
-    "cs": 124,
-    "de": 262,
-    "es": 2298,
-    "fr": 381,
-    "hi": 160,
-    "it": 193,
-    "ja": 170,
-    "nl": 219,
-    "pt": 250,
-    "ro": 165,
-    "ru": 2398,
-    "th": 92,
-    "vi": 2508,
-    "zh-Hans": 174,
-    "zh-Hant": 2209,
+    "ar": 265,
+    "cs": 131,
+    "de": 336,
+    "es": 2307,
+    "fr": 446,
+    "hi": 230,
+    "it": 254,
+    "ja": 238,
+    "nl": 283,
+    "pt": 296,
+    "ro": 203,
+    "ru": 2453,
+    "th": 145,
+    "vi": 2544,
+    "zh-Hans": 246,
+    "zh-Hant": 2281,
+    "pt-BR": 33,
     "ht": 43,
     "ko": 2035,
     "tl": 38,
@@ -46,6 +49,7 @@
     "sk": 89,
     "sl": 89,
     "sv": 89,
+    "ms": 65,
     "mn": 3644,
     "ne": 171,
     "km": 166
@@ -72,11 +76,13 @@
     "lt",
     "lv",
     "mn",
+    "ms",
     "mt",
     "ne",
     "nl",
     "pl",
     "pt",
+    "pt-BR",
     "ro",
     "ru",
     "sk",
@@ -93,12 +99,12 @@
   "review_note": "Source matches do not establish contextual correctness. Candidate records and AI-assisted checks retain explicit status.",
   "files": {
     "glossary_entries.csv": {
-      "bytes": 16866344,
-      "sha256": "6fb237dd5dda6ece3a08c0692c81f5a5a18008d83e2f8bf47ad0777836ec5b34"
+      "bytes": 26391374,
+      "sha256": "ddb5f3ac8c39d53925867830c26dfedb06b935827477944901b14968e500c47d"
     },
     "glossary_entries.jsonl": {
-      "bytes": 40516556,
-      "sha256": "c79b12064e0ac70ae1bfd8f478c85ea34b4a72c2783dd2455189c13ebce991cb"
+      "bytes": 51530556,
+      "sha256": "528d50aaf3fcbbd1a236eaf2edacb94180402bd3db995b9845138e07642a5aef"
     },
     "financial_concepts.jsonl": {
       "bytes": 62806,
@@ -524,6 +530,110 @@
           "raw/AccountingUiLabels.xml": "03479bd2fdcc606e175f9e066352ca68d6d3240cb895ea338811c4fd52018926"
         }
       }
+    },
+    {
+      "dataset_id": "apache_ofbiz_financial_entities",
+      "entry_count": 894,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "apache_ofbiz_financial_entities",
+        "dataset_version": "b8b72d556e829d4a0818f8a4fed57e0750efcacb",
+        "entry_count": 894,
+        "language_counts": {
+          "ar": 71,
+          "cs": 7,
+          "de": 74,
+          "es": 9,
+          "fr": 65,
+          "hi": 70,
+          "it": 61,
+          "ja": 68,
+          "nl": 64,
+          "pt-BR": 33,
+          "ro": 38,
+          "ru": 55,
+          "th": 53,
+          "vi": 36,
+          "zh-Hans": 72,
+          "zh-Hant": 72,
+          "pt": 46
+        },
+        "usage_terms": {
+          "commercial_use": true,
+          "license": "Apache-2.0",
+          "license_file": "raw/LICENSE",
+          "attribution_required": true,
+          "notice_file": "raw/NOTICE"
+        },
+        "decision": "accepted_reference",
+        "adoption_review": {
+          "human_review": false,
+          "semantic_approval": false
+        },
+        "files_sha256": {
+          "evidence.jsonl": "a4aec51b1e4ebaf20e235b9d41ec0bae8029b6da52fd38e7e40ba7dbd4d8a613",
+          "MODIFICATIONS.md": "685ecbb217233a342500332b3b1021faa2e78ae548e6a8ea22b0c2b3b9883f2a",
+          "independent-review.json": "80a99a3857c0538db02f000552ad41fdbcc602e6f823f983b532670ee1b3be49",
+          "raw/CommonUiLabels.xml": "a43d8ae8276aa76dd8a60a75b653931c21ea6d9c4cf9bdfbc267b953963073ba",
+          "raw/LICENSE": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+          "raw/AccountingEntityLabels.xml": "6b9f6bbaa9ea87054329e860392c80c413a6d252edf902b477b92e9d99ce8c74",
+          "raw/PartyUiLabels.xml": "cc54b13e012a065ed44960ae95d10401d9ad95effa966f3f1f4fd1d42830ce10",
+          "raw/NOTICE": "dc5608d6a118e28e840b2b16b351bae9ba0059c1c69c6cfee25fd05631f52800",
+          "raw/CommonEntityLabels.xml": "b6aad73b4d97d7b93fdf44fccaada8862a355a71dedac5afa3cba014e5e67020"
+        }
+      }
+    },
+    {
+      "dataset_id": "malaysia_financial_dashboard",
+      "entry_count": 65,
+      "state": "candidate",
+      "manifest": {
+        "dataset_id": "malaysia_financial_dashboard",
+        "dataset_version": "a34682cf22a1da9de5520a27f5f3fc5f7c86b06f",
+        "entry_count": 65,
+        "language_counts": {
+          "ms": 65
+        },
+        "usage_terms": {
+          "commercial_use": true,
+          "license": "MIT",
+          "license_file": "raw/LICENSE",
+          "attribution_required": true,
+          "notice_file": "raw/NOTICE.txt"
+        },
+        "decision": "accepted_reference",
+        "adoption_review": {
+          "human_review": false,
+          "semantic_approval": false
+        },
+        "files_sha256": {
+          "evidence.jsonl": "4afb0cac982bc9f3eea2c5a0d784219644c906fa85e412f348b0ded0d227da87",
+          "MODIFICATIONS.md": "685ecbb217233a342500332b3b1021faa2e78ae548e6a8ea22b0c2b3b9883f2a",
+          "independent-review.json": "a5185d1fbb921049f63685f591a102b430cbd15f5136b0533adb9e326a093965",
+          "raw/LICENSE": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+          "raw/NOTICE.txt": "26a8044a9a652ae6b2cb37a69a31cfe9a0cc3875c348b1b3062076cd819f2c16",
+          "raw/en-GB/dashboard-household-debt.json": "379cde1d394a8cd47e3eea52e9d7f03adffd2d40bb27d95e31fd67adb97d5d0d",
+          "raw/en-GB/dashboard-income-taxation.json": "e763d86ce571f152148654b7a161429d5dad718d0624f2f51b2a28ffca5f6abc",
+          "raw/en-GB/dashboard-money-supply.json": "70806c63ae9c3e8676edf367f6017644e5efe689fbbbfaa06ef0430b4fb04c07",
+          "raw/en-GB/dashboard-public-pension.json": "19e3e627ca1296b9dc0f59d6abbab9c840a210e65e3a781fa4f70c2c46a6b4f5",
+          "raw/en-GB/dashboard-currency-in-circulation.json": "26baa62a92c15fe64938e3f899d29ff20965ad8077a4a529b956243b8e745b64",
+          "raw/en-GB/dashboard-retirement-readiness.json": "e23da9257727df1c342be112ea9a8e1bcb9ed78a9d75c8ee6dd4f10534fa51ed",
+          "raw/en-GB/dashboard-electronic-payments.json": "0f47a9ae92f0d2754197f51f63280a2bc357b84e5184f9f675f4a570938d27f1",
+          "raw/en-GB/dashboard-reserve-money.json": "d96713de868f6ee263ac2dd9b8d443d93b455e83938237e378bcdfbeb6191235",
+          "raw/en-GB/dashboard-interest-rates.json": "97676de910f8681faf057f009f065f23d55391a7d1983e5d461bf3ff5e1aa960",
+          "raw/en-GB/dashboard-international-reserves.json": "fa57f69ede3419cb37a31ee4a13cd34b72200991d197b7a2b401ca329df7a7a7",
+          "raw/ms-MY/dashboard-household-debt.json": "90f26b76f1bcd75052f3a40f13dd24c88927c310cbe0d675359242c660ac3dd8",
+          "raw/ms-MY/dashboard-income-taxation.json": "9acef01dc648d012c6e11f7ad8043299448d92b9bab806ec2753ca03a983c5d2",
+          "raw/ms-MY/dashboard-money-supply.json": "86da5431393d95ea41184c5ddedbb56c2e3dffcae3c03989a0cc5370849e2cf7",
+          "raw/ms-MY/dashboard-public-pension.json": "58a1861dca407216ebef41b2ab4d0606777978171f2ba8dcdfe42b50505162a8",
+          "raw/ms-MY/dashboard-currency-in-circulation.json": "9e124a10e2d4d92bce641199917608953d2b755fcbf00c1b17fb23fefe69007e",
+          "raw/ms-MY/dashboard-retirement-readiness.json": "306cffd9ea19ba3363abb0818235cbc58e51cf86ff8b4b5a17c380ca4a21dff0",
+          "raw/ms-MY/dashboard-electronic-payments.json": "6a3a51845b6705e3dc34ca830f6c9ba9a2c5697a080a8d965fd09a7a134e7bdb",
+          "raw/ms-MY/dashboard-reserve-money.json": "ca5798098a504a14da47305c684efc25d0e1afd4a706c1215d220aee496a98f8",
+          "raw/ms-MY/dashboard-interest-rates.json": "a0e10e6c8098922548a71ca1dbe3e865c307552f2ff50ff06499ffaed3c525ce",
+          "raw/ms-MY/dashboard-international-reserves.json": "63c0a889f4dd988515a465e9f2817e8b3aba6d0438ea2ee2414e64b01710e2dd"
+        }
+      }
     }
   ],
   "benchmarks": [
@@ -593,22 +703,27 @@
   "benchmark_note": "Reference terminology is not an independent translation-quality benchmark. No live-model accuracy score is claimed.",
   "schema_version": 2,
   "approved_translation_count": 0,
+  "korean_english_label_layer": {
+    "field": "source_english_korean",
+    "covered_rows": 20099,
+    "scope": "English-label reading/search aid; no target translation approval"
+  },
   "field_rules": "source_english/source_target preserve source observations. Alignment does not establish semantic equivalence; approved_translation is null without explicit review. Missing approvals in CSV are empty cells.",
   "integration_report": {
     "schema_version": 2,
-    "entry_count": 19298,
+    "entry_count": 20257,
     "approved_translation_count": 0,
     "equivalence_counts": {
-      "unreviewed": 17910,
-      "needs_review": 1387,
+      "unreviewed": 18840,
+      "needs_review": 1416,
       "not_applicable": 1
     },
     "issue_counts": {
-      "same_source_english_multiple_targets": 148,
-      "same_source_target_multiple_english": 401,
+      "same_source_english_multiple_targets": 159,
+      "same_source_target_multiple_english": 405,
       "source_definition_mismatch_suspected": 1
     },
-    "cross_source_candidate_links": 304,
+    "cross_source_candidate_links": 318,
     "rules": [
       "Raw datasets unchanged",
       "Source alignment is not semantic equivalence",
@@ -623,19 +738,19 @@
         "ai_definition_review_attached": 48,
         "cross_domain_meaning_review_required": 37,
         "identical_definition_variant_candidate": 1,
-        "target_variant_semantics_unresolved": 70,
-        "shared_target_sense_review_required": 394
+        "target_variant_semantics_unresolved": 81,
+        "shared_target_sense_review_required": 398
       },
       "human_approved_translations": 0,
       "complete_semantic_validation": false
     },
     "expansion_source_review": {
-      "new_core_records_reviewed": 2283,
+      "new_core_records_reviewed": 3242,
       "named_semantic_quarantines": 9,
-      "software_context_generation_policy_blocks": 2223,
+      "software_context_generation_policy_blocks": 3182,
       "expert_translation_approvals": 0
     },
-    "generation_ineligible_records": 2227
+    "generation_ineligible_records": 3186
   },
   "financial_information_layer": {
     "candidate_cards": 24,
@@ -653,7 +768,9 @@
       "eu_cpv_financial_services",
       "unicode_cldr_currency_names",
       "cfpb_remittance_receipt_labels",
-      "apache_ofbiz_accounting"
+      "apache_ofbiz_accounting",
+      "apache_ofbiz_financial_entities",
+      "malaysia_financial_dashboard"
     ],
     "exclusions": [
       {
@@ -706,6 +823,20 @@
         "policy_snapshot": "datasets/language_packs/apache_ofbiz_accounting/raw/LICENSE",
         "policy_sha256": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
         "attribution_review": "datasets/language_packs/apache_ofbiz_accounting/independent-review.json"
+      },
+      {
+        "dataset_id": "apache_ofbiz_financial_entities",
+        "policy_url": "https://github.com/apache/ofbiz-framework/blob/b8b72d556e829d4a0818f8a4fed57e0750efcacb/LICENSE",
+        "policy_snapshot": "datasets/language_packs/apache_ofbiz_financial_entities/raw/LICENSE",
+        "policy_sha256": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+        "attribution_review": "datasets/language_packs/apache_ofbiz_financial_entities/independent-review.json"
+      },
+      {
+        "dataset_id": "malaysia_financial_dashboard",
+        "policy_url": "https://github.com/data-gov-my/datagovmy-meta/blob/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/LICENSE",
+        "policy_snapshot": "datasets/language_packs/malaysia_financial_dashboard/raw/LICENSE",
+        "policy_sha256": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+        "attribution_review": "datasets/language_packs/malaysia_financial_dashboard/independent-review.json"
       }
     ],
     "human_review": false,

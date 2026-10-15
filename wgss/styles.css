@@ -20,4 +20,6 @@ h1{word-break:keep-all;text-wrap:balance}
 /* Submission receipts can be longer than the mobile viewport. */
 #contribution-status{overflow-wrap:anywhere;word-break:break-word;min-width:0}
 
+.proposal-tabs{margin-bottom:24px}#contribution-term-fields{margin-bottom:24px}#contribution-screen-context:empty{display:none}
+
 .release-update{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1248px;margin:12px auto;padding:12px 32px;border-bottom:1px solid #e5e5e5;font-size:14px;}.publication-date{max-width:1248px;margin:12px auto 0;padding:0 32px;font-size:12px;color:#616161;}

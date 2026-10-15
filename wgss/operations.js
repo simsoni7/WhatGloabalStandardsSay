@@ -2,7 +2,9 @@
 const WGSSOperations = (() => {
   'use strict';
   const scriptUrl = document.currentScript?.src || new URL('operations.js', location.href).href;
-  const defaultPlanUrl = new URL('operations-plan.json', scriptUrl).href;
+  const planUrl = new URL('operations-plan.json', scriptUrl);
+  if (new URL(scriptUrl).searchParams.has('v')) planUrl.searchParams.set('v', new URL(scriptUrl).searchParams.get('v'));
+  const defaultPlanUrl = planUrl.href;
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const list = value => Array.isArray(value) ? value : [];
   const instances = new WeakMap();

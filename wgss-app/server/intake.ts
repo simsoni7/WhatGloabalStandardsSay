@@ -9,7 +9,7 @@ const allowedDatasets=new Set(['apache_ofbiz_accounting','apache_ofbiz_financial
 const publicTerms=new Set((referenceIndex as any).terms.filter((row:any)=>allowedDatasets.has(row.datasetId)).map((row:any)=>row.id));
 const publicReader:Actor={userId:'public-reference-reader',role:'contributor',service:false};
 const UPLOAD_DAILY=500*1024*1024;
-function allowedOrigin(request:Request){const origin=request.headers.get('origin');if(origin&&origin!==FRONTEND&&origin!=='https://wgss-case-library.booknfoto461.chatgpt.site'&&origin!==new URL(request.url).origin)throw new ApiError(403,'origin_forbidden','허용된 WGSS 화면에서만 요청할 수 있습니다.');return origin;}
+function allowedOrigin(request:Request,env:Runtime){const origin=request.headers.get('origin');const allowed=new Set([FRONTEND,'https://wgss-case-library.booknfoto461.chatgpt.site',new URL(request.url).origin]);for(const entry of (env.WGSS_PUBLIC_FRONTEND_ORIGINS||'').split(',')){try{const u=new URL(entry.trim());if(u.protocol==='https:'&&u.origin===entry.trim())allowed.add(u.origin);}catch{}}if(origin&&!allowed.has(origin))throw new ApiError(403,'origin_forbidden','허용된 WGSS 화면에서만 요청할 수 있습니다.');return origin;}
 function cors(response:Response,origin:string|null){const headers=new Headers(response.headers);headers.set('Cache-Control','private, no-store');headers.set('X-Content-Type-Options','nosniff');headers.append('Vary','Origin');if(origin){headers.set('Access-Control-Allow-Origin',origin);headers.set('Access-Control-Allow-Methods','GET, POST, OPTIONS');headers.set('Access-Control-Allow-Headers','Content-Type, X-WGSS-Contribution-Token');headers.set('Access-Control-Max-Age','600');}return new Response(response.body,{status:response.status,statusText:response.statusText,headers});}
 function errorResponse(error:unknown){const known=error instanceof ApiError;return Response.json({error:known?error.message:'요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.',code:known?error.code:'internal_error'},{status:known?error.status:500});}
 async function capability(request:Request):Promise<Actor>{const token=request.headers.get('X-WGSS-Contribution-Token');if(!token||!/^[0-9a-f]{64}$/.test(token))throw new ApiError(401,'contribution_token_required','제안 확인 정보가 필요합니다. 화면을 새로 열어 다시 시도해 주세요.');return {userId:'contribution:'+await hash(token),role:'contributor',service:false};}
@@ -65,7 +65,7 @@ async function deleteOwn(request:Request,env:Runtime,actor:Actor,input:any){
 export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Response>{
  let origin:string|null=null;
  try{
-  origin=allowedOrigin(request);const env={...inputEnv,WGSS_PRIVATE_SERVICE_ACCESS:'false'};
+  origin=allowedOrigin(request,inputEnv);const env={...inputEnv,WGSS_PRIVATE_SERVICE_ACCESS:'false'};
   if(request.method==='OPTIONS')return cors(new Response(null,{status:204}),origin);
   if(!['GET','POST'].includes(request.method))throw new ApiError(405,'method_not_allowed','지원하지 않는 요청 방식입니다.');
   const native=getActor(request.headers.get('oai-authenticated-user-id'),env,request.headers.get('oai-authenticated-user-email'));

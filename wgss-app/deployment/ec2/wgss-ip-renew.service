@@ -1,0 +1,10 @@
+[Unit]
+Description=Renew WGSS public IP TLS certificate
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/ubuntu/wgss-ec2-deployment/renew.sh
+TimeoutStartSec=300

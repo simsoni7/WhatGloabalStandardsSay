@@ -9,7 +9,7 @@ import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-intake-'));
 await mkdir(join(output,'wgss'));
-for(const name of ['core','submissions','jobs','images','publications','review-draft','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
+for(const name of ['core','submissions','jobs','images','publications','review-draft','vision-images','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 for(const name of ['known-sources.json','evidence-index.json','reference-index.json'])await copyFile(join(root,'server/wgss',name),join(output,'wgss',name));
 await writeFile(join(output,'intake.js'),ts.transpileModule(await readFile(join(root,'server/intake.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 const require=createRequire(import.meta.url),{handleIntake}=require(join(output,'intake.js')),{hash}=require(join(output,'wgss/core.js'));
@@ -30,6 +30,11 @@ test('CORS allows GitHub and same host, rejects unrelated origins and preflights
  const options=await handleIntake(new Request(base,{method:'OPTIONS',headers:{Origin:frontend,'Access-Control-Request-Headers':'content-type,x-wgss-contribution-token'}}),env);assert.equal(options.status,204);assert.equal(options.headers.get('access-control-allow-origin'),frontend);assert(!options.headers.has('access-control-allow-credentials'));assert(options.headers.get('access-control-allow-headers').includes('X-WGSS-Contribution-Token'));
  const bad=await request(null,null,'session',{Origin:'https://evil.example'});assert.equal(bad.status,403);assert(!bad.headers.has('access-control-allow-origin'));
  assert.equal((await request(null,null,'session',{Origin:'https://intake.test'})).status,200);assert.equal((await request(null,null,'session',{Origin:'https://wgss-case-library.booknfoto461.chatgpt.site'})).status,200);
+});
+
+test('CORS accepts explicitly configured HTTPS frontends only',async()=>{
+ const configured={...env,WGSS_PUBLIC_FRONTEND_ORIGINS:'https://3.36.58.188,http://insecure.example, https://bad.example/path'};
+ for(const [origin,expected] of [['https://3.36.58.188',204],['http://3.36.58.188',403],['https://bad.example',403],['http://insecure.example',403]]){const r=await handleIntake(new Request(base,{method:'OPTIONS',headers:{Origin:origin}}),configured);assert.equal(r.status,expected);assert.equal(r.headers.get('access-control-allow-origin'),expected===204?origin:null);}
 });
 test('capability is a 256-bit header, shared admin keys and private-service flag grant no privileges',async()=>{
  const session=await request();assert.equal(session.body.role,'anonymous');assert.equal(session.body.serviceAccess,false);

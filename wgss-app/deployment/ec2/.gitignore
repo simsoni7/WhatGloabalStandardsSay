@@ -1,0 +1,7 @@
+public/
+acme/
+letsencrypt/
+letsencrypt-staging/
+logs/
+tls/
+.renew.lock

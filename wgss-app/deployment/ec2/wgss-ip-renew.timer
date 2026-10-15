@@ -1,0 +1,12 @@
+[Unit]
+Description=Check WGSS short-lived IP certificate every 6 hours
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6h
+RandomizedDelaySec=15min
+Persistent=true
+Unit=wgss-ip-renew.service
+
+[Install]
+WantedBy=timers.target

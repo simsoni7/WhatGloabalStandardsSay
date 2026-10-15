@@ -41,3 +41,5 @@ export const publications = sqliteTable('wgss_publications', {
   sourceVersion: integer('source_version').notNull(), patchJson: text('patch_json').notNull(), state: text('state').notNull().default('applied'),
   actorId: text('actor_id').notNull(), createdAt: text('created_at').notNull(),
 },t=>[uniqueIndex('wgss_publication_revision').on(t.targetType,t.targetId,t.revision),index('wgss_publication_source').on(t.sourceSubmissionId)]);
+
+export * from './intake-schema';

@@ -22,6 +22,13 @@
       "when": 1792078337687,
       "tag": "0002_swift_firestar",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1792083749317,
+      "tag": "0003_spooky_old_lace",
+      "breakpoints": true
     }
   ]
 }

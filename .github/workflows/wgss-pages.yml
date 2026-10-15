@@ -22,22 +22,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - name: Import the reviewed source once
+      - name: Refresh generated reference targets
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -f wgss-app/public-snapshot.json ]; then
-            curl --fail --location --retry 3 --max-time 600 'https://talented-hats-savings-cables.trycloudflare.com/wgss-public-bootstrap.tar.gz' --output "$RUNNER_TEMP/wgss-public.tar.gz"
-            echo 'f4aabe9177cd9a67624fed3529ba4cfb8139deb0377d6e84145f40e269efdf99  '"$RUNNER_TEMP/wgss-public.tar.gz" | sha256sum --check -
-            python3 -c 'import tarfile,sys; tarfile.open(sys.argv[1]).extractall(".", filter="data")' "$RUNNER_TEMP/wgss-public.tar.gz"
+          node wgss-app/scripts/build-reference-index.mjs
+          if ! git diff --quiet -- wgss-app/server/wgss/reference-index.json; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add wgss-app
-            git commit -m 'Import reviewed WGSS application source and approved public snapshot'
+            git add wgss-app/server/wgss/reference-index.json
+            git commit -m 'Refresh generated WGSS reference targets [skip ci]'
             git push origin HEAD:wgss-integration
           fi
       - name: Build and verify public asset hashes
-        run: node wgss-app/scripts/build-github-pages.mjs "$RUNNER_TEMP/wgss-public"
+        run: |
+          node wgss-app/scripts/build-github-pages.mjs "$RUNNER_TEMP/wgss-public"
+          node wgss-app/tests/public-commercial-policy.mjs "$RUNNER_TEMP/wgss-public"
       - uses: actions/checkout@v4
         with:
           ref: gh-pages

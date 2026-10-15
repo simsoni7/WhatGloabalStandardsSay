@@ -6,7 +6,7 @@ const index=referenceIndex as any;
 const base=new Map<string,any>();
 for(const type of types)for(const row of index[type])base.set(type+':'+row.id,row);
 const sets={providerId:new Set(index.providers.map((r:any)=>r.id)),language:new Set(index.languages.map((r:any)=>r.id)),taskId:new Set(index.tasks.map((r:any)=>r.id)),workId:new Set(index.works.map((r:any)=>r.id))};
-const fields:Record<EntityType,string[]>={screens:['title','providerId','language','taskId','stageLabel','sourceUrl','capturedAt','appVersion'],phrases:['text','providerId','language','taskId','context','role','sourceUrl'],terms:['english','target','korean','definition','language','sourceUrl'],features:['expression','meaning','conditions','providerId','language','taskId','workId','sourceUrl']};
+const fields:Record<EntityType,string[]>={screens:['title','providerId','language','taskId','stageLabel','sourceUrl','capturedAt','appVersion','collectionReferenceId'],phrases:['text','providerId','language','taskId','context','role','sourceUrl'],terms:['english','target','korean','definition','language','sourceUrl'],features:['expression','meaning','conditions','providerId','language','taskId','workId','sourceUrl']};
 function checkedType(value:unknown):EntityType{if(!types.includes(value as EntityType))throw new ApiError(400,'invalid_target','반영할 자료 종류를 선택해 주세요.');return value as EntityType;}
 export async function appliedRecords(env:Runtime){
  const all=await rows(env,'SELECT id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,created_at FROM wgss_publications ORDER BY revision,created_at,rowid');
@@ -24,6 +24,15 @@ export async function preparePublications(env:Runtime,actor:Actor,source:any,inp
  if(!plan.fields||typeof plan.fields!=='object'||Array.isArray(plan.fields))throw new ApiError(400,'invalid_fields','반영할 최종 내용을 입력해 주세요.');
  const patch:any={};for(const [key,value] of Object.entries(plan.fields)){if(!fields[type].includes(key))throw new ApiError(400,'invalid_field','이 자료에서 수정할 수 없는 항목입니다: '+key);patch[key]=bounded(value,key,key==='definition'||key==='meaning'||key==='context'||key==='conditions'?5000:key==='sourceUrl'?2000:1000);}
  for(const [key,values] of Object.entries(sets))if(key in patch&&!values.has(patch[key]))throw new ApiError(400,'unknown_identity','등록되지 않은 '+key+'입니다.');
+ const sourceCollection=bounded(parse(source.content_json).collectionReferenceId,'collectionReferenceId',200);
+ if(sourceCollection){if(type!=='screens'||plan.operation!=='add')throw new ApiError(400,'collection_add_only','함께 수집한 화면 제안은 기존 화면을 교체하지 않고 새 화면으로 추가해야 합니다.');if(patch.collectionReferenceId&&patch.collectionReferenceId!==sourceCollection)throw new ApiError(400,'collection_conflict','제안한 수집 묶음과 반영할 묶음이 다릅니다.');patch.collectionReferenceId=sourceCollection;}
+ if(patch.collectionReferenceId){
+  if(type!=='screens'||plan.operation!=='add')throw new ApiError(400,'collection_add_only','함께 수집한 화면은 새 화면으로 추가해 주세요.');
+  const originalAnchor=base.get('screens:'+patch.collectionReferenceId),anchorPatch=(await appliedRecords(env)).items.find(r=>r.type==='screens'&&r.targetId===patch.collectionReferenceId)?.patch;
+  const collectionAnchor=originalAnchor?{...originalAnchor,...anchorPatch}:anchorPatch;
+  if(!collectionAnchor?.id)throw new ApiError(400,'unknown_collection','함께 수집한 기준 화면을 찾을 수 없습니다.');
+  if(collectionAnchor.providerId&&patch.providerId!==collectionAnchor.providerId)throw new ApiError(400,'collection_provider','같은 금융사의 화면만 수집 묶음에 추가할 수 있습니다.');
+ }
  if(patch.sourceUrl){try{const u=new URL(patch.sourceUrl);if(u.protocol!=='https:'||u.username||u.password)throw 0;}catch{throw new ApiError(400,'invalid_url','출처에는 HTTPS 주소를 입력해 주세요.');}}
  if(patch.capturedAt&&!/^\d{4}-\d{2}-\d{2}$/.test(patch.capturedAt))throw new ApiError(400,'invalid_date','캡처일은 YYYY-MM-DD로 입력해 주세요.');
  const target=plan.operation==='update'?bounded(plan.targetId,'targetId',200,true):'';

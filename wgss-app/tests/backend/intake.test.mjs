@@ -29,7 +29,7 @@ beforeEach(async()=>{await DB.prepare('DELETE FROM wgss_intake_quota').run();});
 test('CORS allows GitHub and same host, rejects unrelated origins and preflights',async()=>{
  const options=await handleIntake(new Request(base,{method:'OPTIONS',headers:{Origin:frontend,'Access-Control-Request-Headers':'content-type,x-wgss-contribution-token'}}),env);assert.equal(options.status,204);assert.equal(options.headers.get('access-control-allow-origin'),frontend);assert(!options.headers.has('access-control-allow-credentials'));assert(options.headers.get('access-control-allow-headers').includes('X-WGSS-Contribution-Token'));
  const bad=await request(null,null,'session',{Origin:'https://evil.example'});assert.equal(bad.status,403);assert(!bad.headers.has('access-control-allow-origin'));
- assert.equal((await request(null,null,'session',{Origin:'https://intake.test'})).status,200);
+ assert.equal((await request(null,null,'session',{Origin:'https://intake.test'})).status,200);assert.equal((await request(null,null,'session',{Origin:'https://wgss-case-library.booknfoto461.chatgpt.site'})).status,200);
 });
 test('capability is a 256-bit header, shared admin keys and private-service flag grant no privileges',async()=>{
  const session=await request();assert.equal(session.body.role,'anonymous');assert.equal(session.body.serviceAccess,false);

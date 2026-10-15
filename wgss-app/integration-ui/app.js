@@ -15,7 +15,7 @@ const initial=new URLSearchParams(location.search);const initialExplore=['task',
 let noticeTimer,maskState=null,lastFocus=null,captureFiles=[],captureEpoch=0,contributionDraft=null;
 function notify(message){const n=$('#notice');n.textContent=message;n.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>n.hidden=true,7000)}
 function errorMarkup(message){return `<div class="error" role="alert">${esc(message)} <button class="text-button" data-action="retry">다시 불러오기</button></div>`}
-async function fetchJSON(url,options={}){const r=await fetch(url,{credentials:'same-origin',...options});let j;try{const body=await r.text();j=body?JSON.parse(body):{}}catch{throw new Error(r.ok?'응답 형식을 확인할 수 없습니다.':'서버에 연결할 수 없습니다.')}if(!r.ok)throw new Error(j.error||`요청 실패 (${r.status})`);return j}
+async function fetchJSON(url,options={}){if(window.WGSSPublic)return WGSSPublic.fetchJSON(url,options);const r=await fetch(url,{credentials:'same-origin',...options});let j;try{const body=await r.text();j=body?JSON.parse(body):{}}catch{throw new Error(r.ok?'응답 형식을 확인할 수 없습니다.':'서버에 연결할 수 없습니다.')}if(!r.ok)throw new Error(j.error||`요청 실패 (${r.status})`);return j}
 const api=resource=>fetchJSON(`/api/wgss?resource=${encodeURIComponent(resource)}`);
 const post=(action,payload={})=>fetchJSON('/api/wgss',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...payload})});
 function labelFor(type,id){return state.catalog?.[type]?.find(x=>x.id===id)?.label||id||'미확인'}

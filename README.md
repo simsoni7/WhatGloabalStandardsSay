@@ -23,9 +23,9 @@ Apache 금융 계정·결제 라벨 894쌍과 말레이시아 정부 MIT 금융�
 
 ## 검증과 출처
 
-[한국어 표현 설명](KOREAN-SEARCH-AIDS.MD) · [사용 안내](FINANCIAL-DICTIONARY.MD) · [번역 커버리지](korean-label-report.json) · [화면 검증](korean-ui-verification.json) · [아시아 조사](BATCH7-ASIAN-OFFICIAL.MD)
+[한국어 표현 설명](KOREAN-SEARCH-AIDS.MD) · [사용 안내](FINANCIAL-DICTIONARY.MD) · [번역 커버리지](korean-label-report.json) · [화면 검증](r8-delivery-verification.jsonl) · [아시아 조사](BATCH7-ASIAN-OFFICIAL.MD)
 
-47개 대상 언어/지역 표기 전수 선택에서 0건 언어가 없었습니다. 한국어 검색은 기본 자료의 예금 188건, 말라얄람어의 대출 15건, 말레이어의 금리 6건을 확인했습니다. 추가 JSON의 한국어 검색·중복 방지·변조 차단·모바일 표시도 통과했습니다. 외부망 차단 ZIP 구성은 환경 정책상 로컬 HTTP로 제공해 검사했으며 직접 file:// 자동 탐색은 차단됩니다.
+47개 대상 언어/지역 표기 전수 선택에서 0건 언어가 없었습니다. 한국어 예금 검색과 출처별 경상계정·당좌예금계좌 검색을 확인했습니다. 추가 JSON의 한국어 검색·중복 방지·변조 차단·모바일 표시도 통과했습니다. 외부망 차단 ZIP 구성은 환경 정책상 로컬 HTTP로 제공해 검사했으며 직접 file:// 자동 탐색은 차단됩니다.
 
 무료 예약 원출처 모니터는 별도 `glossary-source-intake` 브랜치에 변경 후보를 게시합니다. 상시 AI 의미 검수나 자동 번역 승인 작업이 아닙니다. 각 출처의 라이선스·고지 조건을 유지하며 전체 패키지에 단일 라이선스를 적용하지 않습니다.
 

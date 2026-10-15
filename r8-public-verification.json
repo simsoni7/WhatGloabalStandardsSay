@@ -1,0 +1,22 @@
+[
+  {
+    "file": "financial-dictionary-email.zip",
+    "bytes": 5225366,
+    "sha256": "b3d241308ba41cd2b858f60777e7e4d629073ece4bffb351ebf3fbcaf7a9f390"
+  },
+  {
+    "file": "index.html",
+    "bytes": 35171894,
+    "sha256": "4bcfaf39ea309fefbc465410eed55c70094b1768083157a4dc9cd8847dc23e68"
+  },
+  {
+    "file": "korean-record-overrides.jsonl",
+    "bytes": 70293,
+    "sha256": "24579e93681a5eaced09d9fa66e1fabe967cc786b7ff5bcf0f38a64bfc9d2863"
+  },
+  {
+    "file": "catalog.json",
+    "bytes": 46980,
+    "sha256": "f4d59eff05089d56edf2ceb4efa1bd507b02c7d97bea6eb34a8046170d5a513e"
+  }
+]

@@ -2,12 +2,14 @@
 import {readFile,writeFile,mkdir,readdir,copyFile,rm} from 'node:fs/promises';
 import {resolve,join,dirname,relative} from 'node:path';
 import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
 import {filterCommercialOutput} from './filter-commercial-output.mjs';
 const root=resolve(import.meta.dirname,'..'),output=resolve(process.argv[2]||join(root,'pages-output'));
 if(output===root||root.startsWith(output+'/'))throw Error('Output must be separate from source');
 const base=process.env.WGSS_PUBLIC_BASE||'/WhatGloabalStandardsSay/wgss/';
 if(!/^\/[A-Za-z0-9_/-]+\/$/.test(base))throw Error('Invalid public base path');
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+let buildSourceCommit=process.env.WGSS_BUILD_SOURCE_COMMIT||process.env.GITHUB_SHA||null;try{buildSourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim();}catch{}
 const snapshot=JSON.parse(await readFile(join(root,'public-snapshot.json'),'utf8'));
 await rm(output,{recursive:true,force:true});await mkdir(output,{recursive:true});
 function rewrite(value){
@@ -85,5 +87,5 @@ const manifest=[];
 async function inventory(dir){for(const item of await readdir(dir,{withFileTypes:true})){const path=join(dir,item.name);if(item.isDirectory())await inventory(path);else{const raw=await readFile(path);manifest.push({path:relative(output,path).replaceAll('\\','/'),bytes:raw.length,sha256:sha(raw)});}}}
 await inventory(output);
 if(manifest.some(f=>/(^|\/)(\.env|\.dev\.vars|quarantine|source-store|capture-store|node_modules)(\/|$)/.test(f.path)))throw Error('Private data entered export');
-await json('publication-manifest.json',{schema:'wgss-pages-release/v1',release,sourceCommit:snapshot.sourceCommit,snapshotAt:snapshot.exportedAt,publicAuthorizationDate:'2026-10-16',backendLive:true,screens:catalog.screens.length,phrases:catalog.phrases.length,dictionaryRows:catalog.counts.dictionaryTotal,files:manifest});
+await json('publication-manifest.json',{schema:'wgss-pages-release/v1',release,sourceCommit:snapshot.sourceCommit,observationSourceCommit:snapshot.sourceCommit,buildSourceCommit,snapshotAt:snapshot.exportedAt,publicAuthorizationDate:'2026-10-16',backendLive:true,screens:catalog.screens.length,phrases:catalog.phrases.length,dictionaryRows:catalog.counts.dictionaryTotal,files:manifest});
 console.log(JSON.stringify({output,files:manifest.length,bytes:manifest.reduce((n,f)=>n+f.bytes,0),screens:catalog.screens.length,phrases:catalog.phrases.length,backendLive:true}));

@@ -1,0 +1,1 @@
+{"name":"wgss-public-intake","private":true,"type":"module","engines":{"node":">=22.16.0"},"scripts":{"build":"node scripts/build.mjs","validate":"node scripts/validate-artifact.mjs"},"devDependencies":{"esbuild":"0.28.0"}}

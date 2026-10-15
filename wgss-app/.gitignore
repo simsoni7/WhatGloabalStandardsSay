@@ -106,3 +106,8 @@ integration-ui/*audit*
 .dev.vars
 .dev.vars.*
 !.env.example
+
+# Native static preparation and package verification output are regenerated.
+/public/workspace/
+/public/integration-data/
+*.tsbuildinfo

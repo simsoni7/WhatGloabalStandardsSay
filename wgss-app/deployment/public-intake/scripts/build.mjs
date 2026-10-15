@@ -1,0 +1,16 @@
+import {readFile,writeFile,mkdir,rm,cp,readdir} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import {build} from 'esbuild';
+const pkg=resolve(import.meta.dirname,'..'),root=resolve(pkg,'../..');
+const assets={};
+for(const file of await readdir(root+'/integration-ui'))if(/\.(js|css|html|json)$/.test(file))assets[file]=await readFile(root+'/integration-ui/'+file,'utf8');
+for(const [name,body] of Object.entries(assets))if(name!=='index.html')assets['index.html']=assets['index.html'].replaceAll('/workspace/'+name+'"','/workspace/'+name+'?v='+createHash('sha256').update(body).digest('hex').slice(0,16)+'"');
+await writeFile(pkg+'/worker/assets.json',JSON.stringify(assets));
+const catalog=JSON.parse(await readFile(root+'/integration-data/catalog.json','utf8'));
+await writeFile(pkg+'/worker/governance.json',JSON.stringify({datasets:catalog.dictionary.datasets}));
+await rm(pkg+'/dist',{recursive:true,force:true});await mkdir(pkg+'/dist/server',{recursive:true});await mkdir(pkg+'/dist/.openai',{recursive:true});
+await build({entryPoints:[pkg+'/worker/index.js'],outfile:pkg+'/dist/server/index.js',bundle:true,format:'esm',platform:'browser',target:'es2022',minify:true});
+await cp(pkg+'/.openai/hosting.json',pkg+'/dist/.openai/hosting.json');
+await cp(root+'/drizzle',pkg+'/dist/.openai/drizzle',{recursive:true});
+console.log('Built public intake from shared server, frontend and DB migrations');

@@ -1,6 +1,6 @@
 'use strict';
 window.WGSSPublic=(()=>{
- const config={"base":"/WhatGloabalStandardsSay/wgss/","intakeBase":"https://wgss-public-intake.booknfoto461.chatgpt.site","release":"39b1c70049103c6a","snapshotAt":"2026-10-15T18:24:37.202Z"};let token;
+ const config={"base":"/WhatGloabalStandardsSay/wgss/","intakeBase":"https://wgss-public-intake.booknfoto461.chatgpt.site","release":"5dc938e5f5519912","snapshotAt":"2026-10-15T18:27:06.500Z"};let token;
  function beginContribution(){token=[...crypto.getRandomValues(new Uint8Array(32))].map(v=>v.toString(16).padStart(2,'0')).join('');}
  function remotePaths(value){if(Array.isArray(value))return value.map(remotePaths);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,remotePaths(v)]));if(typeof value==='string'&&value.startsWith('/api/wgss?'))return config.intakeBase+value;return value;}
  async function fetchJSON(url,options={}){

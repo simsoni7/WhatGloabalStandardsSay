@@ -1,0 +1,64 @@
+name: Publish WGSS public reader
+on:
+  push:
+    branches: [wgss-integration]
+    paths: ['wgss-app/**', '.github/workflows/wgss-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: wgss-public-reader
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Import the reviewed source once
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f wgss-app/public-snapshot.json ]; then
+            curl --fail --location --retry 3 --max-time 600 'https://talented-hats-savings-cables.trycloudflare.com/wgss-public-bootstrap.tar.gz' --output "$RUNNER_TEMP/wgss-public.tar.gz"
+            echo 'f4aabe9177cd9a67624fed3529ba4cfb8139deb0377d6e84145f40e269efdf99  '"$RUNNER_TEMP/wgss-public.tar.gz" | sha256sum --check -
+            python3 -c 'import tarfile,sys; tarfile.open(sys.argv[1]).extractall(".", filter="data")' "$RUNNER_TEMP/wgss-public.tar.gz"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add wgss-app
+            git commit -m 'Import reviewed WGSS application source and approved public snapshot'
+            git push origin HEAD:wgss-integration
+          fi
+      - name: Build and verify public asset hashes
+        run: node wgss-app/scripts/build-github-pages.mjs "$RUNNER_TEMP/wgss-public"
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: pages-output
+          fetch-depth: 1
+      - name: Preserve the existing dictionary and publish WGSS under /wgss/
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf pages-output/wgss
+          mkdir -p pages-output/wgss
+          cp -a "$RUNNER_TEMP/wgss-public/." pages-output/wgss/
+          git -C pages-output config user.name 'github-actions[bot]'
+          git -C pages-output config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C pages-output add wgss
+          if ! git -C pages-output diff --cached --quiet; then
+            git -C pages-output diff --cached --name-only | python3 -c 'import sys; assert all(p.startswith("wgss/") for p in sys.stdin.read().splitlines())'
+            git -C pages-output commit -m 'Publish WGSS public reader and source-linked data snapshot'
+            git -C pages-output push origin HEAD:gh-pages
+          fi
+      - name: Request the configured GitHub Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds"

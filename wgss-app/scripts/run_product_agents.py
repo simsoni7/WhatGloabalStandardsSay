@@ -1,0 +1,29 @@
+"""Manual Bedrock product taxonomy experts; original proposals stay advisory."""
+import concurrent.futures,hashlib,json,time
+from pathlib import Path
+from bedrock_gateway import call_stream
+R=Path(__file__).resolve().parents[1];P=R/'research/source-store/products-20261004';P.mkdir(parents=True,exist_ok=True)
+works=json.loads((R/'dist/data/operations.json').read_text())['works'];compact=[{k:w.get(k) for k in ['id','title','actor_role','object_key','outcome_key']} for w in works]
+focus=[w for w in works if any(t in w['title'] for t in ['대출','대월','한도','상환','이자'])]
+review=json.loads((R/'data/product-profiles-review.json').read_text())
+# Use public structured definitions and provenance; never send entire source pages.
+sources={'root_structured_profiles':[{k:p[k] for k in ['id','title','definition','features','distinguish_from','source_ids','steps']} for p in review['product_profiles']],'source_metadata':[{k:source[k] for k in ['id','title','url','locator','source_kind','scope']} for source in review['product_sources']]}
+# v1 originals are immutable. Future review revisions use a separate cache.
+P=P/'structured-experts-v2';P.mkdir(parents=True,exist_ok=True)
+common='''WGSS for financial product practitioners. Canonical352 review rows are NOT globally MECE approved. Product names are contexts, not automatically new atomic work. User reports 송금 fixed but 마이너스통장/카드론 no result. Need structural prevention: independently source-derived product inventory -> product traits -> lifecycle screen intents -> atomic responsibility/directobject/result -> explicit evidence/gaps -> release regression gate. Do not inflate counts or invent provider UI. Only positive synonyms not exclusions. Korean readable. JSON only short complete fields. Definitions and product mapping require root source check, no auto adoption. Sources are official public definitions NOT admitted screen benchmarks. Never infer that request means disbursement or facility ceiling=transferlimit or 카드론=현금서비스=리볼빙. 시장KR 상품 이름 do not prove global equivalence. Source may have stale policies: do not repeat numeric fees/tax/regulatory thresholds.\n'''
+prompts={
+ 'inventory':common+'''Product taxonomy specialist. Independently derive candidate product/screen vocabulary from supplied official source texts and enumerate missing representative categories not present in sources explicitly as unsourced_research_queue. JSON {inventory:[{term,source_id,source_label,product_class,distinctive_trait,likely_existing_work_ids:[],missing_screen_intents:[]}],unsourced_research_queue:[],scope_limits:[],release_gates:[]}. 30-45 source-supported inventory terms across deposits/bankloans/cards/investing/pensions. Exact observed source label, not generated synonym. Inventory completeness against sampled pages only. IDs may be empty. Source text:'''+json.dumps(sources,ensure_ascii=False)+'\nIDs:'+json.dumps(compact,ensure_ascii=False),
+ 'lending':common+'''Opus financialontology specialist. Diagnose overdraft/cardloan/shortcashadvance/revolvingpayment lifecycle. Specific catalogue inconsistencies: D8BB has customer_lender institution role + borrowerdefinition; 9EA/9A customer role but amend/terminate result; CB2 committedfacility general term may overlapD8 specialization; 16DAC title says execute but resultrequest, invoicefactoring source analogynotdirect. JSON {findings:[{ids:[],problem,proposal,source_basis,source_gap}],product_boundaries:[{product,traits:[],not_equivalent:[],steps:[{intent,work_ids:[],condition,gap}]}],negative_tests:[],new_atomic_candidates:[],release_gates:[]}. 4products plusunsecuredloan. No new ID assignment. Fundamental legal definition cannot be certified from productpage. Do not assert all unused remainderclosegaps. FOCUSED:'''+json.dumps(focus,ensure_ascii=False)+'\nPRIMARY:'+json.dumps(sources,ensure_ascii=False),
+ 'adversary':common+'''You independently challenge test design and coverage claims. Root must not add twoaliases and declarecomplete. JSON {query_cases:[{query,intent,forbidden_match,expected_behavior}],trait_counterexamples:[],inventory_integrity_rules:[],release_blockers:[],definition_review_priorities:[],limits:[]}. 35-45 representative query cases: bankdeposit/savings/overdraft/cardloan/shortcashadvance/revolving/unsecured/mortgage/rent/refinance/CMA/ISA/IRP/pension/fund/ETF/bond/insurance/FX/domesticinternational/auth + variations spaces/acronyms/product+action. Missing source/product should explicit research gap not universalother. Do not make tests circular copyingprofilealiases. Use sourcedmenu inventory independently plus positive/negative action results. Current known source excerpts:'''+json.dumps(sources,ensure_ascii=False)
+}
+def run(name):
+ prompt=prompts[name];sha=hashlib.sha256(prompt.encode()).hexdigest();target=P/name/sha;target.mkdir(parents=True,exist_ok=True);out=target/'proposal.json'
+ if out.exists() and json.loads(out.read_text()).get('prompt_sha256')==sha:print(name,'cached',flush=True);return
+ (target/'prompt.txt').write_text(prompt)
+ for attempt in range(1,4):
+  try:
+   raw=call_stream('claude-opus-5' if name=='lending' else 'claude-sonnet-5',prompt,max_tokens=18000);(target/f'raw-{attempt}.json').write_text(json.dumps(raw,ensure_ascii=False,indent=2));assert raw['finish_reason']=='stop','truncated output';t=raw['response'];obj=json.loads(t[t.find('{'):t.rfind('}')+1]);out.write_text(json.dumps({'model':raw['model'],'usage':raw['usage'],'prompt_sha256':sha,'proposal':obj,'automatically_adopted':False},ensure_ascii=False,indent=2));print(name,'completed',flush=True);return
+  except Exception as e:print(name,'attempt',attempt,type(e).__name__,flush=True)
+ raise RuntimeError(name+' incomplete after retries')
+if __name__=='__main__':
+ with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:list(pool.map(run,prompts))

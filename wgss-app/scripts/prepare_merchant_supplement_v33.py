@@ -1,0 +1,14 @@
+import json
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];B=R/'research/source-store';RUN=B/'merchant-supplement-extraction-v33-20261013'
+def read(p):return json.loads(p.read_text())
+def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+assert not(RUN/'FROZEN').exists();S=read(B/'merchant-dib-supplement-v33-20261013/sources.json')+read(B/'merchant-bank-supplement-v33-20261013/sources.json');W=read(B/'merchant-extraction-v33-20261013/assigned-works.json');assigned=[]
+for s in S:
+ if s['state']!='fetched_pending_review':continue
+ t=s['text'];ranges=[(i,min(i+18500,len(t)))for i in range(0,len(t),18500)]
+ if s['id']=='merchant-barclay-pdf-7':ranges=[(12000,16500),(24500,35000),(75500,91500)]
+ if s['id']=='merchant-barclay-pdf-12':ranges=[(0,24000),(96000,110500),(116000,min(130000,len(t)))]
+ for n,(a,z)in enumerate(ranges):
+  seg=t[a:z];jid=f'v33-merchant-supplement-{s["id"]}-{n+1}';template=read(B/'merchant-extraction-v33-20261013/inputs/v33-merchant-exact-merchant-stripe-refund-1.json');template.update(id=jid,input=dict(works=W,sources=[{k:s.get(k)for k in ['id','provider_id','country','language','url']}|dict(publisher_text=seg)]),expected_ids=[s['id']],sections={s['id']:seg},max_tokens=18000);template['instructions']+=' Additionalactuallicensedbankacquirer Barclaycard: distinguish Barclays Bank PLC UK merchantparty from BIP Ireland EEA. Current2026 terms index applies contracts enteredafter28Apr2026; PDF lastupdatedJanuary2026 notmisdate. Extract contractstartacceptance/start-date/accountterm operativeresult notmereapplication; merchantinitiated cancellation uponnotice possible liabilitysurvives; variationnotice deemedacceptancebutrightreject correctlegalbranch. Bankmaychangeterms unilaterally notautomaticallycustomeragreementifactualsilencelegalacceptanceexplicit otherwisegap. DIB AE is root-explicitprovisionalnewmarket, noinferUK/HK. ExportLCpresentation signedbeneficiary documents mayproveconditionalpaymentclaimsubmitted, notissuer guaranteeapplication. OpenaccountWakalaMurabaha transferrequest isnot LC importsettlement. DIB Murabaha sale distinct importer finalpaymentobligation; shippingguarantee notpaymentclaim. Importerbankpayssupplier doesnot prove customerLCobligationfundssettledunlessoperativeeffect. Avoid finalpaymentobservedclaims. All exactquotes keepPDFfontspacingandcontrolchars, donotrepairspelling. Current bankfunctionreferences with qualificationallowed regardlessnoactualexecution/screen.';write(RUN/'inputs'/f'{jid}.json',template);assigned.append(dict(job_id=jid,source_id=s['id'],start=a,end=z))
+write(RUN/'sources.json',S);write(RUN/'assigned-segments.json',assigned);(RUN/'FROZEN').write_text('Bounded exactbank contract andAEtradefunction segments; rootmarketreview mandatory.\n');print({'sources':len(S),'jobs':len(assigned)})

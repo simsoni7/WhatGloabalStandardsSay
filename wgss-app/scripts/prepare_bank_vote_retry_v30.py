@@ -1,0 +1,6 @@
+import json
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];SRC=R/'research/source-store/bank-gap-extraction-v30-20261012';RUN=R/'research/source-store/bank-gap-retries-v30-20261012'
+def read(p):return json.loads(p.read_text())
+def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+assert not (RUN/'FROZEN').exists();job=read(SRC/'inputs/v30-exact-gb-hl-vote-1.json');s=job['input']['sources'][0];t=s['publisher_text'];start=t.index('Shareholder voting and meetings');end=t.index('Frequently asked questions',start);s['publisher_text']=t[start:end];job.update(id='v30-retry-hl-voting-native-label',sections={s['id']:s['publisher_text']});job['instructions']+=' Previous output failed because native_expression "give an instruction to vote" is not a verbatim substring. Use the exact native button label "View shareholder meetings" if supported, never paraphrase. Only this instruction section is assigned; no claims about votes eligibility outside it.';write(RUN/'inputs'/f"{job['id']}.json",job);write(RUN/'sources.json',read(SRC/'sources.json'));(RUN/'FROZEN').write_text('Bounded own voting instruction retry; failed whole original retained.\n')

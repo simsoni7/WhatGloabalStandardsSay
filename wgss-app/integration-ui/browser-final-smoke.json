@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "direct financial task headline",
+    "main gallery Korean capture labels",
+    "masked andoriginal neutral gallerytitle",
+    "all216definitions browsable includingunknown",
+    "definition scope andMECE qualification",
+    "mobile320 nooverflow all4tabs",
+    "mobile320 keyboardtab arrow",
+    "mobile360 nooverflow all4tabs",
+    "mobile360 keyboardtab arrow",
+    "mobile390 nooverflow all4tabs",
+    "mobile390 keyboardtab arrow",
+    "admin keyboardtab focus afterserverrole",
+    "no browser JSerrors"
+  ],
+  "passed": 13
+}

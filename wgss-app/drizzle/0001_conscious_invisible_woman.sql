@@ -1,0 +1,1 @@
+ALTER TABLE `wgss_versions` ADD `review_reason` text;

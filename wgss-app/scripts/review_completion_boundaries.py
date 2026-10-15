@@ -1,0 +1,19 @@
+"""Bounded Opus counterexample review of the explicit root migration."""
+import hashlib,json
+from pathlib import Path
+from bedrock_gateway import call_stream
+R=Path(__file__).resolve().parents[1];P=R/'research/source-store/definition-completion-20261004'
+W=json.loads((R/'dist/data/operations.json').read_text())['works'];changed=[w for w in W if w['id'].startswith('WGSS-COMPLETION-') or w['id'] in ['WGSS-F92805EAE41E','WGSS-CB2F5FE40642','WGSS-0A81681FD776','WGSS-860722E7067D','WGSS-98A5154146C4']]
+documents=[]
+for sid in ['inventory-035','inventory-047','inventory-048','inventory-049','inventory-051','inventory-052','inventory-005','inventory-006','inventory-041']:
+ m=json.loads((P/'inventory-sources'/sid/'manifest.json').read_text());documents.append(m)
+f=R/'research/source-store/products-20261004/shinhan-revolving-guide.txt';t=f.read_text();at=t.index('결제비율은 약정');documents.append({'source_id':'shinhan-revolving-guide','url':'https://www.shinhancard.com/pconts/html/finance/revolving/CONFM60032/CONFM60032R02.html','selected_public_clauses':[{'text':t[at:at+1000],'char_start':at}]})
+payload={'root_changes':changed,'existing_universe':[{k:w.get(k) for k in ['id','title','actor_role','object_key','outcome_key','definition']} for w in W],'public_source_clauses':documents}
+prompt='''WGSS Opus semantic critic. User requires structural financial-work coverage, not keyword patches. Canonical=one responsibility+direct financial object/right/info+independently completable result+necessary discriminator. Root reviewed prior outputs but wants counterexamples. Audit changed definitions for false source inferences, parent/child duplicate outcome, mixed responsibility, cash vs account transfer, free contributions incorrectly obligatory, bilateral contractual result vs duplicate party perspectives. Debt card repayment already unified in existing debt payment. Do not assert global CE from this finite packet. Also check new official source vocabulary: personal/business credit info retrieval; prepaid mini enrollment (not deposit/wallet/custody); recordBook/safebox/coinbox/VAT pockets (legally separate deposit vs bookkeeping subgoal); issuer/member revolving ratio choices. Compare ALL existing universe before new definitions. Source snippets sometimes marketing or repeated carousel, not legal process. EXACT proofs needed from supplied selected clauses only. No full page, key, private screen. Return JSON {changed_definition_findings:[{work_id,severity:"high|medium|low",problem,root_fix,source_id,exact_quote}],candidate_definitions:[{local_id,title_ko,actor_role,object_key,outcome_key,discriminator,definition,includes,excludes,existing_relation:"reuse|edit|new_candidate|needs_source",existing_work_ids,source_proofs:[{source_id,url,exact_quote,locator,proof_scope}],scope_conditions,role_result_boundary,independent_failure_example}],inventory_recommendations:[{inventory_id,decision,profile_type,reason}],boundary_tests:[{description,facts,expected_result,forbidden_inference}],unresolved}. Max8 candidates. Outputs advisory only. Korean plain language. INPUT:'''+json.dumps(payload,ensure_ascii=False,separators=(',',':'))
+sha=hashlib.sha256(prompt.encode()).hexdigest();out=P/'boundary-review'/sha;out.mkdir(parents=True,exist_ok=True);(out/'prompt.txt').write_text(prompt)
+if (out/'proposal.json').exists():print('cached');raise SystemExit(0)
+for attempt in range(1,4):
+ try:
+  raw=call_stream('claude-opus-5',prompt,max_tokens=18000);(out/f'raw-{attempt}.json').write_text(json.dumps(raw,ensure_ascii=False,indent=2)+'\n');assert raw['finish_reason']=='stop';s=raw['response'];o=json.loads(s[s.find('{'):s.rfind('}')+1]);(out/'proposal.json').write_text(json.dumps({'prompt_sha256':sha,'proposal':o,'automatic_adoption':False},ensure_ascii=False,indent=2)+'\n');print('completed');break
+ except Exception as e:print('attempt',attempt,type(e).__name__,str(e)[:90],flush=True)
+else:raise RuntimeError('boundary review incomplete')

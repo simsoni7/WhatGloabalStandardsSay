@@ -1,0 +1,6 @@
+"""Replace failed exact-quote form extraction with bounded own clauses."""
+import json
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];RUN=R/'research/source-store/savings-retry-v31-20261012';assert not (RUN/'FROZEN').exists()
+p=R/'research/source-store/savings-extraction-v31-20261012/inputs/v31-exact-hk-maturity-form.json';j=json.loads(p.read_text());j['id']='v31-maturity-form-exact-retry';j['instructions']+=' Only extract prior maturity INSTRUCTIONS work WGSS-UI-06FC495733F0. This form is not a rollover request following notice and not deposit closure execution. Use native label exactly "到期處理指示". Do not include flow steps for symbols/tickbox; empty flow_steps is valid when no explicit step sequence. Preserve the literal tick glyph  if you quote any related field. Never strip glyphs or repair PDF text. Quote operative superseding instructions clause. Restrict conditions to Time Deposits Only, not Deposit Plus.';j['work_ids']=['WGSS-UI-06FC495733F0'];j['input']['works']=[w for w in j['input']['works'] if w['id'] in j['work_ids']]
+(RUN/'inputs').mkdir(parents=True);(RUN/'inputs'/(j['id']+'.json')).write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n');(RUN/'FROZEN').write_text('Failed original retained, one bounded clause replacement.\n')

@@ -1,0 +1,182 @@
+[
+  {
+    "query": "카드 잠그기",
+    "expected_contains": [
+      "C01"
+    ]
+  },
+  {
+    "query": "카드 잠금 해제",
+    "expected_contains": [
+      "C02"
+    ]
+  },
+  {
+    "query": "카드 분실",
+    "expected_contains": [
+      "C03"
+    ]
+  },
+  {
+    "query": "카드 해제가 안돼요",
+    "expected_contains": [
+      "C04"
+    ]
+  },
+  {
+    "query": "송금 접수",
+    "expected_contains": [
+      "T01"
+    ]
+  },
+  {
+    "query": "송금 처리 중",
+    "expected_contains": [
+      "T02"
+    ]
+  },
+  {
+    "query": "송금 완료",
+    "expected_contains": [
+      "T03",
+      "T04"
+    ]
+  },
+  {
+    "query": "complete",
+    "expected_contains": [
+      "T03"
+    ]
+  },
+  {
+    "query": "completed",
+    "expected_contains": [
+      "T04"
+    ]
+  },
+  {
+    "query": "미수락",
+    "expected_contains": [
+      "T05"
+    ]
+  },
+  {
+    "query": "송금 취소",
+    "expected_contains": [
+      "T06"
+    ]
+  },
+  {
+    "query": "송금 취소됨",
+    "expected_contains": [
+      "T07"
+    ]
+  },
+  {
+    "query": "환불 처리 중",
+    "expected_contains": [
+      "R01"
+    ]
+  },
+  {
+    "query": "환불 보냄",
+    "expected_contains": [
+      "R02"
+    ]
+  },
+  {
+    "query": "환불 완료",
+    "expected_contains": [
+      "R03"
+    ]
+  },
+  {
+    "query": "없는 기능 xyz",
+    "expected_contains": []
+  },
+  {
+    "query": "카드를 잠그고 싶어요",
+    "expected_contains": [
+      "C01"
+    ]
+  },
+  {
+    "query": "환불 보냈는데 안옴",
+    "expected_contains": [
+      "R02"
+    ]
+  },
+  {
+    "query": "환불 보냈는데 안 와요",
+    "expected_contains": [
+      "R02"
+    ]
+  },
+  {
+    "query": "계좌 개설",
+    "expected_contains": [
+      "A01",
+      "A02"
+    ],
+    "v02": true
+  },
+  {
+    "query": "자동이체",
+    "expected_contains": [
+      "D01",
+      "S01"
+    ],
+    "v02": true
+  },
+  {
+    "query": "잔액",
+    "expected_contains": [
+      "A05",
+      "A06"
+    ],
+    "v02": true
+  },
+  {
+    "query": "단리",
+    "expected_contains": [
+      "I01"
+    ],
+    "v02": true
+  },
+  {
+    "query": "복리",
+    "expected_contains": [
+      "I02"
+    ],
+    "v02": true
+  },
+  {
+    "query": "환전",
+    "expected_contains": [
+      "F01",
+      "F02"
+    ],
+    "v02": true
+  },
+  {
+    "query": "예금 만기",
+    "expected_contains": [
+      "L03"
+    ],
+    "v02": true
+  },
+  {
+    "query": "대출 상환",
+    "expected_contains": [
+      "L01"
+    ],
+    "v02": true
+  },
+  {
+    "query": "송금 반환",
+    "expected_contains": [
+      "P04"
+    ],
+    "v02": true
+  }
+]

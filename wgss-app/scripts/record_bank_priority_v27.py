@@ -1,0 +1,36 @@
+"""One-time admission of explicitly root-reviewed provider evidence and public UI references."""
+import copy,hashlib,json,shutil
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];RUN=R/'research/source-store/bank-priority-v27-20261012';FAQ=R/'research/source-store/bank-kakao-faq-v27-20261012';EX=R/'research/source-store/bank-kakao-faq-v27-extra-20261012';WEB=R/'research/source-store/bank-public-capture-v27-clean-final-20261012';PLAN=R/'research/source-store/bank-public-capture-v27-20261012'
+def read(p):return json.loads(p.read_text())
+def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+def main():
+ dest=R/'data/bank-ui-collection-v27-decisions.json';assert not dest.exists();candidate=read(RUN/'root-final-candidates.json');final=read(next((RUN/'reviews/v27-final-source-review').glob('*/proposal.json')))
+ assert {x['id'] for x in final['result']['rows']}=={b['id'] for b in candidate['examples']}
+ final_rejected={'BANK-BENCH-114'}
+ assert {x['id'] for x in final['result']['rows'] if x['status']=='reject'}==final_rejected
+ bank=read(R/'data/bank-ui-benchmark-dispositions.json');assert len(bank['examples'])==109;rows=[b for b in candidate['examples'] if b['id'] not in final_rejected];sources={prefix+':'+s['id']:s for prefix,d in [('V27',RUN),('F27',FAQ),('X27',EX),('W27',WEB)] for s in read(d/'sources.json')};web={x['id']:x for x in read(WEB/'captures.json')}
+ for b in rows:
+  s=sources[b['source_id']];folder=R/s['snapshot_path'];raw=(folder/s.get('raw_filename','source.html')).read_bytes();t=(folder/'normalized.txt').read_text();assert hashlib.sha256(raw).hexdigest()==b['raw_sha256'] and hashlib.sha256(t.encode()).hexdigest()==b['text_sha256']
+  for q in [b['proof'],b['function_proof']]+b['flow_step_proofs']+[x['proof'] for x in b['policy_claims']]:assert t[q['start']:q['end']]==q['excerpt']
+  if b.get('screen_evidence'):
+   for e in [b['screen_evidence']]+b.get('additional_screen_evidence',[]):
+    c=web[e['source_locator']['capture_id']];assert c['country']==b['country'] and c['provider_id']==b['provider_id'] and not c['authenticated'] and not c['credentials_entered'] and not c['authentication_attempted'] and not c['financial_form_submitted'];image=R/c['image_path'];assert hashlib.sha256(image.read_bytes()).hexdigest()==e['image_sha256'];out=R/'dist'/e['image_path'];out.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(image,out)
+ bank['examples']+=rows;bank['collection_batches'].append({'batch':'collection-v27','root_ledger':str(dest.relative_to(R)),'scope_change':False})
+ prior=read(R/'data/bank-ui-collection-v26-decisions.json');audits=copy.deepcopy(prior['priority_cell_dispositions']);owner_overrides=[]
+ for sid,s in sources.items():
+  if s['provider_id']=='woori':owner_overrides.append({'source_id':sid,'source_owner_provider_id':'woori-bank','source_owner_name':'우리은행','frozen_assigned_provider_id':'woori','reason_ko':'wooribank.com의 우리은행 자료는 wooricard.com의 우리카드와 별개의 제공자. 고정 원본 메타데이터를 덮어쓰지 않고 루트 귀속을 교정.','automatic_adoption':False})
+ for a in audits:
+  owned=[id for id,s in sources.items() if s['country']==a['country']];a['reviewed_source_ids']+=owned;a['reviewed_provider_ids']=sorted(set(a['reviewed_provider_ids'])|{'woori-bank' if sources[id]['provider_id']=='woori' else sources[id]['provider_id'] for id in owned});rs=[b for b in bank['examples'] if b['country']==a['country'] and a['ui_work_id'] in b['ui_work_ids']];paired=any(b.get('flow_steps') and b.get('policy_claims') for b in rs);a['next_action_ko']='다른 현지 공식 자료·공개 폼에서 직접 결과 근거 확인' if not rs else '공식 안내 이미지·공개 웹 폼 확보' if not any(b.get('screen_evidence') for b in rs) else '동일 사례의 상세 경로·조건 보강' if not paired else '다른 금융사 비교·화면 버전 확인';a['method_ko']='v25/v26 대조에 v27 공식 문서, 카카오뱅크 3개 FAQ 범주의 527개 질문 구조 탐색 및 개별 원본 답변 검토를 추가. 모든 금융사의 기능 전수 조사 아님.'
+ runs=[]
+ for prefix,d in [('V27',RUN),('F27',FAQ),('X27',EX),('CAP27',PLAN)]:
+  for f in d.glob('reviews/*/*/proposal.json'):
+   j=read(f);runs.append({k:j[k] for k in ['job_id','model','prompt_sha256','usage']}|{'source_batch':prefix})
+ finalroot=[{'id':x['id'],'model_finding':x,'root_decision':'reject' if x['id'] in final_rejected else 'retain_after_own_source_review','reason_ko':'변경 요청 접수만 설명하고 기존 지시 변경 결과·적용 시점을 입증하지 못해 보류' if x['id'] in final_rejected else '기능·상품·채널·미확인 상태의 범위를 자체 출처와 대조. 모델의 상태를 자동 승인으로 사용하지 않음.','automatic_adoption':False} for x in final['result']['rows']]
+ for disposition in candidate['row_dispositions']:
+  if disposition['id'] in final_rejected:disposition.update(root_decision='reject',reason_ko='최종 검토에서 변경 요청 접수와 기존 지시의 변경 결과를 구분해 보류')
+ ledger={'scope_version':'bank-customer-ui-v1','denominator':214,'scope_change':False,'reviewed_at':'2026-10-12','source_batches':prior['source_batches']+[{'prefix':p,'manifest':str((d/'sources.json').relative_to(R))} for p,d in [('V27',RUN),('F27',FAQ),('X27',EX),('W27',WEB)]],'model_runs':runs,'admitted_examples':[{'example_id':b['id'],'source_id':b['source_id'],'work_id':b['ui_work_ids'][0],'root_decision':'admit','automatic_adoption':False} for b in rows],'row_dispositions':candidate['row_dispositions'],'final_root_dispositions':finalroot,'changed_rows':candidate['changed_rows'],'rejected_findings':candidate['rejected_findings'],'priority_cell_dispositions':audits,'source_owner_corrections':owner_overrides,'public_faq_census':{'index_pages':54,'unique_publisher_questions':527,'categories':['카드','인증/보안','통장/저축'],'own_records_resolved':32,'index_manifest':str((FAQ/'indexes.json').relative_to(R)),'count_unit':'publisher FAQ questions, not financial works'},'public_capture_manifest':str((WEB/'captures.json').relative_to(R)),'public_capture_states':2,'guide_screens_not_observed_app':True,'independent_human_review':False,'automatic_adoption':False,'prior_root_ledger':'data/bank-ui-collection-v26-decisions.json','final_review':{k:final[k] for k in ['job_id','model','prompt_sha256','usage']}}
+ write(dest,ledger);write(R/'data/bank-ui-benchmark-dispositions.json',bank)
+ plan=read(R/'data/bank-ui-collection-plan.json');plan['provider_targets'].append({'id':'woori-bank','name':'우리은행','country':'KR','languages':['ko'],'channels_ko':'공식 기업 인증센터·WON뱅킹·웹','selection_basis_ko':'공개된 기업 인증서 발급·대표자 신원확인 자료. 기존 우리카드와 별개의 제공자로 집계.','official_url':'https://www.wooribank.com/','representativeness_proven':False});plan.update(plan_version='collection-v27',priority_audit_ledger=str(dest.relative_to(R)),latest_execution={'batch':'collection-v27','new_official_document_targets':12,'additional_protected_web_targets':8,'public_faq_index_pages':54,'unique_public_faq_questions':527,'own_faq_records':32,'admitted_new_examples':len(rows),'bedrock_successful_jobs':len(runs),'public_web_capture_states':2,'actual_app_captures':0,'root_reviewed_cells':96},release_quality_review={'batch':'collection-v27','reviewer':'claude-opus-5 + claude-sonnet-5','rows_reviewed':21,'root_retained_rows':len(rows),'root_rejected_rows':3,'steward_ledger':str(dest.relative_to(R)),'independent_human_review':False});write(R/'data/bank-ui-collection-plan.json',plan)
+ print(json.dumps({'admitted_new':len(rows),'total':len(bank['examples']),'bedrock_jobs':len(runs),'public_web_captures':2}))
+if __name__=='__main__':main()

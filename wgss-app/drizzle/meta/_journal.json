@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792069851822,
+      "tag": "0000_spotty_tombstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792070221524,
+      "tag": "0001_conscious_invisible_woman",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792078337687,
+      "tag": "0002_swift_firestar",
+      "breakpoints": true
+    }
+  ]
+}

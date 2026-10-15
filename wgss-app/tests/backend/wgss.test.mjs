@@ -265,8 +265,8 @@ test('term corrections preserve identity and rights; new terms remain separate f
  assert.equal((await call(admin,{...base,application:{...application,fields:{english:'Change identity'}}})).status,400);
  const approved=await call(admin,{...base,application});assert.equal(approved.status,200);
  const patch=(await call(bob,null,'publications')).body.items.find(r=>r.type==='terms'&&r.targetId===term.id).patch;assert.equal(patch.target,'Reviewed synthetic correction');assert.equal(patch.generationEligible,undefined);assert.equal(patch.license,undefined);
- const added=await create('translation_issue');await approve(added,{application:{type:'terms',operation:'add',expectedRevision:0,imageFileIds:[],fields:{english:'Synthetic term',target:'Synthetic target',language:'en'}}});
- const community=(await call(bob,null,'publications')).body.items.find(r=>r.type==='terms'&&r.targetId.includes(added.id)).patch;assert.equal(community.generationEligible,false);assert.equal(community.approvedTranslation,null);assert.equal(community.layer,'community');
+ const added=await create('translation_issue');await approve(added,{application:{type:'terms',operation:'add',expectedRevision:0,imageFileIds:[],commercialRights:{confirmed:true,license:'CC0-1.0',evidenceUrl:'https://example.org/license',basis:'The contributor dedicates this synthetic test expression under CC0.'},fields:{english:'Synthetic term',target:'Synthetic target',language:'en',sourceUrl:'https://example.org/terms'}}});
+ const community=(await call(bob,null,'publications')).body.items.find(r=>r.type==='terms'&&r.targetId.includes(added.id)).patch;assert.equal(community.generationEligible,false);assert.equal(community.approvedTranslation,null);assert.equal(community.layer,'reviewed');assert.equal(community.datasetId,'wgss_reviewed_terms');assert.equal(community.commercial,true);
 });
 
 test('company features need a known work and evidence rather than the submitted description',async()=>{

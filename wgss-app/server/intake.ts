@@ -1,6 +1,7 @@
 import referenceIndex from './wgss/reference-index.json';
 import {handleRequest} from './wgss/api';
 import {ApiError,Actor,Runtime,getActor,hash,stmt,content,bounded,id,now,auditStmt,serializeSubmission,submission} from './wgss/core';
+import {appliedRecords,isReviewedPublicTerm} from './wgss/publications';
 import {imageMime} from './wgss/images';
 
 const FRONTEND='https://simsoni7.github.io';
@@ -43,7 +44,8 @@ async function maskedUpload(request:Request,env:Runtime,actor:Actor){
  const key='upload:global:'+now().slice(0,10);try{await env.DB.batch([quota(env,key,data.byteLength,UPLOAD_DAILY)]);}catch(error){if(/NOT NULL constraint failed: wgss_intake_quota\.used/.test(String(error)))throw new ApiError(429,'upload_quota','오늘의 사진 접수 용량을 초과했습니다. 내일 다시 시도해 주세요.');throw error;}
  let retained=false;try{const response=await handleRequest(internal(request,bytes,request.headers.get('content-type')!),env,actor);if(response.ok){const result=await response.clone().json() as any;retained=!result.reused;}else{const winner=await stmt(env,'SELECT submission_id,sha256,role FROM wgss_files WHERE id=?',clientId).first<any>();if(winner?.submission_id===source.id&&winner.sha256===digest&&winner.role==='masked')return Response.json({item:await serializeSubmission(env,await submission(env,actor,source.id)),reused:true});}return response;}finally{if(!retained)await stmt(env,'UPDATE wgss_intake_quota SET used=MAX(0,used-?),updated_at=? WHERE id=?',data.byteLength,now(),key).run();}
 }
-function publicTermAllowed(type:string|null,target:string|null){return type!=='terms'||!!target&&publicTerms.has(target);}
+function publicTermAllowed(type:string|null,target:string|null,patch?:any){return type!=='terms'||!!target&&(publicTerms.has(target)||isReviewedPublicTerm(patch,target));}
+function publicPatch(patch:any){if(!patch?.commercialRights)return patch;const {reviewedBy,...review}=patch.commercialRights;return {...patch,commercialRights:review};}
 async function deleteOwn(request:Request,env:Runtime,actor:Actor,input:any){
  const source=await submission(env,actor,bounded(input.id,'id',100,true));
  if(source.status!=='pending'&&source.status!=='deleting')throw new ApiError(403,'pending_only','검토 대기 중인 본인 제안만 취소할 수 있습니다.');
@@ -74,9 +76,9 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
    if(resource==='submissions'){const actor=await capability(request);return cors(await handleRequest(internal(request),env,actor),origin);}
    if(!['publications','recordVersions','file'].includes(resource))throw new ApiError(403,'private_resource','이 정보는 자료 관리자만 볼 수 있습니다.');
    if(resource==='file'&&request.headers.has('X-WGSS-Contribution-Token')){const actor=await capability(request),file=await stmt(env,'SELECT f.role,s.owner_id FROM wgss_files f JOIN wgss_submissions s ON s.id=f.submission_id WHERE f.id=?',bounded(url.searchParams.get('id'),'id',100,true)).first<any>();if(file?.owner_id===actor.userId&&file.role==='masked')return cors(await handleRequest(internal(request),env,actor),origin);}
-   if(resource==='recordVersions'&&!publicTermAllowed(url.searchParams.get('type'),url.searchParams.get('id')))throw new ApiError(404,'not_found','공개된 용어를 찾을 수 없습니다.');
+   if(resource==='recordVersions'&&url.searchParams.get('type')==='terms'){const target=url.searchParams.get('id'),published=(await appliedRecords(env)).items.find(row=>row.type==='terms'&&row.targetId===target);if(!publicTermAllowed('terms',target,published?.patch))throw new ApiError(404,'not_found','공개된 용어를 찾을 수 없습니다.');}
    const response=await handleRequest(internal(request),env,publicReader);
-   if(resource==='publications'&&response.ok){const data=await response.json() as any;data.items=(data.items||[]).filter((row:any)=>publicTermAllowed(row.type,row.targetId));return cors(Response.json(data),origin);}return cors(response,origin);
+   if(resource==='publications'&&response.ok){const data=await response.json() as any;data.items=(data.items||[]).filter((row:any)=>publicTermAllowed(row.type,row.targetId,row.patch)).map((row:any)=>({...row,patch:publicPatch(row.patch)}));return cors(Response.json(data),origin);}if(resource==='recordVersions'&&response.ok&&url.searchParams.get('type')==='terms'){const data=await response.json() as any;let merged:any={};data.items=(data.items||[]).filter((row:any)=>{merged={...merged,...row.fields};return publicTerms.has(url.searchParams.get('id')||'')||isReviewedPublicTerm(merged,url.searchParams.get('id'));}).map((row:any)=>({...row,fields:publicPatch(row.fields)}));return cors(Response.json(data),origin);}return cors(response,origin);
   }
   const actor=await capability(request),type=request.headers.get('content-type')||'';
   if(type.startsWith('multipart/form-data'))return cors(await maskedUpload(request,env,actor),origin);

@@ -124,4 +124,23 @@ test('unknown collection anchors fail review without publishing or changing sour
  const reviewed=await request(null,{action:'reviewSubmission',id:item.id,expectedVersion:item.version,decision:'approved',privacyReviewed:true,readabilityReviewed:true,maskedFileIds:[fid],application:{type:'screens',operation:'add',expectedRevision:0,imageFileIds:[fid],fields:{title:'Unverified collection',providerId:'citi',language:'en',taskId:'signup'}}},'session',adminHeaders);assert.equal(reviewed.status,400);assert.equal(reviewed.body.code,'unknown_collection');
  assert.equal((await DB.prepare('SELECT status FROM wgss_submissions WHERE id=?').bind(item.id).first()).status,'pending');
 });
+test('new term proposals preserve prefilled expressions and require administrator rights review before public posting',async()=>{
+ const proposal=await create(token(),{kind:'translation_issue',proposalType:'term',termEnglish:'Account opening',termKorean:'계좌 개설',termTarget:'Opening an account',language:'en',workId:'test-work',sourceUrl:'https://example.org/terms'});
+ assert.equal(proposal.item.current.proposalType,'term');assert.equal(proposal.item.current.termEnglish,'Account opening');assert.equal(proposal.item.current.termKorean,'계좌 개설');assert.equal(proposal.item.current.workId,'test-work');
+ const application={type:'terms',operation:'add',expectedRevision:0,imageFileIds:[],fields:{english:'Account opening',korean:'계좌 개설',target:'Opening an account',language:'en',sourceUrl:'https://example.org/terms'}};
+ const review={action:'reviewSubmission',id:proposal.item.id,expectedVersion:1,decision:'approved',privacyReviewed:true,readabilityReviewed:true,application};
+ const missing=await request(null,review,'session',adminHeaders);assert.equal(missing.status,400);assert.equal(missing.body.code,'commercial_review_required');
+ assert.equal((await DB.prepare('SELECT status FROM wgss_submissions WHERE id=?').bind(proposal.item.id).first()).status,'pending');
+ const rights={confirmed:true,license:'CC0-1.0',evidenceUrl:'https://example.org/license',basis:'The contributor dedicated this original synthetic example under CC0.'};
+ const invalid=await request(null,{...review,application:{...application,commercialRights:{...rights,license:'unknown'}}},'session',adminHeaders);assert.equal(invalid.status,400);
+ const contributor=await request(proposal.cap,{...review,application:{...application,commercialRights:rights}});assert.equal(contributor.status,403);
+ const approved=await request(null,{...review,application:{...application,commercialRights:rights}},'session',adminHeaders);assert.equal(approved.status,200,JSON.stringify(approved.body));
+ const publicList=await request(null,null,'publications'),row=publicList.body.items.find(r=>r.targetId==='contribution:terms:'+proposal.item.id);assert(row);assert.equal(row.patch.datasetId,'wgss_reviewed_terms');assert.equal(row.patch.generationEligible,false);assert.equal(row.patch.commercialRights.reviewedBy,undefined);assert.match(row.patch.commercialRights.reviewSha,/^[0-9a-f]{64}$/);
+ const history=await request(null,null,'resource=recordVersions&type=terms&id='+encodeURIComponent(row.targetId));assert.equal(history.status,200);assert.equal(history.body.items.length,1);assert.equal(history.body.items[0].fields.commercialRights.reviewedBy,undefined);
+ const adminList=await request(null,null,'publications',adminHeaders),stored=adminList.body.items.find(r=>r.targetId===row.targetId);assert.equal(stored.patch.commercialRights.reviewedBy,'owner-user');
+ const follow=await create(token(),{kind:'translation_issue',referenceId:row.targetId}),update={...review,id:follow.item.id,expectedVersion:1,application:{type:'terms',operation:'update',targetId:row.targetId,expectedRevision:1,imageFileIds:[],fields:{target:'Open an account'}}};
+ assert.equal((await request(null,update,'session',adminHeaders)).body.code,'commercial_review_required');
+ const updated=await request(null,{...update,application:{...update.application,commercialRights:rights}},'session',adminHeaders);assert.equal(updated.status,200,JSON.stringify(updated.body));
+ const versions=await request(null,null,'resource=recordVersions&type=terms&id='+encodeURIComponent(row.targetId));assert.equal(versions.body.items.length,2);
+});
 after(async()=>{await miniflare.dispose();await rm(output,{recursive:true,force:true});});

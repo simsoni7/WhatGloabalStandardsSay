@@ -19,3 +19,5 @@ h1{word-break:keep-all;text-wrap:balance}
 .target-results{max-height:240px;overflow:auto;margin-top:8px}.target-option{display:block;text-align:left;width:100%;padding:12px;background:var(--white);border:0;border-bottom:1px solid var(--line)}.target-option:hover{background:var(--surface)}.target-option .meta{display:block;overflow-wrap:anywhere}#apply-preview{margin-top:16px;font-size:14px;color:var(--green-ink)}#apply-panel .form-grid .field:has(textarea){grid-column:1/-1}
 /* Submission receipts can be longer than the mobile viewport. */
 #contribution-status{overflow-wrap:anywhere;word-break:break-word;min-width:0}
+
+.proposal-tabs{margin-bottom:24px}#contribution-term-fields{margin-bottom:24px}#contribution-screen-context:empty{display:none}

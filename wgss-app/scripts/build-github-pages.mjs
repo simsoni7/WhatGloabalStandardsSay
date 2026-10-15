@@ -32,13 +32,14 @@ for(const chunk of catalog.dictionary.chunks){
  const proof=await readFile(join(output,chunk.provenancePath.slice(base.length)));chunk.sourceProvenanceSha256=chunk.provenanceSha256;chunk.provenanceSha256=sha(proof);
 }
 await json('integration-data/catalog.json',catalog);
-const releaseInputs=['index.html','app.js','publications.js','about.js','dictionary.js','operations.js','styles.css','about.css','dictionary.css','operations.css','operations-plan.json'];
+const releaseInputs=['index.html','app.js','publications.js','about.js','dictionary.js','operations.js','styles.css','about.css','dictionary.css','operations.css','operations-plan.json','features.js','features.css'];
 const release=sha(JSON.stringify(catalog)+(await Promise.all(releaseInputs.map(name=>readFile(join(root,'integration-ui',name),'utf8')))).join('\n')+await readFile(import.meta.filename,'utf8')).slice(0,16);
 const intakeBase=process.env.WGSS_INTAKE_BASE||'https://wgss-public-intake.booknfoto461.chatgpt.site';
 const allowedTermIds=new Set();for(const chunk of catalog.dictionary.chunks)for(const row of JSON.parse(await readFile(join(output,chunk.path.slice(base.length)),'utf8')).rows)allowedTermIds.add(row.id);
 let approved={...snapshot,backendBase:intakeBase,liveUpdates:true};
 try{const response=await fetch(intakeBase+'/api/wgss?resource=publications',{signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('Live snapshot unavailable');const data=await response.json();approved={...approved,exportedAt:new Date().toISOString(),items:data.items,versions:{}};for(const entry of approved.items.filter(e=>e.type==='screens')){const r=await fetch(intakeBase+'/api/wgss?resource=recordVersions&type=screens&id='+encodeURIComponent(entry.targetId),{signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('Version snapshot unavailable');approved.versions[entry.targetId]=(await r.json()).items;}}catch{console.warn('Using the retained approved snapshot as the offline fallback');}
-approved.items=(approved.items||[]).filter(e=>e.type!=='terms'||allowedTermIds.has(e.targetId));
+const reviewedTerm=e=>{const p=e.patch,r=p?.commercialRights;return e.targetId?.startsWith('contribution:terms:')&&p?.id===e.targetId&&p.datasetId==='wgss_reviewed_terms'&&p.recordType==='contributed_term'&&p.commercial===true&&p.layer==='reviewed'&&r?.confirmed===true&&['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain'].includes(r.license)&&/^https:\/\//.test(r.evidenceUrl||'')&&r.basis?.length>=10&&/^[0-9a-f]{64}$/.test(r.reviewSha||'');};
+approved.items=(approved.items||[]).filter(e=>e.type!=='terms'||allowedTermIds.has(e.targetId)||reviewedTerm(e));
 await json('approved-snapshot.json',rewrite(approved));
 const config={base,intakeBase,release,snapshotAt:approved.exportedAt};
 await json('release.json',{release});
@@ -67,7 +68,7 @@ let app=await readFile(join(root,'integration-ui/app.js'),'utf8');
 app=app.replace(/async function fetchJSON\(url,options=\{\}\)\{[^\n]+\}/,'async function fetchJSON(url,options={}){return WGSSPublic.fetchJSON(url,options)}');
 if(app.includes("const r=await fetch(url,{credentials:'same-origin'"))throw Error('Public API adapter was not installed');
 await put('app.js',app);
-for(const name of ['publications.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json'])await put(name,await readFile(join(root,'integration-ui',name)));
+for(const name of ['publications.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css'])await put(name,await readFile(join(root,'integration-ui',name)));
 let html=await readFile(join(root,'integration-ui/index.html'),'utf8');
 html=html.replaceAll('/workspace/',base).replace('href="/favicon.svg"','href="'+base+'favicon.svg"');
 html=html.replace('<script defer src="'+base+'publications.js">','<script defer src="'+base+'pages-runtime.js"></script><script defer src="'+base+'publications.js">');
@@ -75,7 +76,7 @@ const published=new Date(approved.exportedAt).toLocaleString('ko-KR',{timeZone:'
 html=html.replace('</header>','</header><p class="publication-date">공개 자료 반영 '+published+' (KST)</p>');
 await put('index.html',html);await put('.nojekyll','');
 await put('styles.css',(await readFile(join(output,'styles.css'),'utf8'))+'\n.release-update{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1248px;margin:12px auto;padding:12px 32px;border-bottom:1px solid #e5e5e5;font-size:14px;}.publication-date{max-width:1248px;margin:12px auto 0;padding:0 32px;font-size:12px;color:#616161;}\n');
-const filesToVersion=['pages-runtime.js','publications.js','app.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css'];
+const filesToVersion=['pages-runtime.js','publications.js','app.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','features.js','features.css'];
 for(const name of filesToVersion){const token=sha(await readFile(join(output,name))).slice(0,16);html=html.replaceAll(base+name+'"',base+name+'?v='+token+'"');}
 html=html.replace('<meta charset="utf-8">','<meta charset="utf-8"><meta name="wgss-release" content="'+release+'">');
 await put('index.html',html);

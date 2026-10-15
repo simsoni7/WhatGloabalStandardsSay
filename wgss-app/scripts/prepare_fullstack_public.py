@@ -1,6 +1,6 @@
 """Retain legacy reproducibility and prepare full-stack static assets; never modify original data."""
 from pathlib import Path
-import shutil,sys
+import shutil,sys,subprocess
 R=Path(__file__).resolve().parents[1]
 mode=sys.argv[1] if len(sys.argv)>1 else 'sync'
 if mode=='legacy-tests':
@@ -14,8 +14,9 @@ if mode=='legacy-tests':
  shutil.copy2(R/'public/legacy/index.html',R/'dist/index.html')
  (R/'dist/package.json').write_text('{"type":"commonjs"}\n')
 elif mode=='sync':
- for name in ('index.html','styles.css','app.js','publications.js','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json'):
+ for name in ('index.html','styles.css','app.js','publications.js','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css'):
   dest=R/'public/workspace'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(R/'integration-ui'/name,dest)
  shutil.copytree(R/'integration-data',R/'public/integration-data',dirs_exist_ok=True)
+ subprocess.run(['node','--input-type=module','-e',"import {filterCommercialOutput} from './scripts/filter-commercial-output.mjs'; await filterCommercialOutput({output:'public',base:'/'});"],cwd=R,check=True)
 else:raise SystemExit('Use sync or legacy-tests')
 print('full-stack asset preparation:',mode)

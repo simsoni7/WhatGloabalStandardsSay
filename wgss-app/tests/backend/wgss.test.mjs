@@ -8,7 +8,7 @@ import ts from 'typescript';
 import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-api-'));
-for(const name of ['core','submissions','jobs','images','publications','api']) {
+for(const name of ['core','submissions','jobs','images','publications','review-draft','api']) {
   const source=await readFile(join(root,'server/wgss',`${name}.ts`),'utf8');
   await writeFile(join(output,`${name}.js`),ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 }

@@ -14,7 +14,7 @@ if mode=='legacy-tests':
  shutil.copy2(R/'public/legacy/index.html',R/'dist/index.html')
  (R/'dist/package.json').write_text('{"type":"commonjs"}\n')
 elif mode=='sync':
- for name in ('index.html','styles.css','app.js','publications.js','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css'):
+ for name in ('index.html','styles.css','app.js','publications.js','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css','review.js','review.css'):
   dest=R/'public/workspace'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(R/'integration-ui'/name,dest)
  shutil.copytree(R/'integration-data',R/'public/integration-data',dirs_exist_ok=True)
  subprocess.run(['node','--input-type=module','-e',"import {filterCommercialOutput} from './scripts/filter-commercial-output.mjs'; await filterCommercialOutput({output:'public',base:'/'});"],cwd=R,check=True)

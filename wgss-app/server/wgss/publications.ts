@@ -19,18 +19,18 @@ async function reviewedRights(actor:Actor,value:any){
  const record={confirmed:true,license,evidenceUrl,basis,reviewedBy:actorId(actor),reviewedAt:now(),reviewMethod:'operator_source_review'};
  return {...record,reviewSha:await hash(JSON.stringify(record))};
 }
-const fields:Record<EntityType,string[]>={screens:['title','providerId','language','taskId','stageLabel','sourceUrl','capturedAt','appVersion','collectionReferenceId'],phrases:['text','providerId','language','taskId','context','role','sourceUrl'],terms:['english','target','korean','definition','language','sourceUrl'],features:['expression','meaning','conditions','providerId','language','taskId','workId','sourceUrl']};
+const fields:Record<EntityType,string[]>={screens:['title','providerId','language','taskId','stageLabel','sourceUrl','capturedAt','appVersion','collectionReferenceId','purpose','captureDateBasis'],phrases:['text','providerId','language','taskId','context','role','sourceUrl'],terms:['english','target','korean','definition','language','sourceUrl'],features:['expression','meaning','conditions','providerId','language','taskId','workId','sourceUrl']};
 function checkedType(value:unknown):EntityType{if(!types.includes(value as EntityType))throw new ApiError(400,'invalid_target','반영할 자료 종류를 선택해 주세요.');return value as EntityType;}
 export async function appliedRecords(env:Runtime){
  const all=await rows(env,'SELECT id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,created_at FROM wgss_publications ORDER BY revision,created_at,rowid');
  const merged=new Map<string,any>();
  for(const row of all){const key=row.target_type+':'+row.target_id;let current=merged.get(key);if(!current){current={type:row.target_type,targetId:row.target_id,revision:0,patch:{},appliedVersions:[]};merged.set(key,current);}current.revision=Math.max(current.revision,row.revision);if(row.state!=='applied')continue;Object.assign(current.patch,parse(row.patch_json));current.appliedVersions.push({id:row.id,revision:row.revision,sourceVersion:row.source_version,appliedAt:row.created_at});current.appliedAt=row.created_at;}
- return {items:[...merged.values()]};
+ return {items:[...merged.values()].filter(item=>item.patch.retired!==true)};
 }
 export async function targetLookup(env:Runtime,actor:Actor,typeValue:unknown,query:unknown){requireActor(actor,true);const type=checkedType(typeValue),q=bounded(query,'query',300).toLocaleLowerCase();const applied=(await appliedRecords(env)).items.filter(r=>r.type===type);const found=new Map(index[type].map((r:any)=>[r.id,{...r,revision:0}]));for(const item of applied){const prior=found.get(item.targetId) as any;if(!prior&&!item.patch.id)continue;found.set(item.targetId,{...prior,...item.patch,id:item.targetId,revision:item.revision});}const items=[...found.values()].filter((r:any)=>!q||[r.id,r.label,r.title,r.text,r.english,r.target,r.expression].some(v=>String(v||'').toLocaleLowerCase().includes(q))).slice(0,40);return {items};}
 export async function publicationHistory(env:Runtime,actor:Actor,typeValue:unknown,targetId:unknown){requireActor(actor,true);const type=checkedType(typeValue),target=bounded(targetId,'targetId',200,true);return {items:(await rows(env,'SELECT * FROM wgss_publications WHERE target_type=? AND target_id=? ORDER BY revision DESC',type,target)).map(r=>({id:r.id,revision:r.revision,sourceSubmissionId:r.source_submission_id,sourceVersion:r.source_version,state:r.state,fields:parse(r.patch_json),createdAt:r.created_at}))};}
 export async function recordVersions(env:Runtime,typeValue:unknown,targetId:unknown){const type=checkedType(typeValue),target=bounded(targetId,'targetId',200,true);return {items:(await rows(env,"SELECT revision,patch_json,created_at FROM wgss_publications WHERE target_type=? AND target_id=? AND state='applied' ORDER BY revision",type,target)).map(r=>({revision:r.revision,fields:parse(r.patch_json),createdAt:r.created_at}))};}
-export async function preparePublications(env:Runtime,actor:Actor,source:any,input:any,selectedFiles:string[],nextVersion:number){
+async function prepareSinglePublication(env:Runtime,actor:Actor,source:any,input:any,selectedFiles:string[],nextVersion:number){
  requireActor(actor,true);
  const plan=input.application;
  if(!plan||typeof plan!=='object'||Array.isArray(plan))throw new ApiError(400,'application_required','승인한 내용을 반영할 위치와 최종 내용을 지정해 주세요.');
@@ -96,7 +96,68 @@ export async function preparePublications(env:Runtime,actor:Actor,source:any,inp
    if('taskId'in normalized)normalized.taskIds=[normalized.taskId].filter(Boolean);
    if('sourceUrl'in patch||photo)normalized.evidence=[{url:patch.sourceUrl||normalized.imagePath,sourceKind:'operator_reviewed_reference',locator:'운영자 검토',collectedAt:null}];
   }
+  if(type==='screens'&&plan.photoDetails){Object.assign(normalized,{id:targetId,collectionOrder:plan.photoDetails.collectionOrder,uploadedAt:photo.created_at,captureDateBasis:patch.captureDateBasis||'upload',capturedAt:patch.capturedAt,collectedAt:patch.capturedAt,captureDateVerified:false,purpose:patch.purpose||patch.stageLabel||'',stage:patch.stageLabel||''});await prepareDerived(env,actor,source,plan.photoDetails,normalized,photo,nextVersion,statements,entries);}else if(type==='screens'&&photo){normalized.id=targetId;await prepareDerived(env,actor,source,{},normalized,photo,nextVersion,statements,entries);}
   const pid=id(),revision=expected+1,time=now();statements.push(stmt(env,'INSERT INTO wgss_publications (id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,actor_id,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',pid,type,targetId,revision,source.id,nextVersion,JSON.stringify(normalized),'applied',actorId(actor),time));entries.push({id:pid,type,targetId,revision});
  }
  return {statements,entries};
+}
+
+
+/** Upload day is a collection date supplied by this workflow, never a verified capture date. */
+export function uploadDay(value:string){const timestamp=new Date(value);if(!Number.isFinite(timestamp.getTime()))throw new ApiError(400,'invalid_upload_date','사진 업로드 날짜를 확인할 수 없습니다.');return new Date(timestamp.getTime()+9*60*60*1000).toISOString().slice(0,10);}
+function publicationStatement(env:Runtime,actor:Actor,source:any,nextVersion:number,type:EntityType,targetId:string,revision:number,patch:any){const pid=id();return {statement:stmt(env,'INSERT INTO wgss_publications (id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,actor_id,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',pid,type,targetId,revision,source.id,nextVersion,JSON.stringify(patch),'applied',actorId(actor),now()),entry:{id:pid,type,targetId,revision}};}
+async function prepareDerived(env:Runtime,actor:Actor,source:any,details:any,screen:any,photo:any,nextVersion:number,statements:any[],entries:any[]){
+ if(!photo)throw new ApiError(400,'image_required','사진에 연결할 내용을 확인해 주세요.');
+ // Supersede derived data in the same transaction as a replacement image. Version history stays intact.
+ const current=(await appliedRecords(env)).items;
+ for(const row of current.filter(r=>(r.type==='phrases'||r.type==='features')&&r.patch.derivedFromScreenId===screen.id)){
+  const retired=publicationStatement(env,actor,source,nextVersion,row.type,row.targetId,row.revision+1,{retired:true,supersededAt:now(),supersededByImageFileId:photo.id});statements.push(retired.statement);entries.push(retired.entry);
+ }
+ const list=details.phrases??[];
+ if(!Array.isArray(list)||list.length>100)throw new ApiError(400,'invalid_ocr','사진별 화면 문구는 100개까지 입력할 수 있습니다.');
+ const sourceData={providerId:screen.providerId,provider:screen.provider,language:screen.language,taskId:screen.taskId,sourceUrl:screen.sourceUrl||null,collectedAt:screen.collectedAt||null,capturedAt:screen.capturedAt,captureDateBasis:screen.captureDateBasis,uploadedAt:photo.created_at,country:null,sourceKind:'reviewed_screen_ocr',derivedFromScreenId:screen.id,derivedFromImageSha:photo.sha256,imageFileId:photo.id,imagePath:screen.imagePath,originalSha:photo.sha256,actualActionExecuted:false,currentUiVersionVerified:false};
+ const seen=new Set();screen.wording=[];screen.phraseIds=[];
+ for(let n=0;n<list.length;n++){
+  const value=list[n];if(!value||typeof value!=='object'||Array.isArray(value))throw new ApiError(400,'invalid_ocr','화면 문구 형식을 확인해 주세요.');
+  const text=bounded(value.text,'text',1000,true),role=bounded(value.role||'ui_label','role',100),context=bounded(value.context||screen.stageLabel||'','context',5000);
+  if(!['ui_label','button','heading','description','label','title','helper','error','navigation','body','link','message'].includes(role))throw new ApiError(400,'invalid_ocr_role','화면 문구의 쓰임을 확인해 주세요.');
+  const key=text+'\u0000'+role;if(seen.has(key))continue;seen.add(key);
+  const targetId=screen.id+':phrase:'+nextVersion+':'+n,patch={...sourceData,id:targetId,text,role,context,screenIds:[screen.id],purpose:screen.purpose||screen.stageLabel||'',stage:screen.stageLabel||'',retired:false};
+  const publication=publicationStatement(env,actor,source,nextVersion,'phrases',targetId,1,patch);statements.push(publication.statement);entries.push(publication.entry);screen.phraseIds.push(targetId);screen.wording.push(text);
+ }
+ screen.hideLegacyPhrases=true;screen.derivedFeatureIds=[];
+ if(details.feature===undefined||details.feature===null||details.feature===false)return;
+ const value=details.feature;if(typeof value!=='object'||Array.isArray(value))throw new ApiError(400,'invalid_feature','화면에서 확인한 기능을 확인해 주세요.');
+ const candidates=index.tasks.find((t:any)=>t.id===screen.taskId)?.workIds||[];
+ const workId=bounded(value.workId|| (candidates.length===1?candidates[0]:''),'workId',200);
+ if(!workId)throw new ApiError(400,'feature_work_required','이 화면의 기능에 해당하는 금융업무를 선택해 주세요.');
+ if(!sets.workId.has(workId)||!candidates.includes(workId))throw new ApiError(400,'feature_work_conflict','선택한 화면 업무와 기능의 업무 정의가 다릅니다.');
+ const expression=bounded(value.expression||screen.title,'expression',1000,true),meaning=bounded(value.meaning||screen.stageLabel||screen.purpose||'','meaning',5000);
+ const targetId=screen.id+':feature:'+nextVersion,patch={...sourceData,id:targetId,workId,label:index.works.find((w:any)=>w.id===workId)?.label,taskIds:[screen.taskId],expression,meaning,conditions:'',referenceId:screen.id,screenIds:[screen.id],status:'screen_observed',observedAppScreen:true,absenceMeaning:'unknown',summaryKind:'reviewed_screen_UI_not_executed_function',evidence:[{url:screen.sourceUrl||screen.imagePath,imagePath:screen.imagePath,sourceKind:'reviewed_screen_ocr',collectedAt:screen.collectedAt,captureDateBasis:screen.captureDateBasis}],channelProofs:[],describedChannels:[],retired:false};
+ const publication=publicationStatement(env,actor,source,nextVersion,'features',targetId,1,patch);statements.push(publication.statement);entries.push(publication.entry);screen.derivedFeatureIds.push(targetId);
+}
+
+export async function preparePublications(env:Runtime,actor:Actor,source:any,input:any,selectedFiles:string[],nextVersion:number){
+ const plan=input.application;
+ if(!plan||plan.photos===undefined)return prepareSinglePublication(env,actor,source,input,selectedFiles,nextVersion);
+ requireActor(actor,true);
+ if(plan.type!=='screens'||!Array.isArray(plan.photos)||!plan.photos.length||plan.photos.length>10)throw new ApiError(400,'invalid_photos','사진별 화면 정보를 확인해 주세요.');
+ if(!plan.fields||typeof plan.fields!=='object'||Array.isArray(plan.fields))throw new ApiError(400,'invalid_fields','화면의 공통 내용을 확인해 주세요.');
+ const photoIds=plan.photos.map((p:any)=>p?.fileId);
+ if(new Set(photoIds).size!==photoIds.length||photoIds.some((fid:any)=>typeof fid!=='string'||!selectedFiles.includes(fid)))throw new ApiError(400,'photo_selection','개인정보를 검토한 사진을 한 번씩 선택해 주세요.');
+ if(!Array.isArray(plan.imageFileIds)||plan.imageFileIds.length!==photoIds.length||plan.imageFileIds.some((fid:any)=>!photoIds.includes(fid)))throw new ApiError(400,'photo_selection','선택한 사진마다 화면 정보를 입력해 주세요.');
+ if(plan.operation==='update'&&photoIds.length!==1)throw new ApiError(400,'one_replacement','기존 화면 교체에는 사진 한 장을 선택해 주세요.');
+ const prepared={statements:[] as any[],entries:[] as any[]};
+ for(let n=0;n<plan.photos.length;n++){
+  const details=plan.photos[n];if(!details.fields||typeof details.fields!=='object'||Array.isArray(details.fields))throw new ApiError(400,'invalid_fields','사진별 화면 정보를 입력해 주세요.');
+  if(!bounded(details.fields.title,'title',1000,true))throw new ApiError(400,'missing_field','사진마다 화면 이름을 입력해 주세요.');
+  const file=await stmt(env,"SELECT * FROM wgss_files WHERE id=? AND submission_id=? AND role='masked'",details.fileId,source.id).first<any>();if(!file)throw new ApiError(400,'photo_not_owned','이 제안에 첨부된 가린 사진을 선택해 주세요.');
+  const photoFields={...plan.fields,...details.fields};for(const key of ['title','providerId','language','taskId'])if(!photoFields[key])throw new ApiError(400,'missing_field','사진별 화면에 필요한 정보를 입력해 주세요: '+key);
+  const basis=photoFields.captureDateBasis||'upload';if(!['upload','provided'].includes(basis))throw new ApiError(400,'invalid_date_basis','화면 날짜의 기준을 확인해 주세요.');
+  if(basis==='upload')photoFields.capturedAt=uploadDay(file.created_at);else if(!photoFields.capturedAt)throw new ApiError(400,'invalid_date','직접 확인한 캡처일을 입력해 주세요.');
+  photoFields.captureDateBasis=basis;
+  const result=await prepareSinglePublication(env,actor,source,{...input,application:{...plan,fields:photoFields,imageFileIds:[details.fileId],photos:undefined,photoDetails:{...details,collectionOrder:n+1,uploadedAt:file.created_at}}},selectedFiles,nextVersion);
+  prepared.statements.push(...result.statements);prepared.entries.push(...result.entries);
+ }
+ return prepared;
 }

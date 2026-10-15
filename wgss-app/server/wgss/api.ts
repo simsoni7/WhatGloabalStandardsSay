@@ -1,4 +1,5 @@
 import knownSources from './known-sources.json';
+import {prepareReviewDraft,getReviewDraft} from './review-draft';
 import {appliedRecords,targetLookup,publicationHistory,recordVersions} from './publications';
 import {ApiError, Runtime, Actor, requireActor, actorId, id, now, stmt, rows, parse, bounded, auditStmt, submission, serializeSubmission, validModel, getSettings, schedulerStatus} from './core';
 import {createSubmission,updateSubmission,upload,deleteSubmission} from './submissions';
@@ -36,6 +37,7 @@ export async function getResource(request: Request, env: Runtime, actor: Actor):
     return {items:items.map(c=>({id:c.id,name:c.name,referenceIds:parse(c.reference_ids_json,[]),context:parse(c.context_json),createdAt:c.created_at}))};
   }
   requireActor(actor,true);
+  if(resource==='reviewDraft')return getReviewDraft(env,actor,url.searchParams.get('id')||'');
   if(resource==='jobs') return {items:(await rows(env,'SELECT * FROM wgss_jobs ORDER BY created_at DESC LIMIT 100')).map(serializeJob)};
   if(resource==='audit') return {items:(await rows(env,'SELECT * FROM wgss_audit ORDER BY created_at DESC LIMIT 200')).map(a=>({id:a.id,actorId:a.actor_id,action:a.action,entityId:a.entity_id,details:parse(a.details_json),createdAt:a.created_at}))};
   if(resource==='settings') return {settings:await getSettings(env),scheduler:schedulerStatus(env),gatewayConfigured:!!env.BEDROCK_API_KEY};
@@ -70,6 +72,7 @@ export async function mutate(request: Request, env: Runtime, actor: Actor) {
     await env.DB.batch([stmt(env,'DELETE FROM wgss_comparisons WHERE id=? AND owner_id=?',cid,actorId(actor)),auditStmt(env,actor,'comparison.deleted',cid)]); return {deleted:true};
   }
   requireActor(actor,true);
+  if(input.action==='prepareReviewDraft')return prepareReviewDraft(env,actor,input);
   if(input.action==='runDueJobs')return runDueJobs(env,actor);
   if(input.action==='runEvidenceBrief')return runEvidenceBrief(env,actor,input);
   if(input.action==='runAiJob')return runAiJob(env,actor,input);

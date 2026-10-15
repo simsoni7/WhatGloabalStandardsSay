@@ -18,6 +18,8 @@ export async function filterCommercialOutput({output,base}){
   const dataDir=join(output,'integration-data');
   const catalogPath=join(dataDir,'catalog.json');
   const catalog=await json(catalogPath);
+  const navigation=await json(join(sourceRoot,'integration-data/task-extensions.json'));
+  for(const task of navigation.tasks)if(!catalog.tasks.some(row=>row.id===task.id))catalog.tasks.push({...task});
   const dictionary=catalog.dictionary;
   if(!dictionary||!Array.isArray(dictionary.datasets)||!Array.isArray(dictionary.chunks))throw Error('Missing dictionary catalogue');
   const admitted=dictionary.datasets.filter(dataset=>dataset.commercial===true&&dataset.layer==='core');

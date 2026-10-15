@@ -32,7 +32,7 @@ for(const chunk of catalog.dictionary.chunks){
  const proof=await readFile(join(output,chunk.provenancePath.slice(base.length)));chunk.sourceProvenanceSha256=chunk.provenanceSha256;chunk.provenanceSha256=sha(proof);
 }
 await json('integration-data/catalog.json',catalog);
-const releaseInputs=['index.html','app.js','publications.js','about.js','dictionary.js','operations.js','styles.css','about.css','dictionary.css','operations.css','operations-plan.json','features.js','features.css'];
+const releaseInputs=['index.html','app.js','publications.js','about.js','dictionary.js','operations.js','styles.css','about.css','dictionary.css','operations.css','operations-plan.json','features.js','features.css','review.js','review.css'];
 const release=sha(JSON.stringify(catalog)+(await Promise.all(releaseInputs.map(name=>readFile(join(root,'integration-ui',name),'utf8')))).join('\n')+await readFile(import.meta.filename,'utf8')).slice(0,16);
 const intakeBase=process.env.WGSS_INTAKE_BASE||'https://wgss-public-intake.booknfoto461.chatgpt.site';
 const allowedTermIds=new Set();for(const chunk of catalog.dictionary.chunks)for(const row of JSON.parse(await readFile(join(output,chunk.path.slice(base.length)),'utf8')).rows)allowedTermIds.add(row.id);
@@ -68,7 +68,7 @@ let app=await readFile(join(root,'integration-ui/app.js'),'utf8');
 app=app.replace(/async function fetchJSON\(url,options=\{\}\)\{[^\n]+\}/,'async function fetchJSON(url,options={}){return WGSSPublic.fetchJSON(url,options)}');
 if(app.includes("const r=await fetch(url,{credentials:'same-origin'"))throw Error('Public API adapter was not installed');
 await put('app.js',app);
-for(const name of ['publications.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css'])await put(name,await readFile(join(root,'integration-ui',name)));
+for(const name of ['publications.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','operations-plan.json','features.js','features.css','review.js','review.css'])await put(name,await readFile(join(root,'integration-ui',name)));
 let html=await readFile(join(root,'integration-ui/index.html'),'utf8');
 html=html.replaceAll('/workspace/',base).replace('href="/favicon.svg"','href="'+base+'favicon.svg"');
 html=html.replace('<script defer src="'+base+'publications.js">','<script defer src="'+base+'pages-runtime.js"></script><script defer src="'+base+'publications.js">');
@@ -76,7 +76,7 @@ const published=new Date(approved.exportedAt).toLocaleString('ko-KR',{timeZone:'
 html=html.replace('</header>','</header><p class="publication-date">공개 자료 반영 '+published+' (KST)</p>');
 await put('index.html',html);await put('.nojekyll','');
 await put('styles.css',(await readFile(join(output,'styles.css'),'utf8'))+'\n.release-update{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1248px;margin:12px auto;padding:12px 32px;border-bottom:1px solid #e5e5e5;font-size:14px;}.publication-date{max-width:1248px;margin:12px auto 0;padding:0 32px;font-size:12px;color:#616161;}\n');
-const filesToVersion=['pages-runtime.js','publications.js','app.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','features.js','features.css'];
+const filesToVersion=['pages-runtime.js','publications.js','app.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','features.js','features.css','review.js','review.css'];
 for(const name of filesToVersion){const token=sha(await readFile(join(output,name))).slice(0,16);html=html.replaceAll(base+name+'"',base+name+'?v='+token+'"');}
 html=html.replace('<meta charset="utf-8">','<meta charset="utf-8"><meta name="wgss-release" content="'+release+'">');
 await put('index.html',html);

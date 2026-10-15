@@ -9,7 +9,7 @@ import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-intake-'));
 await mkdir(join(output,'wgss'));
-for(const name of ['core','submissions','jobs','images','publications','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
+for(const name of ['core','submissions','jobs','images','publications','review-draft','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 for(const name of ['known-sources.json','evidence-index.json','reference-index.json'])await copyFile(join(root,'server/wgss',name),join(output,'wgss',name));
 await writeFile(join(output,'intake.js'),ts.transpileModule(await readFile(join(root,'server/intake.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 const require=createRequire(import.meta.url),{handleIntake}=require(join(output,'intake.js')),{hash}=require(join(output,'wgss/core.js'));

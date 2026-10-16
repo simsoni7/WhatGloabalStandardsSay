@@ -5,19 +5,24 @@ const WGSSAbout=(()=>{
  const number=value=>Number(value||0).toLocaleString('ko-KR');
  const safe=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const languageName=(catalog,id)=>list(catalog.languages).find(x=>x.id===id)?.label||id;
- function metrics(catalog){
+ function metrics(catalog,publishedTerms=[]){
   const dictionary=catalog.dictionary||{};
   const datasets=list(dictionary.datasets).filter(x=>x.commercial===true&&x.layer==='core');
   const allowed=new Set(datasets.map(x=>x.id));
   const chunks=list(dictionary.chunks).filter(x=>x.layer==='core'&&list(x.datasetIds).length&&x.datasetIds.every(id=>allowed.has(id)));
   const languageCounts=new Map();
   for(const chunk of chunks)for(const [id,count]of Object.entries(chunk.languageCounts||{}))languageCounts.set(id,(languageCounts.get(id)||0)+Number(count||0));
-  const dictionaryRows=datasets.reduce((sum,x)=>sum+Number(x.count||0),0);
+  const coreRows=datasets.reduce((sum,x)=>sum+Number(x.count||0),0);
   const countedRows=[...languageCounts.values()].reduce((sum,x)=>sum+x,0);
   // Mixed-source chunks must be projected before their language totals can be advertised.
-  const languageTotalsComplete=countedRows===dictionaryRows&&dictionaryRows>0;
+  const languageTotalsComplete=countedRows===coreRows&&coreRows>0;
+  // Approved additions are present even before any lazy dictionary chunks load.
+  // Never count loaded core rows again, or treat corrections as new pairs.
+  const reviewedTerms=[...new Map(list(publishedTerms).filter(row=>WGSSDictionary.isReviewedTerm(row)).map(row=>[row.id,row])).values()];
+  for(const row of reviewedTerms)if(row.language)languageCounts.set(row.language,(languageCounts.get(row.language)||0)+1);
+  const dictionaryRows=coreRows+reviewedTerms.length;
   const screens=list(catalog.screens),phrases=list(catalog.phrases);
-  return {datasets,dictionaryRows,languageCounts,languageTotalsComplete,screens,phrases,
+  return {datasets,dictionaryRows,reviewedTermCount:reviewedTerms.length,languageCounts,languageTotalsComplete,screens,phrases,
    screenProviders:new Set(screens.map(x=>x.providerId).filter(Boolean)).size,
    screenLanguages:new Set(screens.map(x=>x.language).filter(x=>x&&x!=='unknown')).size,
    uniqueImages:new Set(screens.map(x=>x.originalSha||x.imagePath).filter(Boolean)).size,
@@ -44,7 +49,7 @@ const WGSSAbout=(()=>{
  }
  function render(){
   const catalog=state.catalog;if(!catalog)return;
-  const m=metrics(catalog),languages=m.languageCount;
+  const m=metrics(catalog,state.terms),languages=m.languageCount;
   const languageText=languages?`${number(languages)}개 언어의 용어를<br>한곳에서 찾아보세요.`:'다국어 금융 용어를<br>한곳에서 찾아보세요.';
   document.querySelector('#app').innerHTML=`<div class="about-page">
    <section class="about-hero" aria-labelledby="about-title">
@@ -56,8 +61,9 @@ const WGSSAbout=(()=>{
    </section>
    <section class="about-section about-scale" aria-labelledby="about-scale-title">
     <div class="about-section-heading"><h2 id="about-scale-title">화면, 문구, 다국어 용어.<br>현재 모은 자료입니다.</h2><p>금융사의 화면을 보고, 실제 문구와 다른 언어의 표현을 찾을 수 있습니다.</p></div>
-    <dl class="about-metrics"><div><dt>금융사 화면</dt><dd>${number(m.screens.length)}<span>건</span></dd><dd class="about-metric-note">${number(m.screenProviders)}개 금융사 · ${number(m.uniqueImages)}개 이미지</dd></div><div><dt>화면 문구</dt><dd>${number(m.phrases.length)}<span>건</span></dd><dd class="about-metric-note">화면과 안내 자료에서 수집한 문구</dd></div><div><dt>다국어 용어</dt><dd>${number(m.dictionaryRows)}<span>쌍</span></dd><dd class="about-metric-note">영어 원문과 다른 언어의 대응 표현</dd></div><div><dt>용어집 출처</dt><dd>${number(m.datasets.length)}<span>곳</span></dd><dd class="about-metric-note">상업적 이용을 허용한 자료</dd></div></dl>
+    <dl class="about-metrics"><div><dt>금융사 화면</dt><dd>${number(m.screens.length)}<span>건</span></dd><dd class="about-metric-note">${number(m.screenProviders)}개 금융사 · ${number(m.uniqueImages)}개 이미지</dd></div><div><dt>화면 문구</dt><dd>${number(m.phrases.length)}<span>건</span></dd><dd class="about-metric-note">화면과 안내 자료에서 수집한 문구</dd></div><div><dt>다국어 용어</dt><dd>${number(m.dictionaryRows)}<span>쌍</span></dd><dd class="about-metric-note">영어 원문과 다른 언어의 대응 표현</dd></div><div><dt>용어집 출처</dt><dd>${number(m.datasets.length)}<span>곳</span></dd><dd class="about-metric-note">기관·공개 소프트웨어의 상업 이용 허용 자료</dd></div></dl>
     <p class="about-small">화면 수는 등록된 화면 사례 수입니다. 용어 수는 언어별 대응 쌍 수이며, 같은 뜻의 표현이 여러 자료에 포함될 수 있습니다.</p>
+    ${m.reviewedTermCount?`<p class="about-small">운영자 검토 후 추가된 용어 ${number(m.reviewedTermCount)}쌍을 포함합니다.</p>`:''}
    </section>
    <section class="about-section about-language" aria-labelledby="about-language-title">
     <div class="about-section-heading"><h2 id="about-language-title">${languageText}</h2><p>영어 원문과 다른 언어의 표현을 함께 확인하세요. 공공기관과 공개 소프트웨어의 자료를 모아 출처별로 살펴볼 수 있습니다.</p><a class="about-inline-link" href="${safe(referenceHref('words',{wordMode:'terms'}))}">다국어 용어 찾기</a><p class="about-small">언어·표기 코드를 기준으로 집계합니다. 실제 금융사 화면의 제공 언어 수와는 다릅니다.</p></div>

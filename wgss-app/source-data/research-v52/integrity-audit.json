@@ -1,0 +1,233 @@
+[
+  {
+    "screenId": "v50-asset-005",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 3,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-019",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 5,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-023",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 7,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-030",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 15,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-038",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 7,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-068",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 11,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-070",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 9,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-118",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 8,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-119",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 7,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-asset-120",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 5,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v50-ocbc-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 4,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v51-monzo-signup",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 9,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v51-monzo-publisher-1",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 2,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v51-monzo-publisher-2",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 3,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-anz-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 8,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-commbank-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 7,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-commbank-signup",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 13,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-commbank-password-recovery",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 13,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-td-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 9,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-dkb-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 5,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  },
+  {
+    "screenId": "v52-santander-login",
+    "imageHashValid": true,
+    "sourceOriginalHashValid": true,
+    "originalPixelsOutsideDeclaredMasksEqual": true,
+    "sourceClassPreserved": true,
+    "taskIdExists": true,
+    "literalPhrases": 8,
+    "privacyHold": false,
+    "canonicalWorkAdmissions": 0
+  }
+]

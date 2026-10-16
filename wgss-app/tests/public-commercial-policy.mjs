@@ -12,6 +12,16 @@ const readJSON=async path=>JSON.parse(await readFile(path,'utf8'));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const blocked=new Set(source.dictionary.datasets.filter(d=>d.commercial!==true||d.layer!=='core').map(d=>d.id));
 const allowed=new Set(source.dictionary.datasets.filter(d=>d.commercial===true&&d.layer==='core').map(d=>d.id));
+// Count admitted source rows independently of metadata. New collection batches
+// must not require changing a frozen total, or admit conditional rows with them.
+const expectedIds=new Set(),expectedLanguages=new Set(),expectedDatasets=new Set();
+for(const chunk of source.dictionary.chunks){
+ const raw=await readJSON(join(root,chunk.path.replace(/^\//,'')));
+ for(const row of raw.rows)if(allowed.has(row.datasetId)){
+  assert.ok(!expectedIds.has(row.id),'source IDs are unique');
+  expectedIds.add(row.id);expectedLanguages.add(row.language);expectedDatasets.add(row.datasetId);
+ }
+}
 const checks=[];
 function check(label,value){assert.ok(value,label);checks.push(label);}
 async function signature(dir){
@@ -53,10 +63,12 @@ try{
   assert.deepEqual(chunk.languageCounts,Object.fromEntries(Object.entries(actualLanguages).sort(([a],[b])=>a.localeCompare(b))));assert.deepEqual(chunk.datasetIds,[...actualDatasets].sort());
   assert.ok(proof.every(row=>!row.dataset_id||allowed.has(row.dataset_id)),'no blocked provenance rows');
  }
- check('all public term chunks and provenance pass the dataset gate',count===16424&&ids.size===16424);
- check('language total is calculated from surviving target rows',langs.size===36&&catalog.dictionary.languages.length===36&&catalog.counts.dictionaryLanguages===36);
- check('only ten commercial core datasets are public',catalog.dictionary.datasets.length===10&&catalog.dictionary.datasets.every(d=>d.commercial===true&&d.layer==='core'&&allowed.has(d.id)));
- check('catalogue totals match the public rows',catalog.counts.dictionaryCore===count&&catalog.counts.dictionaryTotal===count&&catalog.counts.dictionaryConditional===0&&catalog.counts.dictionaryDatasets===10&&catalog.counts.dictionaryConditionalDatasets===0);
+ assert.deepEqual(ids,expectedIds,'every admitted source row, no extra or missing IDs');
+ check('all public term chunks and provenance pass the dataset gate',count===expectedIds.size&&count>0);
+ assert.deepEqual(langs,expectedLanguages,'exact admitted target languages');
+ check('language total is calculated from surviving target rows',catalog.dictionary.languages.length===langs.size&&catalog.counts.dictionaryLanguages===langs.size);
+ check('only admitted commercial core datasets are public',catalog.dictionary.datasets.length===expectedDatasets.size&&catalog.dictionary.datasets.every(d=>d.commercial===true&&d.layer==='core'&&allowed.has(d.id)));
+ check('catalogue totals match the public rows',catalog.counts.dictionaryCore===count&&catalog.counts.dictionaryTotal===count&&catalog.counts.dictionaryConditional===0&&catalog.counts.dictionaryDatasets===expectedDatasets.size&&catalog.counts.dictionaryConditionalDatasets===0);
  check('dataset totals and target languages are recalculated',catalog.dictionary.datasets.every(d=>d.count===datasetCounts.get(d.id)&&d.languages.every(l=>langs.has(l))));
  check('mixed chunk 0068 retains only Malaysia rows',(await readJSON(join(output,'integration-data/terms/0068.json'))).rows.every(r=>r.datasetId==='malaysia_financial_metadata')&&(await readJSON(join(output,'integration-data/terms/0068.json'))).rows.length===99);
  check('mixed chunk 0088 retains only CLDR rows',(await readJSON(join(output,'integration-data/terms/0088.json'))).rows.every(r=>r.datasetId==='unicode_cldr_currency_names')&&(await readJSON(join(output,'integration-data/terms/0088.json'))).rows.length===174);
@@ -65,7 +77,7 @@ try{
  for(const [dir,kept] of [['terms',admittedFiles],['provenance',admittedProofs]])for(const entry of await readdir(join(output,'integration-data',dir)))if(entry.endsWith('.json'))assert.ok(kept.has(join(output,'integration-data',dir,entry)),'guessed orphan URL cannot expose excluded rows');
  check('empty and orphan terms/provenance files are removed',true);
  check('full and conditional download packs are absent',!('downloads' in catalog.dictionary)&&!('downloads' in inventory));
- check('source inventory contains only admitted sources',inventory.datasets.length===10&&inventory.datasets.every(d=>allowed.has(d.id)));
+ check('source inventory contains only admitted sources',inventory.datasets.length===expectedDatasets.size&&inventory.datasets.every(d=>allowed.has(d.id)));
  check('internal source quality metadata is not published',[...catalog.dictionary.datasets,...inventory.datasets].every(d=>!('metadata'in d)&&!('authority'in d)&&!('limitations'in d)&&!('collection'in d)&&!('sourceManifest'in d)));
  for(const original of source.dictionary.datasets.filter(d=>allowed.has(d.id))){const d=catalog.dictionary.datasets.find(d=>d.id===original.id);assert.equal(d.license,original.license);if(original.licenseNotice)assert.equal(d.licenseNotice,original.licenseNotice);if(original.metadata?.attribution)assert.equal(d.attribution,original.metadata.attribution);}
  check('original license, NOTICE and attribution strings are preserved',true);

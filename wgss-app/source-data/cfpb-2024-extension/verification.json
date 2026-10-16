@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "admittedRowsChecked": 4764,
+  "sourcePdfsChecked": 3,
+  "termChunksChecked": 28,
+  "pdfLiteralEnglishTargetChecks": 9528,
+  "allIdsUnique": true,
+  "allOriginalPdfHashesMatch": true,
+  "allSourceCellTextsMatch": true,
+  "noMachineGeneratedTargetTranslations": true,
+  "countsReconcile": true
+}

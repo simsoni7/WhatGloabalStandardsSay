@@ -1,0 +1,51 @@
+[
+  {
+    "key": "ar:3:4",
+    "before": "403(b)",
+    "after": "403(b)",
+    "oldTarget": "برنامج التقاعد 403(b)",
+    "newTarget": "برنامج التقاعد403(b)"
+  },
+  {
+    "key": "ar:21:19",
+    "before": "Crypto coins ﻋﻣﻼت",
+    "after": "Crypto coins",
+    "oldTarget": "رقمیة Crypto ،عملات مشفرة Crypto",
+    "newTarget": "عملات رقمیة Crypto ،عملات مشفرة Crypto"
+  },
+  {
+    "key": "ar:21:21",
+    "before": "Crypto-assets أﺻول",
+    "after": "Crypto-assets",
+    "oldTarget": "رقمیة Crypto ،أصول مشفرة Crypto",
+    "newTarget": "أصول رقمیة Crypto ،أصول مشفرة Crypto"
+  },
+  {
+    "key": "ar:35:10",
+    "before": "Foundation ﻣؤﺳﺳﺔ",
+    "after": "Foundation",
+    "oldTarget": "، أساس )depending on context (",
+    "newTarget": "مؤسسة ، أساس )depending on context ("
+  },
+  {
+    "key": "ar:47:12",
+    "before": "Long-term care ombudsman program",
+    "after": "Long-term care ombudsman program",
+    "oldTarget": "برنامج أمناء المظالم للتظل ُّ م من الرعایة الطویلة الأجل",
+    "newTarget": "برنامج أمناء المظالم للتظل ُّم من الرعایة الطویلة الأجل"
+  },
+  {
+    "key": "ar:47:18",
+    "before": "Low down payment feature",
+    "after": "Low down payment feature",
+    "oldTarget": "خاصیة العربون المخف َّ ض",
+    "newTarget": "خاصیة العربون المخف َّض"
+  },
+  {
+    "key": "ar:53:13",
+    "before": "Notarize, notarized",
+    "after": "Notarize, notarized",
+    "oldTarget": "یوثِّق ). v ،(موث َّ ق ، موث َّ ق قبل من كاتب العدل ). n (",
+    "newTarget": "یوثِّق ). v ،(موث َّق ، موث َّق قبل من كاتب العدل ). n ("
+  }
+]

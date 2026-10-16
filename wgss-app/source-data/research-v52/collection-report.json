@@ -1,0 +1,318 @@
+{
+  "reviewedAt": "2026-10-16T04:02:54.102292+00:00",
+  "batchCompleted": true,
+  "unattendedSchedulerClaimed": false,
+  "captureTargetRecords": 30,
+  "newlyCapturedPublishedReferences": 7,
+  "priorUnpublishedPublishedReferences": 14,
+  "priorExclusions": [
+    {
+      "id": "v51-wise-signup",
+      "reason": "image_SHA_already_published",
+      "sha256": "cdb4e6a8a8e8c08582969d101ca38e3ccce6735a0891ef3d8131ba548e0875dc"
+    },
+    {
+      "id": "v51-wise-login",
+      "reason": "passive_error_banner; exclude degraded form while more useful alternatives available",
+      "sha256": "5b4185fa43d5005c7d479d9a5201538aa4b295679398a0b380d2623fa6519459"
+    },
+    {
+      "id": "v51-wise-password-recovery",
+      "reason": "image_SHA_already_published",
+      "sha256": "57f0ef3517f4903a6a31854e7eb9cd2366c6adab22265aa98a5853036dd6b3e8"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "v52-starling-login",
+      "provider": "Starling Bank",
+      "status": 200,
+      "disposition": "entry_only_actual_input_not_captured_no_reference_admission",
+      "observedSourceUrl": "https://app.starlingbank.com/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:16.350646+00:00"
+    },
+    {
+      "id": "v52-monzo-signup",
+      "provider": "Monzo",
+      "status": 200,
+      "disposition": "use_prior_exact_reviewed_masked_reference_no_duplicate_case",
+      "observedSourceUrl": "https://monzo.com/sign-up",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:09.698100+00:00"
+    },
+    {
+      "id": "v52-wise-password-recovery",
+      "provider": "Wise",
+      "status": 200,
+      "disposition": "same_form_already_in_catalog_no_incremental_value",
+      "observedSourceUrl": "https://wise.com/login/forgot-password",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:07.992618+00:00"
+    },
+    {
+      "id": "v52-ing-es-overview",
+      "provider": "ING",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.ing.es/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:14.225877+00:00"
+    },
+    {
+      "id": "v52-bbva-overview",
+      "provider": "BBVA",
+      "status": 403,
+      "disposition": "access_restricted_no_bypass",
+      "observedSourceUrl": "https://www.bbva.es/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:12.868498+00:00"
+    },
+    {
+      "id": "v52-commbank-overview",
+      "provider": "Commonwealth Bank",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.commbank.com.au/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:18.678268+00:00"
+    },
+    {
+      "id": "v52-anz-overview",
+      "provider": "ANZ",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.anz.com.au/personal/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:23.734745+00:00"
+    },
+    {
+      "id": "v52-nab-overview",
+      "provider": "NAB",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.nab.com.au/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:24.083827+00:00"
+    },
+    {
+      "id": "v52-westpac-overview",
+      "provider": "Westpac",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.westpac.com.au/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:24.919149+00:00"
+    },
+    {
+      "id": "v52-scotiabank-overview",
+      "provider": "Scotiabank",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.scotiabank.com/ca/en/personal.html",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:30.851463+00:00"
+    },
+    {
+      "id": "v52-rbc-overview",
+      "provider": "RBC Royal Bank",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.rbcroyalbank.com/personal.html",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:32.968230+00:00"
+    },
+    {
+      "id": "v52-td-overview",
+      "provider": "TD",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.td.com/ca/en/personal-banking",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:31.964485+00:00"
+    },
+    {
+      "id": "v52-dkb-overview",
+      "provider": "DKB",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.dkb.de/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:38.556315+00:00"
+    },
+    {
+      "id": "v52-santander-overview",
+      "provider": "Santander",
+      "status": 200,
+      "disposition": "discovery_page_only_not_published",
+      "observedSourceUrl": "https://www.bancosantander.es/particulares",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:52:39.899827+00:00"
+    },
+    {
+      "id": "v52-commbank-login",
+      "provider": "Commonwealth Bank",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://netbank.web.commbank.com.au/auth/logon",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:22.822092+00:00"
+    },
+    {
+      "id": "v52-anz-login",
+      "provider": "ANZ",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://login.anz.com/internetbanking",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:25.277845+00:00"
+    },
+    {
+      "id": "v52-nab-login",
+      "provider": "NAB",
+      "status": 200,
+      "disposition": "blank_render_no_reference_admission",
+      "observedSourceUrl": "https://ib.nab.com.au/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:25.201195+00:00"
+    },
+    {
+      "id": "v52-scotiabank-login",
+      "provider": "Scotiabank",
+      "status": 403,
+      "disposition": "access_restricted_no_bypass",
+      "observedSourceUrl": "https://secure.scotiabank.com/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:27.479884+00:00"
+    },
+    {
+      "id": "v52-td-login",
+      "provider": "TD",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://authentication.td.com/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:32.785795+00:00"
+    },
+    {
+      "id": "v52-westpac-digital-banking-guide",
+      "provider": "Westpac",
+      "status": 200,
+      "disposition": "blank_render_no_reference_admission",
+      "observedSourceUrl": "https://www.westpac.com.au/personal-banking/online-banking/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:37.414290+00:00"
+    },
+    {
+      "id": "v52-starling-login-input",
+      "provider": "Starling Bank",
+      "status": 200,
+      "disposition": "entry_only_actual_input_not_captured_no_reference_admission",
+      "observedSourceUrl": "https://app.starlingbank.com/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:53:43.261491+00:00"
+    },
+    {
+      "id": "v52-commbank-signup",
+      "provider": "Commonwealth Bank",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://www2.my.commbank.com.au/netbank/Registration/CardDetails.aspx",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:54:55.760148+00:00"
+    },
+    {
+      "id": "v52-td-password-recovery",
+      "provider": "TD",
+      "status": 200,
+      "disposition": "redirected_to_login_not_recovery_input_no_duplicate_admission",
+      "observedSourceUrl": "https://authentication.td.com/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:55:00.128900+00:00"
+    },
+    {
+      "id": "v52-td-password-reset",
+      "provider": "TD",
+      "status": 200,
+      "disposition": "redirected_to_login_not_recovery_input_no_duplicate_admission",
+      "observedSourceUrl": "https://authentication.td.com/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:54:55.961313+00:00"
+    },
+    {
+      "id": "v52-dkb-login",
+      "provider": "DKB",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://banking.dkb.de/login",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:55:13.928463+00:00"
+    },
+    {
+      "id": "v52-rbc-login",
+      "provider": "RBC Royal Bank",
+      "status": 200,
+      "disposition": "technical_error_or_blank_render_no_reference_admission",
+      "observedSourceUrl": "https://secure.royalbank.com/statics/login-service-ui/index#/full/systemError?LANGUAGE=ENGLISH",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:55:18.720056+00:00"
+    },
+    {
+      "id": "v52-starling-login-credentials",
+      "provider": "Starling Bank",
+      "status": 200,
+      "disposition": "technical_error_or_blank_render_no_reference_admission",
+      "observedSourceUrl": "chrome-error://chromewebdata/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:56:25.512920+00:00"
+    },
+    {
+      "id": "v52-santander-login",
+      "provider": "Santander",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://particulares.bancosantander.es/oneweb/",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:56:26.892846+00:00"
+    },
+    {
+      "id": "v52-santander-password-recovery",
+      "provider": "Santander",
+      "status": 200,
+      "disposition": "security_challenge_not_attempted_no_reference_admission",
+      "observedSourceUrl": "https://particulares.bancosantander.es/login/recuperar-clave",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:56:31.606287+00:00"
+    },
+    {
+      "id": "v52-commbank-password-recovery",
+      "provider": "Commonwealth Bank",
+      "status": 200,
+      "disposition": "published_reference",
+      "observedSourceUrl": "https://netbank.web.commbank.com.au/auth/logon",
+      "financialInputSubmitted": false,
+      "recordedAt": "2026-10-16T03:56:35.354424+00:00"
+    }
+  ],
+  "classificationCorrections": [
+    {
+      "screenId": "v50-asset-118",
+      "modelClass": "blank_recovery",
+      "retainedSourceKind": "publisher_ui_example",
+      "reason": "Official published illustration/selected GIF still; not a directly observed bank application"
+    },
+    {
+      "screenId": "v50-asset-119",
+      "modelClass": "blank_recovery",
+      "retainedSourceKind": "publisher_ui_example",
+      "reason": "Official published illustration/selected GIF still; not a directly observed bank application"
+    },
+    {
+      "screenId": "v50-asset-120",
+      "modelClass": "blank_recovery",
+      "retainedSourceKind": "publisher_ui_example",
+      "reason": "Official published illustration/selected GIF still; not a directly observed bank application"
+    }
+  ],
+  "publicationScope": "Only exact reviewed PNGs in public-assets and manifest are public; browser HTML and session/error details excluded."
+}

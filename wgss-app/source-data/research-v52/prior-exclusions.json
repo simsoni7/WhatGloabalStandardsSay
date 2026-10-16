@@ -1,0 +1,17 @@
+[
+  {
+    "id": "v51-wise-signup",
+    "reason": "image_SHA_already_published",
+    "sha256": "cdb4e6a8a8e8c08582969d101ca38e3ccce6735a0891ef3d8131ba548e0875dc"
+  },
+  {
+    "id": "v51-wise-login",
+    "reason": "passive_error_banner; exclude degraded form while more useful alternatives available",
+    "sha256": "5b4185fa43d5005c7d479d9a5201538aa4b295679398a0b380d2623fa6519459"
+  },
+  {
+    "id": "v51-wise-password-recovery",
+    "reason": "image_SHA_already_published",
+    "sha256": "57f0ef3517f4903a6a31854e7eb9cd2366c6adab22265aa98a5853036dd6b3e8"
+  }
+]

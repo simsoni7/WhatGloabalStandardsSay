@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "admittedRowsIndependentlyChecked": 4764,
+  "literalPdfCellChecks": 9528,
+  "sourcePdfs": {
+    "ar": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2",
+    "tl": "8fc32731aaf96d0c61e0f3cb6634d5efd144d9380307f5d40e915981fc790969",
+    "ht": "fc6f99c4299ecd574e0bff8edc18fc477a2b097cbc1732abeaafdc0a3fdeba78"
+  },
+  "cacheBatchesVerified": 102,
+  "observedRowsCacheCoverage": 6056,
+  "staleCacheCount": 0,
+  "sameTripleDuplicateAgainstPriorDatasetCount": 0,
+  "allAdmittedIncludeTrueRiskNone": true,
+  "allSourceHashesUnchanged": true,
+  "allAutomaticTranslationsRemainUnapproved": true,
+  "admittedLanguages": {
+    "tl": 1609,
+    "ar": 1572,
+    "ht": 1583
+  },
+  "correctedRowsAdmitted": [
+    {
+      "key": "ar:3:4",
+      "english": "403(b)",
+      "target": "برنامج التقاعد403(b)",
+      "bedrockDecision": {
+        "key": "ar:3:4",
+        "include": true,
+        "risk": "none"
+      },
+      "sourceHash": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2"
+    },
+    {
+      "key": "ar:21:19",
+      "english": "Crypto coins",
+      "target": "عملات رقمیة Crypto ،عملات مشفرة Crypto",
+      "bedrockDecision": {
+        "key": "ar:21:19",
+        "include": true,
+        "risk": "none"
+      },
+      "sourceHash": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2"
+    },
+    {
+      "key": "ar:21:21",
+      "english": "Crypto-assets",
+      "target": "أصول رقمیة Crypto ،أصول مشفرة Crypto",
+      "bedrockDecision": {
+        "key": "ar:21:21",
+        "include": true,
+        "risk": "none"
+      },
+      "sourceHash": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2"
+    },
+    {
+      "key": "ar:47:18",
+      "english": "Low down payment feature",
+      "target": "خاصیة العربون المخف َّض",
+      "bedrockDecision": {
+        "key": "ar:47:18",
+        "include": true,
+        "risk": "none"
+      },
+      "sourceHash": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2"
+    },
+    {
+      "key": "ar:53:13",
+      "english": "Notarize, notarized",
+      "target": "یوثِّق ). v ،(موث َّق ، موث َّق قبل من كاتب العدل ). n (",
+      "bedrockDecision": {
+        "key": "ar:53:13",
+        "include": true,
+        "risk": "none"
+      },
+      "sourceHash": "16f06a252cadc84d8bcb3e9b45bbdd19f9c17c2a5c8af71f110458bbb63600b2"
+    }
+  ],
+  "correctedRowsExcluded": [
+    {
+      "key": "ar:35:10",
+      "english": "Foundation",
+      "decision": {
+        "key": "ar:35:10",
+        "include": false,
+        "risk": "nonfinancial",
+        "reason": "generic term, context-dependent"
+      }
+    },
+    {
+      "key": "ar:47:12",
+      "english": "Long-term care ombudsman program",
+      "decision": {
+        "key": "ar:47:12",
+        "include": false,
+        "risk": "nonfinancial",
+        "reason": "healthcare ombudsman program"
+      }
+    }
+  ],
+  "resolvedFindings": [
+    "아랍어 RTL 열 혼입 3행 수정 후 해당 입력의 실제 해시로 Bedrock 재심사됨.",
+    "NFKC 원문 공백 차이 4행도 새 입력 해시로 재심사됨.",
+    "표제행 3개는 자동심사와 별개로 입고 차단됨.",
+    "기존 26,245행과 정규화 3중키 중복 6개 제외됨.",
+    "원문 공란인 Tagalog Installment loan은 입고되지 않음."
+  ]
+}

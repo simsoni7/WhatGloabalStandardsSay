@@ -1,0 +1,49 @@
+{
+  "baselineScreens": 183,
+  "baselinePhrases": 1730,
+  "newScreens": 21,
+  "newUniqueDisplayImages": 21,
+  "newLiteralPhraseRows": 158,
+  "screenTotalAfterDelta": 204,
+  "phraseTotalAfterDelta": 1888,
+  "providersWithAddedScreens": [
+    "ANZ",
+    "Commonwealth Bank",
+    "DKB",
+    "Monzo",
+    "OCBC",
+    "Santander",
+    "Société Générale",
+    "TD"
+  ],
+  "newProvidersWithScreens": [
+    "ANZ",
+    "Commonwealth Bank",
+    "DKB",
+    "Monzo",
+    "Santander",
+    "Société Générale",
+    "TD"
+  ],
+  "brandMetadataRowsNew": 6,
+  "newDirectPublicScreens": 9,
+  "newOfficialPublisherExamples": 12,
+  "actualAuthenticatedSessions": 0,
+  "actualFinancialApplicationSubmissions": 0,
+  "newObservedNavigationFlows": 0,
+  "canonicalFinancialWorkAdmissions": 0,
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "publicImageBytes": 2289801,
+  "actualBedrockCalls": 21,
+  "bedrockTotalTokens": 48789,
+  "originalPixelChecksPassed": 21,
+  "priorUnpublishedReferencesResumed": 14,
+  "newlyCapturedScreensAdded": 7,
+  "failedAttemptsNotCounted": true,
+  "rawPrivateCaptureLogsNotPublic": true
+}

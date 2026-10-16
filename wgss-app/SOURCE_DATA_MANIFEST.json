@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "b891e26f4a8d34957ed3d9945e5c557fb8b5ea36",
+  "baseCommit": "d3e713d35a04114e199a93709d8529e0af537927",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -12,7 +12,7 @@
   },
   "data": {
     "screenCases": 183,
-    "phrases": 736,
+    "phrases": 1730,
     "distinctEvidenceImages": 188,
     "dictionarySourcePairs": 26245,
     "commercialDictionaryPairs": 16424
@@ -35,8 +35,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5895,
-      "sha256": "b71c81048a3e26ee89bbef8bcd03e5af16f8c3fc0132fdbc6da96534fb88fc23"
+      "bytes": 6520,
+      "sha256": "3fbd51c491c7149791e1c9aa79ad68aec9d601549b06a5878e1d2119dea4116d"
     },
     {
       "path": "app/api/wgss/route.ts",
@@ -585,8 +585,8 @@
     },
     {
       "path": "integration-data/catalog.json",
-      "bytes": 1956502,
-      "sha256": "e423699fa6e3e4864ec05bc41614d2cb6c321f6c88d69e01439ab2c488aec76f"
+      "bytes": 2995481,
+      "sha256": "9551ce0d08dba6f5ec8b03fb40ec5646d5441921ef32aeb1f50f17eb7514e674"
     },
     {
       "path": "integration-data/provenance/0001.json",
@@ -1182,6 +1182,11 @@
       "path": "integration-data/provenance/0119.json",
       "bytes": 415132,
       "sha256": "9f99a4039a245f15253cbe9c9ffba39ad904f75390337d8e6f09d702ce8df8c6"
+    },
+    {
+      "path": "integration-data/screen-text-transcriptions.json",
+      "bytes": 161867,
+      "sha256": "0c4bb63ceed7a46d149bc57dffba144392c9c2698dce31552e3f56355ddf35a6"
     },
     {
       "path": "integration-data/source-inventory.json",
@@ -2310,8 +2315,8 @@
     },
     {
       "path": "integration-ui/app.js",
-      "bytes": 59334,
-      "sha256": "c1a6f7a2de82b2d35a03e28e787b5d2df39a0c6181dc95e8f0cb87922014656a"
+      "bytes": 59701,
+      "sha256": "cb716e3a08aa76b93f04eedc8ae1c2a01657ba231df618b02c20d3826a79de2f"
     },
     {
       "path": "integration-ui/browser-check.py",
@@ -2390,8 +2395,8 @@
     },
     {
       "path": "integration-ui/styles.css",
-      "bytes": 16077,
-      "sha256": "385a655349497a6f32c33a2c1580af3fa546db2923a8bb378e5f45e409479fd4"
+      "bytes": 16545,
+      "sha256": "6657a6c19285c11ebae2efab0a914b178faf74fa0b4ed4848b291b0518d70ec5"
     },
     {
       "path": "lib/connector-context.ts",
@@ -3347,6 +3352,11 @@
       "path": "scripts/document_transport_v46.py",
       "bytes": 11486,
       "sha256": "da1970e7fd6c0879b60feee470c0bc406ccda2ef474936605a8d0fd84a7e6a2d"
+    },
+    {
+      "path": "scripts/enrich_screen_text.py",
+      "bytes": 9813,
+      "sha256": "3fbce15559a125cd4bb8371e9ec9410d2b6e418592054f605695d837b6b2f0ef"
     },
     {
       "path": "scripts/execution-profile.mjs",
@@ -4517,6 +4527,11 @@
       "path": "tests/review_ui_browser.py",
       "bytes": 12591,
       "sha256": "942b3753bbdfce6a0990b7186ab91f919307949e2acbdef836eb97968e968901"
+    },
+    {
+      "path": "tests/screen_detail_usability_browser.py",
+      "bytes": 3501,
+      "sha256": "9bc70d84ff123a5bd49f2c523e632c747a5b86f654357c22b06d39f15861e6c9"
     },
     {
       "path": "tests/screen_evidence.py",

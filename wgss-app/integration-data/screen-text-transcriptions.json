@@ -1,0 +1,6030 @@
+{
+  "schema": "wgss-screen-transcriptions/v1",
+  "scope": "Published sparse screens; exact image-hash-bound literal OCR; not full UI-version verification.",
+  "images": [
+    {
+      "imageSha256": "0713a0526c4e0aabdabebd16253b81366307289f6f10c9d7feff43182b3ac8ce",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-081.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "국세·관세·과태료",
+          "role": "heading"
+        },
+        {
+          "text": "전자납부번호를 입력해주세요.",
+          "role": "description"
+        },
+        {
+          "text": "전자납부번호",
+          "role": "label"
+        },
+        {
+          "text": "15 또는 19자리 숫자 입력",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 145,
+        "prompt_tokens": 3594,
+        "total_tokens": 3739,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 145
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "135d23bd7f86e63009dc80a863b95b7d377b38a35aeccbcf5092330fd4281c6a",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-038.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "카드이용내역확인서를 발급했어요",
+          "role": "message"
+        },
+        {
+          "text": "확인하기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 105,
+        "prompt_tokens": 3594,
+        "total_tokens": 3699,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 105
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "13f8565d11199a39c31b2c9bd0041a5a8015dfacd53391c931f57c4873834c69",
+      "imagePath": "/assets/public-flows-v44/13f8565d11199a39c31b.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Where Do You Live?",
+          "role": "heading"
+        },
+        {
+          "text": "The products and pricing we offer may vary between locations. Please enter your home zip code.",
+          "role": "description"
+        },
+        {
+          "text": "Submit",
+          "role": "button"
+        },
+        {
+          "text": "Cancel",
+          "role": "button"
+        },
+        {
+          "text": "ATM / BRANCH",
+          "role": "navigation"
+        },
+        {
+          "text": "ESPAÑOL",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "How can we help?",
+          "role": "navigation"
+        },
+        {
+          "text": "Sign On",
+          "role": "navigation"
+        },
+        {
+          "text": "CHECKING ACCOUNTS",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1142,
+        "prompt_tokens": 2190,
+        "total_tokens": 3332,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1142
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "1484e33e6e8e08b30f42a6179eb46b3063425da969a415f9e01119ddc492ef10",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-037.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "분실신고",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크 오렌지밀크 카드",
+          "role": "label"
+        },
+        {
+          "text": "1. 카드를 분실신고하면 OTP도 함께 분실 처리돼요.",
+          "role": "description"
+        },
+        {
+          "text": "2. 교통카드 기능은 2~3일 후 정지돼요.",
+          "role": "description"
+        },
+        {
+          "text": "카드를 분실했어요",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 205,
+        "prompt_tokens": 3594,
+        "total_tokens": 3799,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 205
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "17d214c44270a067784574982be0bf43e3ad2c8f61f392d74f4c8f5dceb84efc",
+      "imagePath": "/assets/public-flows-v44/17d214c44270a0677845.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "You're on the United Kingdom website.",
+          "role": "message"
+        },
+        {
+          "text": "Switch to see what we offer on the South Korea website.",
+          "role": "label"
+        },
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Platform",
+          "role": "navigation"
+        },
+        {
+          "text": "EN",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Sign up",
+          "role": "button"
+        },
+        {
+          "text": "THE CURRENT ACCOUNT FOR HOME AND ABROAD",
+          "role": "heading"
+        },
+        {
+          "text": "All the essentials for everyday life, everywhere life takes you.",
+          "role": "description"
+        },
+        {
+          "text": "Open an account in minutes",
+          "role": "button"
+        },
+        {
+          "text": "Send money now",
+          "role": "label"
+        },
+        {
+          "text": "Multi-currency debit card",
+          "role": "heading"
+        },
+        {
+          "text": "Welcomed in 150+ countries and at 2 million ATMs worldwide.",
+          "role": "description"
+        },
+        {
+          "text": "Find out more",
+          "role": "label"
+        },
+        {
+          "text": "Express international transfers",
+          "role": "heading"
+        },
+        {
+          "text": "Truly instant, low cost, global transfers. Over 70% arrive in under 20 seconds.",
+          "role": "description"
+        },
+        {
+          "text": "Earn 3.29% variable rate",
+          "role": "heading"
+        },
+        {
+          "text": "Earn a return on your everyday balance by opting in to Wise Assets.",
+          "role": "description"
+        },
+        {
+          "text": "Offered by Wise Assets UK",
+          "role": "label"
+        },
+        {
+          "text": "1 GBP = 1.1840 EUR",
+          "role": "label"
+        },
+        {
+          "text": "You send exactly",
+          "role": "label"
+        },
+        {
+          "text": "GBP",
+          "role": "label"
+        },
+        {
+          "text": "1,000.00",
+          "role": "label"
+        },
+        {
+          "text": "Sending over 20,000 GBP or equivalent?",
+          "role": "message"
+        },
+        {
+          "text": "We'll discount our fee",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 914,
+        "prompt_tokens": 2190,
+        "total_tokens": 3104,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 914
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "19a27f0114d555b0470a3135c53e5f3e44a9ff32cfc79d78526608ed875ea9d8",
+      "imagePath": "/assets/public-flows-v44/19a27f0114d555b0470a.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "CHASE CREDIT CARDS",
+          "role": "heading"
+        },
+        {
+          "text": "Sign in",
+          "role": "button"
+        },
+        {
+          "text": "All Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Check for Offers",
+          "role": "navigation"
+        },
+        {
+          "text": "Card Finder",
+          "role": "navigation"
+        },
+        {
+          "text": "Card Categories",
+          "role": "navigation"
+        },
+        {
+          "text": "Card Brands",
+          "role": "navigation"
+        },
+        {
+          "text": "CHASE FREEDOM FLEX® CREDIT CARD",
+          "role": "heading"
+        },
+        {
+          "text": "DIFFERENT WAYS TO EARN EVERY QUARTER.",
+          "role": "heading"
+        },
+        {
+          "text": "$250 BONUS",
+          "role": "message"
+        },
+        {
+          "text": "Earn 5% cash back in quarterly bonus categories and discover ways to maximize your everyday spending all year long.",
+          "role": "description"
+        },
+        {
+          "text": "Learn more",
+          "role": "button"
+        },
+        {
+          "text": "MOST POPULAR",
+          "role": "label"
+        },
+        {
+          "text": "Rewards cards",
+          "role": "heading"
+        },
+        {
+          "text": "Browse all rewards cards",
+          "role": "label"
+        },
+        {
+          "text": "LIMITED-TIME OFFER",
+          "role": "label"
+        },
+        {
+          "text": "NO ANNUAL FEE",
+          "role": "label"
+        },
+        {
+          "text": "CHASE SAPPHIRE PREFERRED® CREDIT CARD",
+          "role": "heading"
+        },
+        {
+          "text": "Earn 75,000 points",
+          "role": "description"
+        },
+        {
+          "text": "5X points on Chase Travel",
+          "role": "description"
+        },
+        {
+          "text": "$95 annual fee",
+          "role": "description"
+        },
+        {
+          "text": "CHASE FREEDOM UNLIMITED® CREDIT CARD",
+          "role": "heading"
+        },
+        {
+          "text": "Earn a $200 bonus",
+          "role": "description"
+        },
+        {
+          "text": "Earn unlimited 1.5% cash back or more on all purchases",
+          "role": "description"
+        },
+        {
+          "text": "Earn a $200 $250 bonus",
+          "role": "description"
+        },
+        {
+          "text": "Earn 5% cash back on quarterly bonus categories (spend limits apply, must activate quarterly)",
+          "role": "description"
+        },
+        {
+          "text": "Apply Now",
+          "role": "button"
+        },
+        {
+          "text": "See details",
+          "role": "label"
+        },
+        {
+          "text": "Compare",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1074,
+        "prompt_tokens": 2190,
+        "total_tokens": 3264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1074
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "1bb664f33b7bee21d14b2effd29dd46cb57d51ad32827eb5b395b4b5ec599415",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-094.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "해지계좌",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크에서 직접 해지하거나, 만기가 되어 자동으로 해지된 계좌를 모아볼 수 있어요. 토스뱅크 통장, 외화통장 등 입출금 통장 해지내역은 조회되지 않아요.",
+          "role": "description"
+        },
+        {
+          "text": "최근에 해지한 계좌가 없어요",
+          "role": "message"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 194,
+        "prompt_tokens": 3594,
+        "total_tokens": 3788,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 194
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "1e83dc228ca4033226fa4927daffa4ab585121cc18ef7f4ecc004eaf7a8b2e5f",
+      "imagePath": "/assets/public-v42/standardbank-account-guide.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate and Institutions",
+          "role": "navigation"
+        },
+        {
+          "text": "Wealth",
+          "role": "navigation"
+        },
+        {
+          "text": "News and Media",
+          "role": "navigation"
+        },
+        {
+          "text": "About us",
+          "role": "navigation"
+        },
+        {
+          "text": "Locate Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact us",
+          "role": "navigation"
+        },
+        {
+          "text": "South Africa",
+          "role": "navigation"
+        },
+        {
+          "text": "Standard Bank",
+          "role": "heading"
+        },
+        {
+          "text": "Products and Services",
+          "role": "navigation"
+        },
+        {
+          "text": "UCount Rewards",
+          "role": "navigation"
+        },
+        {
+          "text": "Standard Bank Connect",
+          "role": "navigation"
+        },
+        {
+          "text": "Learn",
+          "role": "navigation"
+        },
+        {
+          "text": "Sign in",
+          "role": "button"
+        },
+        {
+          "text": "Home",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "label"
+        },
+        {
+          "text": "How to open a savings or investment account online",
+          "role": "heading"
+        },
+        {
+          "text": "From saving for a dream holiday to laying the financial groundwork for a comfortable retirement, a savings or investment account is the starting point for reaching both your immediate short-term aspirations and long-term financial independence.",
+          "role": "description"
+        },
+        {
+          "text": "These accounts provide a dedicated place for your money to grow: whether through earning interest in a savings account, dividend payouts from investments, or the potential for capital appreciation in the market, the right account can help achieve your money goals.",
+          "role": "description"
+        },
+        {
+          "text": "While the idea of setting up such an account might seem like a complex process, the reality is refreshingly simple and accessible.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 759,
+        "prompt_tokens": 2190,
+        "total_tokens": 2949,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 759
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "33eb80208d91a1ccdd5f7379db138f413adfefbbe1c339f1991787034236d0ed",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-064.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "해지할 계좌를 확인해주세요",
+          "role": "heading"
+        },
+        {
+          "text": "계좌 정보",
+          "role": "label"
+        },
+        {
+          "text": "토스뱅크 통장",
+          "role": "label"
+        },
+        {
+          "text": "개설일",
+          "role": "label"
+        },
+        {
+          "text": "계좌 잔액",
+          "role": "label"
+        },
+        {
+          "text": "원",
+          "role": "label"
+        },
+        {
+          "text": "아래의 경우 해지할 수 없어요",
+          "role": "heading"
+        },
+        {
+          "text": "연결된 통장이 있는 계좌",
+          "role": "description"
+        },
+        {
+          "text": "마이너스통장대출, 체크카드, 자동납부 연결계좌",
+          "role": "description"
+        },
+        {
+          "text": "대출 자동이체 등록 계좌",
+          "role": "description"
+        },
+        {
+          "text": "입출금 정지 상태의 계좌",
+          "role": "description"
+        },
+        {
+          "text": "오늘 날짜로 잔액 증명서 발급한 계좌",
+          "role": "description"
+        },
+        {
+          "text": "신분증 확인이 진행 중인 계좌",
+          "role": "description"
+        },
+        {
+          "text": "자동이체도 같이 멈추게 돼요",
+          "role": "message"
+        },
+        {
+          "text": "해지하기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 513,
+        "prompt_tokens": 3722,
+        "total_tokens": 4235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 513
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3722,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "3b3d5000cf93e6d43a7f4d81fe1ee86c0602ea285efdf6728eb66dd4fa5a2899",
+      "imagePath": "/assets/public-flows-v44/3b3d5000cf93e6d43a7f.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "navigation"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "Bank Account",
+          "role": "heading"
+        },
+        {
+          "text": "Our most popular current account with access to a range of savings accounts and retail offers, with no monthly account fee.",
+          "role": "description"
+        },
+        {
+          "text": "Current accounts",
+          "role": "navigation"
+        },
+        {
+          "text": "Products",
+          "role": "navigation"
+        },
+        {
+          "text": "Get more from your current account",
+          "role": "heading"
+        },
+        {
+          "text": "Show your money who's boss by opening a new bank account. It gives you everything you need for everyday banking.",
+          "role": "description"
+        },
+        {
+          "text": "Apply in minutes on the app, no need for calls or branch visits",
+          "role": "description"
+        },
+        {
+          "text": "Exclusive offers and discounts on shopping, dining, travel and more",
+          "role": "description"
+        },
+        {
+          "text": "Grow your money with access to a range of savings accounts",
+          "role": "description"
+        },
+        {
+          "text": "Account information",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1103,
+        "prompt_tokens": 2190,
+        "total_tokens": 3293,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1103
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "3c2223cb623a20c3192cedb5cfbb08175778befea630329174348daac8aef522",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-075.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "정기적으로 모으기",
+          "role": "heading"
+        },
+        {
+          "text": "매일, 매주, 매월 내가 원하는 만큼 외화를 모아요.",
+          "role": "description"
+        },
+        {
+          "text": "다음",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 117,
+        "prompt_tokens": 3594,
+        "total_tokens": 3711,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 117
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "3fd1f88d6fd714f573d7ee49f101b525412c84284b3265d8cbea01bd807e5641",
+      "imagePath": "/assets/public-flows-v44/3fd1f88d6fd714f573d7.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "navigation"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit cards",
+          "role": "heading"
+        },
+        {
+          "text": "If you need help or support with your credit card, please visit our card support page.",
+          "role": "message"
+        },
+        {
+          "text": "card support page",
+          "role": "label"
+        },
+        {
+          "text": "Manage your cash flow and make purchases you’ll pay off later. Find out more about our credit cards and the guidance we offer",
+          "role": "description"
+        },
+        {
+          "text": "Find the right card for you",
+          "role": "heading"
+        },
+        {
+          "text": "Take a look at our range of credit cards, consider their benefits and find the one that will suit you best.",
+          "role": "description"
+        },
+        {
+          "text": "Credit card eligibility checker",
+          "role": "heading"
+        },
+        {
+          "text": "See which cards you’re likely to be accepted for, and your estimated credit limit, without it affecting your credit score.",
+          "role": "description"
+        },
+        {
+          "text": "Chat",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 876,
+        "prompt_tokens": 2190,
+        "total_tokens": 3066,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 876
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "42af9d9260681928ef0e1810ff711a18ee6e2ec0dbaf1fc4000132b3bf007781",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-044.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "카드OTP를 쓸 수 있는 휴대폰",
+          "role": "heading"
+        },
+        {
+          "text": "알아두세요",
+          "role": "heading"
+        },
+        {
+          "text": "아이폰 iOS",
+          "role": "heading"
+        },
+        {
+          "text": "가능한 OS",
+          "role": "label"
+        },
+        {
+          "text": "iOS 13 이상",
+          "role": "description"
+        },
+        {
+          "text": "가능한 기종",
+          "role": "label"
+        },
+        {
+          "text": "iPhone 7 이상",
+          "role": "description"
+        },
+        {
+          "text": "NFC를 지원하지 않는 아이폰",
+          "role": "message"
+        },
+        {
+          "text": "iPhone 6, SE, 5 혹은 iPad",
+          "role": "description"
+        },
+        {
+          "text": "안드로이드 Android",
+          "role": "heading"
+        },
+        {
+          "text": "토스앱 버전",
+          "role": "label"
+        },
+        {
+          "text": "5.31.1",
+          "role": "description"
+        },
+        {
+          "text": "Android 9 이상",
+          "role": "description"
+        },
+        {
+          "text": "필요한 NFC 모드",
+          "role": "label"
+        },
+        {
+          "text": "기본 모드",
+          "role": "description"
+        },
+        {
+          "text": "안드로이드에서 NFC 기능 확인하는 법",
+          "role": "heading"
+        },
+        {
+          "text": "휴대폰에서 설정 열기",
+          "role": "description"
+        },
+        {
+          "text": "검색에서 NFC 입력하기",
+          "role": "description"
+        },
+        {
+          "text": "NFC를 탭하여 사용 설정하기 (카드모드 & 기본모드)",
+          "role": "description"
+        },
+        {
+          "text": "이 때 NFC를 찾을 수 없는 경우 휴대폰에서 NFC를 지원하지 않아요.",
+          "role": "description"
+        },
+        {
+          "text": "화웨이 등의 휴대폰은 지원이 안될 수 있어요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 792,
+        "prompt_tokens": 3540,
+        "total_tokens": 4332,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 792
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3540,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "4525b3044857cf4c7e827115be6ba545f43fd9150538c47cfb3d80cfa53b3580",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-013.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "내 대출보다 더 낮은 금리로 갈아타기",
+          "role": "heading"
+        },
+        {
+          "text": "한 번에 35개 금융사를 비교해요",
+          "role": "description"
+        },
+        {
+          "text": "신용점수에는 영향이 없어요",
+          "role": "description"
+        },
+        {
+          "text": "갈아탔을 때 이자도 알려드려요",
+          "role": "description"
+        },
+        {
+          "text": "복잡한 서류 필요 없어요",
+          "role": "description"
+        },
+        {
+          "text": "조회 가능 시간",
+          "role": "heading"
+        },
+        {
+          "text": "일반 신용대출·카드론",
+          "role": "label"
+        },
+        {
+          "text": "평일 (공휴일 제외) 9시~22시",
+          "role": "description"
+        },
+        {
+          "text": "마이너스 통장",
+          "role": "label"
+        },
+        {
+          "text": "평일 (공휴일 제외) 9시~16시",
+          "role": "description"
+        },
+        {
+          "text": "제휴",
+          "role": "heading"
+        },
+        {
+          "text": "은행",
+          "role": "heading"
+        },
+        {
+          "text": "SC제일은행",
+          "role": "label"
+        },
+        {
+          "text": "하나은행",
+          "role": "label"
+        },
+        {
+          "text": "BNK경남은행",
+          "role": "label"
+        },
+        {
+          "text": "NH농협은행",
+          "role": "label"
+        },
+        {
+          "text": "iM뱅크",
+          "role": "label"
+        },
+        {
+          "text": "광주은행",
+          "role": "label"
+        },
+        {
+          "text": "전북은행",
+          "role": "label"
+        },
+        {
+          "text": "IBK기업은행",
+          "role": "label"
+        },
+        {
+          "text": "신한은행",
+          "role": "label"
+        },
+        {
+          "text": "토스뱅크",
+          "role": "label"
+        },
+        {
+          "text": "BNK부산은행",
+          "role": "label"
+        },
+        {
+          "text": "케이뱅크",
+          "role": "label"
+        },
+        {
+          "text": "KB국민은행",
+          "role": "label"
+        },
+        {
+          "text": "우리은행",
+          "role": "label"
+        },
+        {
+          "text": "저축은행",
+          "role": "heading"
+        },
+        {
+          "text": "JT친애저축은행",
+          "role": "label"
+        },
+        {
+          "text": "HB저축은행",
+          "role": "label"
+        },
+        {
+          "text": "키움저축은행",
+          "role": "label"
+        },
+        {
+          "text": "고려저축은행",
+          "role": "label"
+        },
+        {
+          "text": "페퍼저축은행",
+          "role": "label"
+        },
+        {
+          "text": "신한저축은행",
+          "role": "label"
+        },
+        {
+          "text": "JT저축은행",
+          "role": "label"
+        },
+        {
+          "text": "SBI저축은행",
+          "role": "label"
+        },
+        {
+          "text": "예가람저축은행",
+          "role": "label"
+        },
+        {
+          "text": "모아저축은행",
+          "role": "label"
+        },
+        {
+          "text": "한국투자저축은행",
+          "role": "label"
+        },
+        {
+          "text": "KB저축은행",
+          "role": "label"
+        },
+        {
+          "text": "OK저축은행",
+          "role": "label"
+        },
+        {
+          "text": "캐피탈",
+          "role": "heading"
+        },
+        {
+          "text": "KB캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "JB우리캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "우리금융캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "iM캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "롯데캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "현대캐피탈",
+          "role": "label"
+        },
+        {
+          "text": "카드사",
+          "role": "heading"
+        },
+        {
+          "text": "신한카드",
+          "role": "label"
+        },
+        {
+          "text": "KB국민카드",
+          "role": "label"
+        },
+        {
+          "text": "안내 및 유의사항",
+          "role": "heading"
+        },
+        {
+          "text": "갈아탈 대출 찾기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 6156,
+        "prompt_tokens": 4118,
+        "total_tokens": 10274,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 6156
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 4118,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "48fdc60518a0a7b5eb0bd3fc4c0b57627b48a96720a9d775ccfce8f6f5a103b5",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-063.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "다음",
+          "role": "navigation"
+        },
+        {
+          "text": "토스뱅크를 탈퇴할게요",
+          "role": "heading"
+        },
+        {
+          "text": "꼭 확인해주세요",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크를 탈퇴하면 사용 내역을 다시 볼 수 없어요.",
+          "role": "description"
+        },
+        {
+          "text": "반복적으로 계좌를 폐쇄하는 경우 일정 기간 동안 신규 계좌 개설이 제한될 수 있어요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 258,
+        "prompt_tokens": 3594,
+        "total_tokens": 3852,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 258
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "4eff23bc2bee7b262efa7f233bb7b02410f91801e05c9995a52f434dfc3d1f6b",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-042.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "카드이용내역확인서를 발급할게요",
+          "role": "heading"
+        },
+        {
+          "text": "안내",
+          "role": "heading"
+        },
+        {
+          "text": "고객님이 카드로 쓴 국내 이용내역을 발급할 수 있어요.",
+          "role": "description"
+        },
+        {
+          "text": "발급 수수료",
+          "role": "heading"
+        },
+        {
+          "text": "무료",
+          "role": "description"
+        },
+        {
+          "text": "다음",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 200,
+        "prompt_tokens": 3594,
+        "total_tokens": 3794,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 200
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "50fb2bd7152e55c4c383a032c72c62ccf8a355c473dec8b6f544b94f3f40fb72",
+      "imagePath": "/assets/public-guides-v46/50fb2bd7152e55c4c383.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "My Account",
+          "role": "navigation"
+        },
+        {
+          "text": "Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Travel",
+          "role": "navigation"
+        },
+        {
+          "text": "Rewards & Benefits",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Customer Service",
+          "role": "navigation"
+        },
+        {
+          "text": "Log In",
+          "role": "button"
+        },
+        {
+          "text": "Welcome to the Help Center",
+          "role": "heading"
+        },
+        {
+          "text": "What information do I need to provide to complete an application for a Card?",
+          "role": "heading"
+        },
+        {
+          "text": "Customer Service - Already a Card Member? Get help with your existing account.",
+          "role": "description"
+        },
+        {
+          "text": "1-800-528-4800",
+          "role": "description"
+        },
+        {
+          "text": "Mon - Sun 24/7",
+          "role": "description"
+        },
+        {
+          "text": "Check Application Status - Ask about the application status of a new account.",
+          "role": "description"
+        },
+        {
+          "text": "1-877-239-3491",
+          "role": "description"
+        },
+        {
+          "text": "Mon - Fri: 8 am - 12 am EST",
+          "role": "description"
+        },
+        {
+          "text": "Sat: 10 am - 6:30 pm EST",
+          "role": "description"
+        },
+        {
+          "text": "If you're applying for a Personal Card, you'll be asked to provide the following information:",
+          "role": "description"
+        },
+        {
+          "text": "Name",
+          "role": "description"
+        },
+        {
+          "text": "Date of birth",
+          "role": "description"
+        },
+        {
+          "text": "Home street address",
+          "role": "description"
+        },
+        {
+          "text": "Your Social Security Number",
+          "role": "description"
+        },
+        {
+          "text": "A valid email address",
+          "role": "description"
+        },
+        {
+          "text": "A valid phone number",
+          "role": "description"
+        },
+        {
+          "text": "Your annual income and source of income",
+          "role": "description"
+        },
+        {
+          "text": "The full name and Social Security Number of anyone you wish to add to your account or give an Additional Card to.",
+          "role": "description"
+        },
+        {
+          "text": "To review the full range of Cards we have available, please visit americanexpress.com/apply or call us at 1-888-297-1244 to apply. We're happy to help you find the Card that's right for you. 8 am - 11 pm EST, 7 days.",
+          "role": "description"
+        },
+        {
+          "text": "Looking for something else?",
+          "role": "heading"
+        },
+        {
+          "text": "Getting Started",
+          "role": "label"
+        },
+        {
+          "text": "Account Management",
+          "role": "label"
+        },
+        {
+          "text": "Payments",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1048,
+        "prompt_tokens": 2190,
+        "total_tokens": 3238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1048
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "570b07b1ee5d9298fd84ad6bad2478c87572c0d18290581ca05eef80adab7a62",
+      "imagePath": "/assets/public-flows-v44/570b07b1ee5d9298fd84.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "You are in",
+          "role": "label"
+        },
+        {
+          "text": "Personal Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Premier Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Digital Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Security",
+          "role": "navigation"
+        },
+        {
+          "text": "Branches & ATMs",
+          "role": "navigation"
+        },
+        {
+          "text": "Get help",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts",
+          "role": "navigation"
+        },
+        {
+          "text": "Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Loans",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Investments",
+          "role": "navigation"
+        },
+        {
+          "text": "Advisory",
+          "role": "navigation"
+        },
+        {
+          "text": "More",
+          "role": "navigation"
+        },
+        {
+          "text": "Login",
+          "role": "button"
+        },
+        {
+          "text": "360 Account",
+          "role": "navigation"
+        },
+        {
+          "text": "Maximise your interest with 360 Account",
+          "role": "heading"
+        },
+        {
+          "text": "Why you will love this",
+          "role": "heading"
+        },
+        {
+          "text": "Earn up to 1.95% a year on your first S$100,000 when you credit your salary, save and spend",
+          "role": "description"
+        },
+        {
+          "text": "Earn an additional 2.50% a year when you insure and invest",
+          "role": "description"
+        },
+        {
+          "text": "Who can apply",
+          "role": "heading"
+        },
+        {
+          "text": "Anyone above 18 years old",
+          "role": "description"
+        },
+        {
+          "text": "Singaporean, Singapore PR or foreigner with a valid pass",
+          "role": "description"
+        },
+        {
+          "text": "Apply online",
+          "role": "button"
+        },
+        {
+          "text": "New account opening promotion:",
+          "role": "message"
+        },
+        {
+          "text": "Sign up and credit your salary for exclusive rewards!",
+          "role": "message"
+        },
+        {
+          "text": "Find out more",
+          "role": "label"
+        },
+        {
+          "text": "HOW IT WORKS",
+          "role": "heading"
+        },
+        {
+          "text": "Earn bonus interest (% a year) on the first S$100,000 of your account balance.",
+          "role": "description"
+        },
+        {
+          "text": "Find out what's the total effective interest rate (EIR) across all of our categories.",
+          "role": "description"
+        },
+        {
+          "text": "Here's a breakdown of our bonus interest rates.",
+          "role": "description"
+        },
+        {
+          "text": "Need help?",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1208,
+        "prompt_tokens": 2190,
+        "total_tokens": 3398,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1208
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "584b9b77337194885b23fa5bcc9c1a2a0290f92182c2d3b9f6b87a2de5590e95",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-085.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "내 송금한도",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크 통장",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 72,
+        "prompt_tokens": 3594,
+        "total_tokens": 3666,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 72
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "5d24df98deb3ba4bb3c0aab062028c613ec5acb1cc1e17ce41590130ca2162a9",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-091.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "통신사기 정보 제공 이력을 신청했어요",
+          "role": "heading"
+        },
+        {
+          "text": "확인",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 140,
+        "prompt_tokens": 3594,
+        "total_tokens": 3734,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 140
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "5e609d71f2742e04d908968ad6c11e5ffcf333fb1e5cfd902b79c9799104e2b3",
+      "imagePath": "/assets/public-flows-v44/5e609d71f2742e04d908.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "EN",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Register",
+          "role": "button"
+        },
+        {
+          "text": "Help Home",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact",
+          "role": "navigation"
+        },
+        {
+          "text": "Trouble logging in",
+          "role": "navigation"
+        },
+        {
+          "text": "I've forgotten my password",
+          "role": "navigation"
+        },
+        {
+          "text": "If you're logged out and can't remember your password, we can send you an email with a link to reset it.",
+          "role": "description"
+        },
+        {
+          "text": "If you didn’t get the email; here are a few of the most common reasons why, and what to do to fix it.",
+          "role": "description"
+        },
+        {
+          "text": "You didn’t provide the right email. Try again with the one you use for Wise.",
+          "role": "description"
+        },
+        {
+          "text": "You spelt your email wrong. Double check for any typos and fix them before trying again.",
+          "role": "description"
+        },
+        {
+          "text": "The email’s in a different inbox. Make sure you check the right email inbox you provided, as well as the spam folder.",
+          "role": "description"
+        },
+        {
+          "text": "Reset password",
+          "role": "button"
+        },
+        {
+          "text": "I still need help",
+          "role": "button"
+        },
+        {
+          "text": "Products",
+          "role": "heading"
+        },
+        {
+          "text": "Wise Personal",
+          "role": "label"
+        },
+        {
+          "text": "Wise Business",
+          "role": "label"
+        },
+        {
+          "text": "Wise Platform",
+          "role": "label"
+        },
+        {
+          "text": "Resources",
+          "role": "heading"
+        },
+        {
+          "text": "Currency converter",
+          "role": "label"
+        },
+        {
+          "text": "International stock ticker",
+          "role": "label"
+        },
+        {
+          "text": "SWIFT/BIC codes",
+          "role": "label"
+        },
+        {
+          "text": "Company and team",
+          "role": "heading"
+        },
+        {
+          "text": "News and blog",
+          "role": "label"
+        },
+        {
+          "text": "Security",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 794,
+        "prompt_tokens": 2190,
+        "total_tokens": 2984,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 794
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "6478093ae4e9effea49bbe84e1d838acf7983168d9fffbf5bc4384b74dbb557b",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-076.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "국민연금",
+          "role": "heading"
+        },
+        {
+          "text": "전자납부번호를 입력해주세요.",
+          "role": "description"
+        },
+        {
+          "text": "전자납부번호",
+          "role": "label"
+        },
+        {
+          "text": "14자리 숫자 입력",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 135,
+        "prompt_tokens": 3594,
+        "total_tokens": 3729,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 135
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "6cbe015f9a6ffb6bf6f29c4f71f36fd6389b62201050b95d233ac1c85995e604",
+      "imagePath": "/assets/public-flows-v45/6cbe015f9a6ffb6bf6f2.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "About Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Log In",
+          "role": "button"
+        },
+        {
+          "text": "Checking & Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing & Retirement",
+          "role": "navigation"
+        },
+        {
+          "text": "Auto",
+          "role": "navigation"
+        },
+        {
+          "text": "Benefits & Rewards",
+          "role": "navigation"
+        },
+        {
+          "text": "Home",
+          "role": "navigation"
+        },
+        {
+          "text": "Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "Savings Account",
+          "role": "navigation"
+        },
+        {
+          "text": "Ally Bank: 1-877-247-2559 • Open 24/7 • Wait Time: 0 min",
+          "role": "description"
+        },
+        {
+          "text": "Ally Bank Savings Account",
+          "role": "heading"
+        },
+        {
+          "text": "4.6 (11,491 Reviews)",
+          "role": "description"
+        },
+        {
+          "text": "Save smarter for what matters most.",
+          "role": "heading"
+        },
+        {
+          "text": "3.10%",
+          "role": "heading"
+        },
+        {
+          "text": "Annual Percentage Yield on all balance tiers",
+          "role": "description"
+        },
+        {
+          "text": "Open New Account",
+          "role": "button"
+        },
+        {
+          "text": "Tools",
+          "role": "navigation"
+        },
+        {
+          "text": "Features",
+          "role": "navigation"
+        },
+        {
+          "text": "Rates",
+          "role": "navigation"
+        },
+        {
+          "text": "Fees",
+          "role": "navigation"
+        },
+        {
+          "text": "Getting Started",
+          "role": "navigation"
+        },
+        {
+          "text": "Reviews",
+          "role": "navigation"
+        },
+        {
+          "text": "FAQs",
+          "role": "navigation"
+        },
+        {
+          "text": "Finally a savings account that lets your money work smarter.",
+          "role": "heading"
+        },
+        {
+          "text": "Along with a competitive, variable rate and no monthly maintenance fees, the Ally Bank Savings Account comes with tools to",
+          "role": "description"
+        },
+        {
+          "text": "We use cookies and other tech to show you ads on other websites. By using our site or selecting Accept, you agree to those ads. You can Decline at any time by going to Your Privacy Choices. To learn how we use cookies and other tech, see our Online Privacy Notice.",
+          "role": "message"
+        },
+        {
+          "text": "Accept",
+          "role": "button"
+        },
+        {
+          "text": "Decline",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 986,
+        "prompt_tokens": 2190,
+        "total_tokens": 3176,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 986
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "702a40c87a7e4a255241156cdc42a62d32a362f768b57db93d091559f37b6645",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-026.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "다음",
+          "role": "navigation"
+        },
+        {
+          "text": "자주 쓰는 페이가 있나요? 카드를 연결해드려요",
+          "role": "heading"
+        },
+        {
+          "text": "토스페이",
+          "role": "label"
+        },
+        {
+          "text": "삼성페이",
+          "role": "label"
+        },
+        {
+          "text": "카카오페이",
+          "role": "label"
+        },
+        {
+          "text": "네이버페이",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 217,
+        "prompt_tokens": 3594,
+        "total_tokens": 3811,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 217
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "72eeefbd2b0934b6c1dce2f570d0faabde35a88a05ad58237b9a407f0ae4fb70",
+      "imagePath": "/assets/public-flows-v45/72eeefbd2b0934b6c1dc.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Search",
+          "role": "navigation"
+        },
+        {
+          "text": "Apply",
+          "role": "button"
+        },
+        {
+          "text": "Credit Card Products",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards by Feature",
+          "role": "navigation"
+        },
+        {
+          "text": "Tools and Resources",
+          "role": "navigation"
+        },
+        {
+          "text": "Discover",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Cash Back Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Discover it Cash Back Credit Card",
+          "role": "navigation"
+        },
+        {
+          "text": "Spend instantly with your virtual card, if eligible",
+          "role": "heading"
+        },
+        {
+          "text": "Earn rewards on every purchase, even before your physical card arrives.",
+          "role": "description"
+        },
+        {
+          "text": "Apply Now",
+          "role": "button"
+        },
+        {
+          "text": "See if You're Pre-Approved",
+          "role": "button"
+        },
+        {
+          "text": "View important rates & disclosures below",
+          "role": "label"
+        },
+        {
+          "text": "4.7 / 5 Average of",
+          "role": "description"
+        },
+        {
+          "text": "34092 Reviews",
+          "role": "label"
+        },
+        {
+          "text": "5%",
+          "role": "heading"
+        },
+        {
+          "text": "Earn 5% Cash Back",
+          "role": "heading"
+        },
+        {
+          "text": "Earn 5% cash back on everyday purchases at different places you shop each quarter, up to the quarterly maximum when you activate.",
+          "role": "description"
+        },
+        {
+          "text": "Unlimited Cashback Match",
+          "role": "heading"
+        },
+        {
+          "text": "Get an unlimited dollar-for-dollar match of all the cash back you earn at the end of your first year, automatically. There is no limit to how much we'll match.",
+          "role": "description"
+        },
+        {
+          "text": "$0 Fraud Liability",
+          "role": "heading"
+        },
+        {
+          "text": "You're never responsible for unauthorized purchases on your Discover Card.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 853,
+        "prompt_tokens": 2190,
+        "total_tokens": 3043,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 853
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "7911b3cefc9e76724d7cdb8261baec2814acf17b8bd274a294287aff016793dd",
+      "imagePath": "/assets/public-flows-v44/7911b3cefc9e76724d7c.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "navigation"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "CURRENT ACCOUNT SWITCH GUARANTEE",
+          "role": "label"
+        },
+        {
+          "text": "Get £500 with an HSBC Premier Bank Account",
+          "role": "heading"
+        },
+        {
+          "text": "Complete a full switch via the Current Account Switch Service with a £100k+ salary or transfer £100k+ in savings/investments.",
+          "role": "description"
+        },
+        {
+          "text": "Premier offer",
+          "role": "button"
+        },
+        {
+          "text": "New customers only (can’t have held an HSBC or first direct account since 1 Jan 2025). Subject to eligibility and T&Cs. Offer can be withdrawn at any time.",
+          "role": "description"
+        },
+        {
+          "text": "Join HSBC Premier today",
+          "role": "heading"
+        },
+        {
+          "text": "HSBC Premier is our premium account that gives you more than banking with wealth, health and travel benefits, and rewards too. Eligibility criteria and T&Cs apply.",
+          "role": "description"
+        },
+        {
+          "text": "Premier Bank Account",
+          "role": "label"
+        },
+        {
+          "text": "Buy and manage funds on the app",
+          "role": "heading"
+        },
+        {
+          "text": "It's now even easier for HSBC UK current account customers to manage, buy and sell investments in the app. Capital at risk. Fees apply.",
+          "role": "description"
+        },
+        {
+          "text": "Learn more",
+          "role": "label"
+        },
+        {
+          "text": "Current accounts",
+          "role": "label"
+        },
+        {
+          "text": "Mortgages",
+          "role": "label"
+        },
+        {
+          "text": "Credit cards",
+          "role": "label"
+        },
+        {
+          "text": "Savings",
+          "role": "label"
+        },
+        {
+          "text": "Loans",
+          "role": "label"
+        },
+        {
+          "text": "International",
+          "role": "label"
+        },
+        {
+          "text": "Chat",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1259,
+        "prompt_tokens": 2190,
+        "total_tokens": 3449,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1259
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "7928a74eb58ac4a8f03e10e640ff1d84ef188e9d6b7ed7d5094ad83ad9ca135d",
+      "imagePath": "/assets/public-flows-v44/7928a74eb58ac4a8f03e.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "CHASE",
+          "role": "heading"
+        },
+        {
+          "text": "ATM & branch",
+          "role": "navigation"
+        },
+        {
+          "text": "Español",
+          "role": "navigation"
+        },
+        {
+          "text": "Sign in",
+          "role": "button"
+        },
+        {
+          "text": "Checking",
+          "role": "navigation"
+        },
+        {
+          "text": "Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "CDs",
+          "role": "navigation"
+        },
+        {
+          "text": "More Services",
+          "role": "navigation"
+        },
+        {
+          "text": "Show me checking accounts for:",
+          "role": "heading"
+        },
+        {
+          "text": "All",
+          "role": "navigation"
+        },
+        {
+          "text": "Students & Kids",
+          "role": "navigation"
+        },
+        {
+          "text": "Premium",
+          "role": "navigation"
+        },
+        {
+          "text": "Chase Total Checking®",
+          "role": "heading"
+        },
+        {
+          "text": "Our most popular checking account.",
+          "role": "description"
+        },
+        {
+          "text": "Comes with Chase Overdraft Assist",
+          "role": "description"
+        },
+        {
+          "text": "Ability to write checks and wire money",
+          "role": "description"
+        },
+        {
+          "text": "Monthly Service Fee",
+          "role": "label"
+        },
+        {
+          "text": "$15 or $0",
+          "role": "label"
+        },
+        {
+          "text": "Avoid fee",
+          "role": "label"
+        },
+        {
+          "text": "Open now",
+          "role": "button"
+        },
+        {
+          "text": "Account details",
+          "role": "label"
+        },
+        {
+          "text": "Chase Secure Banking",
+          "role": "heading"
+        },
+        {
+          "text": "Banking essentials with no overdraft fees.",
+          "role": "description"
+        },
+        {
+          "text": "Get your paycheck up to 2 days early",
+          "role": "description"
+        },
+        {
+          "text": "Send and receive money with Zelle—no extra fees or apps",
+          "role": "description"
+        },
+        {
+          "text": "$0 Monthly Service Fee for account owners who are 17-24 years old",
+          "role": "description"
+        },
+        {
+          "text": "$4.95 or $0",
+          "role": "label"
+        },
+        {
+          "text": "17-year-olds must open in branch.",
+          "role": "description"
+        },
+        {
+          "text": "Chase Premier Plus Checking",
+          "role": "heading"
+        },
+        {
+          "text": "Keep more of your money for your financial goals",
+          "role": "description"
+        },
+        {
+          "text": "No Chase fees on ATMs across the globe, no foreign exchange rate adjustment fees, and more",
+          "role": "description"
+        },
+        {
+          "text": "Perks for military members with $0 Monthly Service Fee and no minimum deposit required",
+          "role": "description"
+        },
+        {
+          "text": "$25 or $0",
+          "role": "label"
+        },
+        {
+          "text": "Get $175 with Chase Secure Banking",
+          "role": "heading"
+        },
+        {
+          "text": "As a new Chase checking customer, get $175 when you open a Chase Secure Banking account with qualifying transactions. $0 Monthly Service Fee for customers age 17-24.",
+          "role": "description"
+        },
+        {
+          "text": "See details",
+          "role": "button"
+        },
+        {
+          "text": "Help me choose",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1386,
+        "prompt_tokens": 2190,
+        "total_tokens": 3576,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1386
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "8b04c8c0e65600ef4e81facdaf6630931fe397f45ad807d71d027bc01f985288",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-028.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "주소를 검색해주세요",
+          "role": "heading"
+        },
+        {
+          "text": "주소",
+          "role": "label"
+        },
+        {
+          "text": "건물, 지번 또는 도로명 검색",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 104,
+        "prompt_tokens": 3594,
+        "total_tokens": 3698,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 104
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "8e959829503d6deb7a7d1b38480919eea39c37fae75942651045f0ea8736a695",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-040.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "증명서를 발급할 카드를 선택해",
+          "role": "heading"
+        },
+        {
+          "text": "정상 카드",
+          "role": "label"
+        },
+        {
+          "text": "오렌지밀크",
+          "role": "label"
+        },
+        {
+          "text": "다음",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 130,
+        "prompt_tokens": 3594,
+        "total_tokens": 3724,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 130
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "91a949eb4cff6f88b880e99829e5eaacdc02cdc9148395d7f6ad3b63b413bde1",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-023.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "지금은 카드 자동이체를 가져올 수 없어요",
+          "role": "heading"
+        },
+        {
+          "text": "영업일 09:00~22:00 사이에만 가져올 수 있어요.",
+          "role": "description"
+        },
+        {
+          "text": "다음에 오기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 136,
+        "prompt_tokens": 3594,
+        "total_tokens": 3730,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 136
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "9373788f4b24d57eacf128e9b229472a697231c551b655fd026fe5070b18c31c",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-054.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "카드 잔액이 부족할 때 어떤 계좌에서 돈을 가져올까요?",
+          "role": "heading"
+        },
+        {
+          "text": "채움샐러리맨우대통장",
+          "role": "label"
+        },
+        {
+          "text": "종합(우대혜택 비대면)",
+          "role": "label"
+        },
+        {
+          "text": "기본",
+          "role": "label"
+        },
+        {
+          "text": "카카오뱅크 입출금통장",
+          "role": "label"
+        },
+        {
+          "text": "뮤직카우",
+          "role": "label"
+        },
+        {
+          "text": "선택했어요",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 242,
+        "prompt_tokens": 3594,
+        "total_tokens": 3836,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 242
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "940a00cd5150d93e0db4c35146612630e81c0103e0d54cf4ebb4de1dc36d2628",
+      "imagePath": "/assets/public-flows-v45/940a00cd5150d93e0db4.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Checking & Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "Auto",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Commercial",
+          "role": "navigation"
+        },
+        {
+          "text": "Benefits & Tools",
+          "role": "navigation"
+        },
+        {
+          "text": "Sign In",
+          "role": "navigation"
+        },
+        {
+          "text": "Compare All Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Building Credit",
+          "role": "navigation"
+        },
+        {
+          "text": "Cash Back",
+          "role": "navigation"
+        },
+        {
+          "text": "Dining & Entertainment",
+          "role": "navigation"
+        },
+        {
+          "text": "Travel Rewards",
+          "role": "navigation"
+        },
+        {
+          "text": "Low Intro APR",
+          "role": "navigation"
+        },
+        {
+          "text": "Student Rewards",
+          "role": "navigation"
+        },
+        {
+          "text": "Quicksilver from Capital One",
+          "role": "heading"
+        },
+        {
+          "text": "Earn unlimited 1.5% cash back on every purchase. Plus, earn a $200 cash bonus.",
+          "role": "description"
+        },
+        {
+          "text": "Checking your eligibility lets you see offers in as little as 90 seconds with no credit score impact.",
+          "role": "description"
+        },
+        {
+          "text": "Check My Eligibility",
+          "role": "button"
+        },
+        {
+          "text": "Apply Now",
+          "role": "button"
+        },
+        {
+          "text": "View important rates and disclosures",
+          "role": "label"
+        },
+        {
+          "text": "Rewards terms",
+          "role": "label"
+        },
+        {
+          "text": "Credit Level: EXCELLENT",
+          "role": "label"
+        },
+        {
+          "text": "Read all 6,529 reviews",
+          "role": "label"
+        },
+        {
+          "text": "Earn 1.5%",
+          "role": "heading"
+        },
+        {
+          "text": "cash back on every purchase, every day, and rewards don't expire for the life of the account.",
+          "role": "description"
+        },
+        {
+          "text": "Earn $200",
+          "role": "heading"
+        },
+        {
+          "text": "as a one-time cash bonus once you spend $500 within 3 months from account opening.",
+          "role": "description"
+        },
+        {
+          "text": "0% intro APR for 15 months on purchases and balance transfers; 18.74% - 28.74% variable APR after that; Balance transfer fee",
+          "role": "description"
+        },
+        {
+          "text": "$0 Annual Fee",
+          "role": "heading"
+        },
+        {
+          "text": "plus no foreign transaction fees on purchases made outside of the United States.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1065,
+        "prompt_tokens": 2190,
+        "total_tokens": 3255,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1065
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "9a70560d721d6b8699e2e78d330921ee2819c6ea25c21de2af2c7c337a78052c",
+      "imagePath": "/assets/public-v39/toss-signup-guide.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Engineering",
+          "role": "navigation"
+        },
+        {
+          "text": "Design",
+          "role": "navigation"
+        },
+        {
+          "text": "Product",
+          "role": "navigation"
+        },
+        {
+          "text": "구독하기",
+          "role": "button"
+        },
+        {
+          "text": "채용 바로가기",
+          "role": "button"
+        },
+        {
+          "text": "완성 없는 이야기, 가입 과정 개선",
+          "role": "heading"
+        },
+        {
+          "text": "#Product Design",
+          "role": "label"
+        },
+        {
+          "text": "#Simplicity23",
+          "role": "label"
+        },
+        {
+          "text": "임경우 · 토스 Product Designer",
+          "role": "label"
+        },
+        {
+          "text": "2023년 9월 12일",
+          "role": "label"
+        },
+        {
+          "text": "제품 성장 과정에 따라 적절한 UX가 다를 수 있다는 사실, 알고 계셨나요? 토스의 가입 과정은 테크 블로그에 첫 번째로 소개되었을 만큼 잘 만들었다고 자부하고 있었는데, 데이터를 확인해 보니 가입 완료율이 생각보다 낮았어요.",
+          "role": "description"
+        },
+        {
+          "text": "토스가 성장하면서 가입하는 주요 연령대가 바뀌었기 때문이에요. 가입 유저의 대부분이 2030이었을 때는 가입 완료율이 높았지만, 시니어 유저들이 주 가입층이 되니 가입 완료율이 낮아졌어요. 이번 글에서는 가입 완료율을 높이기 위해 고민하고 시도했던 것들을 이야기할게요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 627,
+        "prompt_tokens": 2190,
+        "total_tokens": 2817,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 627
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "9c247c0919563a2d8a7452fde3bd9a51d89f6ca198a5cdcd8656b2376f584dc3",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-030.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "영문 이름을 확인해주세요",
+          "role": "heading"
+        },
+        {
+          "text": "해외에서 쓰려면 여권 이름과",
+          "role": "description"
+        },
+        {
+          "text": "영문 성",
+          "role": "label"
+        },
+        {
+          "text": "영문 이름",
+          "role": "label"
+        },
+        {
+          "text": "다음",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 160,
+        "prompt_tokens": 3594,
+        "total_tokens": 3754,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 160
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "9d6381bad44f018f5b4ca58c8db02b464cc0a132b1b4db1339748f0a4d1d8968",
+      "imagePath": "/assets/public-v39/hsbc-qna-ready.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "button"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "What other people are asking",
+          "role": "heading"
+        },
+        {
+          "text": "What is digital banking?",
+          "role": "label"
+        },
+        {
+          "text": "How do I update my personal details in online banking?",
+          "role": "label"
+        },
+        {
+          "text": "How do I download a statement?",
+          "role": "label"
+        },
+        {
+          "text": "What if I forget my username?",
+          "role": "label"
+        },
+        {
+          "text": "Explore more",
+          "role": "heading"
+        },
+        {
+          "text": "Open banking",
+          "role": "heading"
+        },
+        {
+          "text": "The new way to share account information and make payments online.",
+          "role": "description"
+        },
+        {
+          "text": "Security centre",
+          "role": "heading"
+        },
+        {
+          "text": "Get support on fraud and scams.",
+          "role": "description"
+        },
+        {
+          "text": "Protect your money",
+          "role": "heading"
+        },
+        {
+          "text": "See some easy ways to keep yourself safe online.",
+          "role": "description"
+        },
+        {
+          "text": "Chat",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 903,
+        "prompt_tokens": 2190,
+        "total_tokens": 3093,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 903
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "a2447f96132105588730c36764a7836a5078eeaf28c134f6d4d775da985467aa",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-021.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "토스뱅크 이자는 어떻게 계산되나요?",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크 통장의 잔액으로 이자를 계산해요",
+          "role": "description"
+        },
+        {
+          "text": "조건 없이 (세전)",
+          "role": "label"
+        },
+        {
+          "text": "연 1%",
+          "role": "label"
+        },
+        {
+          "text": "이자는 언제 받나요?",
+          "role": "heading"
+        },
+        {
+          "text": "지금 이자 받기를 통해",
+          "role": "description"
+        },
+        {
+          "text": "원할 때 받을 수 있어요",
+          "role": "description"
+        },
+        {
+          "text": "정기적으로 받는 날은",
+          "role": "description"
+        },
+        {
+          "text": "매달 1일",
+          "role": "description"
+        },
+        {
+          "text": "안내",
+          "role": "heading"
+        },
+        {
+          "text": "지금 받을 수 있는 이자는 어제까지 쌓인 내 통장 잔액을 기준으로 계산한 금액이에요. 실제 받게 되는 이자와 차이가 있을 수 있어요.",
+          "role": "description"
+        },
+        {
+          "text": "예상 소득세는 개인 일반 과세를 기준으로 예상한 정보예요. 실제 과세되는 금액과 차이가 있을 수 있어요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 517,
+        "prompt_tokens": 3354,
+        "total_tokens": 3871,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 517
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3354,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "a623b66d46787cbbcf9fe121aea6ccdbe0c4fa9e03942bf92d8fea43bccde530",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-035.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "새로 받을 디자인을 골라주세요",
+          "role": "heading"
+        },
+        {
+          "text": "정부 교통비 환급 미지원",
+          "role": "label"
+        },
+        {
+          "text": "오렌지밀크가 좋겠어요",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 125,
+        "prompt_tokens": 3594,
+        "total_tokens": 3719,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 125
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "a7693b4f455ae7087ea9b45ef119f86c5c5014fec7001d7004fd18880f6aa058",
+      "imagePath": "/assets/public-flows-v44/a7693b4f455ae7087ea9.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "navigation"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "Hi there, your application will only take a few minutes",
+          "role": "heading"
+        },
+        {
+          "text": "Confirm your identity",
+          "role": "description"
+        },
+        {
+          "text": "Tell us a bit more about yourself",
+          "role": "description"
+        },
+        {
+          "text": "Open your bank account",
+          "role": "description"
+        },
+        {
+          "text": "Set up mobile banking",
+          "role": "description"
+        },
+        {
+          "text": "That's it! You can then use your account straight away.",
+          "role": "description"
+        },
+        {
+          "text": "Are you being assisted by HSBC staff?",
+          "role": "label"
+        },
+        {
+          "text": "Let's get started",
+          "role": "button"
+        },
+        {
+          "text": "Scan the QR code to download our app",
+          "role": "heading"
+        },
+        {
+          "text": "Download the HSBC Mobile Banking app to continue applying.",
+          "role": "description"
+        },
+        {
+          "text": "You'll also need:",
+          "role": "description"
+        },
+        {
+          "text": "A smartphone with an internet connection",
+          "role": "description"
+        },
+        {
+          "text": "Valid proof of your ID",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 984,
+        "prompt_tokens": 2190,
+        "total_tokens": 3174,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 984
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "a91d7df6721e9f344f3d104577beddbd6ab531c9022d0b13aaaf643739270ccd",
+      "imagePath": "/assets/public-flows-v45/a91d7df6721e9f344f3d.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Premier",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporates & Institutions",
+          "role": "navigation"
+        },
+        {
+          "text": "NatWest Group",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "NatWest",
+          "role": "navigation"
+        },
+        {
+          "text": "Products",
+          "role": "navigation"
+        },
+        {
+          "text": "Help and support",
+          "role": "navigation"
+        },
+        {
+          "text": "You and your money",
+          "role": "navigation"
+        },
+        {
+          "text": "Banking with us",
+          "role": "navigation"
+        },
+        {
+          "text": "Security and fraud",
+          "role": "navigation"
+        },
+        {
+          "text": "Climate",
+          "role": "navigation"
+        },
+        {
+          "text": "Search",
+          "role": "label"
+        },
+        {
+          "text": "We care about your privacy",
+          "role": "heading"
+        },
+        {
+          "text": "We use cookies to ensure our website works properly. To help us improve our service, we collect data to understand how people use our site. By allowing all cookies, we can enhance your experience even further. This means helping you find information more quickly and tailoring content or marketing to your needs. You are in complete control and can change your cookie preferences at any time. Select “Allow All Cookies” to agree, “Reject Non-essential Cookies” to decline non-essential cookies, or “Manage Preferences” to manage cookie preferences. You can find out more by viewing our",
+          "role": "description"
+        },
+        {
+          "text": "Cookie Policy",
+          "role": "label"
+        },
+        {
+          "text": "Allow All Cookies",
+          "role": "button"
+        },
+        {
+          "text": "Manage Preferences",
+          "role": "button"
+        },
+        {
+          "text": "Reject Non-essential Cookies",
+          "role": "button"
+        },
+        {
+          "text": "Join over 7 million Select account customers (as at January 2026).",
+          "role": "description"
+        },
+        {
+          "text": "You could get £200 when you switch your current account held elsewhere to a Select account.",
+          "role": "description"
+        },
+        {
+          "text": "CURRENT ACCOUNT",
+          "role": "label"
+        },
+        {
+          "text": "SWITCH GUARANTEE",
+          "role": "label"
+        },
+        {
+          "text": "You must be 18+ and a UK resident to apply for our Select account. App available to Online Banking customers with compatible iOS and Android devices and a UK or international mobile number in specific countries. Offer T&Cs and restrictions apply.",
+          "role": "description"
+        },
+        {
+          "text": "On this page",
+          "role": "heading"
+        },
+        {
+          "text": "Switch offer",
+          "role": "label"
+        },
+        {
+          "text": "About our Select bank account",
+          "role": "label"
+        },
+        {
+          "text": "Joint account",
+          "role": "label"
+        },
+        {
+          "text": "Ready to apply",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1207,
+        "prompt_tokens": 2190,
+        "total_tokens": 3397,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1207
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "ab3aadeaabcab12ffc1b0e14a719127d4a94818a9c815091cfb98e4e97ab2ebf",
+      "imagePath": "/assets/public-flows-v44/ab3aadeaabcab12ffc1b.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "EN",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Register",
+          "role": "button"
+        },
+        {
+          "text": "Help Home",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact",
+          "role": "navigation"
+        },
+        {
+          "text": "Trouble logging in",
+          "role": "navigation"
+        },
+        {
+          "text": "Select an issue",
+          "role": "label"
+        },
+        {
+          "text": "I've forgotten my password",
+          "role": "button"
+        },
+        {
+          "text": "2-step verification isn't working",
+          "role": "button"
+        },
+        {
+          "text": "I need to change my phone number",
+          "role": "button"
+        },
+        {
+          "text": "I need to change my email",
+          "role": "button"
+        },
+        {
+          "text": "Logging in with a new device",
+          "role": "button"
+        },
+        {
+          "text": "My account was deactivated",
+          "role": "button"
+        },
+        {
+          "text": "Bereavement support",
+          "role": "button"
+        },
+        {
+          "text": "Products",
+          "role": "heading"
+        },
+        {
+          "text": "Wise Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Wise Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Wise Platform",
+          "role": "navigation"
+        },
+        {
+          "text": "Resources",
+          "role": "heading"
+        },
+        {
+          "text": "Currency converter",
+          "role": "navigation"
+        },
+        {
+          "text": "International stock ticker",
+          "role": "navigation"
+        },
+        {
+          "text": "SWIFT/BIC codes",
+          "role": "navigation"
+        },
+        {
+          "text": "IBAN codes",
+          "role": "navigation"
+        },
+        {
+          "text": "Company and team",
+          "role": "heading"
+        },
+        {
+          "text": "News and blog",
+          "role": "navigation"
+        },
+        {
+          "text": "Security",
+          "role": "navigation"
+        },
+        {
+          "text": "Press",
+          "role": "navigation"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 785,
+        "prompt_tokens": 2190,
+        "total_tokens": 2975,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 785
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b3958abf2a632eff98d06e2ac6e62c13efc30108f69b1f6267edc2a134a8ee6c",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-077.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "통합징수보험료",
+          "role": "heading"
+        },
+        {
+          "text": "전자납부번호를 입력해주세요.",
+          "role": "description"
+        },
+        {
+          "text": "전자납부번호",
+          "role": "label"
+        },
+        {
+          "text": "12~14자리 숫자 입력",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 145,
+        "prompt_tokens": 3594,
+        "total_tokens": 3739,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 145
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b55f24d0bd865b28945e1cbd92620cdcaff3790fb8c0fff08f5b846271982247",
+      "imagePath": "/assets/public-flows-v44/b55f24d0bd865b28945e.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Premier Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Digital Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Security",
+          "role": "navigation"
+        },
+        {
+          "text": "Branches & ATMs",
+          "role": "navigation"
+        },
+        {
+          "text": "Get help",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts",
+          "role": "navigation"
+        },
+        {
+          "text": "Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Loans",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Investments",
+          "role": "navigation"
+        },
+        {
+          "text": "Advisory",
+          "role": "navigation"
+        },
+        {
+          "text": "More",
+          "role": "navigation"
+        },
+        {
+          "text": "Login",
+          "role": "button"
+        },
+        {
+          "text": "Maximise your interest with 360 Account",
+          "role": "heading"
+        },
+        {
+          "text": "Open your account instantly with the OCBC app if you are a Singaporean with a valid Singpass or foreigners who hold an OCBC product.",
+          "role": "message"
+        },
+        {
+          "text": "If you are a foreigner and new to OCBC or a Singaporean without a Singpass, please visit an OCBC bank branch with the required documents to open your account",
+          "role": "message"
+        },
+        {
+          "text": "OCBC bank branch",
+          "role": "label"
+        },
+        {
+          "text": "Apply via OCBC app",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1162,
+        "prompt_tokens": 2190,
+        "total_tokens": 3352,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1162
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b621c3d83786acaea09f8cc30df75f4a1ca75c253217943abc3c3e47e6e6203f",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-074.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "외화 모으기",
+          "role": "label"
+        },
+        {
+          "text": "이자 달러로 모으기",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크 통장 이자를 받으면",
+          "role": "description"
+        },
+        {
+          "text": "달러로 환전해서",
+          "role": "description"
+        },
+        {
+          "text": "외화통장에 차곡차곡 쌓여요",
+          "role": "description"
+        },
+        {
+          "text": "최소 환전 단위 0.01 USD, 환전 수수료는 없어요",
+          "role": "description"
+        },
+        {
+          "text": "시작하기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 248,
+        "prompt_tokens": 3594,
+        "total_tokens": 3842,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 248
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b71da0aa73b42802bd864744627b5eb978a3a5c99967b34a2c8596164a20ac83",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-078.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "환경개선부담금",
+          "role": "heading"
+        },
+        {
+          "text": "전자납부번호를 입력해주세요.",
+          "role": "description"
+        },
+        {
+          "text": "전자납부번호",
+          "role": "label"
+        },
+        {
+          "text": "17~19자리 숫자 입력",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 135,
+        "prompt_tokens": 3594,
+        "total_tokens": 3729,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 135
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b79bd26c9eee15203b6408ebc08814458891d832b94fa754344d5fe44688ab64",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-093.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "보이스피싱, 악성앱 등에 연관되었는지",
+          "role": "description"
+        },
+        {
+          "text": "통신사기 정보 제공 이력 조회하기",
+          "role": "heading"
+        },
+        {
+          "text": "자세한 내용",
+          "role": "label"
+        },
+        {
+          "text": "어떤 정보가 제공됐는지",
+          "role": "description"
+        },
+        {
+          "text": "걸리는 시간",
+          "role": "label"
+        },
+        {
+          "text": "신청 후 10일 이내",
+          "role": "description"
+        },
+        {
+          "text": "본인인증하고 신청하기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 253,
+        "prompt_tokens": 3594,
+        "total_tokens": 3847,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 253
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "b83cbcd13d30a475b9fd277df43ec9f0ed5376ade276f44878c582b82da3afa6",
+      "imagePath": "/assets/public-flows-v44/b83cbcd13d30a475b9fd.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Open your free N26 account in minutes",
+          "role": "heading"
+        },
+        {
+          "text": "Scan the QR code and discover the bank you’ll love",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 115,
+        "prompt_tokens": 2190,
+        "total_tokens": 2305,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 115
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "bd06a649c4f17866feecc53712ac1dc94dc1bfc16a978a2b856b66745fcb7822",
+      "imagePath": "/assets/public-v39/hsbc-signup-guide-ready.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Private",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate",
+          "role": "navigation"
+        },
+        {
+          "text": "English",
+          "role": "navigation"
+        },
+        {
+          "text": "Register",
+          "role": "navigation"
+        },
+        {
+          "text": "Log on",
+          "role": "button"
+        },
+        {
+          "text": "HSBC UK",
+          "role": "heading"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Accounts & services",
+          "role": "navigation"
+        },
+        {
+          "text": "Borrowing",
+          "role": "navigation"
+        },
+        {
+          "text": "Short & long-term",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Products & planning",
+          "role": "navigation"
+        },
+        {
+          "text": "Insurance",
+          "role": "navigation"
+        },
+        {
+          "text": "Property & family",
+          "role": "navigation"
+        },
+        {
+          "text": "Wellbeing",
+          "role": "navigation"
+        },
+        {
+          "text": "Financial health & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Service & security",
+          "role": "navigation"
+        },
+        {
+          "text": "Register for digital banking",
+          "role": "heading"
+        },
+        {
+          "text": "Register for mobile and online banking",
+          "role": "heading"
+        },
+        {
+          "text": "The quickest and easiest way to register for digital banking is by downloading our app. Just select 'Get started' followed by 'You're new to HSBC'.",
+          "role": "description"
+        },
+        {
+          "text": "Download the app and register in minutes. Manage your accounts on the go, with access to your cards and payments at your fingertips.",
+          "role": "description"
+        },
+        {
+          "text": "Scan the QR code to download the app and get started.",
+          "role": "description"
+        },
+        {
+          "text": "Learn more about Photo ID and selfie verification",
+          "role": "button"
+        },
+        {
+          "text": "More help with registration",
+          "role": "heading"
+        },
+        {
+          "text": "If you need help to register for digital banking, you'll need to call us.",
+          "role": "description"
+        },
+        {
+          "text": "Chat",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 936,
+        "prompt_tokens": 2190,
+        "total_tokens": 3126,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 936
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "c0d0144d1cbb1106f4f71b2e33517fd14f466612435ce3f46bedf06334c6f300",
+      "imagePath": "/assets/public-guides-v46/c0d0144d1cbb1106f4f7.webp",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "About Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Search",
+          "role": "navigation"
+        },
+        {
+          "text": "Log In",
+          "role": "button"
+        },
+        {
+          "text": "Checking & Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing & Retirement",
+          "role": "navigation"
+        },
+        {
+          "text": "Auto",
+          "role": "navigation"
+        },
+        {
+          "text": "Where to start",
+          "role": "heading"
+        },
+        {
+          "text": "Check out our rates, then get started with smarter, simpler banking.",
+          "role": "description"
+        },
+        {
+          "text": "Open Account",
+          "role": "button"
+        },
+        {
+          "text": "What we offer",
+          "role": "heading"
+        },
+        {
+          "text": "Spending",
+          "role": "label"
+        },
+        {
+          "text": "A checking account with no monthly fees.",
+          "role": "description"
+        },
+        {
+          "text": "Savings",
+          "role": "label"
+        },
+        {
+          "text": "Smart tools to help give your savings a boost.",
+          "role": "description"
+        },
+        {
+          "text": "Money market",
+          "role": "label"
+        },
+        {
+          "text": "Think savings account, but more flexibility.",
+          "role": "description"
+        },
+        {
+          "text": "CDs",
+          "role": "label"
+        },
+        {
+          "text": "Deposit money for a set period of time, then secure a competitive rate to watch it grow.",
+          "role": "description"
+        },
+        {
+          "text": "High Yield CD",
+          "role": "label"
+        },
+        {
+          "text": "No Penalty CD",
+          "role": "label"
+        },
+        {
+          "text": "Raise Your Rate CD",
+          "role": "label"
+        },
+        {
+          "text": "Resources",
+          "role": "heading"
+        },
+        {
+          "text": "Compare our accounts",
+          "role": "label"
+        },
+        {
+          "text": "Benefits of banking with us",
+          "role": "label"
+        },
+        {
+          "text": "Locate an ATM",
+          "role": "label"
+        },
+        {
+          "text": "Learn about Trusts",
+          "role": "label"
+        },
+        {
+          "text": "Read all about it",
+          "role": "heading"
+        },
+        {
+          "text": "8 ways an Ally Bank Spending Account can simplify your finances",
+          "role": "label"
+        },
+        {
+          "text": "4 min read",
+          "role": "description"
+        },
+        {
+          "text": "Buckets and boosters: Smart resources to help you save",
+          "role": "label"
+        },
+        {
+          "text": "3 min read",
+          "role": "description"
+        },
+        {
+          "text": "Savings interest calculator: See how much you're earning",
+          "role": "label"
+        },
+        {
+          "text": "Deposit products are offered by Ally Bank Member FDIC.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1106,
+        "prompt_tokens": 1512,
+        "total_tokens": 2618,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1106
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1512,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "c0e34441463bec5145ab34aed75bf04810395e074c27444dea0998c0619e6f6a",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-092.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "얼굴을 확인했어요",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 49,
+        "prompt_tokens": 3594,
+        "total_tokens": 3643,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 49
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "c1df03cd6b21b7436eca8a8cadf94b0c3816d43f8e7e310e7f2adcc1c258f451",
+      "imagePath": "/assets/public-guides-v46/c1df03cd6b21b7436eca.webp",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "About Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact Us",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Search",
+          "role": "navigation"
+        },
+        {
+          "text": "Log In",
+          "role": "button"
+        },
+        {
+          "text": "Checking & Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing & Retirement",
+          "role": "navigation"
+        },
+        {
+          "text": "Auto",
+          "role": "navigation"
+        },
+        {
+          "text": "Home",
+          "role": "navigation"
+        },
+        {
+          "text": "Bank",
+          "role": "navigation"
+        },
+        {
+          "text": "View Rates",
+          "role": "navigation"
+        },
+        {
+          "text": "Ally Bank: Ally Bank: 1-877-247-2559 • Open 24/7 • Wait Time: 0 min",
+          "role": "description"
+        },
+        {
+          "text": "Ally Bank Accounts and Rates",
+          "role": "heading"
+        },
+        {
+          "text": "No account minimums",
+          "role": "description"
+        },
+        {
+          "text": "No monthly maintenance fees",
+          "role": "description"
+        },
+        {
+          "text": "Competitive rates",
+          "role": "description"
+        },
+        {
+          "text": "Featured",
+          "role": "navigation"
+        },
+        {
+          "text": "Checking",
+          "role": "navigation"
+        },
+        {
+          "text": "Savings",
+          "role": "navigation"
+        },
+        {
+          "text": "CDs",
+          "role": "navigation"
+        },
+        {
+          "text": "Money Market",
+          "role": "navigation"
+        },
+        {
+          "text": "IRAs",
+          "role": "navigation"
+        },
+        {
+          "text": "Great for: Organizing and maximizing your savings using buckets and boosters. Access your money at any time.",
+          "role": "description"
+        },
+        {
+          "text": "Annual Percentage Yield (APY)",
+          "role": "label"
+        },
+        {
+          "text": "3.00%",
+          "role": "description"
+        },
+        {
+          "text": "on all balance tiers",
+          "role": "description"
+        },
+        {
+          "text": "Limit of 10 withdrawals per statement cycle",
+          "role": "description"
+        },
+        {
+          "text": "About the transaction limit",
+          "role": "label"
+        },
+        {
+          "text": "Rate is variable and may change after the account is opened",
+          "role": "description"
+        },
+        {
+          "text": "Unlimited deposits",
+          "role": "description"
+        },
+        {
+          "text": "Fees may reduce earnings",
+          "role": "description"
+        },
+        {
+          "text": "No minimum opening deposit",
+          "role": "description"
+        },
+        {
+          "text": "View Details",
+          "role": "label"
+        },
+        {
+          "text": "Open Account",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1054,
+        "prompt_tokens": 1546,
+        "total_tokens": 2600,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1054
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1546,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "c4cd0d69d9561318a604974430aac4d34a339eb9f411b719af5306c42c5166f3",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-084.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "내 송금한도",
+          "role": "heading"
+        },
+        {
+          "text": "OTP를 등록하면 송금한도를 더 높일 수 있어요",
+          "role": "heading"
+        },
+        {
+          "text": "OTP를 등록해주세요.",
+          "role": "description"
+        },
+        {
+          "text": "송금이 필요하면 계좌로 송금하는 것을 추천해요.",
+          "role": "description"
+        },
+        {
+          "text": "한도 계좌를 추가로 보유하고 있으면 설정한 한도와 실제 송금가능 한도가 다를 수 있어요.",
+          "role": "description"
+        },
+        {
+          "text": "OTP 등록하기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 276,
+        "prompt_tokens": 3594,
+        "total_tokens": 3870,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 276
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "cd721f046f780a072310c4eb8693b38e2d028be1b998f61808a1f18cc6a6a20d",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-002.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "다음",
+          "role": "navigation"
+        },
+        {
+          "text": "쇼핑 러버",
+          "role": "label"
+        },
+        {
+          "text": "쇼핑에 진심인 편",
+          "role": "heading"
+        },
+        {
+          "text": "1년 결제 분석",
+          "role": "label"
+        },
+        {
+          "text": "온라인몰·간편결제에 쓰는 비중이 높아요",
+          "role": "description"
+        },
+        {
+          "text": "기타",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 217,
+        "prompt_tokens": 3594,
+        "total_tokens": 3811,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 217
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "ce0a10650fec72a628fb33b1c82267962ed0211780edf0a626be476459e9a3df",
+      "imagePath": "/assets/public-v39/toss-card-offer.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "은행소개",
+          "role": "navigation"
+        },
+        {
+          "text": "통장",
+          "role": "navigation"
+        },
+        {
+          "text": "예금·적금",
+          "role": "navigation"
+        },
+        {
+          "text": "대출",
+          "role": "navigation"
+        },
+        {
+          "text": "외환",
+          "role": "navigation"
+        },
+        {
+          "text": "카드",
+          "role": "navigation"
+        },
+        {
+          "text": "고객센터",
+          "role": "navigation"
+        },
+        {
+          "text": "채용",
+          "role": "navigation"
+        },
+        {
+          "text": "기업뱅킹",
+          "role": "navigation"
+        },
+        {
+          "text": "시작하기",
+          "role": "button"
+        },
+        {
+          "text": "소비",
+          "role": "label"
+        },
+        {
+          "text": "토스뱅크",
+          "role": "label"
+        },
+        {
+          "text": "토스뱅크 체크카드 해외 결제 수수료, 다시 면제돼요",
+          "role": "heading"
+        },
+        {
+          "text": "📌 토스뱅크 체크카드 해외 결제 수수료 3줄 요약",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크 체크카드는 2026년 8월 11일부터 해외 결제 수수료가 다시 무료가 돼요. 그동안 제공되던 결제 금액 2% 캐시백은 종료돼요.",
+          "role": "description"
+        },
+        {
+          "text": "결제 금액이 클수록 유리했던 기존과 달리, 결제 수수료를 내지 않아 소액을 여러 번 결제하는 여행에서도 부담이 없어요.",
+          "role": "description"
+        },
+        {
+          "text": "자동환전과 해외 ATM 출금 수수료 면제까지 받을 수 있고, 국내에서도 전월 실적 조건 없이 캐시백을 받을 수 있어요. 해외 결제 수수료 면제를 비롯한 혜택은 토스뱅크 외화통장을 연결하면 받을 수 있어요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 728,
+        "prompt_tokens": 2190,
+        "total_tokens": 2918,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 728
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "d06e7a43c8f151c89e90080152334887627048b78792b1dff56af3a9f055c758",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-036.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "수수료 없이 카드를 재발급 받아요",
+          "role": "heading"
+        },
+        {
+          "text": "지금 카드",
+          "role": "label"
+        },
+        {
+          "text": "재발급 수수료",
+          "role": "label"
+        },
+        {
+          "text": "무료",
+          "role": "label"
+        },
+        {
+          "text": "꼭 알아두세요",
+          "role": "heading"
+        },
+        {
+          "text": "쓰고 있던 OTP도 다시 받게 돼요.",
+          "role": "description"
+        },
+        {
+          "text": "다시 받은 카드를 등록하면 이전 카드는 자동으로 해지돼요.",
+          "role": "description"
+        },
+        {
+          "text": "카드 다시 받기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 349,
+        "prompt_tokens": 3594,
+        "total_tokens": 3943,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 349
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "d19fa5b2fff6bb8dfc1deda682246d2a4c1c7d8fe29d382b47e8785762355b48",
+      "imagePath": "/assets/public-guides-v46/d19fa5b2fff6bb8dfc1d.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact us",
+          "role": "navigation"
+        },
+        {
+          "text": "Search",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Find a Barclaycard",
+          "role": "navigation"
+        },
+        {
+          "text": "Manage your account",
+          "role": "navigation"
+        },
+        {
+          "text": "Help and support",
+          "role": "navigation"
+        },
+        {
+          "text": "Get credit confident",
+          "role": "navigation"
+        },
+        {
+          "text": "What criteria do I need to meet to apply for my first credit card",
+          "role": "heading"
+        },
+        {
+          "text": "When you apply for a credit card, there are a few things that the company will check to see if you meet their criteria. This is unique for each credit card company, but to make life easier, you’ll find some of the things you need to know specifically when applying for a Barclaycard below.",
+          "role": "description"
+        },
+        {
+          "text": "To apply for your first credit card you need to:",
+          "role": "description"
+        },
+        {
+          "text": "Be over 18",
+          "role": "description"
+        },
+        {
+          "text": "Be earning over £3,000 a year",
+          "role": "description"
+        },
+        {
+          "text": "Be in employment",
+          "role": "description"
+        },
+        {
+          "text": "Have not been made bankrupt in the last six years – including having an Individual Voluntary Arrangement or Debt Relief Order",
+          "role": "description"
+        },
+        {
+          "text": "How we use cookies",
+          "role": "heading"
+        },
+        {
+          "text": "We have to use some essential cookies to make this website work. Cookies are stored locally on your computer or mobile device. We also use other optional cookies to:",
+          "role": "description"
+        },
+        {
+          "text": "Analyse how you use the site",
+          "role": "description"
+        },
+        {
+          "text": "Personalise and improve your site experience",
+          "role": "description"
+        },
+        {
+          "text": "Deliver personalised content and messaging from ourselves and third parties",
+          "role": "description"
+        },
+        {
+          "text": "You can either accept or reject these optional cookies or select 'Manage cookies' to change your preference at any time. See our",
+          "role": "description"
+        },
+        {
+          "text": "cookie policy",
+          "role": "label"
+        },
+        {
+          "text": "page for more information.",
+          "role": "description"
+        },
+        {
+          "text": "Accept optional cookies",
+          "role": "button"
+        },
+        {
+          "text": "Reject optional cookies",
+          "role": "button"
+        },
+        {
+          "text": "Manage cookies",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 930,
+        "prompt_tokens": 2190,
+        "total_tokens": 3120,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 930
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "d2c1cc190a77c1cac850b6ca7490f71ffb8534ddbb45cc62bff36de15d8799b5",
+      "imagePath": "/assets/public-flows-v44/d2c1cc190a77c1cac850.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Plans",
+          "role": "navigation"
+        },
+        {
+          "text": "Bank",
+          "role": "navigation"
+        },
+        {
+          "text": "Save",
+          "role": "navigation"
+        },
+        {
+          "text": "Invest",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit",
+          "role": "navigation"
+        },
+        {
+          "text": "Travel",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Open bank account",
+          "role": "button"
+        },
+        {
+          "text": "EN",
+          "role": "navigation"
+        },
+        {
+          "text": "The first bank you'll love",
+          "role": "heading"
+        },
+        {
+          "text": "Bank, save, and invest in one beautifully simple app trusted by millions.",
+          "role": "description"
+        },
+        {
+          "text": "Get the app",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 349,
+        "prompt_tokens": 2190,
+        "total_tokens": 2539,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 349
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "d4903c25b636be820d4ccc29794fb837fc6851370be8aa2e367d18961baf8b65",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-014.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "국민건강보험공단에서 본인 인증하고 서류를 받아올게요",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 71,
+        "prompt_tokens": 3594,
+        "total_tokens": 3665,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 71
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "dde8cde0a9f36e4684bb9130a355978bd5d40e2839db1535268cfccf1b3420b9",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-034.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "새로 받을 디자인을 골라주세요",
+          "role": "heading"
+        },
+        {
+          "text": "EVERYDAY COMMUTERS CLUB",
+          "role": "description"
+        },
+        {
+          "text": "In Routine We Trust",
+          "role": "description"
+        },
+        {
+          "text": "정부에서 교통비 환급",
+          "role": "message"
+        },
+        {
+          "text": "K-패스가 좋겠어요",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 205,
+        "prompt_tokens": 3594,
+        "total_tokens": 3799,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 205
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "e66de284baf75c7c5dea78e0b6b2c4ef7b56628d47a98f7f08f5ee01e558e0e3",
+      "imagePath": "/assets/public-flows-v45/e66de284baf75c7c5dea.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Privacy and Cookie Policy",
+          "role": "navigation"
+        },
+        {
+          "text": "Accessibility",
+          "role": "navigation"
+        },
+        {
+          "text": "Contact us",
+          "role": "navigation"
+        },
+        {
+          "text": "Security",
+          "role": "navigation"
+        },
+        {
+          "text": "FAQs",
+          "role": "navigation"
+        },
+        {
+          "text": "Sitemap",
+          "role": "navigation"
+        },
+        {
+          "text": "barclaycard",
+          "role": "heading"
+        },
+        {
+          "text": "Find a Barclaycard",
+          "role": "navigation"
+        },
+        {
+          "text": "Manage your account",
+          "role": "navigation"
+        },
+        {
+          "text": "Help & support",
+          "role": "navigation"
+        },
+        {
+          "text": "Get Credit Confident",
+          "role": "navigation"
+        },
+        {
+          "text": "Log in",
+          "role": "button"
+        },
+        {
+          "text": "Search",
+          "role": "button"
+        },
+        {
+          "text": "All credit cards",
+          "role": "heading"
+        },
+        {
+          "text": "Amazon Rewards credit card",
+          "role": "heading"
+        },
+        {
+          "text": "View card",
+          "role": "button"
+        },
+        {
+          "text": "Balance Transfer credit cards",
+          "role": "heading"
+        },
+        {
+          "text": "View cards",
+          "role": "button"
+        },
+        {
+          "text": "Credit building credit cards",
+          "role": "heading"
+        },
+        {
+          "text": "Purchase credit cards",
+          "role": "heading"
+        },
+        {
+          "text": "The Amazon Barclaycard",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 694,
+        "prompt_tokens": 2190,
+        "total_tokens": 2884,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 694
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "e6f66c4600cc7ed6e5198eb461c739a87a9af7742a7109caa45a060320532fe6",
+      "imagePath": "/assets/public-flows-v45/e6f66c4600cc7ed6e519.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "WELLS FARGO",
+          "role": "heading"
+        },
+        {
+          "text": "Español",
+          "role": "navigation"
+        },
+        {
+          "text": "Fast. Simple. Effortless.",
+          "role": "heading"
+        },
+        {
+          "text": "Everyday Checking",
+          "role": "heading"
+        },
+        {
+          "text": "Existing customers sign on to apply faster",
+          "role": "description"
+        },
+        {
+          "text": "Have your SSN or ITIN and ID card handy",
+          "role": "description"
+        },
+        {
+          "text": "I'm applying with a co-applicant",
+          "role": "label"
+        },
+        {
+          "text": "Sign on",
+          "role": "button"
+        },
+        {
+          "text": "Let's go",
+          "role": "button"
+        },
+        {
+          "text": "By selecting Let's go or Sign on:",
+          "role": "message"
+        },
+        {
+          "text": "Show more",
+          "role": "button"
+        },
+        {
+          "text": "Deposit products offered by Wells Fargo Bank, N.A. Member FDIC.",
+          "role": "description"
+        },
+        {
+          "text": "Still have questions?",
+          "role": "heading"
+        },
+        {
+          "text": "Call Us",
+          "role": "button"
+        },
+        {
+          "text": "Privacy, Cookies, Security & Legal",
+          "role": "navigation"
+        },
+        {
+          "text": "Notice of Data Collection",
+          "role": "navigation"
+        },
+        {
+          "text": "Do Not Sell or Share My Personal Information",
+          "role": "navigation"
+        },
+        {
+          "text": "General Terms of Use",
+          "role": "navigation"
+        },
+        {
+          "text": "Give Us Feedback",
+          "role": "navigation"
+        },
+        {
+          "text": "© 1999 - 2026 Wells Fargo Bank, N.A. Member FDIC. NMLSR ID 399801",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 735,
+        "prompt_tokens": 2190,
+        "total_tokens": 2925,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 735
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "e7777cd144782da8447331f28a0feed4876e7e463303de2f7d7edf1706dff5ee",
+      "imagePath": "/assets/public-flows-v45/e7777cd144782da84473.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "WELLS FARGO",
+          "role": "heading"
+        },
+        {
+          "text": "ATMs/Locations",
+          "role": "navigation"
+        },
+        {
+          "text": "Help",
+          "role": "navigation"
+        },
+        {
+          "text": "Español",
+          "role": "navigation"
+        },
+        {
+          "text": "Sign On",
+          "role": "button"
+        },
+        {
+          "text": "Personal",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing & Wealth Management",
+          "role": "navigation"
+        },
+        {
+          "text": "Business",
+          "role": "navigation"
+        },
+        {
+          "text": "Commercial Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Corporate & Investment Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "About Wells Fargo",
+          "role": "navigation"
+        },
+        {
+          "text": "Checking Accounts",
+          "role": "navigation"
+        },
+        {
+          "text": "Everyday Checking",
+          "role": "navigation"
+        },
+        {
+          "text": "Our most popular checking account",
+          "role": "heading"
+        },
+        {
+          "text": "Open now >",
+          "role": "button"
+        },
+        {
+          "text": "Avoid the $15 monthly service fee",
+          "role": "label"
+        },
+        {
+          "text": "Best account for everyday banking needs",
+          "role": "heading"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 558,
+        "prompt_tokens": 2190,
+        "total_tokens": 2748,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 558
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "ed90e618c6608d76b6ee6a87cae257631c22db598999685b6a95026a88353ecc",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-015.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "다음",
+          "role": "navigation"
+        },
+        {
+          "text": "보유하고 있는 자산이 있나요? 한도가 늘어날 수 있어요",
+          "role": "heading"
+        },
+        {
+          "text": "입력한 정보는 다음에 다시 사용할 수 있어요.",
+          "role": "description"
+        },
+        {
+          "text": "집을 가지고 있어요",
+          "role": "label"
+        },
+        {
+          "text": "한국평가정보에서 확인한 정보로 담보대출도 알아봐요",
+          "role": "description"
+        },
+        {
+          "text": "자동차를 가지고 있어요",
+          "role": "label"
+        },
+        {
+          "text": "Tip 자동차 번호를 입력하면 승인율이 35% 더 올라갈 수 있어요",
+          "role": "message"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 325,
+        "prompt_tokens": 3594,
+        "total_tokens": 3919,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 325
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "edd71a5e2fff94bd83765d8a445b8b1e11a080df7016b98a2524ca594d1b1410",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-099.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "등록하기",
+          "role": "navigation"
+        },
+        {
+          "text": "모바일 OTP",
+          "role": "heading"
+        },
+        {
+          "text": "토스뱅크에서 돈을 보낼 때 모바일 OTP를 등록하고 쓸 수 있어요.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 160,
+        "prompt_tokens": 3594,
+        "total_tokens": 3754,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 160
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "f0335ce39a31ab087bb9f1ef4c877766efd502a5fb671dbd515b127ab49a9199",
+      "imagePath": "/assets/public-flows-v44/f0335ce39a31ab087bb9.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "FDIC-Insured – Backed by the full faith and credit of the U.S. Government",
+          "role": "description"
+        },
+        {
+          "text": "Citibank, N.A.",
+          "role": "description"
+        },
+        {
+          "text": "ATM / BRANCH",
+          "role": "navigation"
+        },
+        {
+          "text": "ESPAÑOL",
+          "role": "navigation"
+        },
+        {
+          "text": "Credit Cards",
+          "role": "navigation"
+        },
+        {
+          "text": "Banking",
+          "role": "navigation"
+        },
+        {
+          "text": "Lending",
+          "role": "navigation"
+        },
+        {
+          "text": "Investing",
+          "role": "navigation"
+        },
+        {
+          "text": "Wealth Management",
+          "role": "navigation"
+        },
+        {
+          "text": "Travel & Benefits",
+          "role": "navigation"
+        },
+        {
+          "text": "Open an Account",
+          "role": "navigation"
+        },
+        {
+          "text": "How can we help?",
+          "role": "navigation"
+        },
+        {
+          "text": "COSTCO ANYWHERE VISA® CARD BY CITI",
+          "role": "heading"
+        },
+        {
+          "text": "Your Favorite Store. Your Favorite Card.",
+          "role": "heading"
+        },
+        {
+          "text": "Maximize your Costco membership by earning cash back rewards everywhere Visa is accepted.",
+          "role": "description"
+        },
+        {
+          "text": "Apply Now",
+          "role": "button"
+        },
+        {
+          "text": "Additional Information",
+          "role": "label"
+        },
+        {
+          "text": "User ID",
+          "role": "label"
+        },
+        {
+          "text": "Password",
+          "role": "label"
+        },
+        {
+          "text": "Remember User ID",
+          "role": "label"
+        },
+        {
+          "text": "Sign On",
+          "role": "button"
+        },
+        {
+          "text": "Register",
+          "role": "label"
+        },
+        {
+          "text": "Activate",
+          "role": "label"
+        },
+        {
+          "text": "Forgot",
+          "role": "description"
+        },
+        {
+          "text": "Passwordless Sign On",
+          "role": "button"
+        },
+        {
+          "text": "Checking Accounts",
+          "role": "label"
+        },
+        {
+          "text": "Mortgage",
+          "role": "label"
+        },
+        {
+          "text": "Personal Loans",
+          "role": "label"
+        },
+        {
+          "text": "Investing Options",
+          "role": "label"
+        },
+        {
+          "text": "Small Business",
+          "role": "label"
+        },
+        {
+          "text": "CITI® / AADVANTAGE® PLATINUM SELECT®",
+          "role": "heading"
+        },
+        {
+          "text": "Earn 80,000 AAdvantage® bonus miles",
+          "role": "heading"
+        },
+        {
+          "text": "after $3,500 in purchases within the first 4 months of account opening. Limited Time Offer!",
+          "role": "description"
+        },
+        {
+          "text": "CITI® / AADVANTAGE® EXECUTIVE CARD",
+          "role": "heading"
+        },
+        {
+          "text": "Best Offer Ever!",
+          "role": "heading"
+        },
+        {
+          "text": "Earn 125,000 AAdvantage® bonus miles after $15,000 in purchases in the first 5 months.",
+          "role": "description"
+        },
+        {
+          "text": "CITI® CHECKING ACCOUNT",
+          "role": "heading"
+        },
+        {
+          "text": "Earn a",
+          "role": "description"
+        },
+        {
+          "text": "$325",
+          "role": "heading"
+        },
+        {
+          "text": "Checking Bonus",
+          "role": "heading"
+        },
+        {
+          "text": "Earn a $325 Checking Bonus",
+          "role": "heading"
+        },
+        {
+          "text": "Earn a bonus when you open a Regular Checking account with Enhanced Direct Deposits & required activities.",
+          "role": "description"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 1449,
+        "prompt_tokens": 2190,
+        "total_tokens": 3639,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 1449
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2190,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "f5954872e07a731c928e27fb0218fb8b319347a62dd79369d61e2df8cbfd259e",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-011.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "오늘 입금 가능한 카드론을 찾아드려요",
+          "role": "heading"
+        },
+        {
+          "text": "365일 언제든지 신청 가능",
+          "role": "description"
+        },
+        {
+          "text": "중도상환 수수료가 0원",
+          "role": "description"
+        },
+        {
+          "text": "신한카드",
+          "role": "label"
+        },
+        {
+          "text": "???? 만원",
+          "role": "label"
+        },
+        {
+          "text": "하나카드",
+          "role": "label"
+        },
+        {
+          "text": "KB국민카드",
+          "role": "label"
+        },
+        {
+          "text": "현대카드",
+          "role": "label"
+        },
+        {
+          "text": "한 번에 찾아보기",
+          "role": "button"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 360,
+        "prompt_tokens": 3594,
+        "total_tokens": 3954,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 360
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "imageSha256": "fe99bb45befdf7b5196133a5a69f704561712cbc8df0daf1dabf78b8c8a738ba",
+      "imagePath": "/integration-data/toss-v6/images/TOSS-098.png",
+      "extractedAt": "2026-10-16",
+      "model": "claude-sonnet-5",
+      "method": "vision_literal_transcription",
+      "complete": true,
+      "phrases": [
+        {
+          "text": "토스뱅크카드 OTP",
+          "role": "heading"
+        },
+        {
+          "text": "1,000만원 넘게 돈을 보낼 때 토스뱅크카드를 착 가져다 대서 NFC 기술로 인증할 수 있어요",
+          "role": "description"
+        },
+        {
+          "text": "토스뱅크 오렌지밀크 카드",
+          "role": "label"
+        }
+      ],
+      "unreadable": false,
+      "usage": {
+        "completion_tokens": 166,
+        "prompt_tokens": 3594,
+        "total_tokens": 3760,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": 166
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3594,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    }
+  ]
+}

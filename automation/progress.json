@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-10-17T07:04:37.032429+00:00",
+  "workflow": "Deterministic source monitoring; not an AI or financial expert review",
+  "core_dataset_modified": false,
+  "approved_translations_added": 0,
+  "sources": [
+    {
+      "source": "malaysia_financial_metadata",
+      "upstream_commit": "6e42c547d6cdc1256d42d781793590ca354790a0",
+      "changed_files": [],
+      "issues": [],
+      "status": "unchanged",
+      "commercial_license_baseline": "MIT",
+      "obligations": "Retain Government of Malaysia copyright and MIT license; review metadata context before adoption.",
+      "semantic_approval": false,
+      "adoption_allowed": false
+    },
+    {
+      "source": "apache_ofbiz",
+      "upstream_commit": "6473bad3725e7d93c01c0d6d398530f4c80d5569",
+      "changed_files": [],
+      "issues": [],
+      "status": "unchanged",
+      "commercial_license_baseline": "Apache-2.0",
+      "obligations": "Retain LICENSE and NOTICE; state modifications.",
+      "semantic_approval": false,
+      "adoption_allowed": false
+    },
+    {
+      "source": "gnucash",
+      "upstream_commit": "ce59253b2b57f25b8022fb792a2b1f60d8a2d15d",
+      "changed_files": [],
+      "issues": [],
+      "status": "unchanged",
+      "commercial_license_baseline": "GPL-2.0-or-GPL-3.0",
+      "obligations": "Separate copyleft source pack; preserve PO copyrights and corresponding source.",
+      "semantic_approval": false,
+      "adoption_allowed": false
+    },
+    {
+      "source": "mifos",
+      "upstream_commit": "45ec7b82e9b14424a53ce9e8a847811f37f431bd",
+      "changed_files": [],
+      "issues": [],
+      "status": "unchanged",
+      "commercial_license_baseline": "MPL-2.0",
+      "obligations": "Preserve file-level copyleft, notices and corresponding source.",
+      "semantic_approval": false,
+      "adoption_allowed": false
+    }
+  ]
+}

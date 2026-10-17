@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-10-17T07:04:04.556587+00:00",
+  "sources": [
+    {
+      "id": "malaysia_financial_metadata",
+      "repo": "data-gov-my/datagovmy-meta",
+      "baseline": "a34682cf22a1da9de5520a27f5f3fc5f7c86b06f",
+      "license": "MIT",
+      "obligations": "Retain Government of Malaysia copyright and MIT license; review metadata context before adoption.",
+      "files": [
+        {
+          "path": "LICENSE",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/malaysia_financial_metadata/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/LICENSE",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/LICENSE",
+              "sha256": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+              "bytes": 1068
+            },
+            "candidate": {
+              "file": "snapshots/malaysia_financial_metadata/6e42c547d6cdc1256d42d781793590ca354790a0/LICENSE",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/6e42c547d6cdc1256d42d781793590ca354790a0/LICENSE",
+              "sha256": "4038990612ddc2eccfb2ac7221bed225f4e01d37098c97c25ed79c5bf00a8a24",
+              "bytes": 1068
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "data-catalogue/bop_balance.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/malaysia_financial_metadata/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/bop_balance.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/bop_balance.json",
+              "sha256": "ce2e1de944e1c774bf2e5eeb65a555da2c8bdddabbdf037556aea34db76f14d0",
+              "bytes": 6778
+            },
+            "candidate": {
+              "file": "snapshots/malaysia_financial_metadata/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/bop_balance.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/bop_balance.json",
+              "sha256": "ce2e1de944e1c774bf2e5eeb65a555da2c8bdddabbdf037556aea34db76f14d0",
+              "bytes": 6778
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "data-catalogue/interestrates.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/malaysia_financial_metadata/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/interestrates.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/interestrates.json",
+              "sha256": "990cfe299eb1cb4cff24352cafa6ed6d3fca11069ae337813bb12ce0474c51a6",
+              "bytes": 8893
+            },
+            "candidate": {
+              "file": "snapshots/malaysia_financial_metadata/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/interestrates.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/interestrates.json",
+              "sha256": "990cfe299eb1cb4cff24352cafa6ed6d3fca11069ae337813bb12ce0474c51a6",
+              "bytes": 8893
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "data-catalogue/federal_finance_year_revenue.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/malaysia_financial_metadata/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/federal_finance_year_revenue.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/federal_finance_year_revenue.json",
+              "sha256": "726e9a8592a42c2afb0612d67973e0f1864c5189f8743bd4ac2f3e9fbdf65ad4",
+              "bytes": 8668
+            },
+            "candidate": {
+              "file": "snapshots/malaysia_financial_metadata/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/federal_finance_year_revenue.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/federal_finance_year_revenue.json",
+              "sha256": "726e9a8592a42c2afb0612d67973e0f1864c5189f8743bd4ac2f3e9fbdf65ad4",
+              "bytes": 8668
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "data-catalogue/state_finance_revenue.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/malaysia_financial_metadata/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/state_finance_revenue.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/a34682cf22a1da9de5520a27f5f3fc5f7c86b06f/data-catalogue/state_finance_revenue.json",
+              "sha256": "3c45a3ec53171325f467de5416cca5cad4d31b9e6494703c6d789196d6530e4b",
+              "bytes": 5910
+            },
+            "candidate": {
+              "file": "snapshots/malaysia_financial_metadata/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/state_finance_revenue.json",
+              "url": "https://raw.githubusercontent.com/data-gov-my/datagovmy-meta/6e42c547d6cdc1256d42d781793590ca354790a0/data-catalogue/state_finance_revenue.json",
+              "sha256": "3c45a3ec53171325f467de5416cca5cad4d31b9e6494703c6d789196d6530e4b",
+              "bytes": 5910
+            }
+          },
+          "changed": false
+        }
+      ],
+      "errors": [],
+      "upstream_commit": "6e42c547d6cdc1256d42d781793590ca354790a0"
+    },
+    {
+      "id": "apache_ofbiz",
+      "repo": "apache/ofbiz-framework",
+      "baseline": "b8b72d556e829d4a0818f8a4fed57e0750efcacb",
+      "license": "Apache-2.0",
+      "obligations": "Retain LICENSE and NOTICE; state modifications.",
+      "files": [
+        {
+          "path": "LICENSE",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/apache_ofbiz/b8b72d556e829d4a0818f8a4fed57e0750efcacb/LICENSE",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/b8b72d556e829d4a0818f8a4fed57e0750efcacb/LICENSE",
+              "sha256": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+              "bytes": 11906
+            },
+            "candidate": {
+              "file": "snapshots/apache_ofbiz/6473bad3725e7d93c01c0d6d398530f4c80d5569/LICENSE",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/6473bad3725e7d93c01c0d6d398530f4c80d5569/LICENSE",
+              "sha256": "cbac9a0fde0598111b821378374122ab895b7f5963767e4928e85ebabab13cda",
+              "bytes": 11906
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "NOTICE",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/apache_ofbiz/b8b72d556e829d4a0818f8a4fed57e0750efcacb/NOTICE",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/b8b72d556e829d4a0818f8a4fed57e0750efcacb/NOTICE",
+              "sha256": "dc5608d6a118e28e840b2b16b351bae9ba0059c1c69c6cfee25fd05631f52800",
+              "bytes": 166
+            },
+            "candidate": {
+              "file": "snapshots/apache_ofbiz/6473bad3725e7d93c01c0d6d398530f4c80d5569/NOTICE",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/6473bad3725e7d93c01c0d6d398530f4c80d5569/NOTICE",
+              "sha256": "dc5608d6a118e28e840b2b16b351bae9ba0059c1c69c6cfee25fd05631f52800",
+              "bytes": 166
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "applications/accounting/config/AccountingUiLabels.xml",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/apache_ofbiz/b8b72d556e829d4a0818f8a4fed57e0750efcacb/applications/accounting/config/AccountingUiLabels.xml",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/b8b72d556e829d4a0818f8a4fed57e0750efcacb/applications/accounting/config/AccountingUiLabels.xml",
+              "sha256": "03479bd2fdcc606e175f9e066352ca68d6d3240cb895ea338811c4fd52018926",
+              "bytes": 1615312
+            },
+            "candidate": {
+              "file": "snapshots/apache_ofbiz/6473bad3725e7d93c01c0d6d398530f4c80d5569/applications/accounting/config/AccountingUiLabels.xml",
+              "url": "https://raw.githubusercontent.com/apache/ofbiz-framework/6473bad3725e7d93c01c0d6d398530f4c80d5569/applications/accounting/config/AccountingUiLabels.xml",
+              "sha256": "03479bd2fdcc606e175f9e066352ca68d6d3240cb895ea338811c4fd52018926",
+              "bytes": 1615312
+            }
+          },
+          "changed": false
+        }
+      ],
+      "errors": [],
+      "upstream_commit": "6473bad3725e7d93c01c0d6d398530f4c80d5569"
+    },
+    {
+      "id": "gnucash",
+      "repo": "Gnucash/gnucash",
+      "baseline": "9e39744aac80f2737d291fcbea3fff2d357b28a5",
+      "license": "GPL-2.0-or-GPL-3.0",
+      "obligations": "Separate copyleft source pack; preserve PO copyrights and corresponding source.",
+      "files": [
+        {
+          "path": "LICENSE",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/LICENSE",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/LICENSE",
+              "sha256": "94063db55ef325a24ef806dcd8e6d868c88722bd0239c6c0202b2224fa0e8be8",
+              "bytes": 19423
+            },
+            "candidate": {
+              "file": "snapshots/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/LICENSE",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/LICENSE",
+              "sha256": "94063db55ef325a24ef806dcd8e6d868c88722bd0239c6c0202b2224fa0e8be8",
+              "bytes": 19423
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "po/vi.po",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/po/vi.po",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/po/vi.po",
+              "sha256": "33db06fd23c020927c5b80ea4c7e49e43582ec74ad0a5909977dfeffe6f532e3",
+              "bytes": 1119169
+            },
+            "candidate": {
+              "file": "snapshots/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/po/vi.po",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/po/vi.po",
+              "sha256": "33db06fd23c020927c5b80ea4c7e49e43582ec74ad0a5909977dfeffe6f532e3",
+              "bytes": 1119169
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "po/ru.po",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/po/ru.po",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/9e39744aac80f2737d291fcbea3fff2d357b28a5/po/ru.po",
+              "sha256": "a87ba5ad6b1b59839d7b9c9ecaba0899ace86f0510338690f1274875e3336a74",
+              "bytes": 1372089
+            },
+            "candidate": {
+              "file": "snapshots/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/po/ru.po",
+              "url": "https://raw.githubusercontent.com/Gnucash/gnucash/ce59253b2b57f25b8022fb792a2b1f60d8a2d15d/po/ru.po",
+              "sha256": "a87ba5ad6b1b59839d7b9c9ecaba0899ace86f0510338690f1274875e3336a74",
+              "bytes": 1372089
+            }
+          },
+          "changed": false
+        }
+      ],
+      "errors": [],
+      "upstream_commit": "ce59253b2b57f25b8022fb792a2b1f60d8a2d15d"
+    },
+    {
+      "id": "mifos",
+      "repo": "openMF/community-app",
+      "baseline": "45ec7b82e9b14424a53ce9e8a847811f37f431bd",
+      "license": "MPL-2.0",
+      "obligations": "Preserve file-level copyleft, notices and corresponding source.",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/LICENSE.txt",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/LICENSE.txt",
+              "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+              "bytes": 15921
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/LICENSE.txt",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/LICENSE.txt",
+              "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+              "bytes": 15921
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-en.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-en.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-en.json",
+              "sha256": "6974c2f32cc5305f03e61dba131014ce46db9946e36f37d354957f3b60fdfd43",
+              "bytes": 328122
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-en.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-en.json",
+              "sha256": "6974c2f32cc5305f03e61dba131014ce46db9946e36f37d354957f3b60fdfd43",
+              "bytes": 328122
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-km.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-km.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-km.json",
+              "sha256": "6b2196e7f2b4f9b193227f8712943a951be862845bb3d2a7da9f32d4cbc77812",
+              "bytes": 409547
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-km.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-km.json",
+              "sha256": "6b2196e7f2b4f9b193227f8712943a951be862845bb3d2a7da9f32d4cbc77812",
+              "bytes": 409547
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-vi.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-vi.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-vi.json",
+              "sha256": "690132a00bc87e93b5ba751709667590afc25ea58eddc3fba77c2d1e1af4f582",
+              "bytes": 348807
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-vi.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-vi.json",
+              "sha256": "690132a00bc87e93b5ba751709667590afc25ea58eddc3fba77c2d1e1af4f582",
+              "bytes": 348807
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-ko.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ko.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ko.json",
+              "sha256": "de8eabf9644d43924e5060b43110fe3d1d80a62a504691613bdfd96c3e6c1b7f",
+              "bytes": 46404
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ko.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ko.json",
+              "sha256": "de8eabf9644d43924e5060b43110fe3d1d80a62a504691613bdfd96c3e6c1b7f",
+              "bytes": 46404
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-es.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-es.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-es.json",
+              "sha256": "476099f0be0f6cbf584de4bca0e6d7d8371d1e1e57cadffec42bd0bd6ed315d2",
+              "bytes": 334602
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-es.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-es.json",
+              "sha256": "476099f0be0f6cbf584de4bca0e6d7d8371d1e1e57cadffec42bd0bd6ed315d2",
+              "bytes": 334602
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-hi.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-hi.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-hi.json",
+              "sha256": "f24b7d181b0e4953e233b32be1fa2a9b186a92088a56aece09b0da435016ccd1",
+              "bytes": 8450
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-hi.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-hi.json",
+              "sha256": "f24b7d181b0e4953e233b32be1fa2a9b186a92088a56aece09b0da435016ccd1",
+              "bytes": 8450
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-ne.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ne.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ne.json",
+              "sha256": "1570ceff5633be5da24140e32328469e73791cea6886e81649a0e522bbf5ef97",
+              "bytes": 203496
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ne.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-ne.json",
+              "sha256": "1570ceff5633be5da24140e32328469e73791cea6886e81649a0e522bbf5ef97",
+              "bytes": 203496
+            }
+          },
+          "changed": false
+        },
+        {
+          "path": "app/global-translations/locale-id.json",
+          "snapshots": {
+            "baseline": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-id.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-id.json",
+              "sha256": "e94bbefabfbfd6d38b8f17c46865fadbfa314abb9abc57d1fde67ac62abc992a",
+              "bytes": 251198
+            },
+            "candidate": {
+              "file": "snapshots/mifos/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-id.json",
+              "url": "https://raw.githubusercontent.com/openMF/community-app/45ec7b82e9b14424a53ce9e8a847811f37f431bd/app/global-translations/locale-id.json",
+              "sha256": "e94bbefabfbfd6d38b8f17c46865fadbfa314abb9abc57d1fde67ac62abc992a",
+              "bytes": 251198
+            }
+          },
+          "changed": false
+        }
+      ],
+      "errors": [],
+      "upstream_commit": "45ec7b82e9b14424a53ce9e8a847811f37f431bd"
+    }
+  ],
+  "automatic_adoption": false,
+  "human_semantic_approval": false
+}

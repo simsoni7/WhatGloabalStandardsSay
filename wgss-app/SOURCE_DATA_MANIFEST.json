@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "6bd9ee58fb9cc3c9e544b805c84acbdcac381dd7",
+  "baseCommit": "18fd02132ab6f9f38737287f9801fb3ddde3594c",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -85,8 +85,8 @@
     },
     {
       "path": "build/sites-worker.ts",
-      "bytes": 2400,
-      "sha256": "3ef17779c7526d6bcfc8878a1d9d1ec78fefab3a850b6d735af378ad945c0973"
+      "bytes": 2569,
+      "sha256": "c23e4e8a2b25b1249bcf6b0d067d57b8b0c7238f763afaf38417f8aeb4210212"
     },
     {
       "path": "cloudflare-env.d.ts",
@@ -2595,8 +2595,8 @@
     },
     {
       "path": "integration-ui/app.js",
-      "bytes": 59739,
-      "sha256": "92204bbfefac6fc24963a54c99952d917c5a28d2cb5aae60ab345eaf3f5ad1c5"
+      "bytes": 61561,
+      "sha256": "b8d6a8cd3f1f5455bc684014ffbe7c7ccec2b5817117ad7a91e8511168b754ee"
     },
     {
       "path": "integration-ui/browser-check.py",
@@ -2670,13 +2670,18 @@
     },
     {
       "path": "integration-ui/review.js",
-      "bytes": 19989,
-      "sha256": "a3e6c0f025bd54581eaee2f454bea78b2b65613f28b4d3ab3515bb243fe254f0"
+      "bytes": 20055,
+      "sha256": "6c58594ed6ed0a9f0d081659119b8bf93c9aa63a4ad2499f3453ac7a3830ef8e"
     },
     {
       "path": "integration-ui/styles.css",
-      "bytes": 16545,
-      "sha256": "6657a6c19285c11ebae2efab0a914b178faf74fa0b4ed4848b291b0518d70ec5"
+      "bytes": 16897,
+      "sha256": "8acab67814f9cedcf235a4667b6cc305ce0397b4e58ad7649fe46e0f5c266808"
+    },
+    {
+      "path": "lib/canonical-workspace.mjs",
+      "bytes": 632,
+      "sha256": "05ec19aa70cd8eaef2c8288138aae3982bd053c67dd0b6bafcc33beaf9624c87"
     },
     {
       "path": "lib/connector-context.ts",
@@ -4700,8 +4705,8 @@
     },
     {
       "path": "tests/admin_navigation_browser.py",
-      "bytes": 6489,
-      "sha256": "440249e1b91b50a1608d46801b77672d2ee59915eebe67fd11bc7e98cd92bc4c"
+      "bytes": 8169,
+      "sha256": "f91bf713ab6daa7c290d008816ed20532fbdd72db84123b8f06da2140ae31887"
     },
     {
       "path": "tests/backend/intake.test.mjs",
@@ -4934,6 +4939,11 @@
       "sha256": "a6d958ba0fcbf707b1073dd0c4d3d9dc09549434dc5a7f0d60392d1d091cd759"
     },
     {
+      "path": "tests/canonical-workspace.mjs",
+      "bytes": 1064,
+      "sha256": "a8923ea6447ceb01495b289753cae08c740ded222202e122b7a2ba633947ea2b"
+    },
+    {
       "path": "tests/collector_revisions.py",
       "bytes": 2915,
       "sha256": "ff9772b17167d015c753c38870e7a36255e111b06ec77000ad51019430bd3885"
@@ -5110,8 +5120,8 @@
     },
     {
       "path": "vite.config.ts",
-      "bytes": 3271,
-      "sha256": "ce21e8af986552eca350fcf31abf464ea1aa16af82a17b268e6498b6f1fa052f"
+      "bytes": 3330,
+      "sha256": "3ca6ba3afb49ba991e9136ea5abddf99315bf8fc522440c0d8a92c9f347ec1d1"
     }
   ]
 }

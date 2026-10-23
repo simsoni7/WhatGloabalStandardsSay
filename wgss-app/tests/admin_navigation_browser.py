@@ -5,6 +5,7 @@ from review_ui_browser import make_fixtures
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=pathlib.Path('/home/ubuntu/wgss-review-ui-check');OUT.mkdir(exist_ok=True)
 ITEM={'id':'admin-navigation-fixture','kind':'screen','status':'pending','version':1,'title':'카카오뱅크 고객센터','createdAt':'2026-10-15T16:30:00Z','current':{'proposalType':'screen','text':'카카오뱅크 고객센터 쪽 화면','sourceUrl':'https://www.kakaobank.com/'},'files':[{'id':'nav-file-'+str(i),'role':'masked','sha256':'nav-sha-'+str(i),'createdAt':'2026-10-15T16:30:00Z'} for i in range(1,4)]}
+APPROVED={**ITEM,'id':'approved-navigation-fixture','status':'approved','version':3,'updatedAt':'2026-10-22T16:30:00Z','files':[ITEM['files'][0],{'id':'never-show-original','role':'original'}]}
 async def run():
  make_fixtures()
  checks=[];errors=[];calls=[]
@@ -32,7 +33,7 @@ async def run():
   else:
    response={'session':None}
    if resource=='session':response={'role':'admin','adminConfigured':True}
-   elif resource=='submissions':response={'items':[ITEM]}
+   elif resource=='submissions':response={'items':[ITEM,APPROVED]}
    elif resource=='audit':response={'items':[{'id':'audit-1','action':'자료 승인','actorId':'검토자','entityId':'fixture','createdAt':'2026-10-15T16:30:00Z','details':{'내용':'검토 완료'}}]}
    elif resource=='publications':response={'items':[]}
    else:response={'items':[]}
@@ -43,6 +44,16 @@ async def run():
    await page.goto(f'http://127.0.0.1:{server.server_port}/workspace/#admin');await page.wait_for_selector('[data-review="admin-navigation-fixture"]')
    ck('actual app.js defaults to proposal review',await page.evaluate('state.adminTab')=='inbox' and await page.locator('[data-admin-tab="inbox"]').get_attribute('aria-selected')=='true')
    ck('only three requested admin menus',await page.locator('[data-admin-tab]').all_text_contents()==['제안 검토','자료 목록','변경 이력'])
+   ck('approved item offers history instead of another review',await page.locator('[data-review="approved-navigation-fixture"]').count()==0 and await page.locator('[data-approved-review="approved-navigation-fixture"]').inner_text()=='승인 내역 보기')
+   before=calls.count('POST');await page.locator('[data-approved-review="approved-navigation-fixture"]').click()
+   ck('approved detail is read-only with safe attachments',await page.locator('#dialog-title').inner_text()=='승인 내역' and await page.locator('#review-form').count()==0 and await page.locator('.approved-photos img').count()==1 and 'never-show-original' not in await page.locator('#dialog-content').inner_html())
+   await page.locator('[data-versions]').click();await page.wait_for_function("document.querySelector('#version-history')?.textContent.includes('저장된 버전이 없습니다')")
+   ck('approved history uses read API without AI or a second decision',calls.count('POST')==before and 'versions' in calls)
+   await page.evaluate("WGSSReview.open(state.adminItems.find(x=>x.status==='approved'))")
+   ck('direct review entry also keeps approved items read-only',await page.locator('#review-form').count()==0 and calls.count('POST')==before)
+   await page.evaluate("openReview('approved-navigation-fixture')")
+   ck('stale review button cannot reopen approval form',await page.locator('#review-form').count()==0 and calls.count('POST')==before)
+   await page.locator('[data-close]').click()
    await page.locator('[data-admin-tab="inventory"]').click();await page.wait_for_selector('[data-screen]')
    ck('inventory menu renders existing real catalog records',await page.locator('#admin-panel h2').inner_text()=='현재 레퍼런스 목록' and await page.locator('#admin-panel [data-screen]').count()>0)
    await page.locator('[data-admin-tab="audit"]').click();await page.wait_for_function("document.querySelector('#admin-panel h2')?.textContent==='변경 이력'")

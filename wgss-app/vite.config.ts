@@ -17,7 +17,7 @@ const managedLinux = readExecutionProfile() === "managed-linux";
 const localBindingConfig = {
   main: "./build/sites-worker.ts",
   compatibility_flags: ["nodejs_compat"],
-  assets: {binding: "ASSETS", run_worker_first: ["/integration-data/*.json", "/data/*.json", "/evidence/*.json", "/review/*.json", "/runtime-v40/*.json"]},
+  assets: {binding: "ASSETS", run_worker_first: ["/", "/workspace", "/workspace/", "/workspace/index.html", "/integration-data/*.json", "/data/*.json", "/evidence/*.json", "/review/*.json", "/runtime-v40/*.json"]},
   d1_databases: d1
     ? [
         {

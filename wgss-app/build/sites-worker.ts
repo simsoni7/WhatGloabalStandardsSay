@@ -1,9 +1,12 @@
 import handler from "vinext/server/fetch-handler";
 import { runWithConnectorBinding } from "../lib/connector-context";
 import type { ConnectorBinding } from "../lib/connector-contract.mjs";
+import { canonicalWorkspaceRedirect } from "../lib/canonical-workspace.mjs";
 
 export default {
   async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+    const canonical=canonicalWorkspaceRedirect(request);
+    if(canonical)return canonical;
     const assetPath = new URL(request.url).pathname;
     // Public source JSON stays byte-identical; build output keeps a gzip carrier.
     // Decode the carrier as a stream and let Workers negotiate HTTP compression.

@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "2023eb0871a3843d0ed65d855730c8e832f8ca3e",
+  "baseCommit": "9775c0fce98757eb8f5a753936688d6eade746b0",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -2590,13 +2590,13 @@
     },
     {
       "path": "integration-ui/about.js",
-      "bytes": 11636,
-      "sha256": "ec1e355acdbeee3c125f499a46a7b1e465ecb5ae29ef276e1c991dffcb2fcb99"
+      "bytes": 11631,
+      "sha256": "eb91b982d9f54d8d9b8759fb60b2a5493a75bf30da34d5f044e8cc1932ee3108"
     },
     {
       "path": "integration-ui/app.js",
-      "bytes": 61561,
-      "sha256": "b8d6a8cd3f1f5455bc684014ffbe7c7ccec2b5817117ad7a91e8511168b754ee"
+      "bytes": 69551,
+      "sha256": "69f764dfa65fba9258434908c74efea71f655eed9db698e1ce13bc5111467bf6"
     },
     {
       "path": "integration-ui/browser-check.py",
@@ -2620,18 +2620,18 @@
     },
     {
       "path": "integration-ui/dictionary.js",
-      "bytes": 13973,
-      "sha256": "da1be13a91f016d8705202ad26bb99bbf0b45c6b44da141d0efd32f6473ca8b2"
+      "bytes": 14010,
+      "sha256": "350542597ab304fd57d797f9e32cccd287f5627ef5646c3e42903aac8c08a4d8"
     },
     {
       "path": "integration-ui/features.css",
-      "bytes": 2931,
-      "sha256": "32123a2a1b009c5b42dd19195018669ab68fec604e39a87ef53ba05b32ab840e"
+      "bytes": 3989,
+      "sha256": "ed7048fe4002d2341dd1f1e7615a0aee67edb2549a991b0473e9085421482eeb"
     },
     {
       "path": "integration-ui/features.js",
-      "bytes": 8139,
-      "sha256": "1dd89721cc366f9137c9d9f2f35cb6940df80a150d3b90eafe096275f0a85132"
+      "bytes": 9985,
+      "sha256": "6240273f8002c5878e9dbf8a2071f0d46be5ad4c724349bb4b3f2829a4aa2b15"
     },
     {
       "path": "integration-ui/implementation-evidence.json",
@@ -2675,8 +2675,8 @@
     },
     {
       "path": "integration-ui/styles.css",
-      "bytes": 16897,
-      "sha256": "8acab67814f9cedcf235a4667b6cc305ce0397b4e58ad7649fe46e0f5c266808"
+      "bytes": 17891,
+      "sha256": "3aa203c73e6560b0fa33c973d984dde8bb0f2c41222e05fa593bd192def2ef62"
     },
     {
       "path": "lib/canonical-workspace.mjs",
@@ -5107,6 +5107,11 @@
       "path": "tests/test_document_transport_v46.py",
       "bytes": 4907,
       "sha256": "14dee7bad6913906781630f8f9689c3adeb442298a4340f6ea475ebd31e18dee"
+    },
+    {
+      "path": "tests/ui_consistency_browser.py",
+      "bytes": 12282,
+      "sha256": "8341e779a46d9a306a448582da88200ffd53bc6723afb7804af5fdb811c110da"
     },
     {
       "path": "tsconfig.json",

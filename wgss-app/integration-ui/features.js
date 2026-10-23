@@ -30,8 +30,8 @@ const WGSSFeatures=(()=>{
     const target=document.querySelector('#results');if(!target||!state.catalog)return;
     const catalog=state.catalog,context=[state.provider,state.language,state.query,state.task].join('\u001f');
     if(context!==lastContext){companyPage=1;lastContext=context;}
-    const screens=list(catalog.screens).filter(row=>!state.language||row.language===state.language);
-    const features=list(catalog.features).filter(row=>(!state.language||row.language===state.language)&&(!state.provider||row.providerId===state.provider));
+    const screens=list(catalog.screens).filter(row=>!state.language||WGSSLanguages.matches(row.language,state.language));
+    const features=list(catalog.features).filter(row=>(!state.language||WGSSLanguages.matches(row.language,state.language))&&(!state.provider||row.providerId===state.provider));
     const tasks=list(catalog.tasks).filter(task=>task.groupId!=='toss-v6-editorial'&&(!state.task||task.id===state.task)&&taskMatches(task,features,screens.filter(row=>!state.provider||row.providerId===state.provider)));
     const collected=new Set(screens.filter(allowedImage).map(row=>row.providerId));
     if(state.provider&&!collected.has(state.provider))companyScope='all';

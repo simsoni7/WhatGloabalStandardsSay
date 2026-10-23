@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "101b40e32bc2f547506897190390bec58cff49c2",
+  "baseCommit": "6a59138d002f7d9654991d89bd513a16807d8069",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -2610,13 +2610,13 @@
     },
     {
       "path": "integration-ui/about.js",
-      "bytes": 11650,
-      "sha256": "164404ab4f68d573ef294e0494916c85efc05c6ae02bd86e500dbebda23f0309"
+      "bytes": 11781,
+      "sha256": "feed217b59fd6fb7d1e74b56fede1c6b175fa14bf0b177a096c75bc34fc3713f"
     },
     {
       "path": "integration-ui/app.js",
-      "bytes": 69558,
-      "sha256": "e300aa15d425cb9b40b8c1d3470df0802770407fae8b47ef828d401f803a4386"
+      "bytes": 69886,
+      "sha256": "90adb2ceab7f30e43c69aa4c9c64cf9ab2a119ffd0e20287b977d9d0b71d2a0b"
     },
     {
       "path": "integration-ui/browser-check.py",
@@ -2650,8 +2650,8 @@
     },
     {
       "path": "integration-ui/features.js",
-      "bytes": 9993,
-      "sha256": "ad9c142a95e6c5b4455f8b02ca37b47e8c4f7042014e765eb5de421ba0c5a0f7"
+      "bytes": 10035,
+      "sha256": "8e86de6424df555d87a17b626c97655adad2b915f4b3b43556830fc5f5acb8fa"
     },
     {
       "path": "integration-ui/implementation-evidence.json",
@@ -2680,8 +2680,8 @@
     },
     {
       "path": "integration-ui/publications.js",
-      "bytes": 19471,
-      "sha256": "680270f13574e83558fc5e45a11a100206eb33020169ffa77db3beb2980bde76"
+      "bytes": 21026,
+      "sha256": "f6fd93453cbc92b5985096deaae6ae7e44a2ef4b5b569a41d05d1e245e48ef30"
     },
     {
       "path": "integration-ui/review.css",
@@ -2690,8 +2690,8 @@
     },
     {
       "path": "integration-ui/review.js",
-      "bytes": 23866,
-      "sha256": "7444338bc25900ec0faa456aa410f5c2913a9b48b8b0ec50b27874b600d3751d"
+      "bytes": 24048,
+      "sha256": "0d37209624a4840d68813b7f9fe857f2d93835f2faec152ce885e3313284ebe4"
     },
     {
       "path": "integration-ui/styles.css",
@@ -5017,6 +5017,11 @@
       "path": "tests/iso_model.py",
       "bytes": 6017,
       "sha256": "404cc6bfeb68799a53d1b96372bbfc20249643d7fbb5c899eadd410e91a5bac8"
+    },
+    {
+      "path": "tests/language_groups_browser.py",
+      "bytes": 7870,
+      "sha256": "88da07525dce9882ba6c3f19601c72c29dbb1fb932aebe890f94d5250cf62cf7"
     },
     {
       "path": "tests/library_integrity.py",

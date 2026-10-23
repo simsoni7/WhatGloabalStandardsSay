@@ -4,14 +4,14 @@ const WGSSAbout=(()=>{
  const list=value=>Array.isArray(value)?value:[];
  const number=value=>Number(value||0).toLocaleString('ko-KR');
  const safe=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const languageName=(catalog,id)=>list(catalog.languages).find(x=>x.id===id)?.label||id;
+ const languageName=(catalog,id)=>WGSSLanguages.label(id,false);
  function metrics(catalog,publishedTerms=[]){
   const dictionary=catalog.dictionary||{};
   const datasets=list(dictionary.datasets).filter(x=>x.commercial===true&&x.layer==='core');
   const allowed=new Set(datasets.map(x=>x.id));
   const chunks=list(dictionary.chunks).filter(x=>x.layer==='core'&&list(x.datasetIds).length&&x.datasetIds.every(id=>allowed.has(id)));
   const languageCounts=new Map();
-  for(const chunk of chunks)for(const [id,count]of Object.entries(chunk.languageCounts||{}))languageCounts.set(id,(languageCounts.get(id)||0)+Number(count||0));
+  for(const chunk of chunks)for(const [id,count]of Object.entries(chunk.languageCounts||{})){const language=WGSSLanguages.filter(id);if(language)languageCounts.set(language,(languageCounts.get(language)||0)+Number(count||0));}
   const coreRows=datasets.reduce((sum,x)=>sum+Number(x.count||0),0);
   const countedRows=[...languageCounts.values()].reduce((sum,x)=>sum+x,0);
   // Mixed-source chunks must be projected before their language totals can be advertised.
@@ -19,12 +19,12 @@ const WGSSAbout=(()=>{
   // Approved additions are present even before any lazy dictionary chunks load.
   // Never count loaded core rows again, or treat corrections as new pairs.
   const reviewedTerms=[...new Map(list(publishedTerms).filter(row=>WGSSDictionary.isReviewedTerm(row)).map(row=>[row.id,row])).values()];
-  for(const row of reviewedTerms)if(row.language)languageCounts.set(row.language,(languageCounts.get(row.language)||0)+1);
+  for(const row of reviewedTerms)if(row.language){const language=WGSSLanguages.filter(row.language);if(language)languageCounts.set(language,(languageCounts.get(language)||0)+1);}
   const dictionaryRows=coreRows+reviewedTerms.length;
   const screens=list(catalog.screens),phrases=list(catalog.phrases);
   return {datasets,dictionaryRows,reviewedTermCount:reviewedTerms.length,languageCounts,languageTotalsComplete,screens,phrases,
    screenProviders:new Set(screens.map(x=>x.providerId).filter(Boolean)).size,
-   screenLanguages:new Set(screens.map(x=>x.language).filter(x=>x&&x!=='unknown')).size,
+   screenLanguages:new Set(screens.flatMap(x=>WGSSLanguages.codes(x.language))).size,
    uniqueImages:new Set(screens.map(x=>x.originalSha||x.imagePath).filter(Boolean)).size,
    languageCount:languageTotalsComplete?languageCounts.size:null};
  }
@@ -66,7 +66,7 @@ const WGSSAbout=(()=>{
     ${m.reviewedTermCount?`<p class="about-small">운영자 검토 후 추가된 용어 ${number(m.reviewedTermCount)}쌍을 포함합니다.</p>`:''}
    </section>
    <section class="about-section about-language" aria-labelledby="about-language-title">
-    <div class="about-section-heading"><h2 id="about-language-title">${languageText}</h2><p>영어 원문과 다른 언어의 표현을 함께 확인하세요. 공공기관과 공개 소프트웨어의 자료를 모아 출처별로 살펴볼 수 있습니다.</p><a class="about-inline-link" href="${safe(referenceHref('words',{wordMode:'terms'}))}">다국어 용어 찾기</a><p class="about-small">언어·표기 코드를 기준으로 집계합니다. 실제 금융사 화면의 제공 언어 수와는 다릅니다.</p></div>
+    <div class="about-section-heading"><h2 id="about-language-title">${languageText}</h2><p>영어 원문과 다른 언어의 표현을 함께 확인하세요. 공공기관과 공개 소프트웨어의 자료를 모아 출처별로 살펴볼 수 있습니다.</p><a class="about-inline-link" href="${safe(referenceHref('words',{wordMode:'terms'}))}">다국어 용어 찾기</a><p class="about-small">같은 언어의 지역별 코드는 묶고, 간체·번체 등 표기는 구분합니다. 실제 금융사 화면의 제공 언어 수와는 다릅니다.</p></div>
     <div>${languageGraph(catalog,m)}</div>
    </section>
    <section class="about-section" id="about-how" aria-labelledby="about-how-title">

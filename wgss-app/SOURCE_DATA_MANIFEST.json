@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "18fd02132ab6f9f38737287f9801fb3ddde3594c",
+  "baseCommit": "2023eb0871a3843d0ed65d855730c8e832f8ca3e",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -60,8 +60,8 @@
     },
     {
       "path": "app/page.tsx",
-      "bytes": 101,
-      "sha256": "d138c9a73e644054fa8520acefb29ca6ae8aa6438f1b68fced9ae520c68d7a7e"
+      "bytes": 510,
+      "sha256": "eb3e37ba9f4ecfa26fb69f611a1867bd13d5452d4ea5fafdec26c000dcd09e68"
     },
     {
       "path": "build/connector-preview-plugin.mjs",
@@ -2680,8 +2680,8 @@
     },
     {
       "path": "lib/canonical-workspace.mjs",
-      "bytes": 632,
-      "sha256": "05ec19aa70cd8eaef2c8288138aae3982bd053c67dd0b6bafcc33beaf9624c87"
+      "bytes": 1296,
+      "sha256": "cf1d21e5ada36e597e64d59e3b502423ed2cb1e9eb07a4e7a718fffc5344f3dc"
     },
     {
       "path": "lib/connector-context.ts",
@@ -3310,8 +3310,8 @@
     },
     {
       "path": "public/workspace/index.html",
-      "bytes": 2036,
-      "sha256": "d7d3967437148af1f6b3d8ffc048a0fdc4a44ff076924a169d4e9ad5de45ecdb"
+      "bytes": 441,
+      "sha256": "47982ca917a57e1f3caef6477b202ba9184fe5c8b477d1917af809ae2aa4e6f4"
     },
     {
       "path": "public/workspace/publications.js",
@@ -3420,8 +3420,8 @@
     },
     {
       "path": "scripts/build-production.mjs",
-      "bytes": 1346,
-      "sha256": "957150a65bbc895a6b8ed84ab5e9d5d68e1e74c57d84ab0f9b93adf5f36b7883"
+      "bytes": 1929,
+      "sha256": "5dcf67504dc7cd592937adbc377de7b33e32a8022672c6a6ef2dca31abf83d33"
     },
     {
       "path": "scripts/build-reference-index.mjs",
@@ -4937,6 +4937,11 @@
       "path": "tests/browser_usability_review_v45.py",
       "bytes": 20343,
       "sha256": "a6d958ba0fcbf707b1073dd0c4d3d9dc09549434dc5a7f0d60392d1d091cd759"
+    },
+    {
+      "path": "tests/canonical-entry_browser.py",
+      "bytes": 1627,
+      "sha256": "a242e6b5daabc91bdb389ae4b18ba099c89c8e7b9d44bd80c1b9cb140f9bc6d4"
     },
     {
       "path": "tests/canonical-workspace.mjs",

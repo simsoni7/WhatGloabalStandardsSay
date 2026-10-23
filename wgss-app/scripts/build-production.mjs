@@ -1,7 +1,15 @@
 import {spawnSync} from 'node:child_process';
-import {readdir,readFile,writeFile,unlink} from 'node:fs/promises';
+import {readdir,readFile,writeFile,unlink,mkdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {gzipSync,gunzipSync} from 'node:zlib';
+import {createHash} from 'node:crypto';
+import {canonicalWorkspaceScript,canonicalWorkspaceDocument} from '../lib/canonical-workspace.mjs';
+// Sites can serve a static index before invoking the framework Worker.
+// The asset entry must therefore lead to the same canonical workspace too.
+const entry=canonicalWorkspaceScript();
+await mkdir('public/workspace',{recursive:true});
+await writeFile('public/workspace/canonical-entry.js',entry);
+await writeFile('public/workspace/index.html',canonicalWorkspaceDocument(createHash('sha256').update(entry).digest('hex').slice(0,16)));
 const indexed=spawnSync(process.execPath,['scripts/build-reference-index.mjs'],{stdio:'inherit'});
 if(indexed.status!==0)process.exit(indexed.status||1);
 const built=spawnSync(process.execPath,['scripts/run-framework.mjs','build'],{stdio:'inherit'});

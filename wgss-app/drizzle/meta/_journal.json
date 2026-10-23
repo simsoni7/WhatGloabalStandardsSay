@@ -29,6 +29,20 @@
       "when": 1792083749317,
       "tag": "0003_spooky_old_lace",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1792727873051,
+      "tag": "0004_provider_registry",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1792728013274,
+      "tag": "0005_provider_names",
+      "breakpoints": true
     }
   ]
 }

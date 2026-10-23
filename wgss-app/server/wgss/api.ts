@@ -1,3 +1,4 @@
+import {providerList,createProvider} from './providers';
 import knownSources from './known-sources.json';
 import {prepareReviewDraft,getReviewDraft} from './review-draft';
 import {appliedRecords,targetLookup,publicationHistory,recordVersions} from './publications';
@@ -9,6 +10,7 @@ export async function getResource(request: Request, env: Runtime, actor: Actor):
   const url=new URL(request.url),resource=url.searchParams.get('resource')||'session';
   if(resource==='session') return {userId:actor.userId,role:actor.role,serviceAccess:actor.service,adminConfigured:!!(env.ADMIN_USER_IDS||env.WGSS_OWNER_USER_ID||env.WGSS_ADMIN_EMAILS||env.WGSS_PRIVATE_SERVICE_ACCESS==='true')};
   requireActor(actor);
+  if(resource==='providers')return {items:await providerList(env)};
   if(resource==='publications')return appliedRecords(env);
   if(resource==='recordVersions')return recordVersions(env,url.searchParams.get('type'),url.searchParams.get('id'));
   if(resource==='targets')return targetLookup(env,actor,url.searchParams.get('type'),url.searchParams.get('q'));
@@ -72,6 +74,7 @@ export async function mutate(request: Request, env: Runtime, actor: Actor) {
     await env.DB.batch([stmt(env,'DELETE FROM wgss_comparisons WHERE id=? AND owner_id=?',cid,actorId(actor)),auditStmt(env,actor,'comparison.deleted',cid)]); return {deleted:true};
   }
   requireActor(actor,true);
+  if(input.action==='createProvider')return createProvider(env,actor,input);
   if(input.action==='prepareReviewDraft')return prepareReviewDraft(env,actor,input);
   if(input.action==='runDueJobs')return runDueJobs(env,actor);
   if(input.action==='runEvidenceBrief')return runEvidenceBrief(env,actor,input);

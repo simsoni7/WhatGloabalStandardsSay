@@ -71,7 +71,7 @@ async def main():
             await page.wait_for_function('!state.loadingTerms')
             check('dictionary actually filters by query and language', await page.evaluate('WGSSDictionary.visibleRows().length>0 && WGSSDictionary.visibleRows().every(r=>r.language==="ar"&&[r.english,r.korean,r.target,r.definition,r.source,r.sourceConceptId].some(x=>normalizeQuery(x).includes("account")))'))
             await page.locator('[name="word-mode"][value="all"]').check()
-            check('mixed results show scope-specific company and task labels', await page.locator('label[for="provider"]').inner_text() == '회사 · 화면 문구' and await page.locator('#provider').is_visible())
+            check('mixed results show scope-specific company and task labels', await page.locator('label[for="provider"]').inner_text() == '회사·서비스 · 화면 문구' and await page.locator('#provider').is_visible())
             await shot('dictionary-search-scopes')
 
             await go('?tab=words&wordMode=phrases#screens')

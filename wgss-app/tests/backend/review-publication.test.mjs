@@ -7,9 +7,9 @@ import {createRequire} from 'node:module';
 import ts from 'typescript';
 import {Miniflare} from 'miniflare';
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-photo-publication-'));
-for(const name of ['core','publications'])await writeFile(join(output,name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText);
+for(const name of ['providers','core','publications'])await writeFile(join(output,name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText);
 await copyFile(join(root,'server/wgss/reference-index.json'),join(output,'reference-index.json'));
-const require=createRequire(import.meta.url),{preparePublications,appliedRecords,uploadDay,recordVersions}=require(join(output,'publications.js')),{hash}=require(join(output,'core.js'));
+const require=createRequire(import.meta.url),{createProvider,providerList}=require(join(output,'providers.js')),{preparePublications,appliedRecords,uploadDay,recordVersions}=require(join(output,'publications.js')),{hash}=require(join(output,'core.js'));
 const mf=new Miniflare({modules:true,script:'export default {fetch(){return new Response("test")}}',compatibilityDate:'2026-05-15',d1Databases:{DB:'wgss-photo-test'},r2Buckets:['BUCKET']});
 const DB=await mf.getD1Database('DB'),BUCKET=await mf.getR2Bucket('BUCKET'),env={DB,BUCKET},actor={userId:'admin',role:'admin'};
 for(const file of (await readdir(join(root,'drizzle'))).filter(f=>f.endsWith('.sql')).sort())for(const sql of (await readFile(join(root,'drizzle',file),'utf8')).split('--> statement-breakpoint'))if(sql.trim())await DB.prepare(sql.trim()).run();
@@ -25,3 +25,24 @@ test('replacement retires old OCR/features while preserving prior immutable scre
 test('feature mapping rejects incompatible work and OCR cannot choose source identity',async()=>{const a=await source(1),p=plan(a.files);p.photos[0].feature.workId='WGSS-UI-014E9CA936CF';await assert.rejects(prepare(a.source,p,a.files),e=>e.code==='feature_work_conflict');const q=plan(a.files);q.photos[0].phrases[0].providerId='toss-service';const prepared=await prepare(a.source,q,a.files);await DB.batch(prepared.statements);const phrase=(await appliedRecords(env)).items.find(r=>r.type==='phrases'&&r.patch.derivedFromScreenId.includes(a.source.id));assert.equal(phrase.patch.providerId,'citi');});
 test('provided dates remain distinct from upload dates and upload-day recommendations ignore guesses',async()=>{const a=await source(1),p=plan(a.files);p.photos[0].fields.capturedAt='2020-01-01';p.photos[0].feature=null;const first=await prepare(a.source,p,a.files);await DB.batch(first.statements);let row=(await appliedRecords(env)).items.find(r=>r.patch.collectionId==='submission:'+a.source.id);assert.equal(row.patch.capturedAt,'2026-10-16');assert.equal(row.patch.captureDateBasis,'upload');const b=await source(1),q=plan(b.files);q.photos[0].fields.capturedAt='2025-03-02';q.photos[0].fields.captureDateBasis='provided';q.photos[0].feature=null;await DB.batch((await prepare(b.source,q,b.files)).statements);row=(await appliedRecords(env)).items.find(r=>r.patch.collectionId==='submission:'+b.source.id);assert.equal(row.patch.capturedAt,'2025-03-02');assert.equal(row.patch.captureDateBasis,'provided');assert.equal(row.patch.captureDateVerified,false);});
 test.after(async()=>{await mf.dispose();await rm(output,{recursive:true,force:true});});
+
+
+test('new company registry supports aliases, permissions and duplicate prevention',async()=>{
+ const choices=await providerList(env),metamask=choices.find(p=>p.name==='MetaMask');assert(metamask);assert.equal(metamask.kind,'wallet');assert(metamask.aliases.includes('메타마스크'));
+ await assert.rejects(createProvider(env,{userId:'guest',role:'contributor'},{name:'Forbidden wallet'}),e=>e.status===403);
+ await assert.rejects(createProvider(env,actor,{name:'Unsafe URL',sourceUrl:'javascript:alert(1)'}),e=>e.code==='provider_url');
+ const made=await createProvider(env,actor,{name:'Example Wallet',kind:'wallet',aliases:['예시지갑'],sourceUrl:'https://example.test/'});
+ assert.equal(made.item.kind,'wallet');assert.equal(made.reused,false);
+ const duplicate=await createProvider(env,actor,{name:'EXAMPLE wallet',kind:'other'});assert.equal(duplicate.item.id,made.item.id);assert.equal(duplicate.reused,true);
+ const alias=await createProvider(env,actor,{name:'예시지갑'});assert.equal(alias.item.id,made.item.id);
+ const races=await Promise.all(['Parallel Wallet','다른 지갑'].map(name=>createProvider(env,actor,{name,aliases:['shared-wallet-alias'],kind:'wallet'})));
+ assert.equal(races[0].item.id,races[1].item.id);assert.equal((await providerList(env)).filter(p=>p.aliases.includes('shared-wallet-alias')).length,1);
+});
+test('new wallet approval preserves its identity in screen, OCR, feature and public provider list',async()=>{
+ const created=await createProvider(env,actor,{name:'New approval wallet',kind:'wallet'}),a=await source(1),p=plan(a.files);p.fields.providerId=created.item.id;
+ await DB.batch((await prepare(a.source,p,a.files)).statements);
+ const published=await appliedRecords(env),screen=published.items.find(r=>r.type==='screens'&&r.patch.collectionId==='submission:'+a.source.id);
+ assert.equal(screen.patch.providerId,created.item.id);assert.equal(screen.patch.provider,'New approval wallet');
+ for(const id of [...screen.patch.phraseIds,...screen.patch.derivedFeatureIds]){const item=published.items.find(r=>r.targetId===id);assert.equal(item.patch.providerId,created.item.id);assert.equal(item.patch.provider,'New approval wallet');}
+ assert(published.providers.some(p=>p.id===created.item.id&&p.kind==='wallet'));
+});

@@ -1,3 +1,4 @@
+import {providerList} from './providers';
 import referenceIndex from './reference-index.json';
 import {ApiError,Runtime,Actor,requireActor,stmt,rows,bounded,parse,id,now,actorId,hash} from './core';
 const types=['screens','phrases','terms','features'] as const;
@@ -25,7 +26,7 @@ export async function appliedRecords(env:Runtime){
  const all=await rows(env,'SELECT id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,created_at FROM wgss_publications ORDER BY revision,created_at,rowid');
  const merged=new Map<string,any>();
  for(const row of all){const key=row.target_type+':'+row.target_id;let current=merged.get(key);if(!current){current={type:row.target_type,targetId:row.target_id,revision:0,patch:{},appliedVersions:[]};merged.set(key,current);}current.revision=Math.max(current.revision,row.revision);if(row.state!=='applied')continue;Object.assign(current.patch,parse(row.patch_json));current.appliedVersions.push({id:row.id,revision:row.revision,sourceVersion:row.source_version,appliedAt:row.created_at});current.appliedAt=row.created_at;}
- return {items:[...merged.values()].filter(item=>item.patch.retired!==true)};
+ return {items:[...merged.values()].filter(item=>item.patch.retired!==true),providers:await providerList(env)};
 }
 export async function targetLookup(env:Runtime,actor:Actor,typeValue:unknown,query:unknown){requireActor(actor,true);const type=checkedType(typeValue),q=bounded(query,'query',300).toLocaleLowerCase();const applied=(await appliedRecords(env)).items.filter(r=>r.type===type);const found=new Map(index[type].map((r:any)=>[r.id,{...r,revision:0}]));for(const item of applied){const prior=found.get(item.targetId) as any;if(!prior&&!item.patch.id)continue;found.set(item.targetId,{...prior,...item.patch,id:item.targetId,revision:item.revision});}const items=[...found.values()].filter((r:any)=>!q||[r.id,r.label,r.title,r.text,r.english,r.target,r.expression].some(v=>String(v||'').toLocaleLowerCase().includes(q))).slice(0,40);return {items};}
 export async function publicationHistory(env:Runtime,actor:Actor,typeValue:unknown,targetId:unknown){requireActor(actor,true);const type=checkedType(typeValue),target=bounded(targetId,'targetId',200,true);return {items:(await rows(env,'SELECT * FROM wgss_publications WHERE target_type=? AND target_id=? ORDER BY revision DESC',type,target)).map(r=>({id:r.id,revision:r.revision,sourceSubmissionId:r.source_submission_id,sourceVersion:r.source_version,state:r.state,fields:parse(r.patch_json),createdAt:r.created_at}))};}
@@ -37,7 +38,8 @@ async function prepareSinglePublication(env:Runtime,actor:Actor,source:any,input
  const type=checkedType(plan.type);if(!['add','update'].includes(plan.operation))throw new ApiError(400,'invalid_application','추가 또는 수정을 선택해 주세요.');
  if(!plan.fields||typeof plan.fields!=='object'||Array.isArray(plan.fields))throw new ApiError(400,'invalid_fields','반영할 최종 내용을 입력해 주세요.');
  const patch:any={};for(const [key,value] of Object.entries(plan.fields)){if(!fields[type].includes(key))throw new ApiError(400,'invalid_field','이 자료에서 수정할 수 없는 항목입니다: '+key);patch[key]=bounded(value,key,key==='definition'||key==='meaning'||key==='context'||key==='conditions'?5000:key==='sourceUrl'?2000:1000);}
- for(const [key,values] of Object.entries(sets))if(key in patch&&!values.has(patch[key]))throw new ApiError(400,'unknown_identity','등록되지 않은 '+key+'입니다.');
+ const providerChoices=await providerList(env),providerIds=new Set(providerChoices.map(p=>p.id));
+ for(const [key,values] of Object.entries(sets))if(key in patch&&!(key==='providerId'?providerIds:values).has(patch[key]))throw new ApiError(400,'unknown_identity','등록되지 않은 '+key+'입니다.');
  const sourceCollection=bounded(parse(source.content_json).collectionReferenceId,'collectionReferenceId',200);
  if(sourceCollection){if(type!=='screens'||plan.operation!=='add')throw new ApiError(400,'collection_add_only','함께 수집한 화면 제안은 기존 화면을 교체하지 않고 새 화면으로 추가해야 합니다.');if(patch.collectionReferenceId&&patch.collectionReferenceId!==sourceCollection)throw new ApiError(400,'collection_conflict','제안한 수집 묶음과 반영할 묶음이 다릅니다.');patch.collectionReferenceId=sourceCollection;}
  if(patch.collectionReferenceId){
@@ -78,13 +80,13 @@ async function prepareSinglePublication(env:Runtime,actor:Actor,source:any,input
   const expected=target?plan.expectedRevision:plan.expectedRevision;if((current?.revision||0)!==expected)throw new ApiError(409,'record_conflict','이미 반영된 자료입니다. 추가 대신 기존 자료 수정을 선택해 주세요.');
   let normalized:any={...patch};
   if(plan.operation==='add'){
-   const common={id:targetId,providerId:patch.providerId||null,provider:patch.providerId?index.providers.find((p:any)=>p.id===patch.providerId)?.name:null,country:null,sourceUrl:patch.sourceUrl||null,collectedAt:patch.capturedAt||null,publicationDate:null,currentUiVersionVerified:false};
+   const common={id:targetId,providerId:patch.providerId||null,provider:patch.providerId?providerChoices.find(p=>p.id===patch.providerId)?.name:null,country:null,sourceUrl:patch.sourceUrl||null,collectedAt:patch.capturedAt||null,publicationDate:null,currentUiVersionVerified:false};
    if(type==='screens')normalized={...common,cohort:'contribution',sourceKind:'reviewed_contribution',flowId:null,collectionId:'submission:'+source.id,collectionOrder:n+1,purpose:'unknown',stage:'unknown',wording:[],phraseIds:[],navigationTaskIds:[],actualFinancialActionExecuted:false,...patch,title:count>1?patch.title+' · '+(n+1):patch.title};
    if(type==='phrases')normalized={...common,sourceKind:'reviewed_contribution',purpose:'unknown',stage:'unknown',screenIds:[],role:'ui_label',actualActionExecuted:false,...patch};
    if(type==='terms')normalized={id:targetId,datasetId:reviewedTermDataset,source:'검토 후 추가된 용어',recordType:'contributed_term',status:'operator_reviewed',koreanStatus:'operator_reviewed',layer:'reviewed',commercial:true,license:termRights!.license,commercialRights:termRights,generationEligible:false,approvedTranslation:null,approval:null,sourceConceptId:null,sourceUrl:patch.sourceUrl||null,...patch};
    if(type==='features')normalized={...common,workId:patch.workId,label:index.works.find((w:any)=>w.id===patch.workId)?.label,referenceId:targetId,status:'documented',absenceMeaning:'unknown',observedAppScreen:false,summaryKind:'WGSS_operator_review_not_verbatim_UI',...patch};
   }
-  if(normalized.providerId)normalized.provider=index.providers.find((p:any)=>p.id===normalized.providerId)?.name;
+  if(normalized.providerId)normalized.provider=providerChoices.find(p=>p.id===normalized.providerId)?.name;
   if(type==='terms'&&target&&termRights){normalized.commercialRights=termRights;normalized.license=termRights.license;}
   if(type==='terms'&&target){normalized.status='operator_reviewed';if('korean'in patch)normalized.koreanStatus='operator_reviewed';}
   if(photo){normalized.imageFileId=photo.id;normalized.imagePath='/api/wgss?resource=file&id='+encodeURIComponent(photo.id);normalized.originalSha=photo.sha256;normalized.sourceKind='reviewed_contribution';if(type==='screens'){Object.assign(normalized,{flowId:null,editorialGroupId:null,cohort:'contribution',purpose:'unknown',stage:'unknown',country:null,collectedAt:patch.capturedAt||null,publicationDate:null,appVersion:patch.appVersion||null,currentUiVersionVerified:false,actualFinancialActionExecuted:false,phraseIds:[],wording:[],hideLegacyPhrases:true});}if(type==='phrases')normalized.screenIds=[];}

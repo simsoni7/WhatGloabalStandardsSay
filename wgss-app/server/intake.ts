@@ -9,7 +9,7 @@ const allowedDatasets=new Set(['apache_ofbiz_accounting','apache_ofbiz_financial
 const publicTerms=new Set((referenceIndex as any).terms.filter((row:any)=>allowedDatasets.has(row.datasetId)).map((row:any)=>row.id));
 const publicReader:Actor={userId:'public-reference-reader',role:'contributor',service:false};
 const PUBLIC_REVIEW_RESOURCES=['submissions','versions','audit','targets','reviewDraft','publicationHistory','file'];
-const PUBLIC_REVIEW_ACTIONS=['prepareReviewDraft','reviewSubmission','createVersion'];
+const PUBLIC_REVIEW_ACTIONS=['prepareReviewDraft','reviewSubmission','createVersion','createProvider'];
 function visibleReviewItem({ownerId,...item}:any){return {...item,files:(item.files||[]).filter((file:any)=>file.role==='masked')};}
 async function publicReviewer(request:Request):Promise<Actor>{const browser=request.headers.get('X-WGSS-Contribution-Token');const proof=browser&&/^[0-9a-f]{64}$/.test(browser)?'browser:'+browser:'ingress:'+(request.headers.get('cf-connecting-ip')||'shared-anonymous');return {userId:'public-reviewer:'+await hash('wgss-public-review-v1:'+proof),role:'admin',service:false};}
 const UPLOAD_DAILY=500*1024*1024;
@@ -84,7 +84,7 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
     if(resource==='submissions'&&response.ok){const data=await response.json() as any;return cors(Response.json({...data,publicReview:true,items:(data.items||[]).map(visibleReviewItem)}),origin);}return cors(response,origin);
    }
    if(resource==='submissions'){const actor=await capability(request);return cors(await handleRequest(internal(request),env,actor),origin);}
-   if(!['publications','recordVersions','file'].includes(resource))throw new ApiError(403,'private_resource','이 정보는 자료 관리자만 볼 수 있습니다.');
+   if(!['publications','recordVersions','file','providers'].includes(resource))throw new ApiError(403,'private_resource','이 정보는 자료 관리자만 볼 수 있습니다.');
    if(resource==='file'&&request.headers.has('X-WGSS-Contribution-Token')){const actor=await capability(request),file=await stmt(env,'SELECT f.role,s.owner_id FROM wgss_files f JOIN wgss_submissions s ON s.id=f.submission_id WHERE f.id=?',bounded(url.searchParams.get('id'),'id',100,true)).first<any>();if(file?.owner_id===actor.userId&&file.role==='masked')return cors(await handleRequest(internal(request),env,actor),origin);}
    if(resource==='recordVersions'&&url.searchParams.get('type')==='terms'){const target=url.searchParams.get('id'),published=(await appliedRecords(env)).items.find(row=>row.type==='terms'&&row.targetId===target);if(!publicTermAllowed('terms',target,published?.patch))throw new ApiError(404,'not_found','공개된 용어를 찾을 수 없습니다.');}
    const response=await handleRequest(internal(request),env,publicReader);

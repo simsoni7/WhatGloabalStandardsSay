@@ -7,7 +7,7 @@ import {createRequire} from 'node:module';
 import ts from 'typescript';
 import {Miniflare} from 'miniflare';
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-review-draft-'));
-for(const name of ['core','submissions','jobs','images','publications','api','review-draft','vision-images'])await writeFile(join(output,name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
+for(const name of ['providers','core','submissions','jobs','images','publications','api','review-draft','vision-images'])await writeFile(join(output,name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 for(const name of ['known-sources.json','evidence-index.json','reference-index.json'])await copyFile(join(root,'server/wgss',name),join(output,name));
 const require=createRequire(import.meta.url),{prepareReviewDraft,getReviewDraft}=require(join(output,'review-draft.js')),{hash}=require(join(output,'core.js'));
 const mf=new Miniflare({modules:true,script:'export default {fetch(){return new Response("test")}}',compatibilityDate:'2026-05-15',d1Databases:{DB:'review-draft'},r2Buckets:['BUCKET']}),DB=await mf.getD1Database('DB'),BUCKET=await mf.getR2Bucket('BUCKET');
@@ -44,3 +44,12 @@ test('streaming PNG splits preserve every decoded RGBA byte across all five scan
  const actual=[];for(const tile of tiles){assert(tile.height<=8000);assert.equal(tile.sha256,await hash(tile.bytes));const view=Buffer.from(tile.bytes);let offset=8;const data=[];while(offset<view.length){const len=view.readUInt32BE(offset),tag=view.toString('ascii',offset+4,offset+8);assert.equal(view.readUInt32BE(offset+8+len),crc(view.subarray(offset+4,offset+8+len)));if(tag==='IDAT')data.push(view.subarray(offset+8,offset+8+len));offset+=len+12;}const decoded=inflateSync(Buffer.concat(data));assert.equal(decoded.length,tile.height*(stride+1));for(let y=0;y<tile.height;y++){assert.equal(decoded[y*(stride+1)],0);actual.push(decoded.subarray(y*(stride+1)+1,(y+1)*(stride+1)));}}assert.deepEqual(Buffer.concat(actual),Buffer.from(raw));const broken=Buffer.from(input);broken[broken.length-1]^=1;await assert.rejects(splitPngForVision(broken),e=>e.code==='invalid_image');await assert.rejects(splitPngForVision(input,1),e=>e.code==='vision_tile_limit');
 });
 test('top-level screenshot language follows per-photo majority rather than Korean comment',async()=>{const {sid}=await seed(3);answer.language='ko';for(const image of answer.screens)image.language='en';const result=await prepareReviewDraft(env,admin,{submissionId:sid});assert.equal(result.draft.language,'en');assert(result.draft.screens.every(x=>x.language==='en'));});
+
+test('registered wallet identity is available to the model and survives draft validation',async()=>{
+ const providers=require(join(output,'providers.js')),wallet=await providers.createProvider(env,admin,{name:'Draft sample wallet',kind:'wallet',aliases:['추천지갑']});
+ const {sid}=await seed(1);answer.providerId=wallet.item.id;answer.providerName='Draft sample wallet';
+ const result=await prepareReviewDraft(env,admin,{submissionId:sid});
+ assert.equal(result.draft.providerId,wallet.item.id);assert.equal(result.draft.providerName,'Draft sample wallet');
+ const payload=JSON.parse(calls[0].messages[1].content[0].text);assert(payload.allowed.providers.some(p=>p.id===wallet.item.id&&p.kind==='wallet'));
+ const next=await getReviewDraft(env,admin,sid);assert.equal(next.draft.providerId,wallet.item.id);
+});

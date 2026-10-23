@@ -43,3 +43,19 @@ export const publications = sqliteTable('wgss_publications', {
 },t=>[uniqueIndex('wgss_publication_revision').on(t.targetType,t.targetId,t.revision),index('wgss_publication_source').on(t.sourceSubmissionId)]);
 
 export * from './intake-schema';
+
+export const providers = sqliteTable('wgss_providers', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull(),
+  normalizedName: text('normalized_name').notNull(),
+  kind: text('kind').notNull(),
+  sourceUrl: text('source_url').notNull().default(''),
+  aliasesJson: text('aliases_json').notNull().default('[]'),
+  createdAt: text('created_at').notNull(),
+  createdBy: text('created_by').notNull(),
+}, table => [uniqueIndex('wgss_providers_normalized_name_unique').on(table.normalizedName)]);
+
+export const providerNames = sqliteTable('wgss_provider_names', {
+  normalizedName: text('normalized_name').primaryKey(),
+  providerId: text('provider_id').notNull().references(() => providers.id),
+});

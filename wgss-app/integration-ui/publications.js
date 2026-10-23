@@ -5,13 +5,13 @@
 const WGSSLanguages=(()=>{
  const names=new Intl.DisplayNames(['ko'],{type:'language'});
  const aliases={english:'en',korean:'ko','영어':'en','한국어':'ko'};
- function tags(value){return [...new Set(String(value||'').split(/[\/,;|+]/).map(v=>v.trim().replaceAll('_','-')).filter(v=>v&&!['unknown','unclassified','und','미확인'].includes(v.toLowerCase())).map(v=>{try{return Intl.getCanonicalLocales(aliases[v.toLowerCase()]||v)[0]}catch{return ''}}).filter(Boolean))]}
- function group(tag){try{const l=new Intl.Locale(tag);return l.language+(l.script?'-'+l.script:'')}catch{return ''}}
+ function tags(value){return [...new Set(String(value||'').split(/[\/,;|+]/).map(v=>v.trim().replaceAll('_','-')).filter(v=>v&&!['unknown','unclassified','und','미확인'].includes(v.toLowerCase())).map(v=>{try{const raw=aliases[v.toLowerCase()]||v,canonical=Intl.getCanonicalLocales(raw)[0],tail=canonical.split('-').slice(1);return [raw.split('-')[0].toLowerCase(),...tail].join('-')}catch{return ''}}).filter(Boolean))]}
+ function group(tag){try{const l=new Intl.Locale(tag);return tag.split('-')[0].toLowerCase()+(l.script?'-'+l.script:'')}catch{return ''}}
  const codes=value=>[...new Set(tags(value).map(group).filter(Boolean))];
  const filter=value=>{const all=codes(value);return all.length===1?all[0]:''};
  const matches=(value,selected)=>!selected||codes(value).includes(filter(selected));
  const chunkMatches=(counts,selected)=>!selected||Object.entries(counts||{}).some(([id,count])=>Number(count)>0&&matches(id,selected));
- function label(value,detail=true){const ids=detail?tags(value):codes(value);return ids.map(id=>{try{return names.of(id)||id}catch{return id}}).join(' · ')||'미확인'}
+ function label(value,detail=true){const ids=detail?tags(value):codes(value);return ids.map(id=>{try{return ({tl:'타갈로그어',ht:'아이티 크리올어'})[id]||names.of(id)||id}catch{return id}}).join(' · ')||'미확인'}
  function options(rows){const ids=new Set();for(const row of rows||[])for(const id of codes(row.id))ids.add(id);return [...ids].map(id=>({id,label:label(id,false)})).sort((a,b)=>a.label.localeCompare(b.label,'ko'))}
  return {codes,filter,matches,chunkMatches,label,options};
 })();

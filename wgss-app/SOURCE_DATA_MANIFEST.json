@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "6a59138d002f7d9654991d89bd513a16807d8069",
+  "baseCommit": "f5202d3b452c03dd4c0c0dd54b4a4ac81167028d",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -2615,8 +2615,8 @@
     },
     {
       "path": "integration-ui/app.js",
-      "bytes": 69886,
-      "sha256": "90adb2ceab7f30e43c69aa4c9c64cf9ab2a119ffd0e20287b977d9d0b71d2a0b"
+      "bytes": 69963,
+      "sha256": "c6f292d0b827d52642f0916348410378f7b098c000d3444d6d341720bdc4d859"
     },
     {
       "path": "integration-ui/browser-check.py",
@@ -2680,8 +2680,8 @@
     },
     {
       "path": "integration-ui/publications.js",
-      "bytes": 21026,
-      "sha256": "f6fd93453cbc92b5985096deaae6ae7e44a2ef4b5b569a41d05d1e245e48ef30"
+      "bytes": 21216,
+      "sha256": "2b1ad0f04a5dfa21e2134824873b295d3cb5e73c1600f1b6ec02b2760ce43515"
     },
     {
       "path": "integration-ui/review.css",
@@ -5020,8 +5020,8 @@
     },
     {
       "path": "tests/language_groups_browser.py",
-      "bytes": 7870,
-      "sha256": "88da07525dce9882ba6c3f19601c72c29dbb1fb932aebe890f94d5250cf62cf7"
+      "bytes": 8452,
+      "sha256": "ab30ca639f97e5434d81f79cf7618ab83d5059a9a9312622652c6330bcff5f76"
     },
     {
       "path": "tests/library_integrity.py",

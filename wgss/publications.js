@@ -1,5 +1,21 @@
 'use strict';
 /* Current application data = preserved source observations + versioned approved edits. */
+
+/* Browse language groups are separate from immutable source locale tags. */
+const WGSSLanguages=(()=>{
+ const names=new Intl.DisplayNames(['ko'],{type:'language'});
+ const aliases={english:'en',korean:'ko','영어':'en','한국어':'ko'};
+ function tags(value){return [...new Set(String(value||'').split(/[\/,;|+]/).map(v=>v.trim().replaceAll('_','-')).filter(v=>v&&!['unknown','unclassified','und','미확인'].includes(v.toLowerCase())).map(v=>{try{return Intl.getCanonicalLocales(aliases[v.toLowerCase()]||v)[0]}catch{return ''}}).filter(Boolean))]}
+ function group(tag){try{const l=new Intl.Locale(tag);return l.language+(l.script?'-'+l.script:'')}catch{return ''}}
+ const codes=value=>[...new Set(tags(value).map(group).filter(Boolean))];
+ const filter=value=>{const all=codes(value);return all.length===1?all[0]:''};
+ const matches=(value,selected)=>!selected||codes(value).includes(filter(selected));
+ const chunkMatches=(counts,selected)=>!selected||Object.entries(counts||{}).some(([id,count])=>Number(count)>0&&matches(id,selected));
+ function label(value,detail=true){const ids=detail?tags(value):codes(value);return ids.map(id=>{try{return names.of(id)||id}catch{return id}}).join(' · ')||'미확인'}
+ function options(rows){const ids=new Set();for(const row of rows||[])for(const id of codes(row.id))ids.add(id);return [...ids].map(id=>({id,label:label(id,false)})).sort((a,b)=>a.label.localeCompare(b.label,'ko'))}
+ return {codes,filter,matches,chunkMatches,label,options};
+})();
+
 const WGSSApplied=(()=>{
  let source=null,entries=[],termSources=new Map(),providerRows=[];
  const labels={screens:'화면',terms:'용어'};
@@ -10,7 +26,7 @@ const WGSSApplied=(()=>{
  function rebuildTerms(){state.terms=collection('terms',[...termSources.values()]);}
  function mergedProviders(){const map=new Map(source.providers.map(p=>[p.id,p]));for(const row of providerRows)map.set(row.id,{...map.get(row.id),...row});return [...map.values()]}
  function rebuild(){state.catalog={...source,providers:mergedProviders(),counts:{...source.counts},screens:collection('screens',source.screens),phrases:collection('phrases',source.phrases),features:collection('features',source.features)};state.catalog.counts.screens=state.catalog.screens.length;state.catalog.counts.phrases=state.catalog.phrases.length;state.catalog.counts.featureRows=state.catalog.features.length;state.catalog.counts.uniqueImages=new Set(state.catalog.screens.map(r=>r.originalSha).filter(Boolean)).size;state.catalog.counts.documentedWorks=new Set(state.catalog.features.map(r=>r.workId)).size;state.catalog.counts.communityTerms=entries.filter(e=>e.type==='terms'&&e.targetId.startsWith('contribution:terms:')&&e.patch.id).length;state.catalog.counts.dictionaryTotal=source.counts.dictionaryTotal+state.catalog.counts.communityTerms;rebuildTerms();}
- function initialize(catalog){source=catalog;entries=[];providerRows=[];termSources=new Map();rebuild()}
+ function initialize(catalog){source={...catalog,languages:WGSSLanguages.options(catalog.languages)};entries=[];providerRows=[];termSources=new Map();rebuild()}
  async function refresh(){const response=await api('publications');entries=arr(response.items);providerRows=arr(response.providers);rebuild();}
  function ingestProviders(rows){for(const row of arr(rows))if(row?.id&&row?.name)providerRows=[...providerRows.filter(p=>p.id!==row.id),row];rebuild();}
  function ingestTerms(rows){for(const row of rows)termSources.set(row.id,row);rebuildTerms()}

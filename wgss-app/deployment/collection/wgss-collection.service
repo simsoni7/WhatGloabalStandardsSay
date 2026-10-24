@@ -1,0 +1,25 @@
+[Unit]
+Description=Collect WGSS bank screens and language pairs with Bedrock
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/wgss-github/wgss-app
+LoadCredentialEncrypted=bedrock-api-key:/etc/credstore.encrypted/wgss-bedrock
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/ubuntu/wgss-collection-runtime/.venv/bin/python scripts/collection_batch.py --config deployment/collection/config.json --state-dir /home/ubuntu/wgss-collection-state --public-status /home/ubuntu/wgss-ec2-deployment/public/collection-status.json
+ExecStopPost=/home/ubuntu/wgss-collection-runtime/.venv/bin/python scripts/collection_batch.py --config deployment/collection/config.json --state-dir /home/ubuntu/wgss-collection-state --public-status /home/ubuntu/wgss-ec2-deployment/public/collection-status.json --mark-service-exit
+TimeoutStartSec=25min
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+MemoryMax=2G
+CPUQuota=150%

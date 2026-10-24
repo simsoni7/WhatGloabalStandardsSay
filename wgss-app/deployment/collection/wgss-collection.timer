@@ -1,0 +1,12 @@
+[Unit]
+Description=Run WGSS public collection every six hours
+
+[Timer]
+OnCalendar=*-*-* 03,09,15,21:00:00 Asia/Seoul
+Persistent=true
+AccuracySec=1min
+Unit=wgss-collection.service
+
+[Install]
+WantedBy=timers.target
+

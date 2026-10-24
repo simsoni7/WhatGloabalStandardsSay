@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "model": "claude-sonnet-5",
+  "scheduleDescription": "매일 03:00·09:00·15:00·21:00 (Asia/Seoul), 6시간 간격",
+  "intakeApi": "https://wgss-public-intake.booknfoto461.chatgpt.site/api/wgss",
+  "maxBedrockCalls": 12,
+  "screensPerRun": 4,
+  "languagesPerRun": 2,
+  "pairsPerLanguage": 18,
+  "maxTermBacklog": 120,
+  "submissionsPerRun": {
+    "screen": 2,
+    "term": 6
+  },
+  "languages": [
+    "ko",
+    "ja",
+    "ar",
+    "fr",
+    "de",
+    "es",
+    "hi",
+    "id",
+    "th",
+    "ru",
+    "vi",
+    "pt",
+    "it",
+    "nl",
+    "pl",
+    "bg",
+    "hr",
+    "sw",
+    "bn",
+    "ur",
+    "fa",
+    "km",
+    "ne",
+    "kn",
+    "ml",
+    "te",
+    "my",
+    "cs",
+    "ro",
+    "el",
+    "fi",
+    "sv",
+    "da",
+    "hu",
+    "et"
+  ],
+  "screenSeeds": [
+    {
+      "provider": "Metro Bank",
+      "providerId": "",
+      "url": "https://www.metrobankonline.co.uk/",
+      "domains": [
+        "metrobankonline.co.uk"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Revolut",
+      "providerId": "",
+      "url": "https://www.revolut.com/en-GB/",
+      "domains": [
+        "revolut.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Commonwealth Bank",
+      "providerId": "commbank",
+      "url": "https://netbank.web.commbank.com.au/auth/logon",
+      "domains": [
+        "commbank.com.au"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "N26",
+      "providerId": "n26",
+      "url": "https://app.n26.com/login",
+      "domains": [
+        "n26.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Wise",
+      "providerId": "wise",
+      "url": "https://wise.com/register/",
+      "domains": [
+        "wise.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "ANZ",
+      "providerId": "anz",
+      "url": "https://login.anz.com/internetbanking",
+      "domains": [
+        "anz.com",
+        "anz.com.au"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Monzo",
+      "providerId": "monzo",
+      "url": "https://monzo.com/sign-up",
+      "domains": [
+        "monzo.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "DBS",
+      "providerId": "dbs",
+      "url": "https://www.dbs.com.sg/personal/deposits/digital-services/ibanking",
+      "domains": [
+        "dbs.com.sg",
+        "dbs.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "OCBC",
+      "providerId": "ocbc",
+      "url": "https://www.ocbc.com/personal-banking/digital-banking/",
+      "domains": [
+        "ocbc.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Capital One",
+      "providerId": "capitalone",
+      "url": "https://www.capitalone.com/digital/online-banking/",
+      "domains": [
+        "capitalone.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "DKB",
+      "providerId": "dkb",
+      "url": "https://banking.dkb.de/login",
+      "domains": [
+        "dkb.de"
+      ],
+      "language": "de"
+    },
+    {
+      "provider": "Santander",
+      "providerId": "santander",
+      "url": "https://particulares.bancosantander.es/oneweb/",
+      "domains": [
+        "bancosantander.es"
+      ],
+      "language": "es"
+    },
+    {
+      "provider": "Chase",
+      "providerId": "chase",
+      "url": "https://www.chase.com/digital/online-banking",
+      "domains": [
+        "chase.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Citi",
+      "providerId": "citi",
+      "url": "https://online.citi.com/US/ag/registration",
+      "domains": [
+        "citi.com"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Nationwide",
+      "providerId": "",
+      "url": "https://www.nationwide.co.uk/help/online-banking-help/",
+      "domains": [
+        "nationwide.co.uk"
+      ],
+      "language": "en"
+    },
+    {
+      "provider": "Starling Bank",
+      "providerId": "starling-uk",
+      "url": "https://www.starlingbank.com/features/online-banking/",
+      "domains": [
+        "starlingbank.com"
+      ],
+      "language": "en"
+    }
+  ],
+  "termSources": [
+    "cldr",
+    "ofbiz"
+  ],
+  "ofbizLanguages": [
+    "ar",
+    "fr",
+    "de",
+    "es",
+    "hi",
+    "it",
+    "ja",
+    "nl",
+    "pt",
+    "ro",
+    "ru",
+    "th",
+    "vi",
+    "zh-Hans",
+    "zh-Hant",
+    "cs"
+  ]
+}

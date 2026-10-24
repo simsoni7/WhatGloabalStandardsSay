@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "f5202d3b452c03dd4c0c0dd54b4a4ac81167028d",
+  "baseCommit": "b18efa2aa48b88013b73cc859757ad4f24ad765b",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -35,8 +35,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7685,
-      "sha256": "6e39533cac10b42e72e8a515d8a765751e3ef15d5882908c4feac61f7cc274c0"
+      "bytes": 8014,
+      "sha256": "b40bd0fdbbc33f27d33f8b9975043f5eecd12805265a45138ef0fac39fa62272"
     },
     {
       "path": "app/api/wgss/route.ts",
@@ -424,6 +424,36 @@
       "sha256": "c95f1a53daff11f0b713297f1912ea081aaabe02b632a1bb3c20dee3ab33e5e8"
     },
     {
+      "path": "deployment/collection/README.md",
+      "bytes": 4825,
+      "sha256": "040fb774c75c258adc55782f7fd0a46ab6681bd3b53e7b0ae5754fb6eaeff382"
+    },
+    {
+      "path": "deployment/collection/config.json",
+      "bytes": 4321,
+      "sha256": "be2f83450edf5a00cd0299fb7abd990ed0f65a1cbbbd8ca1deac9c28d762d9b0"
+    },
+    {
+      "path": "deployment/collection/install.sh",
+      "bytes": 1624,
+      "sha256": "ac6640cbe5f93005874587e72c86c8d87ec8b4ff38165f988083f217bb4ddb78"
+    },
+    {
+      "path": "deployment/collection/requirements.txt",
+      "bytes": 19,
+      "sha256": "852008c6c134845926625892a248563fe02a96a91e769e6735af1bad49ab2cef"
+    },
+    {
+      "path": "deployment/collection/wgss-collection.service",
+      "bytes": 1105,
+      "sha256": "fe5edd7e83ab1917009f559b0b06d31e24a58f962003ce2800b7ac2158d511fe"
+    },
+    {
+      "path": "deployment/collection/wgss-collection.timer",
+      "bytes": 214,
+      "sha256": "9d38e98caced2a5918fc660ad20885dc7acfeb0253bdc3d4b32417a4e273f68b"
+    },
+    {
       "path": "deployment/ec2/.gitignore",
       "bytes": 71,
       "sha256": "2d29ff12898755cfc220f45698baeb2e93fc4bf221ab09f9837fd5a2ca633942"
@@ -455,8 +485,8 @@
     },
     {
       "path": "deployment/ec2/nginx-https.conf",
-      "bytes": 2423,
-      "sha256": "3f30be1d430c0f2544ba6bc2e90fa9dae9a04d69dd39c6e8265dfcbd76f8f615"
+      "bytes": 2520,
+      "sha256": "ec9fa813ca2e0f387c424ec1f18f3feab4a974bd3240c72705db0430917752ce"
     },
     {
       "path": "deployment/ec2/renew.sh",
@@ -3729,6 +3759,11 @@
       "sha256": "92fd93ce512d821edc762aa31cc3a913be4915eba08f279c1c5e38cb969ddb4a"
     },
     {
+      "path": "scripts/collection_batch.py",
+      "bytes": 41399,
+      "sha256": "f6b3b73247387cb9b6816563d03cc55d67dfd4dea5c5660b28c956a3a20a6cc1"
+    },
+    {
       "path": "scripts/collector_action_gate_v45.py",
       "bytes": 13644,
       "sha256": "2b1e91cf50a011a7483243e7c67f02dce35398a7bd32e36c92df4a99db902660"
@@ -5132,6 +5167,11 @@
       "path": "tests/standard_sources.py",
       "bytes": 3167,
       "sha256": "7be0325e66c28268d067865cbe7045e43a0ab29f9cd97720a6aabb8bd3e16445"
+    },
+    {
+      "path": "tests/test_collection_batch.py",
+      "bytes": 9052,
+      "sha256": "57e8ce2a38b4e507a6d8bf90ba1b0b1263e63d73e7a679cce0fe3563688befb8"
     },
     {
       "path": "tests/test_collector_gate_v45.py",

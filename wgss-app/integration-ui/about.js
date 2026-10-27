@@ -63,7 +63,7 @@ const WGSSAbout=(()=>{
     <div class="about-section-heading"><h2 id="about-scale-title">화면, 문구, 다국어 용어.<br>현재 모은 자료입니다.</h2><p>금융사의 화면을 보고, 실제 문구와 다른 언어의 표현을 찾을 수 있습니다.</p></div>
     <dl class="about-metrics"><div><dt>금융사·서비스 화면</dt><dd>${number(m.screens.length)}<span>건</span></dd><dd class="about-metric-note">${number(m.screenProviders)}개 회사·서비스 · ${number(m.uniqueImages)}개 이미지</dd></div><div><dt>화면 문구</dt><dd>${number(m.phrases.length)}<span>건</span></dd><dd class="about-metric-note">화면과 안내 자료에서 수집한 문구</dd></div><div><dt>다국어 용어</dt><dd>${number(m.dictionaryRows)}<span>쌍</span></dd><dd class="about-metric-note">영어 원문과 다른 언어의 대응 표현</dd></div><div><dt>용어 자료</dt><dd>${number(m.datasets.length)}<span>종</span></dd><dd class="about-metric-note">공식 용어집·언어팩 등 상업 이용 허용 자료</dd></div></dl>
     <p class="about-small">화면 수는 등록된 화면 사례 수입니다. 용어 수는 언어별 대응 쌍 수이며, 같은 뜻의 표현이 여러 자료에 포함될 수 있습니다.</p>
-    ${m.reviewedTermCount?`<p class="about-small">운영자 검토 후 추가된 용어 ${number(m.reviewedTermCount)}쌍을 포함합니다.</p>`:''}
+    ${m.reviewedTermCount?`<p class="about-small">품질 검수 후 추가된 용어 ${number(m.reviewedTermCount)}쌍을 포함합니다.</p>`:''}
    </section>
    <section class="about-section about-language" aria-labelledby="about-language-title">
     <div class="about-section-heading"><h2 id="about-language-title">${languageText}</h2><p>영어 원문과 다른 언어의 표현을 함께 확인하세요. 공공기관과 공개 소프트웨어의 자료를 모아 출처별로 살펴볼 수 있습니다.</p><a class="about-inline-link" href="${safe(referenceHref('words',{wordMode:'terms'}))}">다국어 용어 찾기</a><p class="about-small">같은 언어의 지역별 코드는 묶고, 간체·번체 등 표기는 구분합니다. 실제 금융사 화면의 제공 언어 수와는 다릅니다.</p></div>
@@ -75,7 +75,7 @@ const WGSSAbout=(()=>{
    </section>
    <section class="about-section about-grow" aria-labelledby="about-grow-title">
     <div class="about-section-heading"><h2 id="about-grow-title">자료를 제안하고,<br>함께 업데이트합니다.</h2><p>새 화면이나 표현을 모으고, 잘못된 내용을 고치며, 더 오래 쓸 수 있는 자료로 쌓아 갑니다.</p></div>
-    <div class="about-growth-list"><div><h3>화면과 표현을 함께 모읍니다.</h3><p>간단한 설명, 출처 링크와 캡처 이미지를 제안해 주세요. 운영자가 자료를 확인한 뒤 화면과 용어에 반영합니다.</p></div><div><h3>운영자가 검토한 뒤 반영합니다.</h3><p>승인한 수정은 해당 자료에 반영하고, 교체된 화면은 이전 버전으로 남깁니다. 공개 사이트를 다시 조회하면 승인한 최신 자료를 볼 수 있습니다.</p></div><div><h3>앞으로 사용자 의견으로 수집 순서를 정합니다.</h3><p>앞으로 사용자 의견과 부족한 사례를 모아 다음에 수집할 화면과 개선할 기능의 순서를 정합니다.</p></div></div>
+    <div class="about-growth-list"><div><h3>화면과 표현을 함께 모읍니다.</h3><p>간단한 설명, 출처 링크와 캡처 이미지를 제안해 주세요. 원문과 품질을 검수한 뒤 화면과 용어에 반영합니다.</p></div><div><h3>품질 검수 후 반영합니다.</h3><p>AI 품질검수를 통과한 자료는 자동 반영하고, 판단이 어려운 자료는 담당자가 확인합니다. 승인한 수정은 해당 자료에 반영하고, 교체된 화면은 이전 버전으로 남깁니다. 공개 사이트를 다시 조회하면 승인한 최신 자료를 볼 수 있습니다.</p></div><div><h3>앞으로 사용자 의견으로 수집 순서를 정합니다.</h3><p>앞으로 사용자 의견과 부족한 사례를 모아 다음에 수집할 화면과 개선할 기능의 순서를 정합니다.</p></div></div>
    </section>
    <section class="about-closing" aria-labelledby="about-closing-title"><h2 id="about-closing-title">이제 만들려는 화면을 찾아보세요.</h2><p>What Global Standards Say · 글로벌 금융서비스의 화면과 언어를 우리 팀의 참고 자원으로.</p><a class="button primary" href="${safe(referenceHref('screens'))}">레퍼런스 찾기</a></section>
   </div>`;

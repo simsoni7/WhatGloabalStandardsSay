@@ -3,6 +3,7 @@ import {handleRequest} from './wgss/api';
 import {ApiError,Actor,Runtime,getActor,hash,stmt,content,bounded,id,now,auditStmt,serializeSubmission,submission} from './wgss/core';
 import {appliedRecords,isReviewedPublicTerm} from './wgss/publications';
 import {imageMime} from './wgss/images';
+import {verifyAutomaticRequest,automaticQueue,applyAutomaticReview,deferAutomaticReview,ingestAutomaticTerm} from './wgss/automatic-review';
 
 const FRONTEND='https://simsoni7.github.io';
 const allowedDatasets=new Set(['apache_ofbiz_accounting','apache_ofbiz_financial_entities','canada_government_financial_labels','cfpb_remittance','cfpb_remittance_receipt_labels','cfpd','eu_cpv_financial_services','malaysia_financial_dashboard','malaysia_financial_metadata','unicode_cldr_currency_names']);
@@ -76,6 +77,7 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
   if(native.role==='admin')return cors(await handleRequest(internal(request),env,native),origin);
   const url=new URL(request.url),resource=url.searchParams.get('resource')||'session';
   if(request.method==='GET'){
+   if(resource==='automaticQueue'){await verifyAutomaticRequest(request,env);return cors(Response.json(await automaticQueue(env)),origin);}
    if(resource==='session'){if(env.WGSS_PUBLIC_REVIEW==='true'){const reviewer=await publicReviewer(request);return cors(Response.json({role:'admin',userId:reviewer.userId,serviceAccess:false,publicIntake:true,publicReview:true,reviewResources:[...PUBLIC_REVIEW_RESOURCES,'publications','recordVersions'],reviewActions:PUBLIC_REVIEW_ACTIONS}),origin);}return cors(Response.json({role:'anonymous',userId:null,serviceAccess:false,publicIntake:true}),origin);}
    if(env.WGSS_PUBLIC_REVIEW==='true'&&PUBLIC_REVIEW_RESOURCES.includes(resource)){
     if(resource==='file'){const file=await stmt(env,'SELECT role FROM wgss_files WHERE id=?',bounded(url.searchParams.get('id'),'id',100,true)).first<any>();if(!file)throw new ApiError(404,'not_found','사진을 찾을 수 없습니다.');if(file.role!=='masked')throw new ApiError(403,'masked_only','개인정보를 가린 사진만 검토할 수 있습니다.');}
@@ -93,8 +95,9 @@ export async function handleIntake(request:Request,inputEnv:Runtime):Promise<Res
   const type=request.headers.get('content-type')||'';
   if(type.startsWith('multipart/form-data'))return cors(await maskedUpload(request,env,await capability(request)),origin);
   if(!type.startsWith('application/json'))throw new ApiError(415,'json_required','자료 설명은 JSON, 사진은 파일 형식으로 보내 주세요.');
-  let input:any;try{input=JSON.parse(new TextDecoder().decode(await bodyBytes(request,64000)));}catch(error){if(error instanceof ApiError)throw error;throw new ApiError(400,'invalid_json','제안 내용을 읽을 수 없습니다.');}
+  let input:any,rawBody='';try{rawBody=new TextDecoder().decode(await bodyBytes(request,64000));input=JSON.parse(rawBody);}catch(error){if(error instanceof ApiError)throw error;throw new ApiError(400,'invalid_json','제안 내용을 읽을 수 없습니다.');}
   if(!input||typeof input!=='object'||Array.isArray(input))throw new ApiError(400,'invalid_input','제안 내용을 확인해 주세요.');
+  if(['applyAutomaticReview','deferAutomaticReview','ingestAutomaticTerm'].includes(input.action)){await verifyAutomaticRequest(request,env,rawBody);return cors(Response.json(await (input.action==='applyAutomaticReview'?applyAutomaticReview(env,input):input.action==='ingestAutomaticTerm'?ingestAutomaticTerm(env,input):deferAutomaticReview(env,input))),origin);}
   if(env.WGSS_PUBLIC_REVIEW==='true'&&PUBLIC_REVIEW_ACTIONS.includes(input.action)){const response=await handleRequest(internal(request,JSON.stringify(input),'application/json'),env,await publicReviewer(request));if(response.ok&&['reviewSubmission','createVersion'].includes(input.action)){const data=await response.json() as any;if(data.item)data.item=visibleReviewItem(data.item);return cors(Response.json(data),origin);}return cors(response,origin);}
   if(env.WGSS_PUBLIC_REVIEW==='true'&&!['createSubmission','deleteOwn','deleteSubmission'].includes(input.action))throw new ApiError(403,'public_review_action_forbidden','공개 자료 검토에서 사용할 수 없는 운영 기능입니다.');
   const actor=await capability(request);

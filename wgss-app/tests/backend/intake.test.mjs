@@ -9,7 +9,7 @@ import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-intake-'));
 await mkdir(join(output,'wgss'));
-for(const name of ['providers','core','submissions','jobs','images','publications','review-draft','vision-images','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
+for(const name of ['automatic-review','providers','core','submissions','jobs','images','publications','review-draft','vision-images','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 for(const name of ['known-sources.json','evidence-index.json','reference-index.json'])await copyFile(join(root,'server/wgss',name),join(output,'wgss',name));
 await writeFile(join(output,'intake.js'),ts.transpileModule(await readFile(join(root,'server/intake.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 const require=createRequire(import.meta.url),{handleIntake}=require(join(output,'intake.js')),{hash}=require(join(output,'wgss/core.js'));
@@ -184,4 +184,29 @@ test('public review can register a new service while ordinary contribution capab
  assert.equal(made.status,200,JSON.stringify(made.body));assert.equal(made.body.item.kind,'wallet');
  const listed=await request(null,null,'providers');assert.equal(listed.status,200);assert(listed.body.items.some(p=>p.id===made.body.item.id));
  const denied=await request(token(),{action:'createProvider',name:'Not permitted wallet'});assert.equal(denied.status,403);
+});
+
+test('automatic reviewer requires a fresh body-bound signature and preserves automated provenance',async()=>{
+ const autoEnv={...env,BEDROCK_API_KEY:'test-automation-key'};
+ async function signed(payload=null,resource=null,stamp=String(Math.floor(Date.now()/1000))){
+  const url=base+(resource?'?resource='+resource:''),method=payload?'POST':'GET',body=payload?JSON.stringify(payload):'',u=new URL(url);
+  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(autoEnv.BEDROCK_API_KEY),{name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const message=['wgss-quality-v1',stamp,method,u.pathname+u.search,body].join('\n');
+  const signature=Buffer.from(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(message))).toString('hex');
+  const response=await handleIntake(new Request(url,{method,headers:{'Content-Type':'application/json','X-WGSS-Automation-Timestamp':stamp,'X-WGSS-Automation-Signature':signature},...(payload?{body}:{})}),autoEnv);
+  return {status:response.status,body:await response.json()};
+ }
+ assert.equal((await signed(null,'automaticQueue','1000000000')).status,401);
+ assert.equal((await request(null,null,'automaticQueue')).status,401);
+ const sourceUrl='https://raw.githubusercontent.com/unicode-org/cldr-json/'+'a'.repeat(40)+'/cldr-json/cldr-numbers-full/main/ja/currencies.json';
+ const input={action:'ingestAutomaticTerm',candidateKey:'b'.repeat(64),title:'Bahraini Dinar',termEnglish:'Bahraini Dinar',termTarget:'バーレーン ディナール',termKorean:'바레인 디나르',language:'ja',sourceUrl};
+ const first=await signed(input);assert.equal(first.status,200,JSON.stringify(first));assert.equal((await signed(input)).body.item.id,first.body.item.id);
+ const quality={model:'claude-sonnet-5',decision:'approve',confidence:.99,privacyClear:true,readable:true,koreanBasis:'source_korean_reused',koreanSourceUrl:sourceUrl.replace('/ja/','/ko/'),evidence:[{url:sourceUrl,sha256:'c'.repeat(64)}]};
+ const application={type:'terms',operation:'add',expectedRevision:0,imageFileIds:[],fields:{english:input.termEnglish,target:input.termTarget,korean:'바레인 디나르',language:'ja',sourceUrl},commercialRights:{confirmed:true,license:'Unicode-3.0',evidenceUrl:'https://www.unicode.org/license.txt',basis:'Pinned official source and original license were retrieved and verified.'}};
+ const review={action:'applyAutomaticReview',id:first.body.item.id,expectedVersion:1,quality,application,maskedFileIds:[]};
+ assert.equal((await signed({...review,quality:{...quality,confidence:.8}})).status,400);
+ assert.equal((await signed({...review,application:{...application,fields:{...application.fields,korean:''}}})).status,400);
+ const accepted=await signed(review);assert.equal(accepted.status,200,JSON.stringify(accepted));assert.equal(accepted.body.item.status,'approved');
+ assert.equal((await signed(review)).status,409);
+ const publications=await request(null,null,'publications'),row=publications.body.items.find(x=>x.patch.english===input.termEnglish&&x.patch.korean==='바레인 디나르');assert(row);assert.equal(row.patch.status,'ai_quality_reviewed');assert.equal(row.patch.koreanStatus,'source_korean_reused');assert.equal(row.patch.commercialRights.reviewMethod,'automated_source_verification');assert.equal(row.patch.qualityReview.method,'bedrock_evidence_review');
 });

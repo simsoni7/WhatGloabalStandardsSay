@@ -4,7 +4,9 @@ import {ApiError, Runtime, Actor, requireActor, actorId, now, id, stmt, rows, bo
 
 export async function createSubmission(env: Runtime, actor: Actor, input: any) {
   requireActor(actor); if (!['translation_issue','text','screen'].includes(input.kind)) throw new ApiError(400,'invalid_kind','Choose translation_issue, text, or screen.');
-  const sid = id(), time = now(), title = bounded(input.title,'title',300,true), data = JSON.stringify(content(input));
+  const external=actor.service&&actor.userId==='wgss-bedrock-quality-agent'&&/^[0-9a-f]{64}$/.test(input.candidateKey||'')?'auto-'+input.candidateKey:null;
+  if(external){const prior=await stmt(env,'SELECT * FROM wgss_submissions WHERE id=?',external).first<any>();if(prior)return {item:await serializeSubmission(env,prior),reused:true};}
+  const sid = external||id(), time = now(), title = bounded(input.title,'title',300,true), data = JSON.stringify(content(input));
   await env.DB.batch([
     stmt(env,'INSERT INTO wgss_submissions (id,owner_id,kind,status,version,title,content_json,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)',sid,actorId(actor),input.kind,'pending',1,title,data,time,time),
     stmt(env,'INSERT INTO wgss_versions (id,submission_id,version,title,content_json,status,actor_id,created_at) VALUES (?,?,?,?,?,?,?,?)',id(),sid,1,title,data,'pending',actorId(actor),time),

@@ -17,7 +17,7 @@ async function reviewedRights(actor:Actor,value:any){
  if(!commercialLicenses.has(license))throw new ApiError(400,'commercial_license_required','상업 이용을 허용하는 이용 조건을 선택해 주세요.');
  try{const u=new URL(evidenceUrl);if(u.protocol!=='https:'||u.username||u.password||!u.hostname.includes('.')||u.hostname==='localhost')throw 0;}catch{throw new ApiError(400,'rights_url_required','이용 조건을 직접 확인한 HTTPS 원문 주소를 입력해 주세요.');}
  if(basis.length<10)throw new ApiError(400,'rights_basis_required','이 이용 조건이 제안한 자료에 적용되는 이유를 10자 이상 적어 주세요.');
- const record={confirmed:true,license,evidenceUrl,basis,reviewedBy:actorId(actor),reviewedAt:now(),reviewMethod:'operator_source_review'};
+ const record={confirmed:true,license,evidenceUrl,basis,reviewedBy:actorId(actor),reviewedAt:now(),reviewMethod:actor.service&&actor.userId==='wgss-bedrock-quality-agent'?'automated_source_verification':'operator_source_review'};
  return {...record,reviewSha:await hash(JSON.stringify(record))};
 }
 const fields:Record<EntityType,string[]>={screens:['title','providerId','language','taskId','stageLabel','sourceUrl','capturedAt','appVersion','collectionReferenceId','purpose','captureDateBasis'],phrases:['text','providerId','language','taskId','context','role','sourceUrl'],terms:['english','target','korean','definition','language','sourceUrl'],features:['expression','meaning','conditions','providerId','language','taskId','workId','sourceUrl']};
@@ -99,6 +99,7 @@ async function prepareSinglePublication(env:Runtime,actor:Actor,source:any,input
    if('sourceUrl'in patch||photo)normalized.evidence=[{url:patch.sourceUrl||normalized.imagePath,sourceKind:'operator_reviewed_reference',locator:'운영자 검토',collectedAt:null}];
   }
   if(type==='screens'&&plan.photoDetails){Object.assign(normalized,{id:targetId,collectionOrder:plan.photoDetails.collectionOrder,uploadedAt:photo.created_at,captureDateBasis:patch.captureDateBasis||'upload',capturedAt:patch.capturedAt,collectedAt:patch.capturedAt,captureDateVerified:false,purpose:patch.purpose||patch.stageLabel||'',stage:patch.stageLabel||''});await prepareDerived(env,actor,source,plan.photoDetails,normalized,photo,nextVersion,statements,entries);}else if(type==='screens'&&photo){normalized.id=targetId;await prepareDerived(env,actor,source,{},normalized,photo,nextVersion,statements,entries);}
+  if(actor.service&&actor.userId==='wgss-bedrock-quality-agent'&&input.automaticQuality){normalized.qualityReview=input.automaticQuality;if(type==='terms'){normalized.source='자동 수집 · Bedrock 품질검수';normalized.status='ai_quality_reviewed';normalized.koreanStatus=input.automaticQuality.koreanBasis||'ai_quality_reviewed';normalized.koreanSourceUrl=input.automaticQuality.koreanSourceUrl;}}
   const pid=id(),revision=expected+1,time=now();statements.push(stmt(env,'INSERT INTO wgss_publications (id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,actor_id,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',pid,type,targetId,revision,source.id,nextVersion,JSON.stringify(normalized),'applied',actorId(actor),time));entries.push({id:pid,type,targetId,revision});
  }
  return {statements,entries};

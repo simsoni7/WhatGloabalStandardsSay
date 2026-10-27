@@ -73,8 +73,8 @@ for(const name of ['publications.js','styles.css','about.js','about.css','dictio
 let html=await readFile(join(root,'integration-ui/index.html'),'utf8');
 html=html.replaceAll('/workspace/',base).replace('href="/favicon.svg"','href="'+base+'favicon.svg"');
 html=html.replace('<script defer src="'+base+'publications.js">','<script defer src="'+base+'pages-runtime.js"></script><script defer src="'+base+'publications.js">');
-const published=new Date(approved.exportedAt).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-html=html.replace('</header>','</header><p class="publication-date">공개 자료 반영 '+published+' (KST)</p>');
+const published=new Date(approved.items.map(x=>x.appliedAt).filter(Boolean).sort().at(-1)||approved.exportedAt).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+html=html.replace('</header>','</header><p id="publication-date" class="publication-date">최근 승인 반영 '+published+' (KST)</p>');
 await put('index.html',html);await put('.nojekyll','');
 await put('styles.css',(await readFile(join(output,'styles.css'),'utf8'))+'\n.release-update{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1248px;margin:12px auto;padding:12px 32px;border-bottom:1px solid #e5e5e5;font-size:14px;}.publication-date{max-width:1248px;margin:12px auto 0;padding:0 32px;font-size:12px;color:#616161;}\n');
 const filesToVersion=['pages-runtime.js','publications.js','app.js','styles.css','about.js','about.css','dictionary.js','dictionary.css','operations.js','operations.css','features.js','features.css','review.js','review.css'];

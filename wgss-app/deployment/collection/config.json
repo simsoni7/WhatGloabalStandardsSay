@@ -10,7 +10,7 @@
   "maxTermBacklog": 120,
   "submissionsPerRun": {
     "screen": 2,
-    "term": 6
+    "term": 0
   },
   "languages": [
     "ko",
@@ -218,5 +218,8 @@
     "zh-Hans",
     "zh-Hant",
     "cs"
-  ]
+  ],
+  "autoPublish": true,
+  "qualityTermsPerRun": 40,
+  "maxQualityCalls": 24
 }

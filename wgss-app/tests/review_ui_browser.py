@@ -46,7 +46,7 @@ async def run():
    application=await page.evaluate("WGSSApplied.application(document.querySelector('#review-form'))")
    ck('approval maps all photos to their own titles and OCR',len(application['photos'])==3 and application['photos'][0]['fields']['title']=='직접 고친 제목' and application['photos'][2]['fields']['title']=='고객센터 3' and application['photos'][0]['phrases'][1]['text']=='문의하기' and application['photos'][0]['phrases'][1]['role']=='button')
    ck('company function is derived from the selected task',application['photos'][0]['feature']['workId']=='support-case' and application['photos'][0]['feature']['expression']=='고객센터')
-   await page.evaluate("WGSSReview.validateDecision(document.querySelector('#review-form'),'approved')")
+   await page.evaluate("document.querySelector('[name=privacyReviewed]').checked=true;document.querySelector('[name=readabilityReviewed]').checked=true;WGSSReview.validateDecision(document.querySelector('#review-form'),'approved')")
    ck('approve defaults reason without extra entry',await page.locator('[name="reason"]').input_value()=='내용 확인 후 승인')
    await page.locator('[name="reason"]').fill('')
    ck('holding requires actual explanation',await page.evaluate("(()=>{try{WGSSReview.validateDecision(document.querySelector('#review-form'),'held');return false}catch(e){return e.message.includes('사유')}})()"))

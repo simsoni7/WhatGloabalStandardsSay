@@ -3,7 +3,7 @@ import {getActor} from '../../../server/wgss/core.ts';
 import assets from './assets.json';
 import governance from './governance.json';
 const defaultPublicBase='https://3.36.58.188/WhatGloabalStandardsSay/wgss/';
-function absolute(value){if(Array.isArray(value))return value.map(absolute);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,absolute(v)]));if(typeof value==='string'&&value.startsWith('/WhatGloabalStandardsSay/wgss/'))return new URL(value,defaultPublicBase).href;return value;}
+function absolute(value,readerBase=defaultPublicBase){if(Array.isArray(value))return value.map(v=>absolute(v,readerBase));if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,absolute(v,readerBase)]));if(typeof value==='string'&&value.startsWith('/WhatGloabalStandardsSay/wgss/'))return new URL(value,readerBase).href;return value;}
 export default {async fetch(request,env){
  const publicBase=env.WGSS_PUBLIC_READER_BASE||defaultPublicBase;
  const url=new URL(request.url);
@@ -16,7 +16,12 @@ export default {async fetch(request,env){
  }
  if(url.pathname==='/health')return Response.json({service:'wgss-public-intake',ready:true,rateLimitIdentity:request.headers.has('cf-connecting-ip')?'per-address':'shared-fallback'});
  if(url.pathname==='/integration-data/catalog.json'){
-  const response=await fetch(publicBase+'integration-data/catalog.json',{cache:'no-store'});if(!response.ok)return new Response('공개 자료를 불러오지 못했습니다.',{status:502});return Response.json(absolute(await response.json()));
+  // Some Worker egress paths cannot fetch an IP-literal origin. The preserved
+  // public mirror supplies identical base data; approvals still use this API.
+  for(const reader of [...new Set([publicBase,'https://simsoni7.github.io/WhatGloabalStandardsSay/wgss/'])]){
+   try{const response=await fetch(reader+'integration-data/catalog.json',{cache:'no-store',signal:AbortSignal.timeout(5000)});if(response.ok)return Response.json(absolute(await response.json(),reader));}catch{}
+  }
+  return new Response('공개 자료를 불러오지 못했습니다.',{status:502});
  }
  if(url.pathname==='/workspace'||url.pathname==='/workspace/')return new Response(assets['index.html'],{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
  const name=url.pathname.replace(/^\/workspace\//,'');

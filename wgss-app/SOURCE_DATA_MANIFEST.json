@@ -1,7 +1,7 @@
 {
   "schema": "wgss-source-data-package/v1",
   "createdAt": "2026-10-16",
-  "baseCommit": "35badf1efa717a32985a52e6a7fd5e6d905a2043",
+  "baseCommit": "129361633f46a4bce0d1162be04a9ce2c6af7235",
   "scope": "Integrated source, published financial references, multilingual source rows and evidence; excludes runtime logs, secrets and pending private submissions.",
   "entrypoints": {
     "publicFrontend": "scripts/build-github-pages.mjs",
@@ -485,8 +485,8 @@
     },
     {
       "path": "deployment/ec2/nginx-https.conf",
-      "bytes": 2564,
-      "sha256": "c0e9ce707b1bbeb64a8092022862821411892aea2fb791fcc88a2774c00cb66d"
+      "bytes": 2608,
+      "sha256": "8e9a0a475c67630a5b437866f8969e7cc48e3573fca5062674471904f0344dd0"
     },
     {
       "path": "deployment/ec2/renew.sh",
@@ -545,8 +545,8 @@
     },
     {
       "path": "deployment/public-intake/worker/index.js",
-      "bytes": 2298,
-      "sha256": "df1bc33b373e8b533cea209f172b3aecca88bd95be9536abf35d325e69f8acd1"
+      "bytes": 2671,
+      "sha256": "01476714a5abd58ae5cb2d50347d4748e9a5665aa3116ac2abfdaceca0490295"
     },
     {
       "path": "drizzle.config.ts",
@@ -5122,6 +5122,11 @@
       "path": "tests/model_candidate_binding.py",
       "bytes": 1462,
       "sha256": "59aa50b5b3659102041e1e8c2d3c9395167d141964c20abf3dd99a106996f0df"
+    },
+    {
+      "path": "tests/native_catalogue_fallback.mjs",
+      "bytes": 1320,
+      "sha256": "1b620d2271298e69a698f9325aa2c3115ad8a2dc2d4af2852319fd0482da5c81"
     },
     {
       "path": "tests/native_contribution_browser.py",

@@ -68,6 +68,14 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(result[0]['status'], 'unchanged')
             model.call.assert_not_called()
 
+    def test_unchanged_landing_still_explores_unvisited_workflow(self):
+        evidence={'sourceUrl':'https://bank.test/','visibleText':'Welcome','imageSha256':'known','links':[{'url':'https://bank.test/login','text':'Log in'}]}
+        next_evidence={**evidence,'sourceUrl':'https://bank.test/login','imageSha256':'known2','links':[]}
+        with patch.object(c,'capture',side_effect=[evidence,next_evidence]) as capture, patch.object(c,'public_url',return_value=True):
+            result=c.research_screen({'url':'https://bank.test/','domains':['bank.test']},Path('/unused'),unittest.mock.Mock(),[],set(),{'known','known2'})
+        self.assertEqual(capture.call_count,2)
+        self.assertEqual([x['url'] for x in result],['https://bank.test/','https://bank.test/login'])
+
     def test_recent_delivery_limit_preserves_interactive_capacity(self):
         with tempfile.TemporaryDirectory() as directory:
             db = c.Store(Path(directory) / 'state.sqlite')
@@ -78,6 +86,17 @@ class CollectionTests(unittest.TestCase):
                 result = c.deliver(db, 'https://example.com', {'term': 6, 'screen': 2})
                 self.assertTrue(result['deferredByHourlyBudget'])
                 api.assert_not_called()
+
+    def test_signed_automatic_terms_do_not_consume_public_intake_budget(self):
+        with tempfile.TemporaryDirectory() as directory:
+            db=c.Store(Path(directory)/'state.sqlite')
+            for i in range(10):db.add(str(i),'term',{'language':'ko'})
+            db.db.execute("UPDATE candidates SET status='published',submission_id='auto-'||key,submitted_at=?",(c.now(),));db.db.commit()
+            db.add('screen','screen',{'image':'/unused'})
+            with patch.object(c,'api_request'),patch.object(c.Path,'read_bytes',side_effect=ValueError('test_capture')):
+                result=c.deliver(db,'https://example.com',{'term':0,'screen':1})
+            self.assertNotIn('deferredByHourlyBudget',result)
+            self.assertEqual(result['errors'],[{'kind':'screen','code':'test_capture'}])
 
     def test_screenshot_phrases_must_exist_in_viewport_text(self):
         raw = {'usable': True, 'containsPersonalData': False, 'overlayObscuresContent': False, 'kind': 'blank_form', 'title': 'Sign in', 'purpose': '로그인', 'language': 'en', 'taskId': 'login', 'phrases': ['Sign in', 'Forgot password', 'not in screenshot']}

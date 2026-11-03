@@ -8,11 +8,11 @@ import ts from 'typescript';
 import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-api-'));
-for(const name of ['providers','core','submissions','jobs','images','publications','review-draft','vision-images','api']) {
+for(const name of ['reference-data','providers','core','submissions','jobs','images','publications','review-draft','vision-images','api']) {
   const source=await readFile(join(root,'server/wgss',`${name}.ts`),'utf8');
   await writeFile(join(output,`${name}.js`),ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 }
-for(const name of ['known-sources.json','evidence-index.json','reference-index.json']) {try {await copyFile(join(root,'server/wgss',name),join(output,name));} catch(error){if(error.code!=='ENOENT')throw error;} }
+for(const name of ['known-sources.json','evidence-index.json','reference-index.json','research-languages.json']) {try {await copyFile(join(root,'server/wgss',name),join(output,name));} catch(error){if(error.code!=='ENOENT')throw error;} }
 const require=createRequire(import.meta.url),{handleRequest}=require(join(output,'api.js')),{getActor,hash}=require(join(output,'core.js'));
 const miniflare=new Miniflare({modules:true,script:'export default { fetch(){return new Response("test")} }',compatibilityDate:'2026-05-15',d1Databases:{DB:'wgss-test'},r2Buckets:['BUCKET']});
 const DB=await miniflare.getD1Database('DB'),BUCKET=await miniflare.getR2Bucket('BUCKET');

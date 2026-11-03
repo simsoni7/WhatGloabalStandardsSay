@@ -1,5 +1,5 @@
 import {providerList} from './providers';
-import index from './reference-index.json';
+import index from './reference-data';
 import {ApiError,Runtime,Actor,requireActor,actorId,stmt,rows,hash,now,id,bounded,parse,submission,auditStmt} from './core';
 import {boundedBody} from './jobs';
 import {imageMime} from './images';

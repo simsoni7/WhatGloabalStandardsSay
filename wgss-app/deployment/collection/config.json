@@ -3,8 +3,8 @@
   "model": "claude-sonnet-5",
   "scheduleDescription": "매일 03:00·09:00·15:00·21:00 (Asia/Seoul), 6시간 간격",
   "intakeApi": "https://wgss-public-intake.booknfoto461.chatgpt.site/api/wgss",
-  "maxBedrockCalls": 12,
-  "screensPerRun": 4,
+  "maxBedrockCalls": 24,
+  "screensPerRun": 6,
   "languagesPerRun": 2,
   "pairsPerLanguage": 18,
   "maxTermBacklog": 120,
@@ -13,6 +13,13 @@
     "term": 0
   },
   "languages": [
+    "tr",
+    "ta",
+    "uk",
+    "gu",
+    "mr",
+    "si",
+    "az",
     "ko",
     "ja",
     "ar",
@@ -50,6 +57,113 @@
     "et"
   ],
   "screenSeeds": [
+    {
+      "provider": "Robinhood",
+      "providerId": "",
+      "url": "https://robinhood.com/login",
+      "domains": [
+        "robinhood.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "Charles Schwab",
+      "providerId": "",
+      "url": "https://client.schwab.com/Login/SignOn/CustomerCenterLogin.aspx",
+      "domains": [
+        "schwab.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "E*TRADE",
+      "providerId": "",
+      "url": "https://us.etrade.com/e/t/user/login",
+      "domains": [
+        "etrade.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "Interactive Brokers",
+      "providerId": "",
+      "url": "https://ndcdyn.interactivebrokers.com/sso/Login",
+      "domains": [
+        "interactivebrokers.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "Fidelity",
+      "providerId": "",
+      "url": "https://digital.fidelity.com/prgw/digital/login/full-page",
+      "domains": [
+        "fidelity.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "Kraken",
+      "providerId": "",
+      "url": "https://id.kraken.com/sign-in",
+      "domains": [
+        "kraken.com"
+      ],
+      "language": "en",
+      "registerProvider": true,
+      "providerKind": "other"
+    },
+    {
+      "provider": "bunq",
+      "providerId": "",
+      "url": "https://web.bunq.com/",
+      "domains": [
+        "bunq.com"
+      ],
+      "language": "en",
+      "registerProvider": true
+    },
+    {
+      "provider": "Monese",
+      "providerId": "",
+      "url": "https://signup.monese.com/?lng=en",
+      "domains": [
+        "monese.com"
+      ],
+      "language": "en",
+      "registerProvider": true
+    },
+    {
+      "provider": "Trade Republic",
+      "providerId": "",
+      "url": "https://app.traderepublic.com/login",
+      "domains": [
+        "traderepublic.com"
+      ],
+      "language": "en",
+      "registerProvider": true
+    },
+    {
+      "provider": "Nordea",
+      "providerId": "",
+      "url": "https://www.nordea.fi/netbank",
+      "domains": [
+        "nordea.fi",
+        "nordea.com"
+      ],
+      "language": "fi",
+      "registerProvider": true
+    },
     {
       "provider": "Metro Bank",
       "providerId": "",
@@ -199,7 +313,8 @@
   ],
   "termSources": [
     "cldr",
-    "ofbiz"
+    "ofbiz",
+    "mifos_web_app"
   ],
   "ofbizLanguages": [
     "ar",
@@ -220,6 +335,22 @@
     "cs"
   ],
   "autoPublish": true,
-  "qualityTermsPerRun": 40,
-  "maxQualityCalls": 24
+  "qualityTermsPerRun": 60,
+  "maxQualityCalls": 32,
+  "sourceLanguages": {
+    "mifos_web_app": [
+      "az",
+      "lt",
+      "lv",
+      "sw",
+      "ne",
+      "cs",
+      "de",
+      "es",
+      "fr",
+      "it",
+      "ko",
+      "pt"
+    ]
+  }
 }

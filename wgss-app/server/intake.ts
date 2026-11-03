@@ -1,4 +1,4 @@
-import referenceIndex from './wgss/reference-index.json';
+import referenceIndex from './wgss/reference-data';
 import {handleRequest} from './wgss/api';
 import {ApiError,Actor,Runtime,getActor,hash,stmt,content,bounded,id,now,auditStmt,serializeSubmission,submission} from './wgss/core';
 import {appliedRecords,isReviewedPublicTerm} from './wgss/publications';

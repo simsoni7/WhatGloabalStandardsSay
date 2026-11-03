@@ -46,8 +46,18 @@ def signed_api(api, secret, payload=None, resource=None):
     request = urllib.request.Request(url, data=body if method == 'POST' else None, headers={
         'User-Agent': USER_AGENT, 'Content-Type': 'application/json',
         'X-WGSS-Automation-Timestamp': timestamp, 'X-WGSS-Automation-Signature': signature})
-    with urllib.request.build_opener(CheckedRedirect([])).open(request, timeout=90) as response:
-        return json.loads(response.read(4 * 1024 * 1024))
+    try:
+        with urllib.request.build_opener(CheckedRedirect([])).open(request, timeout=90) as response:
+            return json.loads(response.read(4 * 1024 * 1024))
+    except urllib.error.HTTPError as error:
+        # Keep actionable API codes, never response text, request data or credentials.
+        try:
+            code = json.loads(error.read(4096)).get('code', '')
+        except (ValueError, AttributeError):
+            code = ''
+        if re.fullmatch('[a-z_]{1,80}', code):
+            raise ValueError('publication_' + code) from None
+        raise
 
 
 class SourceSearchAgent:
@@ -57,6 +67,7 @@ class SourceSearchAgent:
         cache.mkdir(parents=True, exist_ok=True)
         self.korean = {}
         self.catalog = json.loads((app_root / 'integration-data/catalog.json').read_text())
+        self.catalog['languages'] += json.loads((app_root / 'server/wgss/research-languages.json').read_text())
         allowed = {x['id'] for x in self.catalog['dictionary']['datasets'] if x.get('commercial') and x.get('layer') == 'core'}
         for chunk in self.catalog['dictionary']['chunks']:
             for row in json.loads((app_root / chunk['path'].lstrip('/')).read_text())['rows']:
@@ -90,7 +101,7 @@ class SourceSearchAgent:
     def material(self, payload):
         url = payload['sourceUrl']
         u = urllib.parse.urlsplit(url)
-        if u.hostname != 'raw.githubusercontent.com' or not re.fullmatch(r'/(unicode-org/cldr-json|apache/ofbiz-framework)/[0-9a-f]{40}/.+', u.path):
+        if u.hostname != 'raw.githubusercontent.com' or not re.fullmatch(r'/(unicode-org/cldr-json|apache/ofbiz-framework|openMF/web-app)/[0-9a-f]{40}/.+', u.path):
             raise ValueError('source_requires_operator_review')
         raw = self.read(url, payload.get('sourceSha256'))
         english_raw = self.read(payload['englishSourceUrl'], payload.get('englishSourceSha256'))
@@ -125,12 +136,24 @@ class SourceSearchAgent:
             notice_url = base + '/NOTICE'
             notice = self.read(notice_url, payload.get('noticeSha256'))
             evidence.append({'url': notice_url, 'sha256': digest(notice), 'kind': 'attribution_notice'})
+        elif payload['license'] == 'MPL-2.0' and '/openMF/web-app/' in url:
+            from collection_sources import flatten
+            if b'Mozilla Public License Version 2.0' not in license_raw:
+                raise ValueError('license_not_verified')
+            code=payload['code']
+            observed_target=flatten(json.loads(raw)).get(code)
+            observed_english=flatten(json.loads(english_raw)).get(code)
+            korean_url=url.rsplit('/',1)[0]+'/ko-KO.json'
+            korean_raw=self.read(korean_url,payload.get('koreanSourceSha256'))
+            korean=flatten(json.loads(korean_raw)).get(code)
+            if korean and re.search('[가-힣]',korean):
+                source_korean={'korean':korean,'url':korean_url,'sha256':digest(korean_raw),'kind':'same_json_key_korean'}
         else:
             raise ValueError('license_not_verified')
         if norm(observed_english) != norm(payload['english']) or norm(observed_target) != norm(payload['target']):
             raise ValueError('source_pair_mismatch')
         matches = self.korean.get(norm(payload['english']).casefold(), [])
-        if not source_korean and matches and len({norm(x['korean']) for x in matches}) == 1:
+        if not source_korean and matches and len({norm(x['korean']) for x in matches}) == 1 and str(matches[0].get('url') or '').startswith('https://'):
             source_korean = matches[0]
         if source_korean:
             evidence.append({k: v for k, v in source_korean.items() if k != 'korean'})
@@ -207,6 +230,12 @@ def public_api(api, resource):
         return json.loads(response.read(8 * 1024 * 1024))
 
 
+def review_language(value, allowed):
+    if value in allowed:return value
+    base=str(value or '').split('-')[0].lower()
+    return base if base != 'zh' and base in allowed else value
+
+
 def process_screens(items, search, model, api, secret, report, limit, store=None):
     providers = public_api(api, 'resource=providers')['items']
     allowed_providers = [{'id': x['id'], 'name': x['name']} for x in providers]
@@ -229,10 +258,11 @@ def process_screens(items, search, model, api, secret, report, limit, store=None
                     raise ValueError('image_requires_operator_review')
                 prompt = '''Inspect this exact masked screenshot and contributor comment as evidence. Return JSON {"title":"visible heading or concise title","providerId":"allowed ID or empty","language":"BCP47","taskId":"allowed ID or empty","purpose":"Korean explanation","phrases":["exact visible UI phrase"],"privacyClear":true/false,"readable":true/false,"uncertain":true/false}. Do not accept cookie/challenge/error-only images or infer banking completion. Personal names, account identifiers/balances must be absent. Preserve original visible wording. If confident, use known company/service/task and language. Do not infer screen language from the comment language. Comment: ''' + json.dumps(item['current'], ensure_ascii=False) + '\nCompanies: ' + json.dumps(allowed_providers, ensure_ascii=False) + '\nTasks: ' + json.dumps(tasks, ensure_ascii=False)
                 draft = model.call(prompt, raw, max_tokens=5000)
-                review = model.call('''Independently verify this screenshot metadata and OCR draft. Return ONLY {"decision":"approve|hold","confidence":0.0,"pairAccurate":true,"koreanAccurate":true,"financeRelevant":true,"privacyClear":true,"readable":true,"reason":"Korean reason"}. Require correct visible original phrases, company/language/task, useful specific UI and no private information. A dimming cookie overlay, challenge, illegibility or ambiguity means hold. Confidence >=0.95 and all checks true are required to publish. Draft:\n''' + json.dumps(draft, ensure_ascii=False), raw, max_tokens=1800)
+                review = model.call('''Independently verify this screenshot metadata and OCR draft. Return ONLY {"decision":"approve|hold","confidence":0.0,"pairAccurate":true,"koreanAccurate":true,"financeRelevant":true,"privacyClear":true,"readable":true,"reason":"Korean reason"}. Require correct visible original phrases, company/language/task, useful specific UI and no private information. A dimming overlay or a notice hiding workflow content, challenge, illegibility or ambiguity means hold. A non-dimming corner/footer cookie notice is acceptable ONLY when all form fields, buttons and financial workflow content remain visible; omit cookie consent controls from the financial UI phrases. Confidence >=0.95 and all checks true are required to publish. Draft:\n''' + json.dumps(draft, ensure_ascii=False), raw, max_tokens=1800)
                 if not approve_decision(review) or draft.get('privacyClear') is not True or draft.get('readable') is not True or draft.get('uncertain') is not False:
                     hold_reason = str(review.get('reason') or hold_reason)[:1400]
                     raise ValueError('screen_quality_uncertain')
+                draft['language'] = review_language(draft.get('language'), languages)
                 if draft.get('providerId') not in {x['id'] for x in providers} or draft.get('taskId') not in {x['id'] for x in tasks} or draft.get('language') not in languages:
                     raise ValueError('screen_identity_uncertain')
                 phrases = list(dict.fromkeys(x.strip() for x in draft.get('phrases', []) if isinstance(x, str) and 1 < len(x.strip()) <= 1000))[:40]
@@ -256,6 +286,8 @@ def process_screens(items, search, model, api, secret, report, limit, store=None
             report['held'].append({'id': item['id'], 'code': safe_error(error)})
             if isinstance(error, ValueError):
                 signed_api(api, secret, {'action': 'deferAutomaticReview', 'id': item['id'], 'expectedVersion': item['version'], 'reason': '자동 검수 보류: '+hold_reason+' (' + safe_error(error) + ')'})
+                if store:
+                    store.db.execute("UPDATE candidates SET status='needs_review',error=? WHERE submission_id=?",(safe_error(error),item['id']));store.db.commit()
 
 
 def run_quality(app_root, state_dir, api, secret, max_terms=40, max_calls=24, max_screens=2,retry_held=False):
@@ -302,35 +334,40 @@ def run_quality(app_root, state_dir, api, secret, max_terms=40, max_calls=24, ma
                 complete_korean(batch, model)
                 decisions = quality_terms(batch, model)
                 for material in batch:
-                    decision = decisions[material['key']]
-                    row, payload, item = material['row'], material['payload'], material['item']
-                    if not material['korean'] or not approve_decision(decision):
-                        report['held'].append({'id': row['submission_id'], 'code': 'quality_uncertain', 'reason': decision.get('reason', '')})
+                    try:
+                        decision = decisions[material['key']]
+                        row, payload, item = material['row'], material['payload'], material['item']
+                        if not material['korean'] or not approve_decision(decision):
+                            report['held'].append({'id': row['submission_id'], 'code': 'quality_uncertain', 'reason': decision.get('reason', '')})
+                            if not item:
+                                submitted = proposal(payload, 'term')
+                                submitted.update(action='ingestAutomaticTerm', candidateKey=row['key'].split(':', 1)[1], termKorean=material['korean'])
+                                item = signed_api(api, secret, submitted)['item']
+                            signed_api(api, secret, {'action': 'deferAutomaticReview', 'id': item['id'], 'expectedVersion': item['version'], 'reason': '자동 검수 보류: ' + str(decision.get('reason') or '원문 대응이나 한국어 설명을 확정하지 못했습니다.')[:1500]})
+                            store.db.execute("UPDATE candidates SET status='needs_review',submission_id=? WHERE key=?", (item['id'], row['key']));store.db.commit()
+                            continue
+                        payload['korean'] = material['korean']
                         if not item:
                             submitted = proposal(payload, 'term')
                             submitted.update(action='ingestAutomaticTerm', candidateKey=row['key'].split(':', 1)[1], termKorean=material['korean'])
                             item = signed_api(api, secret, submitted)['item']
-                        signed_api(api, secret, {'action': 'deferAutomaticReview', 'id': item['id'], 'expectedVersion': item['version'], 'reason': '자동 검수 보류: ' + str(decision.get('reason') or '원문 대응이나 한국어 설명을 확정하지 못했습니다.')[:1500]})
-                        store.db.execute("UPDATE candidates SET status='needs_review',submission_id=? WHERE key=?", (item['id'], row['key']));store.db.commit()
-                        continue
-                    payload['korean'] = material['korean']
-                    if not item:
-                        submitted = proposal(payload, 'term')
-                        submitted.update(action='ingestAutomaticTerm', candidateKey=row['key'].split(':', 1)[1], termKorean=material['korean'])
-                        item = signed_api(api, secret, submitted)['item']
-                        store.db.execute("UPDATE candidates SET status='submitted',submission_id=?,submitted_at=? WHERE key=?", (item['id'], now(), row['key']));store.db.commit()
-                    if item['status'] == 'approved':
-                        store.db.execute("UPDATE candidates SET status='published' WHERE key=?", (row['key'],));store.db.commit()
-                        continue
-                    quality = {'model': model.model, 'decision': 'approve', 'confidence': decision['confidence'], 'privacyClear': True, 'readable': True,
-                               'evidence': material['evidence'], 'koreanBasis': material['koreanBasis'], 'koreanSourceUrl': (material['sourceKorean'] or {}).get('url')}
-                    signed_api(api, secret, {'action': 'applyAutomaticReview', 'id': item['id'], 'expectedVersion': item['version'], 'maskedFileIds': [], 'application': term_application(material), 'quality': quality})
-                    store.db.execute("UPDATE candidates SET status='published',payload=?,error=NULL WHERE key=?", (json.dumps(payload, ensure_ascii=False), row['key']));store.db.commit()
-                    report['termsPublished'] += 1
-                    print(json.dumps({'qualityPublished': payload['code'], 'language': payload['language'], 'korean': material['korean']}, ensure_ascii=False), flush=True)
+                            store.db.execute("UPDATE candidates SET status='submitted',submission_id=?,submitted_at=? WHERE key=?", (item['id'], now(), row['key']));store.db.commit()
+                        if item['status'] == 'approved':
+                            store.db.execute("UPDATE candidates SET status='published' WHERE key=?", (row['key'],));store.db.commit()
+                            continue
+                        quality = {'model': model.model, 'decision': 'approve', 'confidence': decision['confidence'], 'privacyClear': True, 'readable': True,
+                                   'evidence': material['evidence'], 'koreanBasis': material['koreanBasis'], 'koreanSourceUrl': (material['sourceKorean'] or {}).get('url')}
+                        signed_api(api, secret, {'action': 'applyAutomaticReview', 'id': item['id'], 'expectedVersion': item['version'], 'maskedFileIds': [], 'application': term_application(material), 'quality': quality})
+                        store.db.execute("UPDATE candidates SET status='published',payload=?,error=NULL WHERE key=?", (json.dumps(payload, ensure_ascii=False), row['key']));store.db.commit()
+                        report['termsPublished'] += 1
+                        print(json.dumps({'qualityPublished': payload['code'], 'language': payload['language'], 'korean': material['korean']}, ensure_ascii=False), flush=True)
+                    except Exception as error:
+                        code = safe_error(error)
+                        report['errors'].append({'stage': 'term_publication', 'key': material['key'], 'code': code})
+                        store.db.execute('UPDATE candidates SET error=? WHERE key=?', (code, material['key']));store.db.commit()
             except Exception as error:
                 report['errors'].append({'stage': 'term_batch', 'code': safe_error(error)})
-        process_screens(queue, search, model, api, secret, report, max_screens,store)
+        process_screens([x for x in queue if x['status']=='pending' or retry_held], search, model, api, secret, report, max_screens,store)
         report.update(completedAt=now(), status='partial' if report['errors'] else 'completed', bedrock={'attempted': model.calls, 'completed': model.succeeded, 'tokens': model.tokens}, queue=store.counts())
         atomic_json(state_dir / 'quality-latest.json', report)
         atomic_json(state_dir / 'quality-runs' / (report['startedAt'].replace(':', '-') + '.json'), report)

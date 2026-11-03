@@ -25,6 +25,8 @@ await copyDirectory(join(root,'integration-data'),'integration-data');
 await copyDirectory(join(root,'public/assets'),'assets');
 await put('favicon.svg',await readFile(join(root,'public/favicon.svg')));
 const catalog=await filterCommercialOutput({output,base});
+const extraLanguages=JSON.parse(await readFile(root+'/server/wgss/research-languages.json','utf8'));
+catalog.languages.push(...extraLanguages.filter(x=>!catalog.languages.some(y=>y.id===x.id)));
 // Historical provenance is immutable source; publication authorization is recorded separately.
 catalog.publicRelease={authorizedBy:'project_owner_request',authorizedDate:'2026-10-16',sourceCommit:snapshot.sourceCommit,snapshotAt:snapshot.exportedAt,liveUpdates:true};
 catalog.policies.tossImport='101 exact independently reviewed masked v6 copies. Project owner authorized public release on 2026-10-16. Capture date, original URL, operator and UI version remain unknown. Groups are not verified navigation.';
@@ -40,7 +42,7 @@ const intakeBase=process.env.WGSS_INTAKE_BASE||'https://wgss-public-intake.bookn
 const allowedTermIds=new Set();for(const chunk of catalog.dictionary.chunks)for(const row of JSON.parse(await readFile(join(output,chunk.path.slice(base.length)),'utf8')).rows)allowedTermIds.add(row.id);
 let approved={...snapshot,backendBase:intakeBase,liveUpdates:true};
 try{const response=await fetch(intakeBase+'/api/wgss?resource=publications',{signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('Live snapshot unavailable');const data=await response.json();approved={...approved,exportedAt:new Date().toISOString(),items:data.items,providers:data.providers||[],versions:{}};for(const entry of approved.items.filter(e=>e.type==='screens')){const r=await fetch(intakeBase+'/api/wgss?resource=recordVersions&type=screens&id='+encodeURIComponent(entry.targetId),{signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('Version snapshot unavailable');approved.versions[entry.targetId]=(await r.json()).items;}}catch{console.warn('Using the retained approved snapshot as the offline fallback');}
-const reviewedTerm=e=>{const p=e.patch,r=p?.commercialRights;return e.targetId?.startsWith('contribution:terms:')&&p?.id===e.targetId&&p.datasetId==='wgss_reviewed_terms'&&p.recordType==='contributed_term'&&p.commercial===true&&p.layer==='reviewed'&&r?.confirmed===true&&['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain'].includes(r.license)&&/^https:\/\//.test(r.evidenceUrl||'')&&r.basis?.length>=10&&/^[0-9a-f]{64}$/.test(r.reviewSha||'');};
+const reviewedTerm=e=>{const p=e.patch,r=p?.commercialRights;return e.targetId?.startsWith('contribution:terms:')&&p?.id===e.targetId&&p.datasetId==='wgss_reviewed_terms'&&p.recordType==='contributed_term'&&p.commercial===true&&p.layer==='reviewed'&&r?.confirmed===true&&['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain','MPL-2.0'].includes(r.license)&&/^https:\/\//.test(r.evidenceUrl||'')&&r.basis?.length>=10&&/^[0-9a-f]{64}$/.test(r.reviewSha||'');};
 approved.items=(approved.items||[]).filter(e=>e.type!=='terms'||allowedTermIds.has(e.targetId)||reviewedTerm(e));
 await json('approved-snapshot.json',rewrite(approved));
 const config={base,intakeBase,release,snapshotAt:approved.exportedAt};

@@ -1,5 +1,5 @@
 import {providerList} from './providers';
-import referenceIndex from './reference-index.json';
+import referenceIndex from './reference-data';
 import {ApiError,Runtime,Actor,requireActor,stmt,rows,bounded,parse,id,now,actorId,hash} from './core';
 const types=['screens','phrases','terms','features'] as const;
 type EntityType=typeof types[number];
@@ -8,7 +8,7 @@ const base=new Map<string,any>();
 for(const type of types)for(const row of index[type])base.set(type+':'+row.id,row);
 const sets={providerId:new Set(index.providers.map((r:any)=>r.id)),language:new Set(index.languages.map((r:any)=>r.id)),taskId:new Set(index.tasks.map((r:any)=>r.id)),workId:new Set(index.works.map((r:any)=>r.id))};
 export const reviewedTermDataset='wgss_reviewed_terms';
-const commercialLicenses=new Set(['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain']);
+const commercialLicenses=new Set(['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain','MPL-2.0']);
 export function isReviewedPublicTerm(patch:any,targetId?:string|null){const review=patch?.commercialRights;return !!patch&&patch.id===targetId&&String(targetId||'').startsWith('contribution:terms:')&&patch.datasetId===reviewedTermDataset&&patch.recordType==='contributed_term'&&patch.commercial===true&&patch.layer==='reviewed'&&review?.confirmed===true&&commercialLicenses.has(review.license)&&typeof review.basis==='string'&&review.basis.length>=10&&/^https:\/\//.test(review.evidenceUrl||'')&&/^\d{4}-\d{2}-\d{2}T/.test(review.reviewedAt||'')&&/^[0-9a-f]{64}$/.test(review.reviewSha||'');}
 async function reviewedRights(actor:Actor,value:any){
  requireActor(actor,true);
@@ -99,7 +99,7 @@ async function prepareSinglePublication(env:Runtime,actor:Actor,source:any,input
    if('sourceUrl'in patch||photo)normalized.evidence=[{url:patch.sourceUrl||normalized.imagePath,sourceKind:'operator_reviewed_reference',locator:'운영자 검토',collectedAt:null}];
   }
   if(type==='screens'&&plan.photoDetails){Object.assign(normalized,{id:targetId,collectionOrder:plan.photoDetails.collectionOrder,uploadedAt:photo.created_at,captureDateBasis:patch.captureDateBasis||'upload',capturedAt:patch.capturedAt,collectedAt:patch.capturedAt,captureDateVerified:false,purpose:patch.purpose||patch.stageLabel||'',stage:patch.stageLabel||''});await prepareDerived(env,actor,source,plan.photoDetails,normalized,photo,nextVersion,statements,entries);}else if(type==='screens'&&photo){normalized.id=targetId;await prepareDerived(env,actor,source,{},normalized,photo,nextVersion,statements,entries);}
-  if(actor.service&&actor.userId==='wgss-bedrock-quality-agent'&&input.automaticQuality){normalized.qualityReview=input.automaticQuality;if(type==='terms'){normalized.source='자동 수집 · Bedrock 품질검수';normalized.status='ai_quality_reviewed';normalized.koreanStatus=input.automaticQuality.koreanBasis||'ai_quality_reviewed';normalized.koreanSourceUrl=input.automaticQuality.koreanSourceUrl;}}
+  if(actor.service&&actor.userId==='wgss-bedrock-quality-agent'&&input.automaticQuality){normalized.qualityReview=input.automaticQuality;if(type==='terms'){normalized.source='자동 수집 · Bedrock 품질검수';if(/^https:\/\/raw\.githubusercontent\.com\/openMF\/web-app\//.test(patch.sourceUrl||'')){normalized.sourceDatasetId='mifos_web_app';normalized.source='Mifos Web App · 금융업무 UI';}normalized.status='ai_quality_reviewed';normalized.koreanStatus=input.automaticQuality.koreanBasis||'ai_quality_reviewed';normalized.koreanSourceUrl=input.automaticQuality.koreanSourceUrl;}}
   const pid=id(),revision=expected+1,time=now();statements.push(stmt(env,'INSERT INTO wgss_publications (id,target_type,target_id,revision,source_submission_id,source_version,patch_json,state,actor_id,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',pid,type,targetId,revision,source.id,nextVersion,JSON.stringify(normalized),'applied',actorId(actor),time));entries.push({id:pid,type,targetId,revision});
  }
  return {statements,entries};

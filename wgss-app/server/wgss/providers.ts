@@ -1,4 +1,4 @@
-import referenceIndex from './reference-index.json';
+import referenceIndex from './reference-data';
 import {ApiError,Runtime,Actor,requireActor,rows,stmt,bounded,now,hash,auditStmt,parse} from './core';
 
 export const providerKinds=['bank','payment','wallet','other'] as const;

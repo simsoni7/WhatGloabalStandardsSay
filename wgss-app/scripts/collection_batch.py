@@ -275,11 +275,20 @@ def validate_screen(raw, evidence, task_ids):
 def research_screen(seed, directory, model, tasks, seen_keys, known_images=frozenset()):
     outcomes = []
     evidence = capture(seed, directory)
-    for iteration in range(2):
+    visited = {seed.get('url')}
+    for iteration in range(3):
         key = 'screen:' + digest([VERSION, evidence['sourceUrl'], norm(evidence['visibleText'])])
         if key in seen_keys or evidence['imageSha256'] in known_images:
             outcomes.append({'key': key, 'status': 'unchanged', 'url': evidence['sourceUrl']})
-            break
+            # A stable landing page does not mean its linked workflows are exhausted.
+            follow = next((x['url'] for x in evidence.get('links', [])
+                           if x['url'] not in visited and 'screen-url:'+digest(x['url']) not in seen_keys
+                           and re.search(r'login|log.?in|sign.?in|sign.?up|register|forgot|password|transfer|payment|account|deposit|withdraw', x.get('text','')+' '+x['url'], re.I)
+                           and public_url(x['url'],seed['domains'])), None)
+            if iteration >= 2 or not follow:break
+            visited.add(follow)
+            evidence=capture({**seed,'url':follow},directory)
+            continue
         prompt = '''Inspect the exact public screenshot and its visible DOM text. Return JSON {"usable":true/false,"containsPersonalData":true/false,"overlayObscuresContent":true/false,"kind":"blank_form|public_help|public_ui_example|other","title":"concise visible heading","language":"BCP47 code","taskId":"allowed task ID","purpose":"Korean description","phrases":["exact visible UI phrase"],"followUrl":"exact supplied link URL or empty"}.
 Accept only a useful specific financial workflow blank form/help or official UI example. Reject marketing homepages, broad FAQ indexes, errors, access challenges, blank pages and personal/filled account data. A cookie/consent/modal overlay that dims or covers the main UI makes overlayObscuresContent=true and usable=false, even when the dimmed text is readable. A footer cookie notice with no overlay is not such an obstruction. Do not click or submit anything. Extract up to 40 visible labels/headings/help/button phrases, never account details or values. If unusable and supplied links include a public blank form or specific help, select ONE such link for passive GET only; never invent a URL. Do not treat opening a form as completion of its workflow.
 Allowed tasks: ''' + json.dumps(tasks, ensure_ascii=False) + '\nSource evidence: ' + json.dumps({k: evidence[k] for k in ['provider', 'sourceUrl', 'title', 'visibleText', 'links']}, ensure_ascii=False)
@@ -287,8 +296,9 @@ Allowed tasks: ''' + json.dumps(tasks, ensure_ascii=False) + '\nSource evidence:
         candidate = validate_screen(raw, evidence, {t['id'] for t in tasks})
         outcomes.append({'key': key, 'status': 'staged' if candidate else 'excluded', 'url': evidence['sourceUrl'], 'candidate': candidate})
         follow = raw.get('followUrl')
-        if candidate or iteration or not follow or follow not in {x['url'] for x in evidence['links']} or not public_url(follow, seed['domains']):
+        if candidate or iteration >= 2 or not follow or follow in visited or follow not in {x['url'] for x in evidence['links']} or not public_url(follow, seed['domains']):
             break
+        visited.add(follow)
         evidence = capture({**seed, 'url': follow}, directory)
     return outcomes
 
@@ -348,7 +358,7 @@ def research_terms(languages, directory, model, existing, max_pairs):
 
     def collect(language):
         target, url, sha = source(f'cldr-json/cldr-numbers-full/main/{language}/currencies.json')
-        rows = [r for r in extract_currency_pairs(english, target, language, active) if pair_key(r) not in existing][:max_pairs]
+        rows = [r for r in extract_currency_pairs(english, target, language, active) if pair_key(r) not in existing and 'excluded:'+commit+':'+pair_key(r) not in existing][:max_pairs]
         if not rows:
             return {'language': language, 'observed': 0, 'accepted': [], 'revision': commit}
         raw = model.call('''Screen these exact English/target currency names from Unicode CLDR. Same explicit currency code aligns both original strings. Return only {"rows":[{"key":"exact supplied key","include":true/false,"risk":"none|alignment|unreadable"}]}, exactly one decision per key. Reject an obviously wrong currency pairing or garbled text. NEVER translate, rewrite or supply missing values. This is automated screening, not human translation approval. Evidence:\n''' + json.dumps(rows, ensure_ascii=False), max_tokens=6000)
@@ -358,7 +368,7 @@ def research_terms(languages, directory, model, existing, max_pairs):
                        locator=f'main/{language}/numbers/currencies/{row["code"]}/displayName', revision=commit,
                        license='Unicode-3.0', licenseUrl=base + 'LICENSE', licenseSha256=digest(license_raw),
                        sourceName='Unicode CLDR · 통화명', collectedAt=now(), automatedScreening=True, automaticallyPublished=False)
-        return {'language': language, 'observed': len(rows), 'accepted': accepted, 'revision': commit}
+        return {'language': language, 'observed': len(rows), 'accepted': accepted, 'revision': commit, 'excludedKeys': ['excluded:'+commit+':'+pair_key(r) for r in rows if r['key'] not in {a['key'] for a in accepted}]}
 
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
@@ -411,7 +421,7 @@ def research_ofbiz(languages, directory, model, existing, max_pairs):
     pairs = extract_ofbiz_pairs(raw, languages)
 
     def collect(language):
-        rows = [r for r in pairs[language] if pair_key(r) not in existing][:max_pairs]
+        rows = [r for r in pairs[language] if pair_key(r) not in existing and 'excluded:'+commit+':'+pair_key(r) not in existing][:max_pairs]
         if not rows:
             return {'language': language, 'observed': 0, 'accepted': [], 'revision': commit}
         decisions = model.call('''Audit these observed Apache OFBiz accounting UI bilingual strings. The exact XML property key aligns both source values. Return ONLY {"rows":[{"key":"exact key","include":true/false,"risk":"none|alignment|unreadable|nonfinancial"}]}, one decision per key. Keep useful financial account/payment/invoice/tax/ledger/asset/balance/currency terminology or specific financial UI instructions. Exclude generic software navigation, build errors, internal identifiers and nonfinancial UI text. Exclude clearly mismatched translations or garbled output. Preserve literal source text; NEVER translate, correct, complete or rewrite it. This is screening, not professional translation approval. Rows:\n''' + json.dumps(rows, ensure_ascii=False), max_tokens=6000)
@@ -421,7 +431,7 @@ def research_ofbiz(languages, directory, model, existing, max_pairs):
                        locator=f'property[@key="{row["code"]}"]/value[@xml:lang="{row["sourceLanguage"]}"]', revision=commit,
                        license='Apache-2.0', licenseUrl=base + 'LICENSE', licenseSha256=digest(license_raw), noticeSha256=digest(notice),
                        sourceName='Apache OFBiz · 회계 UI', collectedAt=now(), automatedScreening=True, automaticallyPublished=False)
-        return {'language': language, 'observed': len(rows), 'accepted': accepted, 'revision': commit}
+        return {'language': language, 'observed': len(rows), 'accepted': accepted, 'revision': commit, 'excludedKeys': ['excluded:'+commit+':'+pair_key(r) for r in rows if r['key'] not in {a['key'] for a in accepted}]}
 
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
@@ -478,7 +488,7 @@ def deliver(store, api, limits):
     # The shared intake permits ten creations per IP/hour. Reserve at least one
     # for interactive proposals, even after repeated manual service starts.
     cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=1)).isoformat()
-    budget = max(0, 9 - store.db.execute('SELECT COUNT(*) FROM candidates WHERE submission_id IS NOT NULL AND submitted_at>?', (cutoff,)).fetchone()[0])
+    budget = max(0, 9 - store.db.execute("SELECT COUNT(*) FROM candidates WHERE submission_id IS NOT NULL AND submission_id NOT LIKE 'auto-%' AND submitted_at>?", (cutoff,)).fetchone()[0])
     for kind in ['screen', 'term']:
         for row in store.pending(kind, limits[kind]):
             if not row['submission_id'] and budget <= 0:
@@ -519,6 +529,7 @@ def deliver(store, api, limits):
 
 def baseline(app_root):
     catalog = json.loads((app_root / 'integration-data/catalog.json').read_text())
+    catalog['languages'] += json.loads((app_root / 'server/wgss/research-languages.json').read_text())
     existing = set()
     for chunk in catalog['dictionary']['chunks']:
         for row in json.loads((app_root / chunk['path'].lstrip('/')).read_text())['rows']:
@@ -550,6 +561,8 @@ def run(args):
         current = dt.datetime.now(dt.timezone.utc)
         next_hour = (current.hour // 6 + 1) * 6
         summary['nextScheduledAt'] = (current.replace(hour=0, minute=0, second=0, microsecond=0) + dt.timedelta(hours=next_hour)).isoformat()
+        previous = json.loads((state/'latest.json').read_text()) if (state/'latest.json').exists() else {}
+        summary['lastCompleted'] = {k:previous.get(k) for k in ['completedAt','status','qualityReview']} if previous.get('completedAt') else previous.get('lastCompleted')
         atomic_json(state / 'latest.json', summary)
         if args.public_status:
             atomic_json(args.public_status, summary, public=True)
@@ -558,6 +571,7 @@ def run(args):
             if not set(config['languages']) <= {x['id'] for x in catalog['languages']}:
                 raise ValueError('unsupported_review_language')
             existing.update(r[0] for r in store.db.execute('SELECT key FROM candidates'))
+            existing.update(r[0] for r in store.db.execute('SELECT key FROM seen'))
             known_images = {x.get('originalSha') for x in catalog['screens'] if x.get('originalSha')}
             known_images.update(json.loads(x[0]).get('imageSha256') for x in store.db.execute("SELECT payload FROM candidates WHERE kind='screen'"))
             try:
@@ -574,6 +588,13 @@ def run(args):
             seen_keys = {r[0] for r in store.db.execute('SELECT key FROM seen')}
             seed_cursor = store.meta('seedCursor', 0)
             seeds = [config['screenSeeds'][(seed_cursor + i) % len(config['screenSeeds'])] for i in range(config['screensPerRun'])]
+            provider_data=json.loads(fetch_bytes(config['intakeApi']+'?resource=providers',[urllib.parse.urlsplit(config['intakeApi']).hostname]))['items']
+            for seed in seeds:
+                if not seed.get('providerId'):
+                    match=next((x for x in provider_data if x['name'].casefold()==seed['provider'].casefold()),None)
+                    if not match and seed.get('registerProvider') and public_url(seed['url'],seed['domains']):
+                        match=api_request(config['intakeApi'],'',json.dumps({'action':'createProvider','name':seed['provider'],'kind':seed.get('providerKind','bank'),'sourceUrl':seed['url']}).encode())['item']
+                    if match:seed['providerId']=match['id']
             tasks = [{'id': x['id'], 'label': x['label']} for x in catalog['tasks'] if x.get('groupId') != 'toss-v6-editorial']
             with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
                 jobs = [(seed, pool.submit(research_screen, seed, state / 'captures', model, tasks, seen_keys, known_images)) for seed in seeds]
@@ -591,6 +612,7 @@ def run(args):
                                 store.add(outcome['key'], 'screen', candidate)
                             if outcome.get('key'):
                                 store.remember(outcome['key'])
+                                store.remember('screen-url:'+digest(outcome['url']))
                     except Exception as error:
                         summary['errors'].append({'stage': 'screen', 'provider': seed['provider'], 'code': safe_error(error)})
             store.set_meta('seedCursor', (seed_cursor + len(seeds)) % len(config['screenSeeds']))
@@ -598,12 +620,13 @@ def run(args):
             if store.db.execute("SELECT COUNT(*) FROM candidates WHERE kind='term' AND status='staged'").fetchone()[0] < config['maxTermBacklog']:
                 source_cursor = store.meta('termSourceCursor', 0)
                 source_id = config['termSources'][source_cursor % len(config['termSources'])]
-                available_languages = config['ofbizLanguages'] if source_id == 'ofbiz' else config['languages']
+                available_languages = config.get('sourceLanguages', {}).get(source_id) or (config['ofbizLanguages'] if source_id == 'ofbiz' else config['languages'])
                 cursor = store.meta('languageCursor:' + source_id, 0)
                 languages = [available_languages[(cursor + i) % len(available_languages)] for i in range(config['languagesPerRun'])]
                 summary['terms']['source'] = source_id
                 try:
-                    collector = {'cldr': research_terms, 'ofbiz': research_ofbiz}[source_id]
+                    from collection_sources import research_mifos
+                    collector = {'cldr': research_terms, 'ofbiz': research_ofbiz, 'mifos_web_app': research_mifos}[source_id]
                     results = collector(languages, state / 'sources' / summary['startedAt'].replace(':', '-'), model, existing, config['pairsPerLanguage'])
                 except Exception as error:
                     # A source outage must not block delivery of already collected screens/pairs.
@@ -612,13 +635,16 @@ def run(args):
                 for result in results:
                     summary['terms']['languages'].append(result['language'])
                     summary['terms']['observed'] += result['observed']
+                    for excluded_key in result.get('excludedKeys',[]):store.remember(excluded_key)
                     for row in result['accepted']:
                         summary['terms']['staged'] += int(store.add(pair_key(row), 'term', row))
                     if result.get('error'):
                         summary['errors'].append({'stage': 'term', 'language': result['language'], 'code': result['error']})
-                if results:
+                if results and not any(x.get('error') for x in results):
                     store.set_meta('languageCursor:' + source_id, (cursor + len(languages)) % len(available_languages))
                     store.set_meta('termSourceCursor', (source_cursor + 1) % len(config['termSources']))
+            else:
+                summary['terms']['pausedReason']='publication_backlog_limit'
             delivery = deliver(store, config['intakeApi'], config['submissionsPerRun'])
             summary['submittedForReview'] = delivery
             summary['errors'].extend({'stage': 'delivery', **x} for x in delivery['errors'])
@@ -633,7 +659,7 @@ def run(args):
                     summary['automaticallyPublished'] = bool(quality_result.get('termsPublished') or quality_result.get('screensPublished'))
                 except Exception as error:
                     summary['errors'].append({'stage':'quality_review','code':safe_error(error)})
-            summary['status'] = 'partial' if summary['errors'] else 'completed'
+            summary['status'] = 'partial' if summary['errors'] or summary.get('qualityReview',{}).get('status') != 'completed' else 'completed'
         except Exception as error:
             summary['errors'].append({'stage': 'run', 'code': safe_error(error)})
             summary['status'] = 'failed'
@@ -646,7 +672,7 @@ def run(args):
         if args.public_status:
             atomic_json(args.public_status, summary, public=True)
         print(json.dumps(summary, ensure_ascii=False), flush=True)
-        return 1 if summary['status'] == 'failed' or summary.get('submittedForReview', {}).get('errors') else 0
+        return 1 if summary['status'] == 'failed' or summary.get('submittedForReview', {}).get('errors') or summary.get('qualityReview',{}).get('errorCount') else 0
 
 
 if __name__ == '__main__':

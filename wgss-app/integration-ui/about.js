@@ -20,6 +20,7 @@ const WGSSAbout=(()=>{
   // Never count loaded core rows again, or treat corrections as new pairs.
   const reviewedTerms=[...new Map(list(publishedTerms).filter(row=>WGSSDictionary.isReviewedTerm(row)).map(row=>[row.id,row])).values()];
   for(const row of reviewedTerms)if(row.language){const language=WGSSLanguages.filter(row.language);if(language)languageCounts.set(language,(languageCounts.get(language)||0)+1);}
+  for(const row of reviewedTerms)if(row.sourceDatasetId&&!datasets.some(x=>x.id===row.sourceDatasetId))datasets.push({id:row.sourceDatasetId,name:row.source});
   const dictionaryRows=coreRows+reviewedTerms.length;
   const screens=list(catalog.screens),phrases=list(catalog.phrases);
   return {datasets,dictionaryRows,reviewedTermCount:reviewedTerms.length,languageCounts,languageTotalsComplete,screens,phrases,

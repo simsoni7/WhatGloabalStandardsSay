@@ -17,7 +17,7 @@ export async function automaticQueue(env:Runtime){
 }
 export async function ingestAutomaticTerm(env:Runtime,input:any){
  if(!/^[0-9a-f]{64}$/.test(input.candidateKey||'')||!input.termEnglish||!input.termTarget)throw new ApiError(400,'automatic_material','원문 대응이 있는 검수 대상 용어가 필요합니다.');
- const u=new URL(input.sourceUrl||'');if(u.hostname!=='raw.githubusercontent.com'||!/^\/(unicode-org\/cldr-json|apache\/ofbiz-framework)\/[0-9a-f]{40}\//.test(u.pathname))throw new ApiError(400,'automatic_source','확인한 공식 원천 자료만 자동 접수합니다.');
+ const u=new URL(input.sourceUrl||'');if(u.hostname!=='raw.githubusercontent.com'||!/^\/(unicode-org\/cldr-json|apache\/ofbiz-framework|openMF\/web-app)\/[0-9a-f]{40}\//.test(u.pathname))throw new ApiError(400,'automatic_source','확인한 공식 원천 자료만 자동 접수합니다.');
  return createSubmission(env,qualityActor,{...input,kind:'text',proposalType:'term'});
 }
 export async function applyAutomaticReview(env:Runtime,input:any){

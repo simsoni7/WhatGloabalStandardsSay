@@ -14,7 +14,7 @@ const WGSSDictionary=(()=>{
   unicode_cldr_currency_names:{name:'Unicode CLDR · 다국어 통화명',type:'국제화 표준 데이터',about:'Unicode Consortium의 CLDR에서 공개한 언어별 통화 이름입니다.',purpose:'금액·환전·송금 화면에 통화 이름을 표시할 때 참고하도록 모았습니다.',basis:'국제화에 쓰이는 CLDR의 같은 통화 코드에 해당하는 영어와 각 언어의 이름을 연결했습니다. 과거에 사용한 통화 이름도 포함합니다.',use:'상업 이용 가능 · Unicode-3.0. 자료 또는 함께 제공하는 문서에 원출처의 저작권과 허가 고지를 유지해야 합니다.',license:'https://www.unicode.org/license.txt'}
  };
  const datasets=()=>arr(state.catalog?.dictionary?.datasets).filter(d=>d.commercial===true&&d.layer==='core');
- const commercialLicenses=new Set(['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain']);
+ const commercialLicenses=new Set(['CC0-1.0','CC-BY-4.0','MIT','Apache-2.0','Unicode-3.0','US-Public-Domain','MPL-2.0']);
  const reviewed=row=>{const rights=row?.commercialRights;return String(row?.id||'').startsWith('contribution:terms:')&&row.datasetId==='wgss_reviewed_terms'&&row.recordType==='contributed_term'&&row.commercial===true&&row.layer==='reviewed'&&rights?.confirmed===true&&commercialLicenses.has(rights.license)&&typeof rights.basis==='string'&&rights.basis.length>=10&&/^https:\/\//.test(rights.evidenceUrl||'')&&/^\d{4}-\d{2}-\d{2}T/.test(rights.reviewedAt||'')&&/^[0-9a-f]{64}$/.test(rights.reviewSha||'');};
  const sourceName=row=>row.datasetId==='wgss_reviewed_terms'?(row.qualityReview?'자동 수집 · AI 품질검수':'검토 후 추가된 용어'):descriptions[row.datasetId]?.name||datasets().find(d=>d.id===row.datasetId)?.name||row.source||'자료 출처';
  function visibleRows(){const ids=new Set(datasets().map(d=>d.id));return state.terms.filter(r=>(ids.has(r.datasetId)&&r.layer!=='conditional'||reviewed(r))&&termMatches(r))}

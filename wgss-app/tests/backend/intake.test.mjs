@@ -9,8 +9,8 @@ import {Miniflare} from 'miniflare';
 
 const root=resolve(import.meta.dirname,'../..'),output=await mkdtemp(join(tmpdir(),'wgss-intake-'));
 await mkdir(join(output,'wgss'));
-for(const name of ['automatic-review','providers','core','submissions','jobs','images','publications','review-draft','vision-images','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
-for(const name of ['known-sources.json','evidence-index.json','reference-index.json'])await copyFile(join(root,'server/wgss',name),join(output,'wgss',name));
+for(const name of ['reference-data','automatic-review','providers','core','submissions','jobs','images','publications','review-draft','vision-images','api'])await writeFile(join(output,'wgss',name+'.js'),ts.transpileModule(await readFile(join(root,'server/wgss',name+'.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
+for(const name of ['known-sources.json','evidence-index.json','reference-index.json','research-languages.json'])await copyFile(join(root,'server/wgss',name),join(output,'wgss',name));
 await writeFile(join(output,'intake.js'),ts.transpileModule(await readFile(join(root,'server/intake.ts'),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true,resolveJsonModule:true}}).outputText);
 const require=createRequire(import.meta.url),{handleIntake}=require(join(output,'intake.js')),{hash}=require(join(output,'wgss/core.js'));
 const miniflare=new Miniflare({modules:true,script:'export default { fetch(){return new Response("test")} }',compatibilityDate:'2026-05-15',d1Databases:{DB:'wgss-intake-test'},r2Buckets:['BUCKET']});
@@ -209,4 +209,10 @@ test('automatic reviewer requires a fresh body-bound signature and preserves aut
  const accepted=await signed(review);assert.equal(accepted.status,200,JSON.stringify(accepted));assert.equal(accepted.body.item.status,'approved');
  assert.equal((await signed(review)).status,409);
  const publications=await request(null,null,'publications'),row=publications.body.items.find(x=>x.patch.english===input.termEnglish&&x.patch.korean==='바레인 디나르');assert(row);assert.equal(row.patch.status,'ai_quality_reviewed');assert.equal(row.patch.koreanStatus,'source_korean_reused');assert.equal(row.patch.commercialRights.reviewMethod,'automated_source_verification');assert.equal(row.patch.qualityReview.method,'bedrock_evidence_review');
+ const newSourceUrl='https://raw.githubusercontent.com/openMF/web-app/'+'d'.repeat(40)+'/src/assets/translations/az-AZ.json';
+ const expanded=await signed({...input,candidateKey:'e'.repeat(64),sourceUrl:newSourceUrl,termEnglish:'Account balance',termTarget:'Hesab balansı',termKorean:'계좌 잔액',language:'az'});assert.equal(expanded.status,200,JSON.stringify(expanded));
+ const expandedApplication={...application,fields:{english:'Account balance',target:'Hesab balansı',korean:'계좌 잔액',language:'az',sourceUrl:newSourceUrl},commercialRights:{...application.commercialRights,license:'MPL-2.0',evidenceUrl:newSourceUrl.replace('src/assets/translations/az-AZ.json','LICENSE')}};
+ const expandedReview=await signed({...review,id:expanded.body.item.id,application:expandedApplication,quality:{...quality,evidence:[{url:newSourceUrl,sha256:'f'.repeat(64)}]}});assert.equal(expandedReview.status,200,JSON.stringify(expandedReview));
+ const expandedPublic=(await request(null,null,'publications')).body.items.find(x=>x.patch.sourceDatasetId==='mifos_web_app');assert(expandedPublic);assert.equal(expandedPublic.patch.language,'az');assert.equal(expandedPublic.patch.license,'MPL-2.0');
+
 });

@@ -1,0 +1,43 @@
+name: WGSS public data backup
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [wgss-integration]
+    paths:
+      - '.github/workflows/wgss-public-backup.yml'
+      - 'wgss-app/scripts/backup_public_data.py'
+permissions:
+  contents: write
+concurrency:
+  group: wgss-public-data-backup
+  cancel-in-progress: false
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: wgss-integration
+          fetch-depth: 1
+      - name: Fetch approved records and exact public image bytes
+        run: python3 wgss-app/scripts/backup_public_data.py
+      - name: Verify snapshot and push changed data only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 wgss-app/scripts/backup_public_data.py --verify-only
+          if [ -z "$(git status --porcelain -- wgss-app/source-data/runtime-backup)" ]; then
+            echo 'Approved data is unchanged; no commit needed.'
+            exit 0
+          fi
+          python3 wgss-app/scripts/update_source_manifest.py
+          python3 wgss-app/scripts/verify_source_data.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wgss-app/source-data/runtime-backup wgss-app/SOURCE_DATA_MANIFEST.json
+          git commit -m 'Back up approved WGSS records and exact screen images [skip ci]'
+          git pull --rebase origin wgss-integration
+          git push origin HEAD:wgss-integration
